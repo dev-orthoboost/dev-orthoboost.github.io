@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Downtown Orthodontics — Design Previews</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#313131; --faint:#8a8a86; --line:#e4e2de; --accent:#CCDBE7; }
+  * { margin:0; box-sizing:border-box; }
+  body { font-family:Nunito,system-ui,sans-serif; color:var(--ink); background:#FCFBF9; min-height:100vh; display:grid; place-items:center; padding:40px 24px; }
+  main { width:100%; max-width:600px; }
+  h1 { font-weight:700; font-size:1.35rem; letter-spacing:-.01em; }
+  p.sub { color:var(--faint); font-weight:300; margin:6px 0 34px; }
+  ul { list-style:none; }
+  li { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 4px; }
+  li + li { border-top:1px solid var(--line); }
+  a.main { text-decoration:none; color:inherit; min-width:0; }
+  a.main:hover b { text-decoration:underline; text-decoration-color:var(--accent); text-decoration-thickness:3px; }
+  a.main b { font-weight:600; display:block; }
+  a.main span { color:var(--faint); font-size:.85rem; font-weight:300; }
+  .modes { display:flex; gap:8px; flex-shrink:0; }
+  .modes a { text-decoration:none; font-size:.78rem; font-weight:600; letter-spacing:.02em; padding:7px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); transition:border-color .15s, background .15s; }
+  .modes a:hover { border-color:var(--ink); }
+  .modes a.dk { background:#313131; color:#FCFBF9; border-color:#313131; }
+  .modes a.dk:hover { background:#000; }
+  footer { margin-top:40px; color:var(--faint); font-size:.8rem; font-weight:300; }
+  @media (max-width:540px){ li { flex-direction:column; align-items:flex-start; gap:10px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Downtown Orthodontics — design previews</h1>
+  <p class="sub">Three website concepts, each in a light and dark version. Links are unlisted — please don't share outside the review.</p>
+  <ul>
+    <li>
+      <a class="main" href="concept-a/"><b>Concept A</b><span>editorial one-pager</span></a>
+      <span class="modes"><a class="dk" href="concept-a/">Dark</a><a href="concept-a/?theme=light">Light</a></span>
+    </li>
+    <li>
+      <a class="main" href="concept-b/"><b>Concept B</b><span>pale blue, rounded</span></a>
+      <span class="modes"><a class="dk" href="concept-b/?theme=dark">Dark</a><a href="concept-b/">Light</a></span>
+    </li>
+    <li>
+      <a class="main" href="concept-c/"><b>Concept C</b><span>Swiss editorial</span></a>
+      <span class="modes"><a class="dk" href="concept-c/">Dark</a><a href="concept-c/?theme=light">Light</a></span>
+    </li>
+  </ul>
+  <footer>OrthoBoost</footer>
+</main>
+</body>
+</html>
