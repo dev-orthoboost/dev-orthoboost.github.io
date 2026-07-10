@@ -5,29 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>OrthoBoost — Design Previews</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --ink:#313131; --faint:#8a8a86; --line:#e4e2de; --accent:#CCDBE7; }
+  :root {
+    --navy:#122f51; --sky:#29bbf6; --mint:#7befdf;
+    --ink:#122f51; --ink-soft:#44586f; --faint:#6b7c8f;
+    --line:#e3e9ef; --card:#ffffff; --ground:#f7fafc;
+  }
   * { margin:0; box-sizing:border-box; }
-  body { font-family:Nunito,system-ui,sans-serif; color:var(--ink); background:#FCFBF9; min-height:100vh; display:grid; place-items:center; padding:40px 24px; }
-  main { width:100%; max-width:560px; }
-  h1 { font-weight:700; font-size:1.35rem; letter-spacing:-.01em; }
-  p.sub { color:var(--faint); font-weight:300; margin:6px 0 34px; }
-  ul { list-style:none; }
-  li + li { border-top:1px solid var(--line); }
-  a { display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:18px 4px; text-decoration:none; color:inherit; }
-  a:hover b { text-decoration:underline; text-decoration-color:var(--accent); text-decoration-thickness:3px; }
-  a b { font-weight:600; }
-  a span { color:var(--faint); font-size:.85rem; font-weight:300; white-space:nowrap; }
-  footer { margin-top:40px; color:var(--faint); font-size:.8rem; font-weight:300; }
+  body {
+    font-family:"Segoe UI", system-ui, -apple-system, sans-serif;
+    color:var(--ink); background:var(--ground);
+    min-height:100vh; display:grid; place-items:center; padding:48px 24px;
+  }
+  main { width:100%; max-width:640px; }
+  .brand { display:flex; align-items:center; gap:12px; margin-bottom:40px; }
+  .brand svg { height:34px; width:auto; flex:0 0 auto; }
+  .brand b { font-size:1.28rem; font-weight:600; letter-spacing:-.01em; color:var(--navy); }
+  h1 { font-size:1.5rem; font-weight:600; letter-spacing:-.015em; }
+  p.sub { color:var(--ink-soft); line-height:1.6; margin-top:12px; }
+  ul { list-style:none; margin-top:30px; }
+  li a {
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:20px 24px; text-decoration:none; color:inherit;
+    box-shadow:0 1px 2px rgba(18,47,81,.04), 0 12px 28px -22px rgba(18,47,81,.18);
+    transition:border-color .15s;
+  }
+  li + li { margin-top:12px; }
+  li a:hover { border-color:var(--sky); }
+  li a b { font-weight:600; }
+  li a span { color:var(--faint); font-size:.85rem; white-space:nowrap; }
+  footer { margin-top:40px; color:var(--faint); font-size:.82rem; }
 </style>
 </head>
 <body>
 <main>
+  <div class="brand" aria-label="OrthoBoost">
+    <svg viewBox="0 0 101 155.917" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M98.383,38.778l-18.4,39.186L75.133,67.619c-9.794-20.856-39.462-20.856-49.267,0L21.014,77.964,2.618,38.778A27.206,27.206,0,0,1,27.246,0h46.52A27.2,27.2,0,0,1,98.383,38.778Z" fill="#29bbf6"/>
+      <path d="M73.766,155.917H27.245A27.2,27.2,0,0,1,2.617,117.15l18.4-39.186,4.852,10.345c9.8,20.856,39.473,20.856,49.267,0l4.853-10.345,18.4,39.186a27.2,27.2,0,0,1-24.617,38.767Z" fill="#7befdf"/>
+    </svg>
+    <b>OrthoBoost</b>
+  </div>
   <h1>Design previews</h1>
-  <p class="sub">Current client preview spaces.</p>
+  <p class="sub">Working mockups we've prepared for review, one space per practice.</p>
   <ul>
     <li><a href="downtown-orthodontics/"><b>Downtown Orthodontics</b><span>3 concepts · light &amp; dark</span></a></li>
   </ul>

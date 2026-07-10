@@ -5,51 +5,131 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Downtown Orthodontics — Design Previews</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --ink:#313131; --faint:#8a8a86; --line:#e4e2de; --accent:#CCDBE7; }
+  :root {
+    --navy:#122f51; --sky:#29bbf6; --mint:#7befdf;
+    --ink:#122f51; --ink-soft:#44586f; --faint:#6b7c8f;
+    --line:#e3e9ef; --card:#ffffff; --ground:#f7fafc;
+  }
   * { margin:0; box-sizing:border-box; }
-  body { font-family:Nunito,system-ui,sans-serif; color:var(--ink); background:#FCFBF9; min-height:100vh; display:grid; place-items:center; padding:40px 24px; }
-  main { width:100%; max-width:600px; }
-  h1 { font-weight:700; font-size:1.35rem; letter-spacing:-.01em; }
-  p.sub { color:var(--faint); font-weight:300; margin:6px 0 34px; }
-  ul { list-style:none; }
-  li { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 4px; }
-  li + li { border-top:1px solid var(--line); }
-  a.main { text-decoration:none; color:inherit; min-width:0; }
-  a.main:hover b { text-decoration:underline; text-decoration-color:var(--accent); text-decoration-thickness:3px; }
-  a.main b { font-weight:600; display:block; }
-  a.main span { color:var(--faint); font-size:.85rem; font-weight:300; }
-  .modes { display:flex; gap:8px; flex-shrink:0; }
-  .modes a { text-decoration:none; font-size:.78rem; font-weight:600; letter-spacing:.02em; padding:7px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); transition:border-color .15s, background .15s; }
-  .modes a:hover { border-color:var(--ink); }
-  .modes a.dk { background:#313131; color:#FCFBF9; border-color:#313131; }
-  .modes a.dk:hover { background:#000; }
-  footer { margin-top:40px; color:var(--faint); font-size:.8rem; font-weight:300; }
-  @media (max-width:540px){ li { flex-direction:column; align-items:flex-start; gap:10px; } }
+  html, body { height:100%; }
+  body {
+    font-family:"Segoe UI", system-ui, -apple-system, sans-serif;
+    color:var(--ink); background:var(--ground);
+    display:grid; place-items:center;
+    padding:clamp(18px, 3vh, 40px) clamp(18px, 3vw, 40px);
+  }
+  main { width:100%; max-width:1080px; display:flex; flex-direction:column; gap:clamp(16px, 2.6vh, 28px); }
+
+  .top { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+  .brand { display:flex; align-items:center; gap:11px; }
+  .brand svg { height:clamp(26px, 3.6vh, 32px); width:auto; flex:0 0 auto; }
+  .brand b { font-size:clamp(1.05rem, 1.9vh, 1.22rem); font-weight:600; letter-spacing:-.01em; color:var(--navy); }
+  .top .note { font-size:.78rem; color:var(--faint); }
+
+  .intro h1 { font-size:clamp(1.25rem, 3vh, 1.6rem); font-weight:600; letter-spacing:-.015em; line-height:1.22; }
+  .intro h1 em { font-style:normal; color:var(--sky); }
+  .intro p { color:var(--ink-soft); line-height:1.55; margin-top:8px; font-size:clamp(.86rem, 1.7vh, .96rem); max-width:78ch; }
+
+  .concepts { display:grid; grid-template-columns:repeat(3, 1fr); gap:clamp(12px, 1.6vw, 18px); align-items:stretch; }
+  .concept {
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:clamp(16px, 2.4vh, 22px) clamp(16px, 1.6vw, 22px);
+    box-shadow:0 1px 2px rgba(18,47,81,.04), 0 12px 28px -22px rgba(18,47,81,.18);
+    display:flex; flex-direction:column;
+  }
+  .concept-head { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .concept-head h2 { font-size:clamp(.94rem, 1.8vh, 1.04rem); font-weight:600; }
+  .concept-head .sub { display:block; color:var(--faint); font-weight:400; font-size:.78rem; margin-top:2px; }
+  .tag {
+    font-size:.66rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--navy); background:color-mix(in srgb, var(--mint) 32%, #fff);
+    border-radius:999px; padding:4px 10px; white-space:nowrap; flex:0 0 auto;
+  }
+  .concept p { color:var(--ink-soft); line-height:1.52; font-size:clamp(.8rem, 1.6vh, .88rem); margin-top:10px; }
+  .concept-foot { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:14px; }
+  .modes { display:flex; gap:6px; }
+  .modes a {
+    text-decoration:none; font-size:.76rem; font-weight:600; padding:7px 14px;
+    border-radius:999px; border:1px solid var(--line); color:var(--navy);
+    transition:border-color .15s, background .15s;
+  }
+  .modes a:hover { border-color:var(--navy); }
+  .modes a.dk { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .modes a.dk:hover { background:#0b2036; }
+  .open { text-decoration:none; font-size:.8rem; font-weight:600; color:var(--sky); white-space:nowrap; }
+  .open:hover { text-decoration:underline; text-underline-offset:3px; }
+
+  footer { display:flex; justify-content:space-between; align-items:center; gap:12px; color:var(--faint); font-size:.78rem; flex-wrap:wrap; }
+
+  /* Narrow or short screens: stack and allow scrolling */
+  @media (max-width: 900px) {
+    body { place-items:start center; }
+    .concepts { grid-template-columns:1fr; }
+    .concept p { max-width:62ch; }
+  }
 </style>
 </head>
 <body>
 <main>
-  <h1>Downtown Orthodontics — design previews</h1>
-  <p class="sub">Three website concepts, each in a light and dark version. Links are unlisted — please don't share outside the review.</p>
-  <ul>
-    <li>
-      <a class="main" href="concept-a/"><b>Concept A</b><span>editorial one-pager</span></a>
-      <span class="modes"><a class="dk" href="concept-a/">Dark</a><a href="concept-a/?theme=light">Light</a></span>
-    </li>
-    <li>
-      <a class="main" href="concept-b/"><b>Concept B</b><span>pale blue, rounded</span></a>
-      <span class="modes"><a class="dk" href="concept-b/?theme=dark">Dark</a><a href="concept-b/">Light</a></span>
-    </li>
-    <li>
-      <a class="main" href="concept-c/"><b>Concept C</b><span>Swiss editorial</span></a>
-      <span class="modes"><a class="dk" href="concept-c/">Dark</a><a href="concept-c/?theme=light">Light</a></span>
-    </li>
-  </ul>
-  <footer>OrthoBoost</footer>
+  <div class="top">
+    <div class="brand" aria-label="OrthoBoost">
+      <svg viewBox="0 0 101 155.917" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M98.383,38.778l-18.4,39.186L75.133,67.619c-9.794-20.856-39.462-20.856-49.267,0L21.014,77.964,2.618,38.778A27.206,27.206,0,0,1,27.246,0h46.52A27.2,27.2,0,0,1,98.383,38.778Z" fill="#29bbf6"/>
+        <path d="M73.766,155.917H27.245A27.2,27.2,0,0,1,2.617,117.15l18.4-39.186,4.852,10.345c9.8,20.856,39.473,20.856,49.267,0l4.853-10.345,18.4,39.186a27.2,27.2,0,0,1-24.617,38.767Z" fill="#7befdf"/>
+      </svg>
+      <b>OrthoBoost</b>
+    </div>
+    <span class="note">Unlisted previews — please keep the links within the review group.</span>
+  </div>
+
+  <div class="intro">
+    <h1>Three directions for the new <em>Downtown Orthodontics</em> site</h1>
+    <p>All three work from the same brief: Dr. Daher as the only specialist orthodontist in downtown Vancouver, braces and kids' care up front, real affordability, and a site that feels warm rather than exclusive. Where they differ is emphasis. Each is a full working page in a light and a dark version.</p>
+  </div>
+
+  <div class="concepts">
+    <div class="concept">
+      <div class="concept-head">
+        <h2>Concept A<span class="sub">editorial one-pager</span></h2>
+        <span class="tag">Doctor-led</span>
+      </div>
+      <p>One long page told through Dr. Daher: thirty years of conservative, patient-first care and the hard cases other offices decline. The specialist-vs-discount-aligner choice gets its own section, so the value is established before financing appears. Strongest at pure authority and trust.</p>
+      <div class="concept-foot">
+        <a class="open" href="concept-a/">Open &rarr;</a>
+        <span class="modes"><a class="dk" href="concept-a/">Dark</a><a href="concept-a/?theme=light">Light</a></span>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="concept-head">
+        <h2>Concept B<span class="sub">pale blue, rounded</span></h2>
+        <span class="tag">Family-first</span>
+      </div>
+      <p>The warmest read of the three. Braces, Invisalign, and kids' early care get equal billing, the tone stays conversational, and the free consultation is in reach at every scroll. The most direct route to a practice both North Van parents and downtown professionals feel comfortable calling.</p>
+      <div class="concept-foot">
+        <a class="open" href="concept-b/">Open &rarr;</a>
+        <span class="modes"><a class="dk" href="concept-b/?theme=dark">Dark</a><a href="concept-b/">Light</a></span>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="concept-head">
+        <h2>Concept C<span class="sub">Swiss editorial</span></h2>
+        <span class="tag">Proof-driven</span>
+      </div>
+      <p>Precise and editorial, closer to a clinical publication than a brochure. Numbered sections, a plain all-in pricing card, and proof ahead of promises. It draws the sharpest line between specialist orthodontics and discount-aligner shops, and makes the Quick 6 Fix read like an engineered offer, not a coupon.</p>
+      <div class="concept-foot">
+        <a class="open" href="concept-c/">Open &rarr;</a>
+        <span class="modes"><a class="dk" href="concept-c/">Dark</a><a href="concept-c/?theme=light">Light</a></span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>Prepared for the Downtown Orthodontics team</span>
+    <span>OrthoBoost</span>
+  </footer>
 </main>
 </body>
 </html>
