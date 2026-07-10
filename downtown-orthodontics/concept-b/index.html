@@ -786,6 +786,7 @@ html[data-theme="dark"] .bg-white\/85{background-color:color-mix(in srgb,var(--s
 html[data-theme="dark"] .bg-white\/35{background-color:color-mix(in srgb,var(--surface),transparent 65%) !important}
 html[data-theme="dark"] svg [fill="#0A1A24"]{fill:var(--teal)}
 html[data-theme="dark"] svg [stroke="#0A1A24"]{stroke:var(--teal)}
+html[data-theme="dark"] .loc-map iframe{filter:grayscale(1) invert(.92) hue-rotate(180deg) contrast(.9)}
 /* contrast-audit fixes: petrol-colored text is invisible on the dark ground */
 html[data-theme="dark"] .tlink,html[data-theme="dark"] .path .cue,html[data-theme="dark"] .path:hover .go,html[data-theme="dark"] .pstep .tag,html[data-theme="dark"] .pstep .tag::before,html[data-theme="dark"] details.f summary .pm,html[data-theme="dark"] .jstep .jtag,html[data-theme="dark"] .jstep .jtag::before,html[data-theme="dark"] .loc-tel,html[data-theme="dark"] .hero-cred svg{color:var(--teal)}
 html[data-theme="dark"] details.f[open] summary .pm{border-color:var(--teal)}
@@ -1300,43 +1301,11 @@ html[data-theme="dark"] details.f[open] summary .pm{border-color:var(--teal)}
           </div>
         </div>
         <div class="loc-map">
-          <svg viewBox="0 0 560 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs>
-              <linearGradient id="locLand" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#e9f0f6"/>
-                <stop offset="1" stop-color="#d3e1ed"/>
-              </linearGradient>
-            </defs>
-            <!-- North Shore -->
-            <path d="M60 104 C120 66 210 58 276 68 C346 78 420 70 470 96 C478 116 458 130 418 132 C344 136 268 122 196 124 C140 126 92 128 70 118 Z"
-              fill="url(#locLand)" stroke="#0a1a24" stroke-opacity=".12" stroke-width="1.4"/>
-            <!-- Vancouver / Burnaby / Richmond / Surrey landmass -->
-            <path d="M44 186 C92 160 150 172 196 154 C214 147 226 136 250 152 C264 150 268 138 300 134 C322 132 330 146 340 150 L364 178 C424 166 486 178 520 210 C542 248 536 306 516 356 C494 408 430 432 360 434 C300 436 246 424 206 408 C150 386 88 362 54 316 C33 286 32 226 44 186 Z"
-              fill="url(#locLand)" stroke="#0a1a24" stroke-opacity=".12" stroke-width="1.4"/>
-            <!-- interior municipality hairlines -->
-            <path d="M312 152 C326 234 334 322 342 430" fill="none" stroke="#0a1a24" stroke-opacity=".07" stroke-width="1.1"/>
-            <path d="M120 356 C260 372 384 368 508 344" fill="none" stroke="#0a1a24" stroke-opacity=".07" stroke-width="1.1"/>
-          </svg>
-          <div class="locpin primary active" style="left:48%;top:35%;">
-            <span class="loclabel">840 W Hastings<small>Downtown Vancouver</small></span>
-            <span class="ring"></span><span class="dot"></span>
-          </div>
-          <div class="locpin" style="left:38%;top:22%;">
-            <span class="loclabel">North Shore<small>West &amp; North Van</small></span>
-            <span class="ring"></span><span class="dot"></span>
-          </div>
-          <div class="locpin" style="left:67%;top:51%;">
-            <span class="loclabel">Burnaby<small>15 min east</small></span>
-            <span class="ring"></span><span class="dot"></span>
-          </div>
-          <div class="locpin" style="left:44%;top:79%;">
-            <span class="loclabel">Richmond<small>South of the Fraser</small></span>
-            <span class="ring"></span><span class="dot"></span>
-          </div>
-          <div class="locpin" style="left:81%;top:71%;">
-            <span class="loclabel">Surrey<small>Worth the drive</small></span>
-            <span class="ring"></span><span class="dot"></span>
-          </div>
+          <iframe
+            src="https://maps.google.com/maps?q=Downtown%20Orthodontics%2C%20840%20W%20Hastings%20St%2C%20Vancouver%2C%20BC%20V6C%201C8&amp;z=14&amp;output=embed"
+            title="Map showing Downtown Orthodontics at 840 W Hastings St, Vancouver"
+            referrerpolicy="no-referrer-when-downgrade"
+            style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
         </div>
       </div>
     </div>
