@@ -533,8 +533,40 @@ h1,h2,h3,.addr,.about-copy .lead{text-wrap:balance}
   .hero-copy{padding:36px 28px}
   .faq-list .a p{padding:0 0 26px 0}
 }
+/* ============ LIGHT THEME (?theme=light) — the same Swiss system on kit paper ============ */
+html[data-theme="light"]{
+  color-scheme:light;
+  --paper:#f4f3f1;
+  --paper-2:#fbfbfa;
+  --ink:#161616;
+  --ink-soft:#454542;
+  --ink-faint:#6d6d68; /* contrast-audit fix: #8a8a86 was 3.1:1 on the light paper */
+  --line:#d9d8d5;
+  --line-dark:#cfcecb;
+  --accent-txt:#4c6b82;
+  /* on-dark tokens sit on the page ground in journey/reviews/marquee — flip them to ink on paper */
+  --on-dark:#1c1c1a;
+  --on-dark-soft:rgba(28,28,26,.78);
+  --on-dark-faint:rgba(28,28,26,.62);
+}
+/* genuinely dark surfaces keep their light-on-dark text — GRAVEL-style editorial contrast */
+html[data-theme="light"] .price-card,
+html[data-theme="light"] .step .ico,
+html[data-theme="light"] .final,
+html[data-theme="light"] footer{
+  --on-dark:#f2f1ef;
+  --on-dark-soft:rgba(242,241,239,.74);
+  --on-dark-faint:rgba(242,241,239,.6);
+}
+/* ice used as small text on the page ground — deep steel in light (stays ice inside dark panels) */
+html[data-theme="light"] .step .n,
+html[data-theme="light"] .journey-foot b,
+html[data-theme="light"] .slide .stars,
+html[data-theme="light"] .rv-nav button:hover{color:var(--accent-txt)}
+html[data-theme="light"] .step:hover .ico{background:var(--ice)}
+html[data-theme="light"] .loc-photo .map{filter:grayscale(1) contrast(.9)}
 </style>
-<script>(function(){try{var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;document.documentElement.classList.add(r?'reduced':'anim');}catch(e){}})();</script>
+<script>(function(){try{var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;document.documentElement.classList.add(r?'reduced':'anim');}catch(e){}try{if(/[?&]theme=light/.test(location.search))document.documentElement.setAttribute('data-theme','light')}catch(e){}})();</script>
 </head>
 <body>
 
@@ -1241,6 +1273,14 @@ document.querySelectorAll('.faq-list details').forEach(d=>{
     });
   },{rootMargin:'-45% 0px -45% 0px', threshold:0});
   spied.forEach(s=>spy.observe(s));
+})();
+</script>
+<script>
+/* Theme via URL — dark is the designed default; ?theme=light re-papers the same system */
+(function(){
+  if(document.documentElement.getAttribute('data-theme')!=='light')return;
+  var logo=document.querySelector('nav.top .brand img');
+  if(logo)logo.setAttribute('src','assets/Logo_Full-Dark_Downtown Orthodontics.png');
 })();
 </script>
 </body>

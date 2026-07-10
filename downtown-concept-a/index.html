@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#161311">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');try{if(/[?&]theme=light/.test(location.search))document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
 <title>Orthodontist Downtown Vancouver | Downtown Orthodontics</title>
 <meta name="description" content="The only specialist orthodontist in downtown Vancouver. Braces, Invisalign and early treatment for kids, with 0% in-house financing. Book a free consultation.">
 <link rel="canonical" href="https://downtownorthodontics.ca/">
@@ -650,6 +650,52 @@ html{color-scheme:dark}
 /* skip link — hidden until keyboard focus */
 .skip-link{position:absolute;left:16px;top:-60px;z-index:100;background:var(--accent-wash);color:#161311;font-weight:800;padding:12px 20px;text-decoration:none;transition:top .2s}
 .skip-link:focus{top:16px}
+/* ============ LIGHT THEME (?theme=light) — restores the original light palette ============ */
+html[data-theme="light"]{
+  color-scheme:light;
+  --paper:#FCFBF9;--paper-deep:#F5F2ED;--card:#fff;
+  --ink:#1D1A18;--ink-soft:#6E6862;--ink-dark:#161311;--charcoal:#4A443F;
+  --accent-soft:#E3ECF3;--line:#E8E3DC;--line-dark:rgba(255,255,255,.14);
+  --shadow-card:0 1px 2px rgba(22,19,17,.05),0 10px 22px -16px rgba(22,19,17,.16),0 30px 50px -38px rgba(22,19,17,.22);
+  --shadow-card-hover:0 2px 6px rgba(22,19,17,.07),0 18px 32px -18px rgba(22,19,17,.2),0 44px 64px -42px rgba(22,19,17,.28);
+}
+/* restore the original light values for every rule the dark pivot re-tuned */
+html[data-theme="light"] header{background:rgba(252,251,249,.9)}
+html[data-theme="light"] .hero-chip{background:rgba(252,251,249,.94)}
+html[data-theme="light"] .ba-tag{background:rgba(252,251,249,.9)}
+html[data-theme="light"] .wedge-vs{background:var(--ink);color:#fff}
+html[data-theme="light"] .deck-progress button,html[data-theme="light"] .kdots button{background:rgba(29,26,24,.14)}
+html[data-theme="light"] .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -10px rgba(79,117,143,.55)}
+html[data-theme="light"] .btn-primary:hover{background:var(--accent-deep)}
+html[data-theme="light"] .btn-ink{background:var(--ink);color:#fff}
+html[data-theme="light"] .btn-ink:hover{background:var(--accent);color:#fff}
+html[data-theme="light"] .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+html[data-theme="light"] .ba-after{background:linear-gradient(150deg,#F3DFE7,#FCFBF9 60%,#EDE4EA)}
+html[data-theme="light"] .ba-before{background:linear-gradient(150deg,#F5F2ED,#DDD5CB)}
+html[data-theme="light"] .blob-a{background:var(--accent-soft)}
+html[data-theme="light"] .blob-b{background:var(--sage)}
+html[data-theme="light"] .blob-c{background:var(--gold)}
+html[data-theme="light"] .grain::after{mix-blend-mode:multiply;opacity:.4}
+html[data-theme="light"] .trust-left p,html[data-theme="light"] .jstep .jtag,html[data-theme="light"] .path .plab,html[data-theme="light"] .wedge-new h3,html[data-theme="light"] .ptag,html[data-theme="light"] .book-fine,html[data-theme="light"] .avatars span,html[data-theme="light"] .asker .av,html[data-theme="light"] .trust-facts .tic,html[data-theme="light"] .hero-chip i,html[data-theme="light"] .quickfix-inner .price .em,html[data-theme="light"] .endorse .eq,html[data-theme="light"] details summary::after,html[data-theme="light"] .path a:hover,html[data-theme="light"] .car-btn:hover{color:var(--accent-deep)}
+html[data-theme="light"] .marquee-track span.wd{color:rgba(29,26,24,.34)}
+html[data-theme="light"] .ba-handle::after{color:#fff}
+html[data-theme="light"] .fin-featured{background:var(--ink-dark);border:0;color:#fff}
+html[data-theme="light"] .fin-featured b,html[data-theme="light"] .fin-featured .flabel{color:#fff}
+html[data-theme="light"] .donut-val{fill:#1D1A18}
+html[data-theme="light"] .donut-sub{fill:#6E6862}
+html[data-theme="light"]{color-scheme:light}
+/* inline chart + backdrop SVGs were relit for the dark ground — map them back */
+html[data-theme="light"] svg [fill="#FCFBF9"]{fill:#1D1A18}
+html[data-theme="light"] svg [stroke="#FCFBF9"]{stroke:#1D1A18}
+html[data-theme="light"] svg [fill="#B7AFA7"]{fill:#6E6862}
+html[data-theme="light"] svg [stroke="#B7AFA7"]{stroke:#6E6862}
+html[data-theme="light"] svg [fill="#CCDBE7"]{fill:#4F758F}
+html[data-theme="light"] svg [stroke="#CCDBE7"]{stroke:#4F758F}
+/* contrast-audit fixes: pale-blue/gold accents designed for the dark ground */
+html[data-theme="light"] .em{color:var(--charcoal)}
+html[data-theme="light"] .form-success a{color:var(--accent-deep)}
+html[data-theme="light"] .form-error{color:color-mix(in srgb,var(--gold) 52%,#161311);border-color:color-mix(in srgb,var(--gold),transparent 35%)}
+html[data-theme="light"] footer p{color:#B7AFA7}
 </style>
 </head>
 <body class="grain">
@@ -1188,7 +1234,7 @@ html{color-scheme:dark}
     <div class="foot-grid">
       <div>
         <img src="assets/Logo_Full-Light_Downtown Orthodontics.png" alt="Downtown Orthodontics">
-        <p style="color:var(--ink-soft);max-width:280px">Specialist orthodontics for families and professionals in downtown Vancouver. Conservative, patient-first, and honest about it.</p>
+        <p style="color:#B7AFA7;max-width:280px">Specialist orthodontics for families and professionals in downtown Vancouver. Conservative, patient-first, and honest about it.</p>
       </div>
       <div>
         <h3>Treatments</h3>
@@ -1856,6 +1902,16 @@ html{color-scheme:dark}
       if (d.open) faqs.forEach(function(o){ if (o !== d) o.open = false; });
     });
   });
+})();
+</script>
+<script>
+/* Theme via URL — dark is the designed default; ?theme=light restores the original palette */
+(function(){
+  if(document.documentElement.getAttribute('data-theme')!=='light')return;
+  var logo=document.querySelector('header .logo img');
+  if(logo)logo.setAttribute('src','assets/Logo_Full-Dark_Downtown Orthodontics.png');
+  var meta=document.querySelector('meta[name="theme-color"]');
+  if(meta)meta.setAttribute('content','#FCFBF9');
 })();
 </script>
 </body>

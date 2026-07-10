@@ -2,6 +2,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="utf-8" />
+<script>try{if(/[?&]theme=dark/.test(location.search))document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Orthodontist Downtown Vancouver | Downtown Orthodontics</title>
 <meta name="description" content="The only specialist orthodontist in downtown Vancouver. Braces, Invisalign and early treatment for kids, with 0% in-house financing. Book a free consultation." />
@@ -159,7 +160,7 @@
      ============================================================ */
   :root {
     --teal:   #CCDBE7;                   /* kit pale blue (accent) */
-    --teal-2: color-mix(in oklab, var(--teal) 46%, #313131);  /* legible slate-blue for text on light */
+    --teal-2: color-mix(in oklab, var(--teal) 40%, #313131);  /* legible slate-blue for text on light (contrast-audit: 46% sat at 4.35:1) */
     --petrol: #313131;                   /* kit charcoal */
     --petrol-deep: color-mix(in oklab, var(--petrol) 30%, #010101); /* near-black bands */
 
@@ -170,7 +171,7 @@
     --teal-wash: color-mix(in srgb, var(--teal), transparent 65%); /* flat pale blue shape */
     --ink: #101314;                      /* near-black ink */
     --ink-soft: #4b545c;
-    --ink-faint: #828d96;
+    --ink-faint: #5f6973; /* contrast-audit fix: was #828d96 (3.1–4.4:1 on light grounds) */
     --on-deep: #ffffff;
     --on-deep-soft: color-mix(in srgb,#fff,transparent 26%);
     --on-deep-faint: color-mix(in srgb,#fff,transparent 52%);
@@ -753,6 +754,43 @@
   .locpin.active .ring{ animation: loc-pulse 1.9s var(--e-out) infinite; }
   @keyframes loc-pulse{ 0%{ transform: scale(1); opacity:.5; } 70%{ transform: scale(3.4); opacity:0; } 100%{ opacity:0; } }
   @media (prefers-reduced-motion: reduce){ .locpin .ring{ animation:none; } .locpin.active .loclabel{ transform: translateX(-50%); } }
+</style>
+<style id="theme-dark">
+/* ============ DARK THEME (?theme=dark) — borrows the index-dark palette ============ */
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --teal:#B3C9DC;--teal-2:#8FB5D3;
+  --bg:#0e1113;--surface:#14181b;--surface-2:#1c2226;
+  --mint:color-mix(in srgb,#B3C9DC 10%,#0e1113);
+  --teal-wash:color-mix(in srgb,var(--teal),transparent 82%);
+  --ink:#ECEFF1;--ink-soft:#b4bec6;--ink-faint:#8b959c;--ink-on-teal:#06090b;
+  --line:#262c31;--line-deep:color-mix(in srgb,#fff,transparent 88%);
+  --tint:color-mix(in srgb,var(--teal),transparent 86%);
+  --shadow:0 18px 40px rgba(0,0,0,.5);--shadow-soft:0 10px 30px rgba(0,0,0,.34);
+}
+html[data-theme="dark"] header.nav{background:color-mix(in srgb,var(--bg),transparent 12%)}
+html[data-theme="dark"] .menu{background:var(--surface)}
+html[data-theme="dark"] .hero{background:
+  radial-gradient(125% 120% at 100% 0%, color-mix(in srgb, var(--teal) 30%, var(--bg)) 0%, transparent 58%),
+  linear-gradient(176deg, color-mix(in srgb, var(--teal) 20%, var(--bg)) 0%, color-mix(in srgb, var(--teal) 30%, var(--bg)) 62%, var(--bg) 100%)}
+html[data-theme="dark"] .hero-title em{color:var(--teal)}
+html[data-theme="dark"] .hero-actions .btn-primary{background:var(--teal-2);color:var(--ink-on-teal);box-shadow:0 16px 34px -14px color-mix(in srgb,var(--teal-2),transparent 45%)}
+html[data-theme="dark"] .hero-actions .btn-primary:hover{background:color-mix(in srgb,var(--teal-2) 84%,#fff);box-shadow:0 20px 42px -14px color-mix(in srgb,var(--teal-2),transparent 38%)}
+html[data-theme="dark"] .btn-dark{background:var(--teal-2);color:var(--ink-on-teal)}
+html[data-theme="dark"] .btn-dark:hover{background:color-mix(in srgb,var(--teal-2) 84%,#fff)}
+html[data-theme="dark"] .hero-actions .btn-outline{border-color:color-mix(in srgb,var(--ink),transparent 60%);color:var(--ink)}
+html[data-theme="dark"] .hero-actions .btn-outline:hover{border-color:var(--ink);color:var(--ink);background:color-mix(in srgb,var(--surface),transparent 45%)}
+html[data-theme="dark"] .btn-outline:hover{color:var(--ink);border-color:color-mix(in srgb,var(--ink),transparent 55%)}
+html[data-theme="dark"] .bg-white{background-color:var(--surface) !important}
+html[data-theme="dark"] .bg-white\/85{background-color:color-mix(in srgb,var(--surface),transparent 15%) !important}
+html[data-theme="dark"] .bg-white\/35{background-color:color-mix(in srgb,var(--surface),transparent 65%) !important}
+html[data-theme="dark"] svg [fill="#0A1A24"]{fill:var(--teal)}
+html[data-theme="dark"] svg [stroke="#0A1A24"]{stroke:var(--teal)}
+/* contrast-audit fixes: petrol-colored text is invisible on the dark ground */
+html[data-theme="dark"] .tlink,html[data-theme="dark"] .path .cue,html[data-theme="dark"] .path:hover .go,html[data-theme="dark"] .pstep .tag,html[data-theme="dark"] .pstep .tag::before,html[data-theme="dark"] details.f summary .pm,html[data-theme="dark"] .jstep .jtag,html[data-theme="dark"] .jstep .jtag::before,html[data-theme="dark"] .loc-tel,html[data-theme="dark"] .hero-cred svg{color:var(--teal)}
+html[data-theme="dark"] details.f[open] summary .pm{border-color:var(--teal)}
+/* avatar initials on the petrol chip were too faint in both themes */
+.qcard .asker .ava{color:#d9e0e5}
 </style>
 </head>
 <body>
@@ -1559,6 +1597,14 @@
       heads.forEach(h => ho.observe(h));
     })();
 
+  </script>
+  <script>
+  /* Theme via URL — light is the designed default; ?theme=dark borrows the index-dark palette */
+  (function(){
+    if(document.documentElement.getAttribute('data-theme')!=='dark')return;
+    var logo=document.querySelector('header.nav .logo img');
+    if(logo)logo.setAttribute('src','assets/Logo_Full-Light_Downtown%20Orthodontics.png');
+  })();
   </script>
 </body>
 </html>
