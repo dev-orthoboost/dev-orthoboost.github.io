@@ -12,4 +12,12 @@ One folder per client, one subfolder per concept — each concept is a self-cont
 | [/downtown-orthodontics/concept-b/](https://dev-orthoboost.github.io/downtown-orthodontics/concept-b/) | Concept B (pale blue, rounded) | light · [dark](https://dev-orthoboost.github.io/downtown-orthodontics/concept-b/?theme=dark) |
 | [/downtown-orthodontics/concept-c/](https://dev-orthoboost.github.io/downtown-orthodontics/concept-c/) | Concept C (Swiss editorial) | dark · [light](https://dev-orthoboost.github.io/downtown-orthodontics/concept-c/?theme=light) |
 
+## Elite Dental & Wellness — [/elite-dental-wellness/](https://dev-orthoboost.github.io/elite-dental-wellness/)
+
+| Link | Concept | Default |
+| --- | --- | --- |
+| [/elite-dental-wellness/concept-a/](https://dev-orthoboost.github.io/elite-dental-wellness/concept-a/) | Concept A (editorial whole-body homepage, sage + gold) | light only |
+
+Source: `Back to School Ad Campaign/elite-web/` (Vite + React; `npm run build`, copy `dist/` here). Lighthouse at deploy: mobile 93/100/100/100, desktop 100/100/100/100.
+
 To add a new client: create `<client-slug>/` with a selector `index.html` and one `concept-*/` folder per mockup (each with its own `index.html` + assets), then add the client to the root `index.html` and this README.

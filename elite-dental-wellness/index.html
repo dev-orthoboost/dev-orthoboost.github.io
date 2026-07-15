@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Elite Dental &amp; Wellness — Design Previews</title>
+<style>
+  :root {
+    --navy:#122f51; --sky:#29bbf6; --mint:#7befdf;
+    --ink:#122f51; --ink-soft:#44586f; --faint:#6b7c8f;
+    --line:#e3e9ef; --card:#ffffff; --ground:#f7fafc;
+  }
+  * { margin:0; box-sizing:border-box; }
+  html, body { height:100%; }
+  body {
+    font-family:"Segoe UI", system-ui, -apple-system, sans-serif;
+    color:var(--ink); background:var(--ground);
+    display:grid; place-items:center;
+    padding:clamp(18px, 3vh, 40px) clamp(18px, 3vw, 40px);
+  }
+  main { width:100%; max-width:720px; display:flex; flex-direction:column; gap:clamp(16px, 2.6vh, 28px); }
+
+  .top { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+  .brand { display:flex; align-items:center; gap:11px; }
+  .brand svg { height:clamp(26px, 3.6vh, 32px); width:auto; flex:0 0 auto; }
+  .brand b { font-size:clamp(1.05rem, 1.9vh, 1.22rem); font-weight:600; letter-spacing:-.01em; color:var(--navy); }
+  .top .note { font-size:.78rem; color:var(--faint); }
+
+  .intro h1 { font-size:clamp(1.25rem, 3vh, 1.6rem); font-weight:600; letter-spacing:-.015em; line-height:1.22; }
+  .intro h1 em { font-style:normal; color:var(--sky); }
+  .intro p { color:var(--ink-soft); line-height:1.55; margin-top:8px; font-size:clamp(.86rem, 1.7vh, .96rem); max-width:78ch; }
+
+  .concept {
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:clamp(16px, 2.4vh, 22px) clamp(16px, 1.6vw, 22px);
+    box-shadow:0 1px 2px rgba(18,47,81,.04), 0 12px 28px -22px rgba(18,47,81,.18);
+    display:flex; flex-direction:column;
+  }
+  .concept-head { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .concept-head h2 { font-size:clamp(.94rem, 1.8vh, 1.04rem); font-weight:600; }
+  .concept-head .sub { display:block; color:var(--faint); font-weight:400; font-size:.78rem; margin-top:2px; }
+  .tag {
+    font-size:.66rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--navy); background:color-mix(in srgb, var(--mint) 32%, #fff);
+    border-radius:999px; padding:4px 10px; white-space:nowrap; flex:0 0 auto;
+  }
+  .concept p { color:var(--ink-soft); line-height:1.52; font-size:clamp(.8rem, 1.6vh, .88rem); margin-top:10px; }
+  .concept-foot { display:flex; align-items:center; justify-content:flex-end; gap:10px; margin-top:auto; padding-top:14px; }
+  .open {
+    text-decoration:none; font-size:.8rem; font-weight:600; padding:9px 18px;
+    border-radius:999px; background:var(--navy); color:#fff; white-space:nowrap;
+  }
+  .open:hover { background:#0b2036; }
+
+  footer { display:flex; justify-content:space-between; align-items:center; gap:12px; color:var(--faint); font-size:.78rem; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div class="brand" aria-label="OrthoBoost">
+      <svg viewBox="0 0 101 155.917" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M98.383,38.778l-18.4,39.186L75.133,67.619c-9.794-20.856-39.462-20.856-49.267,0L21.014,77.964,2.618,38.778A27.206,27.206,0,0,1,27.246,0h46.52A27.2,27.2,0,0,1,98.383,38.778Z" fill="#29bbf6"/>
+        <path d="M73.766,155.917H27.245A27.2,27.2,0,0,1,2.617,117.15l18.4-39.186,4.852,10.345c9.8,20.856,39.473,20.856,49.267,0l4.853-10.345,18.4,39.186a27.2,27.2,0,0,1-24.617,38.767Z" fill="#7befdf"/>
+      </svg>
+      <b>OrthoBoost</b>
+    </div>
+    <span class="note">Unlisted previews, just for your team.</span>
+  </div>
+
+  <div class="intro">
+    <h1>A new homepage concept for <em>Elite Dental &amp; Wellness</em></h1>
+    <p>This concept keeps everything that already works on the current homepage direction, the services, the doctors, the reviews, the booking path, and rebuilds it in a calmer editorial style around your full brand palette, including the gold. Real photos from your library, real copy, and a working booking flow you can click through on any device.</p>
+  </div>
+
+  <div class="concept">
+    <div class="concept-head">
+      <h2>Concept A<span class="sub">editorial whole-body homepage</span></h2>
+      <span class="tag">Conversion-led</span>
+    </div>
+    <p>A full-screen opening photo with your headline over it, live counters for the practice's track record, an interactive service explorer, the "we watch closely, so we can treat lightly" monitoring story, moving patient reviews, and a booking form with the map one tap away. Built fast: it scores 93+ on Google's page-speed checks on phones and 100 on desktop.</p>
+    <div class="concept-foot">
+      <a class="open" href="concept-a/">Open the concept &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <span>Prepared for the Elite Dental &amp; Wellness team</span>
+    <span>OrthoBoost</span>
+  </footer>
+</main>
+</body>
+</html>
