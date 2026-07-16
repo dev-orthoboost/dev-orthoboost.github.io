@@ -14,43 +14,122 @@
       content="Elite Dental & Wellness is a trusted holistic dentist in Mesa AZ offering biological, mercury-safe, family & cosmetic dentistry. Book today."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Elite Dental & Wellness" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://dev-orthoboost.github.io/elite-dental-wellness/concept-a/" />
     <meta property="og:image" content="https://dev-orthoboost.github.io/elite-dental-wellness/concept-a/assets/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Holistic Dentist Mesa AZ | Elite Dental & Wellness" />
+    <meta name="twitter:description" content="Elite Dental & Wellness is a trusted holistic dentist in Mesa AZ offering biological, mercury-safe, family & cosmetic dentistry. Book today." />
     <meta name="twitter:image" content="https://dev-orthoboost.github.io/elite-dental-wellness/concept-a/assets/img/og-image.jpg" />
     <meta name="theme-color" content="#57706A" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Dentist",
-        "name": "Elite Dental & Wellness",
-        "url": "https://elitedentalandwellness.com/",
-        "image": "https://dev-orthoboost.github.io/elite-dental-wellness/concept-a/assets/img/og-image.jpg",
-        "telephone": "+14809245577",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "5225 S Power Rd",
-          "addressLocality": "Mesa",
-          "addressRegion": "AZ",
-          "postalCode": "85212",
-          "addressCountry": "US"
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-          "opens": "07:00",
-          "closes": "17:00"
-        },
-        "areaServed": ["Mesa AZ", "Gilbert AZ", "Queen Creek AZ"],
-        "foundingDate": "2009",
-        "founder": {
-          "@type": "Person",
-          "name": "Dr. Blake Shreeve",
-          "honorificSuffix": "DMD"
-        },
-        "medicalSpecialty": "Dentistry",
-        "description": "Holistic and biological dentistry in Mesa AZ: mercury-safe removal, metal-free restorations, fluoride-free preventive care, pediatric holistic dentistry, and airway, TMJ, and sleep apnea treatment."
+        "@graph": [
+          {
+            "@type": "Dentist",
+            "@id": "https://elitedentalandwellness.com/#practice",
+            "name": "Elite Dental & Wellness",
+            "url": "https://elitedentalandwellness.com/",
+            "image": "https://dev-orthoboost.github.io/elite-dental-wellness/concept-a/assets/img/og-image.jpg",
+            "telephone": "+14809245577",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "5225 S Power Rd",
+              "addressLocality": "Mesa",
+              "addressRegion": "AZ",
+              "postalCode": "85212",
+              "addressCountry": "US"
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+              "opens": "07:00",
+              "closes": "17:00"
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Mesa" },
+              { "@type": "City", "name": "Gilbert" },
+              { "@type": "City", "name": "Queen Creek" }
+            ],
+            "foundingDate": "2009",
+            "founder": { "@id": "https://elitedentalandwellness.com/#dr-shreeve" },
+            "employee": [
+              { "@id": "https://elitedentalandwellness.com/#dr-shreeve" },
+              { "@id": "https://elitedentalandwellness.com/#dr-desanti" }
+            ],
+            "medicalSpecialty": "Dentistry",
+            "description": "Holistic and biological dentistry in Mesa AZ: mercury-safe removal, metal-free restorations, fluoride-free preventive care, pediatric holistic dentistry, and airway, TMJ, and sleep apnea treatment.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Holistic dental services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "MedicalTherapy", "name": "Holistic and biological dentistry" } },
+                { "@type": "Offer", "itemOffered": { "@type": "MedicalTherapy", "name": "Safe mercury removal" } },
+                { "@type": "Offer", "itemOffered": { "@type": "MedicalTherapy", "name": "Regenerative care with ozone and PRF" } },
+                { "@type": "Offer", "itemOffered": { "@type": "MedicalTherapy", "name": "Pediatric holistic dentistry" } },
+                { "@type": "Offer", "itemOffered": { "@type": "MedicalTherapy", "name": "Sleep apnea, airway, and TMJ care" } },
+                { "@type": "Offer", "itemOffered": { "@type": "MedicalTherapy", "name": "Metal-free cosmetic dentistry" } }
+              ]
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://elitedentalandwellness.com/#dr-shreeve",
+            "name": "Dr. Blake Shreeve",
+            "honorificSuffix": "DMD",
+            "jobTitle": "Owner and holistic dentist",
+            "worksFor": { "@id": "https://elitedentalandwellness.com/#practice" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://elitedentalandwellness.com/#dr-desanti",
+            "name": "Dr. Spencer DeSanti",
+            "jobTitle": "Holistic dentist",
+            "worksFor": { "@id": "https://elitedentalandwellness.com/#practice" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://elitedentalandwellness.com/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does holistic and biological dentistry mean?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "It means we treat your mouth as part of your whole body. Before we recommend anything, we look at your history, the materials involved, your bite, your airway, and your overall health. The goal is care that supports the bigger picture, not just the tooth in front of us."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What happens at a comprehensive exam?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You get a thorough exam that considers your whole mouth and your wider health, with 3D imaging when it adds useful information. We talk through what we see, what is worth watching, and what actually needs treatment. Then you get an honest plan that respects your pace."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you handle old mercury fillings?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We follow a careful mercury-safe protocol from removal through restoration, and we replace old fillings with metal-free materials chosen for how they fit your body."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you see children?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. We offer pediatric holistic dentistry that keeps visits clear and gentle, and we pay attention to sleep, breathing, and development along the way."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
@@ -69,8 +148,8 @@
       crossorigin
     />
     <link rel="preload" href="./assets/img/hero-video-poster.jpg" as="image" fetchpriority="high" />
-    <script type="module" crossorigin src="./assets/index-Dh6Q37RB.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BIvep-8u.css">
+    <script type="module" crossorigin src="./assets/index-BKmLOfUJ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CEZF6OL8.css">
   </head>
   <body>
     <div id="root"></div>
