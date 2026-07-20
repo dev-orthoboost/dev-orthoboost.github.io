@@ -1,1 +1,0 @@
-import"./SiteShell-BUIHzK-v.js";import{t as e}from"./mount-service-B5T5EMmL.js";e(`metal-free-cosmetic`);
