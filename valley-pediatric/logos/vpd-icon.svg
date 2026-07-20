@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 520">
+  <!-- Smiling saguaro — single-silhouette redraw (arms + body one path, joins can't break) -->
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M175 450
+      V318 H140 C112 318 95 300 95 272 V185
+      C95 171 106 160 120 160 C134 160 145 171 145 185 V250
+      C145 260 152 268 163 268 H175
+      V130 C175 92 204 65 240 65 C276 65 305 92 305 130
+      V240 H317 C328 240 335 232 335 222 V157
+      C335 143 346 132 360 132 C374 132 385 143 385 157 V244
+      C385 272 368 290 340 290 H305
+      V450 Z"
+      fill="#52B250" stroke="#1A1F1A" stroke-width="12"/>
+    <!-- inner shading -->
+    <path d="M278 78 C295 90 305 108 305 130 V450 H262 C280 340 282 180 278 78 Z" fill="#29833D" opacity="0.55"/>
+    <!-- spines -->
+    <g fill="#29833D">
+      <ellipse cx="205" cy="120" rx="7" ry="3" transform="rotate(-30 205 120)"/>
+      <ellipse cx="262" cy="150" rx="7" ry="3" transform="rotate(25 262 150)"/>
+      <ellipse cx="196" cy="315" rx="7" ry="3" transform="rotate(-20 196 315)"/>
+      <ellipse cx="252" cy="352" rx="7" ry="3" transform="rotate(30 252 352)"/>
+      <ellipse cx="210" cy="410" rx="7" ry="3" transform="rotate(-30 210 410)"/>
+      <ellipse cx="120" cy="205" rx="6" ry="2.6" transform="rotate(-25 120 205)"/>
+      <ellipse cx="118" cy="262" rx="6" ry="2.6" transform="rotate(20 118 262)"/>
+      <ellipse cx="360" cy="180" rx="6" ry="2.6" transform="rotate(25 360 180)"/>
+      <ellipse cx="362" cy="238" rx="6" ry="2.6" transform="rotate(-20 362 238)"/>
+    </g>
+    <!-- face -->
+    <path d="M196 202 Q211 184 226 202" fill="none" stroke="#1A1F1A" stroke-width="10"/>
+    <path d="M254 202 Q269 184 284 202" fill="none" stroke="#1A1F1A" stroke-width="10"/>
+    <path d="M197 236 C210 272 270 272 283 236 Z" fill="#FFFFFF" stroke="#1A1F1A" stroke-width="9"/>
+    <!-- ground -->
+    <line x1="118" y1="456" x2="362" y2="456" stroke="#1A1F1A" stroke-width="12"/>
+  </g>
+</svg>

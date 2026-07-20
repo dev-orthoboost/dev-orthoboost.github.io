@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 520">
+  <!-- Reversed white — for Fern Green bands or dark photography. Transparent background. -->
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M175 450
+      V318 H140 C112 318 95 300 95 272 V185
+      C95 171 106 160 120 160 C134 160 145 171 145 185 V250
+      C145 260 152 268 163 268 H175
+      V130 C175 92 204 65 240 65 C276 65 305 92 305 130
+      V240 H317 C328 240 335 232 335 222 V157
+      C335 143 346 132 360 132 C374 132 385 143 385 157 V244
+      C385 272 368 290 340 290 H305
+      V450 Z"
+      fill="#FFFFFF" stroke="#FFFFFF" stroke-width="12"/>
+    <path d="M196 202 Q211 184 226 202" fill="none" stroke="#29833D" stroke-width="10"/>
+    <path d="M254 202 Q269 184 284 202" fill="none" stroke="#29833D" stroke-width="10"/>
+    <path d="M197 236 C210 272 270 272 283 236 Z" fill="#29833D"/>
+    <line x1="118" y1="456" x2="362" y2="456" stroke="#FFFFFF" stroke-width="12"/>
+  </g>
+</svg>
