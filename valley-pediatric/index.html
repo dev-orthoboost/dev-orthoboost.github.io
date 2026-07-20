@@ -1,61 +1,180 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Valley Pediatric Dentists — Brand Preview v2.0</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valley Pediatric Dentists — Brand Preview v2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--leaf:#52B250;--fern:#29833D;--ink:#1A1F1A;--sun:#FFC145;--mist:#E4F3E4;--oat:#F8F6EF;}
-  *{margin:0;box-sizing:border-box}
-  body{font-family:"Figtree","Segoe UI",sans-serif;color:var(--ink);background:var(--oat);padding:48px}
-  h1,h2,h3{font-family:"Baloo 2","Segoe UI",sans-serif;color:var(--fern)}
-  h1{font-size:40px;font-weight:700}h2{font-size:24px;font-weight:600;margin:40px 0 16px}
-  .card{background:#fff;border-radius:16px;padding:32px;margin-bottom:8px}
-  .logos{display:flex;gap:40px;flex-wrap:wrap;align-items:center}
-  .logos img{height:120px}
-  .logos .dk{background:var(--fern);border-radius:16px;padding:16px}
-  .sw{display:flex;gap:12px;flex-wrap:wrap}
-  .chip{width:150px;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 1px 3px rgba(26,31,26,.12)}
-  .chip .c{height:80px}.chip .t{padding:10px 12px;font-size:13px}
-  .btn{display:inline-block;border-radius:999px;padding:14px 28px;font-weight:600;text-decoration:none;margin-right:12px}
-  .btn.p{background:var(--fern);color:#fff}.btn.a{background:var(--sun);color:var(--ink)}
-  .fernband{background:var(--fern);border-radius:16px;padding:32px;color:#fff}
-</style></head><body>
-<h1>Valley Pediatric Dentists</h1>
-<p style="letter-spacing:4px;color:var(--leaf);font-weight:600">CREATING HAPPY SMILES</p>
+  :root{
+    --leaf:#52B250; --fern:#29833D; --ink:#1A1F1A;
+    --sun:#FFC145; --mist:#E4F3E4; --oat:#F8F6EF;
+    --line:rgba(26,31,26,.08);
+    --shadow:0 1px 2px rgba(26,31,26,.04), 0 8px 24px rgba(26,31,26,.06);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:"Figtree","Segoe UI",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(120% 80% at 100% 0%, var(--mist) 0%, transparent 45%),
+      var(--oat);
+    display:flex; align-items:center; justify-content:center;
+    padding:clamp(12px,2.2vh,28px);
+  }
+  .sheet{
+    width:min(1360px,100%);
+    height:min(860px,96vh);
+    display:grid;
+    grid-template-rows:auto 1fr;
+    grid-template-columns:1fr;
+    gap:clamp(10px,1.6vh,20px);
+  }
 
-<h2>Logo — full lockups (icon + wordmark)</h2>
-<div class="card logos">
-  <img src="logos/vpd-lockup-horizontal.svg" style="height:150px" alt="full lockup horizontal">
-  <img src="logos/vpd-lockup-stacked.svg" style="height:200px" alt="full lockup stacked">
-</div>
-<h2>Logo — wordmarks &amp; mark variants</h2>
-<div class="card logos">
-  <img src="logos/vpd-horizontal.svg" style="height:90px" alt="horizontal wordmark">
-  <img src="logos/vpd-stacked.svg" style="height:80px" alt="stacked wordmark">
-  <img src="logos/vpd-mark.svg" alt="full color mark">
-  <img src="logos/vpd-mark-onecolor-green.svg" alt="one color green">
-  <img src="logos/vpd-mark-onecolor-ink.svg" alt="one color ink">
-  <span class="dk"><img src="logos/vpd-mark-reversed-white.svg" alt="reversed white"></span>
-</div>
+  /* Masthead */
+  .mast{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .mast .id{display:flex;align-items:center;gap:16px}
+  .mast .mk{height:clamp(44px,6.2vh,60px);width:auto}
+  .mast h1{font-family:"Baloo 2",sans-serif;font-weight:700;color:var(--fern);
+    font-size:clamp(22px,3.1vh,30px);line-height:1}
+  .mast .tag{letter-spacing:.28em;color:var(--leaf);font-weight:600;
+    font-size:clamp(9px,1.3vh,11px);margin-top:5px}
+  .mast .meta{text-align:right;font-size:11px;color:#6b716b;line-height:1.5}
+  .mast .meta b{color:var(--fern);font-weight:600}
 
-<h2>Palette — Fresh Growth</h2>
-<div class="sw">
-  <div class="chip"><div class="c" style="background:#52B250"></div><div class="t"><b>Leaf Green</b><br>#52B250</div></div>
-  <div class="chip"><div class="c" style="background:#29833D"></div><div class="t"><b>Fern Green</b><br>#29833D</div></div>
-  <div class="chip"><div class="c" style="background:#1A1F1A"></div><div class="t"><b>Ink</b><br>#1A1F1A</div></div>
-  <div class="chip"><div class="c" style="background:#FFC145"></div><div class="t"><b>Marigold</b><br>#FFC145</div></div>
-  <div class="chip"><div class="c" style="background:#E4F3E4"></div><div class="t"><b>Mint Mist</b><br>#E4F3E4</div></div>
-  <div class="chip"><div class="c" style="background:#F8F6EF;border-bottom:1px solid #eee"></div><div class="t"><b>Oat</b><br>#F8F6EF</div></div>
-</div>
+  /* Body grid */
+  .grid{
+    display:grid;
+    grid-template-columns:1.35fr 1fr;
+    grid-template-rows:auto 1fr;
+    gap:clamp(10px,1.6vh,18px);
+    min-height:0;
+  }
+  .card{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    box-shadow:var(--shadow);padding:clamp(16px,2.4vh,26px);
+    display:flex;flex-direction:column;min-height:0;
+  }
+  .lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    color:#9aa09a;font-weight:600;margin-bottom:12px}
 
-<h2>Type &amp; components</h2>
-<div class="card">
-  <h1>Gentle care from the first tooth</h1>
-  <h3 style="margin:12px 0">First visit? We'll go at your kid's pace.</h3>
-  <p style="max-width:60ch;margin:12px 0 24px">Body copy in Figtree. Warm, plain-spoken, parent-to-parent
-  reassuring. Playful toward kids, never babyish toward parents — and nothing scary in the headlines.</p>
-  <a class="btn p" href="#">Book a visit</a><a class="btn a" href="#">Meet the team</a>
-</div>
-<div class="fernband">
-  <h2 style="color:#fff;margin:0 0 8px">Reversed on Fern Green</h2>
-  <p>White text on fern for footers and photo bands. Tagline accent in Mint Mist.</p>
+  /* Logos */
+  .logos-primary{grid-column:1;grid-row:1}
+  .logos-row{display:flex;align-items:center;gap:clamp(20px,3vw,44px);flex:1}
+  .logos-row img{height:clamp(64px,10vh,104px);width:auto}
+
+  /* Marks */
+  .marks{grid-column:1;grid-row:2}
+  .marks-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;flex:1}
+  .marks-row img{height:clamp(46px,7vh,66px);width:auto}
+  .marks-row .dk{background:var(--fern);border-radius:14px;
+    padding:10px 14px;display:flex;align-items:center}
+
+  /* Palette */
+  .palette{grid-column:2;grid-row:1 / span 2}
+  .sw{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1;min-height:0}
+  .chip{border-radius:14px;overflow:hidden;border:1px solid var(--line);
+    display:flex;flex-direction:column}
+  .chip .c{flex:1;min-height:38px}
+  .chip .t{padding:8px 12px;font-size:12px;background:#fff}
+  .chip .t b{display:block;font-weight:600;font-size:12.5px}
+  .chip .t span{color:#8a908a;font-size:11px;font-variant-numeric:tabular-nums}
+
+  /* Type + components (full width bottom via nested) */
+  .type h2{font-family:"Baloo 2",sans-serif;color:var(--fern);
+    font-weight:600;font-size:clamp(20px,3vh,30px);line-height:1.05;margin-bottom:6px}
+  .type h3{font-family:"Baloo 2",sans-serif;color:var(--ink);font-weight:500;
+    font-size:clamp(13px,1.9vh,16px);margin-bottom:10px}
+  .type p{max-width:56ch;color:#41473f;font-size:clamp(12px,1.7vh,14px);
+    line-height:1.55;margin-bottom:14px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{border-radius:999px;padding:11px 24px;font-weight:600;
+    font-size:13px;text-decoration:none;transition:transform .1s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.p{background:var(--fern);color:#fff}
+  .btn.a{background:var(--sun);color:var(--ink)}
+
+  .fernband{grid-column:1 / -1;background:var(--fern);border-radius:18px;
+    color:#fff;padding:clamp(14px,2.2vh,22px) clamp(18px,2.6vh,28px);
+    display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .fernband h2{font-family:"Baloo 2",sans-serif;font-weight:600;
+    font-size:clamp(15px,2.2vh,20px);margin:0}
+  .fernband p{color:var(--mist);font-size:13px;margin:0}
+  .fernband .acc{letter-spacing:.24em;font-weight:600;color:var(--sun);
+    font-size:11px;white-space:nowrap}
+
+  .full{grid-column:1 / -1}
+  .split{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(10px,1.6vh,18px);min-height:0}
+</style></head>
+<body>
+<div class="sheet">
+
+  <header class="mast">
+    <div class="id">
+      <img class="mk" src="logos/vpd-mark.svg" alt="Valley Pediatric Dentists mark">
+      <div>
+        <h1>Valley Pediatric Dentists</h1>
+        <div class="tag">CREATING HAPPY SMILES</div>
+      </div>
+    </div>
+    <div class="meta"><b>Brand System v2.0</b><br>Palette · Logo · Type · Voice</div>
+  </header>
+
+  <div class="grid">
+
+    <section class="card logos-primary">
+      <div class="lbl">Primary Lockups</div>
+      <div class="logos-row">
+        <img src="logos/vpd-lockup-horizontal.svg" alt="Horizontal lockup">
+        <img src="logos/vpd-lockup-stacked.svg" alt="Stacked lockup">
+      </div>
+    </section>
+
+    <section class="card marks">
+      <div class="lbl">Mark &amp; One-Color Variants</div>
+      <div class="marks-row">
+        <img src="logos/vpd-mark.svg" alt="Full color mark">
+        <img src="logos/vpd-mark-onecolor-green.svg" alt="One-color green">
+        <img src="logos/vpd-mark-onecolor-ink.svg" alt="One-color ink">
+        <span class="dk"><img src="logos/vpd-mark-reversed-white.svg" alt="Reversed white"></span>
+      </div>
+    </section>
+
+    <section class="card palette">
+      <div class="lbl">Palette — Fresh Growth</div>
+      <div class="sw">
+        <div class="chip"><div class="c" style="background:#52B250"></div><div class="t"><b>Leaf Green</b><span>#52B250</span></div></div>
+        <div class="chip"><div class="c" style="background:#29833D"></div><div class="t"><b>Fern Green</b><span>#29833D</span></div></div>
+        <div class="chip"><div class="c" style="background:#1A1F1A"></div><div class="t"><b>Ink</b><span>#1A1F1A</span></div></div>
+        <div class="chip"><div class="c" style="background:#FFC145"></div><div class="t"><b>Marigold</b><span>#FFC145</span></div></div>
+        <div class="chip"><div class="c" style="background:#E4F3E4"></div><div class="t"><b>Mint Mist</b><span>#E4F3E4</span></div></div>
+        <div class="chip"><div class="c" style="background:#F8F6EF"></div><div class="t"><b>Oat</b><span>#F8F6EF</span></div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="split full">
+    <section class="card type">
+      <div class="lbl">Type &amp; Components — Baloo 2 + Figtree</div>
+      <h2>Gentle care from the first tooth</h2>
+      <h3>First visit? We'll go at your kid's pace.</h3>
+      <p>Warm, plain-spoken, parent-to-parent reassuring. Playful toward kids,
+      never babyish toward parents — and nothing scary in the headlines.</p>
+      <div class="btns">
+        <a class="btn p" href="#">Book a visit</a>
+        <a class="btn a" href="#">Meet the team</a>
+      </div>
+    </section>
+    <div class="fernband">
+      <div>
+        <h2>Reversed on Fern Green</h2>
+        <p>White text for footers &amp; photo bands.</p>
+      </div>
+      <div class="acc">MINT MIST ACCENT</div>
+    </div>
+  </div>
+
 </div>
 </body></html>
