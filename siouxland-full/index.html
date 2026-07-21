@@ -150,24 +150,20 @@ header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1p
 .qualify{margin-top:20px;font-size:13px;color:var(--muted);font-style:italic}
 .airway .btn{margin-top:26px}
 
-/* Built around real life — 3 columns, hairline dividers */
-.real .cols{display:grid;grid-template-columns:1fr 1.05fr 1fr;margin-top:8px}
-.real .col{padding:10px 40px}
-.real .col:first-child{padding-left:0}
-.real .col:last-child{padding-right:0}
-.real .col+.col{border-left:1px solid var(--line)}
-.real h2{font-size:24px;margin-bottom:22px}
+/* Built around real life — 2 balanced columns: checklist+quote | doctor */
+.real .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;margin-top:8px;align-items:start}
+.real h2{font-size:clamp(24px,2.6vw,30px);margin-bottom:24px}
 .real ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .real li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
 .real li svg{flex:none;width:19px;height:19px;color:var(--coral);margin-top:4px}
-.real .col:first-child .link-more{margin-top:26px}
-.quote{text-align:center;display:flex;flex-direction:column;justify-content:center;height:100%}
-.quote .mark{font-family:var(--serif);font-size:56px;line-height:.5;color:var(--coral)}
-.quote blockquote{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.5;color:var(--ink);margin:18px 0 14px}
-.quote .stars{color:var(--warm);letter-spacing:3px;font-size:18px}
-.quote .who{margin-top:10px;font-weight:600;font-size:14.5px}
-.quote .note{margin-top:14px;font-size:11.5px;color:var(--muted)}
-.docblock .ph{border-radius:10px;overflow:hidden;aspect-ratio:5/4;background:var(--cream);margin-bottom:22px}
+.real .col .link-more{margin-top:26px}
+.quote{margin-top:36px;padding-top:32px;border-top:1px solid var(--line)}
+.quote .mark{font-family:var(--serif);font-size:52px;line-height:.5;color:var(--coral)}
+.quote blockquote{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--ink);margin:16px 0 12px;max-width:46ch}
+.quote .stars{color:var(--warm);letter-spacing:3px;font-size:17px}
+.quote .who{display:inline;margin-left:12px;font-weight:600;font-size:14.5px}
+.quote .note{margin-top:12px;font-size:11.5px;color:var(--muted)}
+.docblock .ph{border-radius:10px;overflow:hidden;aspect-ratio:4/3.4;background:var(--cream);margin-bottom:22px}
 .docblock .role{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin:8px 0 12px}
 .docblock p{font-size:15px}
 .docblock p+p{margin-top:10px}
@@ -224,16 +220,10 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 .feature .link-more{margin-top:auto;padding-top:14px;color:var(--gold)}
 .feature .link-more:hover{color:var(--warm)}
 
-/* Trust bar (mockup section 8) */
-.trustbar{border-top:1px solid var(--line);padding:34px 0}
-.trustbar .row{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
-.trustbar .item{display:flex;align-items:center;gap:12px;padding:8px 34px;font-weight:700;color:var(--ink);font-size:14.5px}
-.trustbar .item+.item{border-left:1px solid var(--line)}
-.trustbar svg{flex:none;width:26px;height:26px;color:var(--coral)}
-.trustbar .item:nth-child(1) svg{color:var(--green)}
-.trustbar .item:nth-child(2) svg{color:var(--dusk)}
-.trustbar .item:nth-child(3) svg{color:var(--amber)}
-.trustbar .item:nth-child(4) svg{color:var(--scarlet)}
+/* Trust row — lives inside the dark final band (mockup section 8 trust bar) */
+.final .trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 52px;margin-top:38px;padding-top:30px;border-top:1px solid var(--line-dk)}
+.final .trust-row .item{display:flex;align-items:center;gap:11px;color:#e6e7ee;font-weight:700;font-size:14px;letter-spacing:.02em}
+.final .trust-row svg{flex:none;width:22px;height:22px;color:var(--gold)}
 
 /* Sunrise-draw scroll motion (homepage only; html.anim gates everything) */
 .anim .rule,.anim .rule-title::before,.anim .rule-title::after{transform:scaleX(0);transition:transform .5s cubic-bezier(.22,1,.36,1)}
@@ -265,16 +255,11 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   .band{grid-template-columns:1fr}
   .band>div+div{border-left:none;border-top:1px solid var(--line)}
   .locs .grid{grid-template-columns:repeat(2,1fr)}
-  .real .cols{grid-template-columns:1fr}
-  .real .col{padding:34px 0}
-  .real .col+.col{border-left:none;border-top:1px solid var(--line)}
+  .real .cols{grid-template-columns:1fr;gap:44px}
   .visit .steps{grid-template-columns:1fr}
   .visit .step{padding:30px 6px}
   .visit .step+.step{border-left:none;border-top:1px solid var(--line)}
   .features .grid{grid-template-columns:1fr}
-  .trustbar .row{flex-direction:column;align-items:flex-start;gap:2px}
-  .trustbar .item{padding:8px 0}
-  .trustbar .item+.item{border-left:none}
   .foot-top{grid-template-columns:1fr 1fr;gap:32px}
 }
 @media(max-width:700px){
@@ -298,8 +283,8 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   .final .btn{width:100%}
   .features{padding:0 0 56px}
   .feature .body{padding:20px 20px 24px}
-  .trustbar{padding:26px 0}
-  .trustbar .item{font-size:14px}
+  .final .trust-row{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px;justify-items:start;text-align:left;max-width:360px;margin-left:auto;margin-right:auto}
+  .final .trust-row .item{font-size:13.5px}
   .care .grid{grid-template-columns:1fr}
   .care .cell{border-left:none !important;padding:28px 10px}
   .care .cell+.cell{border-top:1px solid var(--line)}
@@ -460,13 +445,10 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5 9-11"/></svg><span>You get Dr. Williams, every visit</span></li>
         </ul>
         <a class="link-more" href="appointment.html">Learn More About Our Care <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-      <div class="col quote">
-        <div>
+        <div class="quote">
           <div class="mark">&ldquo;</div>
           <blockquote>The team is genuinely kind, and every visit feels personal. We always know exactly what is happening and what comes next.</blockquote>
-          <div class="stars">★★★★★</div>
-          <div class="who">A Siouxland parent</div>
+          <span class="stars">★★★★★</span><span class="who">A Siouxland parent</span>
           <div class="note">Placeholder review for layout only. Replace with a real, consented patient review before publishing.</div>
         </div>
       </div>
@@ -502,10 +484,16 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
     <p>One experienced orthodontist who learns your name, remembers your story, and personally guides your treatment from start to finish. Your first consultation is on us.</p>
     <a class="btn btn-primary" href="appointment.html">Request a Free Consult <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <p class="reassure">No referral needed<b>•</b>Most insurance accepted<b>•</b>Free initial consultation</p>
+    <div class="trust-row">
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Insurance Help</div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>Flexible Payments</div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>No Hidden Fees</div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>Care You Can Trust</div>
+    </div>
   </div>
 </section>
 
-<!-- PRE-FOOTER FEATURE CARDS + TRUST BAR (mockup section 8) -->
+<!-- PRE-FOOTER FEATURE CARDS (mockup section 8) -->
 <section class="features">
   <div class="wrap">
     <div class="grid" style="margin-top:76px">
@@ -527,17 +515,6 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
     </div>
   </div>
 </section>
-<div class="trustbar">
-  <div class="wrap">
-    <div class="row">
-      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Insurance Help</div>
-      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>Flexible Payments</div>
-      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>No Hidden Fees</div>
-      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>Care You Can Trust</div>
-    </div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
