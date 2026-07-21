@@ -14,7 +14,7 @@
   --scarlet:#A42C42; --purple:#6B3F82; --green:#415B2F; --dusk:#4270AF;
   --black:#121520; --white:#FEFEFE;
   --ink:#1b1e2a; --body:#4a4d5a; --muted:#7d808c;
-  --cream:#FFF8F1; --cream-2:#FDEFE3; --line:#ece6df; --line-dk:#2a2d3b;
+  --muted:#696c78; --cream:#FFF8F1; --cream-2:#FDEFE3; --line:#ece6df; --line-dk:#2a2d3b;
   --serif:'Volkhov',Georgia,'Times New Roman',serif;
   --sans:'Figtree',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --wrap:1200px; --r:18px;
@@ -29,6 +29,8 @@ p{margin:0}
 a{color:var(--amber);text-decoration:none;transition:color .18s}
 a:hover{color:var(--coral)}
 img{display:block;max-width:100%}
+a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:3px}
+.top a:focus-visible,footer a:focus-visible{outline-color:var(--gold)}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
 .eyebrow{font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.07em;text-transform:uppercase;border:none;border-radius:8px;padding:17px 30px;cursor:pointer;transition:background .18s,color .18s;white-space:nowrap;text-decoration:none}
