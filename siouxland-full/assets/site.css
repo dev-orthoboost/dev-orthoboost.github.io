@@ -196,6 +196,14 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   .wrap{padding:0 20px}
   .nav{height:76px}.nav .logo img{height:46px}
   .nav .head-btn{display:none}
+  .rule-title{gap:14px}
+  .rule-title::before,.rule-title::after{width:44px}
+  .page-hero{padding:44px 0}
+  .page-hero .lede{font-size:16.5px}
+  .split{gap:30px}
+  .panel{padding:22px}
+  .final .btn{width:100%}
+  .faq summary{font-size:16.5px}
   .cards,.cards.two,.cards.four{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr}
   .sticky-cta{display:block}
