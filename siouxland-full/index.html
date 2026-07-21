@@ -188,6 +188,53 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 .foot-bar .legal a{color:#82848f}
 .foot-bar .legal a:hover{color:var(--gold)}
 
+/* Your first visit — 3 steps, hairline dividers (matches .care) */
+.visit{background:var(--cream)}
+.visit .steps{display:grid;grid-template-columns:repeat(3,1fr);margin-top:48px}
+.visit .step{text-align:center;padding:10px 36px}
+.visit .step+.step{border-left:1px solid var(--line)}
+.visit .step svg{width:42px;height:42px;color:var(--ink);margin:0 auto 16px;display:block}
+.visit .step h3{font-size:19px}
+.visit .step p{font-size:14.5px;margin-top:10px}
+.visit .cta-row{text-align:center;margin-top:44px}
+
+/* Pre-footer feature cards (mockup section 8) */
+.features{padding:0 0 76px}
+.features .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature{background:var(--black);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.feature .ph{aspect-ratio:16/9;background:#23263400}
+.feature .body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1;gap:10px}
+.feature h3{color:#fff;font-size:20px;line-height:1.25}
+.feature p{color:#c9cad3;font-size:14.5px}
+.feature .link-more{margin-top:auto;padding-top:14px;color:var(--gold)}
+.feature .link-more:hover{color:var(--warm)}
+
+/* Trust bar (mockup section 8) */
+.trustbar{border-top:1px solid var(--line);padding:34px 0}
+.trustbar .row{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
+.trustbar .item{display:flex;align-items:center;gap:12px;padding:8px 34px;font-weight:700;color:var(--ink);font-size:14.5px}
+.trustbar .item+.item{border-left:1px solid var(--line)}
+.trustbar svg{flex:none;width:26px;height:26px;color:var(--coral)}
+
+/* Sunrise-draw scroll motion (homepage only; html.anim gates everything) */
+.anim .rule,.anim .rule-title::before,.anim .rule-title::after{transform:scaleX(0);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.anim .rule{transform-origin:left}
+.anim .rule-title::before{transform-origin:right}
+.anim .rule-title::after{transform-origin:left}
+.anim .in .rule,.anim .rule-title.in::before,.anim .rule-title.in::after,.anim .in.rule{transform:scaleX(1)}
+.anim .locs .name svg{opacity:0;transform:translateY(-7px);transition:opacity .45s ease-out,transform .45s cubic-bezier(.22,1,.36,1)}
+.anim .locs .grid.in .name svg{opacity:1;transform:none}
+.anim .locs .grid.in .loc:nth-child(2) .name svg{transition-delay:.09s}
+.anim .locs .grid.in .loc:nth-child(3) .name svg{transition-delay:.18s}
+.anim .locs .grid.in .loc:nth-child(4) .name svg{transition-delay:.27s}
+.anim .hero h1 .accent{color:var(--ink);transition:color .7s ease-out}
+.anim.lit .hero h1 .accent{color:var(--coral)}
+@media (prefers-reduced-motion:reduce){
+  .anim .rule,.anim .rule-title::before,.anim .rule-title::after{transform:none;transition:none}
+  .anim .locs .name svg{opacity:1;transform:none;transition:none}
+  .anim .hero h1 .accent{color:var(--coral);transition:none}
+}
+
 /* Mobile sticky CTA (per mobile mockup) */
 .sticky-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--coral);text-align:center;padding:16px 20px;color:#fff;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
 .sticky-cta:hover{color:#fff;background:var(--amber)}
@@ -202,6 +249,13 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   .real .cols{grid-template-columns:1fr}
   .real .col{padding:34px 0}
   .real .col+.col{border-left:none;border-top:1px solid var(--line)}
+  .visit .steps{grid-template-columns:1fr}
+  .visit .step{padding:30px 6px}
+  .visit .step+.step{border-left:none;border-top:1px solid var(--line)}
+  .features .grid{grid-template-columns:1fr}
+  .trustbar .row{flex-direction:column;align-items:flex-start;gap:2px}
+  .trustbar .item{padding:8px 0}
+  .trustbar .item+.item{border-left:none}
   .foot-top{grid-template-columns:1fr 1fr;gap:32px}
 }
 @media(max-width:700px){
@@ -390,6 +444,20 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   </div>
 </section>
 
+<!-- YOUR FIRST VISIT -->
+<section class="visit">
+  <div class="wrap">
+    <div class="rule-title"><h2>Your First Visit, Step by Step</h2></div>
+    <p class="sec-sub">No pressure, no guesswork. Here is exactly what happens when you come see us.</p>
+    <div class="steps">
+      <div class="step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/><path d="M9.5 15l2 2 3.5-4"/></svg><h3>A warm welcome</h3><p>We greet you by name, show you around, and take a relaxed first look. Your consultation is free, and no referral is needed.</p></div>
+      <div class="step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3h8l4 4v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M8 12h8M8 16h5"/></svg><h3>A plain-language plan</h3><p>Dr. Williams explains what he sees and lays out your options, whether that is braces, clear aligners, or airway-focused care.</p></div>
+      <div class="step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21C7 17 4 13.5 4 10a8 8 0 0 1 16 0c0 3.5-3 7-8 11Z"/><path d="M9 10c.8 1.2 1.8 1.8 3 1.8s2.2-.6 3-1.8"/></svg><h3>Care that fits your life</h3><p>You leave with clear next steps and a schedule that works around school and work. The same friendly face guides every visit.</p></div>
+    </div>
+    <div class="cta-row"><a class="btn btn-dark" href="appointment.html">Book Your First Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
 <!-- FINAL BAND -->
 <section class="final">
   <div class="wrap">
@@ -399,6 +467,39 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
     <p class="reassure">No referral needed<b>•</b>Most insurance accepted<b>•</b>Free initial consultation</p>
   </div>
 </section>
+
+<!-- PRE-FOOTER FEATURE CARDS + TRUST BAR (mockup section 8) -->
+<section class="features">
+  <div class="wrap">
+    <div class="grid" style="margin-top:76px">
+      <div class="feature"><div class="ph"><image-slot id="feat-schools" shape="rect" fit="cover" placeholder="Photo: local school or sports team"></image-slot></div><div class="body">
+        <h3>School &amp; Sports Partnerships</h3>
+        <p>Proud to support local schools, teams, and events across Siouxland.</p>
+        <a class="link-more" href="contact.html">Get Involved <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div></div>
+      <div class="feature"><div class="ph"><image-slot id="feat-stories" shape="rect" fit="cover" placeholder="Photo: smiling family"></image-slot></div><div class="body">
+        <h3>Patient Stories</h3>
+        <p>Real smiles. Real families. Real results from right here in Siouxland.</p>
+        <a class="link-more" href="about.html">Read Stories <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div></div>
+      <div class="feature"><div class="ph"><image-slot id="feat-payment" shape="rect" fit="cover" placeholder="Photo: warm sunset or family moment"></image-slot></div><div class="body">
+        <h3>Payment Options That Work for You</h3>
+        <p>Quality care should feel accessible. Insurance help and flexible plans.</p>
+        <a class="link-more" href="financing.html">Financing Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div></div>
+    </div>
+  </div>
+</section>
+<div class="trustbar">
+  <div class="wrap">
+    <div class="row">
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 9.6C8 19.3 5 15.4 5 11V6l7-3Z"/><path d="M9 12l2 2 4-5"/></svg>Insurance Help</div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>Flexible Payments</div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5.5"/></svg>No Hidden Fees</div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 5.6a5 5 0 0 0-7 0L12 7.3l-1.8-1.7a5 5 0 1 0-7 7L12 21l8.8-8.4a5 5 0 0 0 0-7Z"/></svg>Care You Can Trust</div>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -446,6 +547,28 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 </footer>
 
 <a class="sticky-cta" href="appointment.html">Request a Free Consult</a>
+
+<script>
+/* Sunrise-draw scroll motion. Gated on html.anim (JS-added), so no-JS and
+   reduced-motion users always get the full static design. */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var root=document.documentElement;
+  root.classList.add('anim');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){
+    setTimeout(function(){root.classList.add('lit')},300);
+  })});
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+    });
+  },{threshold:.35,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rule-title, .locs .grid').forEach(function(el){io.observe(el)});
+  document.querySelectorAll('.hero .rule').forEach(function(el){
+    io.observe(el.parentElement);el.parentElement.classList.add('has-rule');
+  });
+})();
+</script>
 
 </body>
 </html>
