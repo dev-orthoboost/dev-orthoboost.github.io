@@ -76,7 +76,15 @@ header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1p
 .hero h1{font-size:clamp(38px,4.6vw,58px);line-height:1.12}
 .hero h1 .accent{color:var(--coral)}
 .hero .rule{width:112px;height:4px;background:linear-gradient(90deg,var(--amber) 0 34%,var(--coral) 34% 67%,var(--warm) 67% 100%);margin:26px 0 0;position:relative}
-.hero .rule::after{content:"";position:absolute;right:-16px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--warm);box-shadow:0 0 0 3px rgba(252,156,18,.22)}
+.rule-sun{position:absolute;right:-34px;top:50%;transform:translateY(-50%);width:30px;height:30px;overflow:visible;color:var(--warm)}
+.rule-sun circle{fill:currentColor}
+.rule-sun line{stroke:currentColor;stroke-width:2.4;stroke-linecap:round}
+/* Rising sun behind the hero photo */
+.hero-visual{position:relative;min-width:0}
+.hero-media{position:relative;z-index:1;width:100%;max-width:100%;border-radius:14px;overflow:hidden;aspect-ratio:5/4.4;background:var(--cream)}
+.bigsun{position:absolute;top:-78px;right:52px;width:130px;height:130px;z-index:0;color:var(--warm);overflow:visible}
+.bigsun circle{fill:currentColor}
+.bigsun line{stroke:currentColor;stroke-width:6;stroke-linecap:round}
 .hero .lede{margin-top:22px;font-size:18px;max-width:52ch}
 .vprops{margin-top:34px;display:grid;gap:20px}
 .vprop{display:flex;gap:16px;align-items:flex-start}
@@ -91,7 +99,6 @@ header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1p
 .gline{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--body)}
 .gline .g{font-weight:800;font-size:19px;background:conic-gradient(from -45deg,#4285F4 0 25%,#EA4335 0 50%,#FBBC05 0 75%,#34A853 0);-webkit-background-clip:text;background-clip:text;color:transparent}
 .gline .stars{color:var(--warm);letter-spacing:2px;font-size:16px}
-.hero-media{border-radius:14px;overflow:hidden;aspect-ratio:5/4.4;background:var(--cream)}
 
 /* Trust band — one bordered card, hairline dividers */
 .trust{padding:0 0 76px}
@@ -238,10 +245,19 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 .anim .locs .grid.in .loc:nth-child(4) .name svg{transition-delay:.27s}
 .anim .hero h1 .accent{color:var(--ink);transition:color .7s ease-out}
 .anim.lit .hero h1 .accent{color:var(--coral)}
+.anim .bigsun{opacity:0;transform:translateY(36px);transition:opacity .6s ease-out,transform 1.1s cubic-bezier(.22,1,.36,1);transition-delay:.2s}
+.anim.lit .bigsun{opacity:1;transform:none}
+.anim .rule-sun{opacity:0;transform:translateY(calc(-50% + 9px));transition:opacity .5s ease-out,transform .65s cubic-bezier(.22,1,.36,1);transition-delay:.55s}
+.anim.lit .rule-sun{opacity:1;transform:translateY(-50%)}
+.anim .rule-sun line{stroke-dasharray:8;stroke-dashoffset:8;transition:stroke-dashoffset .5s ease-out;transition-delay:.8s}
+.anim.lit .rule-sun line{stroke-dashoffset:0}
 @media (prefers-reduced-motion:reduce){
   .anim .rule,.anim .rule-title::before,.anim .rule-title::after{transform:none;transition:none}
   .anim .locs .name svg{opacity:1;transform:none;transition:none}
   .anim .hero h1 .accent{color:var(--coral);transition:none}
+  .anim .bigsun{opacity:1;transform:none;transition:none}
+  .anim .rule-sun{opacity:1;transform:translateY(-50%);transition:none}
+  .anim .rule-sun line{stroke-dashoffset:0;transition:none}
 }
 
 /* Mobile sticky CTA (per mobile mockup) */
@@ -251,7 +267,8 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 @media(max-width:1000px){
   .nav ul{display:none}.burger{display:block}
   .hero .wrap,.airway .wrap{grid-template-columns:1fr;gap:38px}
-  .hero-media,.airway-media{order:-1}
+  .hero-visual,.airway-media{order:-1}
+  .hero-visual{margin-top:44px}
   .band{grid-template-columns:1fr}
   .band>div+div{border-left:none;border-top:1px solid var(--line)}
   .locs .grid{grid-template-columns:repeat(2,1fr)}
@@ -271,6 +288,8 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   .rule-title::before,.rule-title::after{width:44px}
   .hero{padding:40px 0 56px}
   .hero .lede{font-size:16.5px}
+  .bigsun{width:96px;height:96px;top:-58px;right:24px}
+  .hero-visual{margin-top:34px}
   .hero .actions{gap:16px}
   .hero .actions .btn{width:100%}
   .vprops{gap:16px}
@@ -330,7 +349,7 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   <div class="wrap">
     <div>
       <h1>Get the Straight, <span class="accent">Confident Smile</span> You Deserve.</h1>
-      <div class="rule"></div>
+      <div class="rule"><svg class="rule-sun" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="6.5"/><line x1="15" y1="5.5" x2="15" y2="1.5"/><line x1="21.7" y1="8.3" x2="24.5" y2="5.5"/><line x1="8.3" y1="8.3" x2="5.5" y2="5.5"/></svg></div>
       <p class="lede">Expert orthodontic care for kids, teens, and adults across Siouxland, guided personally by Dr. Williams from your first visit to your last.</p>
       <div class="vprops">
         <div class="vprop"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><b>Expert care for kids, teens, and adults</b><span>Personalized treatment for every age and every smile.</span></div></div>
@@ -342,7 +361,10 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
         <span class="gline"><span class="g">G</span><span class="stars">★★★★★</span>Trusted by Siouxland families</span>
       </div>
     </div>
-    <div class="hero-media"><image-slot id="hero" shape="rect" fit="cover" src="./assets/photos/hero-team.jpg" placeholder="Drop hero photo: team with a patient"></image-slot></div>
+    <div class="hero-visual">
+      <svg class="bigsun" viewBox="0 0 130 130" aria-hidden="true"><circle cx="65" cy="78" r="44"/><line x1="65" y1="26" x2="65" y2="10"/><line x1="101.8" y1="41.2" x2="111.7" y2="31.3"/><line x1="28.2" y1="41.2" x2="18.3" y2="31.3"/></svg>
+      <div class="hero-media"><image-slot id="hero" shape="rect" fit="cover" src="./assets/photos/hero-team.jpg" placeholder="Drop hero photo: team with a patient"></image-slot></div>
+    </div>
   </div>
 </section>
 
