@@ -1,428 +1,412 @@
 <!DOCTYPE html>
-<html lang="en" id="top">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orthodontist | Siouxland Orthodontics</title>
-<meta name="description" content="Braces, clear aligners, and airway-focused orthodontics for kids, teens, and adults at four Siouxland locations. Free consultations with Dr. Aaron Williams.">
-<!-- TODO at launch: swap Pages URLs for the confirmed client domain -->
+<meta name="robots" content="noindex">
+<meta name="description" content="Get the straight, confident smile you deserve. Braces, clear aligners, and airway-focused orthodontics for kids, teens, and adults at four Siouxland locations. Free consultations with Dr. Aaron Williams.">
+<!-- TODO at launch: swap the Pages URLs below for the confirmed client domain -->
 <link rel="icon" type="image/png" href="assets/logo-stacked.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Orthodontist | Siouxland Orthodontics">
-<meta property="og:description" content="Braces, clear aligners, and airway-focused orthodontics for kids, teens, and adults at four Siouxland locations. Free consultations with Dr. Aaron Williams.">
+<meta property="og:description" content="Braces, clear aligners, and airway-focused orthodontics for kids, teens, and adults. Four locations in Sioux City, Le Mars, and Wayne. Free consultations.">
 <meta property="og:url" content="https://dev-orthoboost.github.io/siouxland-orthodontics/">
 <meta property="og:image" content="https://dev-orthoboost.github.io/siouxland-orthodontics/assets/logo-main.png">
 <meta name="twitter:card" content="summary_large_image">
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Dentist",
+      "@id": "https://dev-orthoboost.github.io/siouxland-orthodontics/#org",
+      "name": "Siouxland Orthodontics",
+      "description": "Orthodontic practice offering braces, clear aligners, and airway-focused orthodontics for kids, teens, and adults.",
+      "medicalSpecialty": "Orthodontic",
+      "url": "https://dev-orthoboost.github.io/siouxland-orthodontics/",
+      "logo": "https://dev-orthoboost.github.io/siouxland-orthodontics/assets/logo-main.png",
+      "founder": { "@type": "Person", "name": "Dr. Aaron Williams", "jobTitle": "Orthodontist", "honorificSuffix": "DDS, MS" }
+    },
+    {
+      "@type": "Dentist",
+      "name": "Siouxland Orthodontics - Morningside",
+      "parentOrganization": { "@id": "https://dev-orthoboost.github.io/siouxland-orthodontics/#org" },
+      "telephone": "+17122762766",
+      "address": { "@type": "PostalAddress", "streetAddress": "4224 Sergeant Rd", "addressLocality": "Sioux City", "addressRegion": "IA", "postalCode": "51106", "addressCountry": "US" }
+    },
+    {
+      "@type": "Dentist",
+      "name": "Siouxland Orthodontics - Leeds",
+      "parentOrganization": { "@id": "https://dev-orthoboost.github.io/siouxland-orthodontics/#org" },
+      "telephone": "+17122390420",
+      "address": { "@type": "PostalAddress", "streetAddress": "2801 Outer Dr N", "addressLocality": "Sioux City", "addressRegion": "IA", "postalCode": "51104", "addressCountry": "US" }
+    },
+    {
+      "@type": "Dentist",
+      "name": "Siouxland Orthodontics - Le Mars",
+      "parentOrganization": { "@id": "https://dev-orthoboost.github.io/siouxland-orthodontics/#org" },
+      "telephone": "+17125465179",
+      "address": { "@type": "PostalAddress", "streetAddress": "405 Plymouth St NW", "addressLocality": "Le Mars", "addressRegion": "IA", "postalCode": "51031", "addressCountry": "US" }
+    },
+    {
+      "@type": "Dentist",
+      "name": "Siouxland Orthodontics - Wayne",
+      "parentOrganization": { "@id": "https://dev-orthoboost.github.io/siouxland-orthodontics/#org" },
+      "telephone": "+14028331333",
+      "address": { "@type": "PostalAddress", "streetAddress": "617 Pearl St Ste #2", "addressLocality": "Wayne", "addressRegion": "NE", "postalCode": "68787", "addressCountry": "US" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/concept2.css?v=a634e23b">
-
+<link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Argentum+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header class="wrap">
-  <div class="nav-inner">
-    <a class="brand" href="index.html"><img src="assets/logo-horizontal.png" alt="Siouxland Orthodontics"></a>
+<!-- ===== Header ===== -->
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="logo" href="index.html" aria-label="Siouxland Orthodontics home">
+      <img src="assets/logo-horizontal.png" alt="Siouxland Orthodontics">
+    </a>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="toggleNav(this)">
       <span></span><span></span><span></span>
     </button>
-    <!-- Nav per the OrthoBoost standard: About / Services / Locations / CTA last -->
-    <nav class="menu" id="menu" aria-label="Main">
-      <a href="index.html#dr-williams">About</a>
+    <!-- Nav per the OrthoBoost standard (Notion, Sitemap Optimization): About / Services / Locations / CTA last.
+         Anchors become /about/, /services/<service>/, /locations/<office>/ pages in the internal-pages phase. -->
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#dr-williams">About</a>
       <div class="has-sub">
-        <a href="index.html#care" aria-haspopup="true">Services <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <a href="#care" aria-haspopup="true">Services <span class="caret" aria-hidden="true">&#9662;</span></a>
         <div class="sub">
-          <a href="index.html#care">Braces</a>
-          <a href="index.html#care">Clear Braces</a>
-          <a href="index.html#care">Invisalign &amp; Clear Aligners</a>
-          <a href="index.html#care">Airway-Focused Orthodontics</a>
-          <a href="index.html#care">Early Evaluations</a>
-          <a href="index.html#care">Retainers</a>
+          <a href="#care">Braces</a>
+          <a href="#care">Clear Braces</a>
+          <a href="#care">Invisalign &amp; Clear Aligners</a>
+          <a href="#airway">Airway-Focused Orthodontics</a>
+          <a href="#care">Early Evaluations</a>
+          <a href="#care">Retainers</a>
         </div>
       </div>
-      <a href="index.html#locations">Locations</a>
-      <a href="index.html#process">What to Expect</a>
-      <a class="btn btn--outline" href="appointment-request.html">Request a Free Consult</a>
+      <a href="#locations">Locations</a>
+      <a href="#footer">Contact</a>
     </nav>
+    <a class="btn" href="appointment-request.html">Request a Free Consult</a>
   </div>
 </header>
 
-
 <!-- ===== Hero ===== -->
-<section class="hero wrap">
-  <div class="hero-grid">
+<section class="hero">
+  <div class="wrap hero__grid">
     <div>
-      <span class="eyebrow">SIOUX CITY &middot; LE MARS &middot; WAYNE &middot; NEW PATIENTS WELCOME</span>
-      <h1>Get the Straight, <span class="hl">Confident Smile</span> You Deserve.</h1>
-      <p>Braces, clear aligners, and airway-focused orthodontics for kids, teens, and adults. One trusted doctor who gets to know you, at four Siouxland locations.</p>
-      <div class="hero-ctas">
-        <a class="btn btn--coral" href="appointment-request.html">Request a Free Consult</a>
-        <a class="call" href="tel:+17122762766">or call (712) 276-2766</a>
-      </div>
+      <h1>Get the Straight, <span class="accent">Confident Smile</span> You Deserve.</h1>
+      <ul class="props">
+        <li>
+          <span class="ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 0-5 2-5 5 0 4 1 6 1 9 0 2 1 6 2 6s1.5-3 2-3 1 3 2 3 2-4 2-6c0-3 1-5 1-9 0-3-2-5-5-5z"/></svg>
+          </span>
+          <div>
+            <b>Expert orthodontic care for kids, teens, and adults.</b>
+            <span class="small">Personalized treatment for every age and every smile.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          </span>
+          <div>
+            <b>Care and concern at every visit.</b>
+            <span class="small">A warm, welcoming team that treats you like family.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
+          </span>
+          <div>
+            <b>Choose metal braces or clear aligners.</b>
+            <span class="small">Modern options with a plan that fits your family.</span>
+          </div>
+        </li>
+      </ul>
     </div>
-    <!-- TODO: swap for real team photo when it arrives -->
-    <div class="hero-art" role="img" aria-label="Placeholder: Siouxland sunset. Real team photo coming soon.">
+    <!-- TODO: swap for real team-with-patient photo when Dr. Williams sends photos -->
+    <div class="photo" role="img" aria-label="Placeholder: Siouxland sunset. Real team photo coming soon.">
       <span class="tag">TEAM PHOTO COMING SOON</span>
       <span class="sun"></span>
     </div>
   </div>
 </section>
 
-<!-- ===== Stats band ===== -->
-<section class="wrap">
-  <div class="stats">
-    <div>
-      <div class="num"><span data-count="30">0</span><sup>+</sup></div>
-      <div class="label">years of trusted orthodontic care continuing in Siouxland</div>
-    </div>
-    <div>
-      <div class="num"><span data-count="4">0</span></div>
-      <div class="label">locations across Sioux City, Le Mars, and Wayne</div>
-    </div>
-    <div>
-      <div class="num"><span data-count="1">0</span></div>
-      <div class="label">doctor you get to know by name, at every single visit</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Care cards (no Family Plans / Mouthguards per founder call) ===== -->
-<section class="wrap" id="care">
-  <div class="sec-intro">
-    <span class="pill">Our Care</span>
-    <p>Every smile is different. Every plan starts with a friendly, no-pressure look with Dr. Williams, then a clear path forward.</p>
-  </div>
-  <div class="cards">
-    <div class="card">
-      <div class="titles"><h3 class="hl">Kids &amp; Teen Braces</h3></div>
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2c-3 0-5 2-5 5 0 4 1 6 1 9 0 2 1 6 2 6s1.5-3 2-3 1 3 2 3 2-4 2-6c0-3 1-5 1-9 0-3-2-5-5-5z"/><path d="M7.5 9h9M7.5 13h9"/></svg>
+<!-- ===== Trust band ===== -->
+<section class="trust">
+  <div class="wrap trust__grid">
+    <div class="trust__item reveal">
+      <span class="trust__badge trust__badge--ink" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8z"/></svg>
+      </span>
+      <div>
+        <b>Continuing 30+ Years of Trusted Care in Siouxland</b>
+        <p>Rooted in our community. Focused on your family.</p>
       </div>
-      <a class="link" href="appointment-request.html"><span class="dot">&#8599;</span> Learn more</a>
     </div>
-    <div class="card card--gold">
-      <div class="titles"><h3 class="hl hl--white">Clear Aligners &amp; Invisalign</h3></div>
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 14c0-4 3.5-7 8-7s8 3 8 7c0 2-1.5 3.5-3.5 3.5S13 16 12 16s-2.5 1.5-4.5 1.5S4 16 4 14z"/></svg>
+    <div class="trust__item reveal">
+      <span class="trust__badge trust__badge--coral" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </span>
+      <div>
+        <b>Our Experienced Team</b>
+        <p>Brings decades of orthodontic experience to help you love your smile.</p>
       </div>
-      <a class="link" href="appointment-request.html"><span class="dot">&#8599;</span> Learn more</a>
     </div>
-    <div class="card card--ink">
-      <div class="titles"><h3 class="hl">Airway-Focused Orthodontics</h3></div>
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
-      </div>
-      <a class="link" href="#airway"><span class="dot">&#8599;</span> Learn more</a>
-    </div>
-    <div class="card">
-      <div class="titles"><h3 class="hl">Early Evaluations</h3></div>
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>
-      </div>
-      <a class="link" href="appointment-request.html"><span class="dot">&#8599;</span> Learn more</a>
-    </div>
-    <div class="card card--gold">
-      <div class="titles"><h3 class="hl hl--white">Adult Treatment</h3></div>
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 21c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/></svg>
-      </div>
-      <a class="link" href="appointment-request.html"><span class="dot">&#8599;</span> Learn more</a>
-    </div>
-    <div class="card card--ink">
-      <div class="titles"><h3 class="hl">Free First Consult</h3></div>
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-      </div>
-      <a class="link" href="appointment-request.html"><span class="dot">&#8599;</span> Book yours</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CTA banner ===== -->
-<section class="wrap">
-  <div class="banner">
-    <div>
-      <h2>Your first visit is on us.</h2>
-      <p>Meet Dr. Williams, get a plain-language look at your smile, and leave with clear options. No referral needed and no pressure.</p>
-      <a class="btn btn--coral" href="appointment-request.html">Request a Free Consult</a>
-    </div>
-    <div class="burst" aria-hidden="true">
-      <svg viewBox="0 0 200 200" fill="none">
-        <circle cx="100" cy="100" r="60" fill="#FFDC49"/>
-        <g stroke="#121520" stroke-width="3" stroke-linecap="round">
-          <path d="M100 10v30M100 160v30M10 100h30M160 100h30M36 36l21 21M143 143l21 21M164 36l-21 21M57 143l-21 21"/>
-        </g>
-        <circle cx="100" cy="100" r="34" fill="#F65822"/>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Airway differentiator (claims qualified) ===== -->
-<section class="wrap" id="airway">
-  <div class="dark-band">
-    <div class="sec-intro">
-      <span class="pill">A Modern Difference</span>
-      <p>Straight teeth are only part of the story. Dr. Williams also looks at how your child breathes, sleeps, and grows.</p>
-    </div>
-    <div class="loc-grid2">
-      <div class="loc2">
-        <h3>Airway-Focused Orthodontics</h3>
-        <p>An airway-focused approach considers the jaw, palate, and airway together, and treatment is designed to support healthy breathing and better sleep alongside a confident smile.</p>
-        <p>Wondering about snoring, mouth breathing, or restless sleep? Bring it up at your free consult. We will take a look together and explain what we see in plain language.</p>
-        <a class="btn btn--gold" href="appointment-request.html" style="margin-top:10px; align-self:start;">Ask About Airway Care</a>
-      </div>
-      <div class="loc2">
-        <h3>What we consider together</h3>
-        <p>Jaw growth and bite &middot; palate development &middot; breathing patterns &middot; sleep habits &middot; the whole picture, not just the teeth.</p>
-        <p style="font-size:13.5px; color:#9AA0AF;">Every child is different. An evaluation with Dr. Williams is the only way to know what may help your family. This information is educational and is not a diagnosis or a substitute for professional care.</p>
+    <div class="trust__item reveal">
+      <span class="trust__badge trust__badge--green" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1 1.1-1.7 2.5-1.7s2.5.7 2.5 1.7-1 1.5-2.5 1.9-2.5.9-2.5 1.9 1.1 1.7 2.5 1.7 2.5-.7 2.5-1.7"/></svg>
+      </span>
+      <div>
+        <b>Flexible Financing</b>
+        <p>Insurance help and monthly options that work for your budget.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Meet Dr. Williams ===== -->
-<section class="wrap" id="dr-williams">
-  <div class="sec-intro">
-    <span class="pill">Meet Your Doctor</span>
-    <p>One experienced specialist who knows you by name, every single visit.</p>
-  </div>
-  <div class="doc2">
-    <!-- TODO: swap for real headshot -->
-    <div class="headshot" role="img" aria-label="Placeholder: Dr. Williams headshot coming soon"><span class="sun"></span></div>
-    <div>
-      <h2>Dr. Aaron Williams</h2>
-      <div class="creds">DDS, MS &middot; Board-Eligible Orthodontist</div>
-      <p>University of Iowa DDS, University of Colorado orthodontic specialty training, and more than 10 years in practice. A family man putting down roots in the Siouxland community. When you choose Siouxland Orthodontics, you get Dr. Williams: the same friendly, experienced doctor at every visit.</p>
-      <a class="btn" href="appointment-request.html">Come Say Hello</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Process steps (Team-card grid structure) ===== -->
-<section class="wrap" id="process">
-  <div class="sec-intro">
-    <span class="pill">What to Expect</span>
-    <p>From your first hello to your finished smile, here is how it works.</p>
-  </div>
-  <div class="steps-grid">
-    <div class="step-card reveal">
-      <div class="step-head"><span class="step-num">01</span><h3>Request your free consult</h3></div>
-      <hr class="step-rule">
-      <p>Fill out a quick form or give us a call. Our team reaches out to find a time that works for you, at whichever office is closest. No referral needed.</p>
-    </div>
-    <div class="step-card reveal">
-      <div class="step-head"><span class="step-num">02</span><h3>Meet Dr. Williams</h3></div>
-      <hr class="step-rule">
-      <p>Your first visit is a friendly, no-pressure look at your smile. Dr. Williams examines teeth, bite, and jaw growth, and for kids he also considers breathing and airway.</p>
-    </div>
-    <div class="step-card reveal">
-      <div class="step-head"><span class="step-num">03</span><h3>Get a clear plan</h3></div>
-      <hr class="step-rule">
-      <p>You leave with plain-language options, whether that's braces, clear aligners like Invisalign, or simply "let's check again in six months."</p>
-    </div>
-    <div class="step-card reveal">
-      <div class="step-head"><span class="step-num">04</span><h3>Start treatment</h3></div>
-      <hr class="step-rule">
-      <p>Digital scans and 3D imaging make visits comfortable and precise. You see the same trusted doctor every time, and appointments are planned around school and work.</p>
-    </div>
-    <div class="step-card reveal">
-      <div class="step-head"><span class="step-num">05</span><h3>Keep your smile for life</h3></div>
-      <hr class="step-rule">
-      <p>When treatment wraps up, retainers and easy follow-up visits help protect the result. Many families stay with us for every sibling's smile.</p>
-    </div>
-    <div class="step-card step-card--ink reveal">
-      <div class="step-head"><span class="step-num">&#9733;</span><h3>Ready to start?</h3></div>
-      <hr class="step-rule">
-      <p>Step one costs nothing. Your first visit is on us.</p>
-      <a class="btn btn--gold" href="appointment-request.html">Request a Free Consult</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Testimonials =====
-     Source: patient testimonials published on the practice's previous website
-     (drkaler.com/testimonials, pulled 2026-07-20). Real patients, initials only.
-     PENDING TYLER SIGN-OFF: reuse of Kaler-published testimonials under the Siouxland brand. -->
-<section class="wrap" id="reviews">
-  <div class="sec-intro">
-    <span class="pill">Patient Stories</span>
-    <p>Loved by Siouxland families for more than 30 years. Real words from real patients of this practice.</p>
-  </div>
-  <div class="testi">
-    <div class="testi-track" tabindex="0" aria-label="Patient testimonials, scroll horizontally">
-      <figure class="testi-item">
-        <blockquote class="bubble">"I was scared to get braces but they made it easy. The staff is amazing; they do an excellent job. I love this place."</blockquote>
-        <figcaption><b>R.V.</b><span>Patient of the practice</span></figcaption>
-      </figure>
-      <figure class="testi-item">
-        <blockquote class="bubble">"I really like going here. I was scared at first, but now I feel comfortable when I go. They are fast."</blockquote>
-        <figcaption><b>M.M.</b><span>Patient of the practice</span></figcaption>
-      </figure>
-      <figure class="testi-item">
-        <blockquote class="bubble">"The staff is super friendly and make going here fun. They do an excellent job!"</blockquote>
-        <figcaption><b>A.S.</b><span>Patient of the practice</span></figcaption>
-      </figure>
-      <figure class="testi-item">
-        <blockquote class="bubble">"The people are friendly. They always ask me if something hurts and care for me!"</blockquote>
-        <figcaption><b>L.H.</b><span>Patient of the practice</span></figcaption>
-      </figure>
-      <figure class="testi-item">
-        <blockquote class="bubble">"Awesome office with very polite, helpful people! Loved it, and glad I can have my experience there!"</blockquote>
-        <figcaption><b>J.G.</b><span>Patient of the practice</span></figcaption>
-      </figure>
-      <figure class="testi-item">
-        <blockquote class="bubble">"Very kind. They answer any questions you have. I also like the TV they put on while you get braces on."</blockquote>
-        <figcaption><b>T.D.</b><span>Patient of the practice</span></figcaption>
-      </figure>
-      <figure class="testi-item">
-        <blockquote class="bubble">"The staff was extremely helpful and super nice. Makes it easy on the kids."</blockquote>
-        <figcaption><b>G.M.</b><span>Parent of a patient</span></figcaption>
-      </figure>
-      <figure class="testi-item">
-        <blockquote class="bubble">"Great workers and super nice!"</blockquote>
-        <figcaption><b>V.M.</b><span>Patient of the practice</span></figcaption>
-      </figure>
-      <figure class="testi-item">
-        <blockquote class="bubble">"They are the best; you get to watch TV when you get your braces on."</blockquote>
-        <figcaption><b>K.D.</b><span>Patient of the practice</span></figcaption>
-      </figure>
-    </div>
-    <div class="testi-controls">
-      <button class="t-btn t-prev" aria-label="Previous testimonial">&larr;</button>
-      <div class="t-dots" role="tablist" aria-label="Testimonial position"></div>
-      <button class="t-btn t-next" aria-label="Next testimonial">&rarr;</button>
-    </div>
-  </div>
-  <p class="reviews-note">Shared by patients of this practice over 30+ years of care in Siouxland.</p>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section class="wrap" id="faq">
-  <div class="sec-intro">
-    <span class="pill">Questions We Hear a Lot</span>
-    <p>Plain answers are part of the job. If yours is not here, just ask at your visit.</p>
-  </div>
-  <div class="acc">
-    <details class="acc-item" open>
-      <summary>When should my child first see an orthodontist? <span class="plus"><span class="v">+</span><span>&minus;</span></span></summary>
-      <div class="body">A good rule of thumb is around age 7, when adult teeth start coming in. Most kids will not need treatment that early, and that is good news. An early evaluation simply lets Dr. Williams watch growth and time things well if care is needed later.</div>
-    </details>
-    <details class="acc-item">
-      <summary>Braces or Invisalign, which is right for us? <span class="plus"><span class="v">+</span><span>&minus;</span></span></summary>
-      <div class="body">It depends on the smile in front of us, and that is exactly what a free consult is for. Both can work beautifully. Dr. Williams explains what he sees in plain language and lays out the options, so the choice is yours.</div>
-    </details>
-    <details class="acc-item">
-      <summary>What happens at the free consultation? <span class="plus"><span class="v">+</span><span>&minus;</span></span></summary>
-      <div class="body">You meet Dr. Williams, he takes a friendly look at teeth, bite, and jaw growth, and you leave with clear options and honest timing. No pressure, no rushing, and nothing to pay for the visit.</div>
-    </details>
-    <details class="acc-item">
-      <summary>Do you take our insurance? <span class="plus"><span class="v">+</span><span>&minus;</span></span></summary>
-      <div class="body">Most insurance is accepted, and our team helps you understand your benefits before anything starts. Flexible monthly payment plans are available too.</div>
-    </details>
-    <details class="acc-item">
-      <summary>What is airway-focused orthodontics? <span class="plus"><span class="v">+</span><span>&minus;</span></span></summary>
-      <div class="body">It means looking at how the jaw, palate, and airway work together, not just at straight teeth. Treatment is designed to support healthy breathing and sleep alongside a confident smile. If you have noticed snoring or mouth breathing, mention it at your consult and we will take a look together.</div>
-    </details>
-    <details class="acc-item">
-      <summary>Do we need a referral from our dentist? <span class="plus"><span class="v">+</span><span>&minus;</span></span></summary>
-      <div class="body">No referral needed. You can request a free consult directly, and we are happy to coordinate with your family dentist along the way.</div>
-    </details>
+<!-- ===== Primary CTA ===== -->
+<section class="cta">
+  <div class="wrap">
+    <a class="btn btn--big" href="appointment-request.html">Request a Free Consult <span class="arrow">&rarr;</span></a>
+    <p class="cta__reassure">
+      <span>No referral needed</span><span class="dot">&bull;</span>
+      <span>Most insurance accepted</span><span class="dot">&bull;</span>
+      <span>Convenient scheduling</span>
+    </p>
   </div>
 </section>
 
 <!-- ===== Locations ===== -->
-<section class="wrap" id="locations">
-  <div class="dark-band">
-    <div class="sec-intro">
-      <span class="pill">Locations</span>
-      <p>Four offices across Siouxland, so great care is always close to home. Hours shown are current office hours; call to confirm during the transition.</p>
+<section class="locations" id="locations">
+  <div class="wrap">
+    <div class="sechead reveal"><h2>Four Locations to Choose From</h2></div>
+    <div class="loc-grid">
+      <article class="loc-card reveal">
+        <div class="photo"><span class="tag">OFFICE PHOTO SOON</span><span class="sun"></span></div>
+        <div class="loc-card__body">
+          <h3><svg class="pin" viewBox="0 0 24 24" fill="#6B3F82"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Morningside</h3>
+          <span class="city">Sioux City, IA</span>
+          <p class="blurb">Fast, modern orthodontics that fits your family's schedule.</p>
+          <p class="meta">4224 Sergeant Rd &middot; <a href="tel:+17122762766">(712) 276-2766</a></p>
+          <a class="more" href="#">Learn More &rarr;</a>
+        </div>
+      </article>
+      <article class="loc-card reveal">
+        <div class="photo"><span class="tag">OFFICE PHOTO SOON</span><span class="sun"></span></div>
+        <div class="loc-card__body">
+          <!-- NOTE: name pending confirmation, Leeds vs "Indian Hills" (old Kaler name). Using Leeds per Dr. Williams' mockup. -->
+          <h3><svg class="pin" viewBox="0 0 24 24" fill="#415B2F"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Leeds</h3>
+          <span class="city">Sioux City, IA</span>
+          <p class="blurb">Your neighborhood braces team for every kid on the block.</p>
+          <p class="meta">2801 Outer Dr N &middot; <a href="tel:+17122390420">(712) 239-0420</a></p>
+          <a class="more" href="#">Learn More &rarr;</a>
+        </div>
+      </article>
+      <article class="loc-card reveal">
+        <div class="photo"><span class="tag">OFFICE PHOTO SOON</span><span class="sun"></span></div>
+        <div class="loc-card__body">
+          <h3><svg class="pin" viewBox="0 0 24 24" fill="#A42C42"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Le Mars</h3>
+          <span class="city">Le Mars, IA</span>
+          <p class="blurb">Big-city orthodontics with small-town relationships.</p>
+          <p class="meta">405 Plymouth St NW &middot; <a href="tel:+17125465179">(712) 546-5179</a></p>
+          <a class="more" href="#">Learn More &rarr;</a>
+        </div>
+      </article>
+      <article class="loc-card reveal">
+        <div class="photo"><span class="tag">OFFICE PHOTO SOON</span><span class="sun"></span></div>
+        <div class="loc-card__body">
+          <h3><svg class="pin" viewBox="0 0 24 24" fill="#4270AF"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Wayne</h3>
+          <span class="city">Wayne, NE</span>
+          <p class="blurb">Wayne's hometown orthodontist for families, teachers, and staff.</p>
+          <p class="meta">617 Pearl St Ste #2 &middot; <a href="tel:+14028331333">(402) 833-1333</a></p>
+          <a class="more" href="#">Learn More &rarr;</a>
+        </div>
+      </article>
     </div>
-    <div class="loc-grid2">
+  </div>
+</section>
 
-      <div class="loc2">
-        <h3><span class="pin" style="background:#6B3F82"></span>Morningside</h3>
-        <p>Our main office. Fast, modern orthodontics that fits your family's schedule, on Sergeant Road in Morningside.</p>
-        <span class="meta">4224 Sergeant Rd, Sioux City, IA &middot; <a class="tel" href="tel:+17122762766">(712) 276-2766</a></span>
-        <span class="meta">Hours: Mon to Wed 8 to 4 · Fri 8 to 12</span>
-        <a class="loc-link" href="locations/morningside/">Visit the Morningside office &rarr;</a>
+<!-- ===== Care grid (Family Plans + Mouthguards removed per founder call) ===== -->
+<section class="care" id="care">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <h2>Orthodontic Care for Every Age and Stage</h2>
+      <p>Braces and clear aligners for kids, teens, and adults. Every plan starts with a friendly, no-pressure look at your smile.</p>
+    </div>
+    <div class="care-grid">
+      <div class="care-item reveal">
+        <span class="ico" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 20c0-3 2.5-5 5.5-5s5.5 2 5.5 5M14.5 15.5c2.5 0 5 1.5 5 4.5"/></svg>
+        </span>
+        <h3>Kids Braces</h3>
+        <p>Gentle, proven care for growing smiles.</p>
       </div>
-
-      <div class="loc2">
-        <h3><span class="pin" style="background:#415B2F"></span>Leeds</h3>
-        <p>Your neighborhood braces team on the north side, serving Leeds and the surrounding Sioux City neighborhoods.</p>
-        <span class="meta">2801 Outer Dr N, Sioux City, IA &middot; <a class="tel" href="tel:+17122390420">(712) 239-0420</a></span>
-        <span class="meta">Hours: Thu 8 to 4</span>
-        <a class="loc-link" href="locations/leeds/">Visit the Leeds office &rarr;</a>
+      <div class="care-item reveal">
+        <span class="ico" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 21c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/></svg>
+        </span>
+        <h3>Teen Braces</h3>
+        <p>Options that fit school, sports, and life.</p>
       </div>
-
-      <div class="loc2">
-        <h3><span class="pin" style="background:#A42C42"></span>Le Mars</h3>
-        <p>Big-city orthodontics with small-town relationships, right in downtown Le Mars.</p>
-        <span class="meta">405 Plymouth St NW, Le Mars, IA &middot; <a class="tel" href="tel:+17125465179">(712) 546-5179</a></span>
-        <span class="meta">Hours: Mon 9 to 3</span>
-        <a class="loc-link" href="locations/le-mars/">Visit the Le Mars office &rarr;</a>
+      <div class="care-item reveal">
+        <span class="ico" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 14c0-4 3.5-7 8-7s8 3 8 7c0 2-1.5 3.5-3.5 3.5S13 16 12 16s-2.5 1.5-4.5 1.5S4 16 4 14z"/></svg>
+        </span>
+        <h3>Adult Aligners</h3>
+        <p>Clear choices for a confident you.</p>
       </div>
-
-      <div class="loc2">
-        <h3><span class="pin" style="background:#4270AF"></span>Wayne</h3>
-        <p>Wayne's hometown orthodontist for families, teachers, and staff, right on Pearl Street.</p>
-        <span class="meta">617 Pearl St Ste #2, Wayne, NE &middot; <a class="tel" href="tel:+14028331333">(402) 833-1333</a></span>
-        <span class="meta">Hours: Wed 9 to 3</span>
-        <a class="loc-link" href="locations/wayne/">Visit the Wayne office &rarr;</a>
+      <div class="care-item reveal">
+        <span class="ico" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>
+        </span>
+        <h3>Early Evaluations</h3>
+        <p>The right time for a lifetime of confidence.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="wrap">
-  <footer class="footer2" id="footer">
-    <div class="footer2-top">
-      <img src="assets/logo-horizontal.png" alt="Siouxland Orthodontics">
-      <nav aria-label="Footer">
-        <a href="index.html#care">Our Care</a>
-        <a href="index.html#airway">Airway-Focused</a>
-        <a href="index.html#reviews">Reviews</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="index.html#dr-williams">About</a>
-      </nav>
-      <a class="btn btn--gold" href="appointment-request.html">Request a Free Consult</a>
+<!-- ===== Airway-focused orthodontics (added per founder call; claims qualified) ===== -->
+<section class="airway" id="airway">
+  <div class="wrap airway__grid">
+    <div>
+      <span class="kicker">A Modern Difference</span>
+      <h2>Airway-Focused Orthodontics</h2>
+      <p>Straight teeth are only part of the story. Dr. Williams also looks at how your child breathes, sleeps, and grows. An airway-focused approach considers the jaw, palate, and airway together, and treatment is designed to support healthy breathing and better sleep alongside a confident smile.</p>
+      <p>Wondering about snoring, mouth breathing, or restless sleep? Bring it up at your free consult. We will take a look together and explain what we see in plain language.</p>
+      <a class="btn" href="appointment-request.html">Ask About Airway Care <span class="arrow">&rarr;</span></a>
+      <p class="fineprint">Every child is different. An evaluation with Dr. Williams is the only way to know what may help your family. This information is educational and is not a diagnosis or a substitute for professional care.</p>
     </div>
-    <div class="footer2-cols">
-      <div>
-        <h4>Visit Us</h4>
-        <ul>
-          <li><a href="locations/morningside/">Morningside</a> &middot; 4224 Sergeant Rd, Sioux City, IA &middot; <a href="tel:+17122762766">(712) 276-2766</a></li>
-          <li><a href="locations/leeds/">Leeds</a> &middot; 2801 Outer Dr N, Sioux City, IA &middot; <a href="tel:+17122390420">(712) 239-0420</a></li>
-          <li><a href="locations/le-mars/">Le Mars</a> &middot; 405 Plymouth St NW, Le Mars, IA &middot; <a href="tel:+17125465179">(712) 546-5179</a></li>
-          <li><a href="locations/wayne/">Wayne</a> &middot; 617 Pearl St Ste #2, Wayne, NE &middot; <a href="tel:+14028331333">(402) 833-1333</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Good to Know</h4>
-        <ul>
-          <li>Free first consultation, no referral needed</li>
-          <li>Most insurance accepted, flexible payment plans</li>
-          <li>One trusted doctor at every visit</li>
-          <li>Continuing 30+ years of care in Siouxland</li>
-        </ul>
-      </div>
-    </div>
-    <div class="legal2">
-      <span>&copy; 2026 Siouxland Orthodontics. All rights reserved.</span>
-      <a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">HIPAA Notice</a>
-      <a href="#top" class="totop">Back to top &uarr;</a>
-    </div>
-  </footer>
-</div>
+    <ul class="airway__list">
+<!-- reveal items -->
+      <li>
+        <span class="ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
+        </span>
+        <div><b>Whole-picture evaluations</b><span>Jaw growth, bite, and airway considered together.</span></div>
+      </li>
+      <li>
+        <span class="ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
+        </span>
+        <div><b>Designed to support healthy breathing</b><span>Treatment planning that may help support sleep and airflow.</span></div>
+      </li>
+      <li>
+        <span class="ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21C7 17 4 13.5 4 9.8 4 7 6 5 8.5 5c1.5 0 2.8.7 3.5 1.8C12.7 5.7 14 5 15.5 5 18 5 20 7 20 9.8c0 3.7-3 7.2-8 11.2z"/></svg>
+        </span>
+        <div><b>A specialist's eye, a doctor you know</b><span>Dr. Williams personally guides every airway evaluation.</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
 
+<!-- ===== Built around real life + Dr. Williams ===== -->
+<section class="reallife" id="dr-williams">
+  <div class="wrap reallife__grid">
+    <div>
+      <h2>Built Around Real Life.</h2>
+      <!-- "Evening & Saturday options" removed per founder call -->
+      <ul class="checks">
+        <li><span class="ck" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Before and after school appointments</li>
+        <li><span class="ck" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Digital scans and 3D imaging</li>
+        <li><span class="ck" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Insurance help</li>
+        <li><span class="ck" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Flexible payment plans</li>
+      </ul>
+      <a class="btn btn--ghost" href="#care">Learn More About Our Care <span class="arrow">&rarr;</span></a>
+
+      <!-- Testimonial slot: awaiting a real, consented patient review. Do NOT publish placeholder text. -->
+      <div class="quote-slot" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>[Real patient review goes here once consent is confirmed]</p>
+        <div class="who">&ndash; Verified Google review, pending consent</div>
+      </div>
+    </div>
+    <div class="doc-card reveal">
+      <!-- TODO: swap for real headshot (Dr. Williams' social photos are approved for initial use) -->
+      <div class="photo" role="img" aria-label="Placeholder: Dr. Williams headshot coming soon"><span class="sun"></span></div>
+      <div>
+        <h3>Meet Dr. Aaron Williams</h3>
+        <div class="creds">DDS, MS &middot; Board-Eligible Orthodontist</div>
+        <p>University of Iowa DDS, University of Colorado orthodontic specialty training, and more than 10 years in practice. A family man putting down roots in Siouxland. You will see the same friendly face every visit, because Dr. Williams gets to know every patient.</p>
+        <a class="btn" href="#">Meet Dr. Williams <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Feature band ===== -->
+<section class="featband">
+  <div class="featband__card featband__card--a reveal">
+    <h3>School &amp; Sports Partnerships</h3>
+    <p>Proud to support local schools, teams, and events across Siouxland.</p>
+    <a href="#">Get Involved &rarr;</a>
+  </div>
+  <div class="featband__card featband__card--b reveal">
+    <h3>Patient Stories</h3>
+    <p>Real smiles. Real families. Real results.</p>
+    <a href="#">Read Stories &rarr;</a>
+  </div>
+  <div class="featband__card featband__card--c reveal">
+    <h3>Payment Options That Work for You</h3>
+    <p>Quality care with insurance help and flexible monthly plans.</p>
+    <a href="#">Financing Info &rarr;</a>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer id="footer">
+  <div class="foot-trust">
+    <span><span class="ico" aria-hidden="true">&#10003;</span> Insurance Help</span>
+    <span><span class="ico" aria-hidden="true">&#10003;</span> Flexible Payments</span>
+    <span><span class="ico" aria-hidden="true">&#10003;</span> No Hidden Fees</span>
+    <span><span class="ico" aria-hidden="true">&#10003;</span> Care You Can Trust</span>
+  </div>
+  <div class="foot-main">
+    <div class="foot-logo">
+      <img src="assets/logo-horizontal.png" alt="Siouxland Orthodontics">
+      <p>One trusted doctor who gets to know you, continuing 30+ years of orthodontic care in Siouxland.</p>
+    </div>
+    <div>
+      <h4>Visit Us</h4>
+      <ul>
+        <li>Morningside &middot; <a href="tel:+17122762766">(712) 276-2766</a></li>
+        <li>Leeds &middot; <a href="tel:+17122390420">(712) 239-0420</a></li>
+        <li>Le Mars &middot; <a href="tel:+17125465179">(712) 546-5179</a></li>
+        <li>Wayne, NE &middot; <a href="tel:+14028331333">(402) 833-1333</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="appointment-request.html">Request a Free Consult</a></li>
+        <li><a href="#care">Braces &amp; Aligners</a></li>
+        <li><a href="#airway">Airway-Focused Care</a></li>
+        <li><a href="#dr-williams">About Dr. Williams</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    &copy; 2026 Siouxland Orthodontics. All rights reserved.
+    <a href="#">Privacy Policy</a> <a href="#">Terms of Use</a> <a href="#">HIPAA Notice</a>
+  </div>
+</footer>
+
+<a class="sticky-cta" href="appointment-request.html">&#128197;&nbsp; Request a Free Consult</a>
 
 <script>
 function toggleNav(btn){
-  const m = document.getElementById('menu');
-  const open = m.classList.toggle('open');
+  const nav = document.getElementById('nav');
+  const open = nav.classList.toggle('open');
   btn.setAttribute('aria-expanded', open);
 }
 if ('IntersectionObserver' in window) {
@@ -430,65 +414,13 @@ if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+  // stagger siblings within the same parent for a gentle cascade
   document.querySelectorAll('.reveal').forEach(el => {
     const sibs = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
     el.style.setProperty('--stagger', Math.min(sibs.indexOf(el), 5));
     io.observe(el);
   });
-  // animated stat counters
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const cio = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    cio.unobserve(e.target);
-    const el = e.target, target = parseInt(el.dataset.count, 10);
-    if (reduced) { el.textContent = target; return; }
-    const t0 = performance.now(), dur = 1200;
-    const tick = (t) => {
-      const p = Math.min((t - t0) / dur, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }), { threshold: .4 });
-  document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 }
-// testimonials carousel (scroll-snap + arrows + dots)
-(function(){
-  const track = document.querySelector('.testi-track');
-  if (!track) return;
-  const items = [...track.querySelectorAll('.testi-item')];
-  const dotsBox = document.querySelector('.t-dots');
-  const prev = document.querySelector('.t-prev');
-  const next = document.querySelector('.t-next');
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function go(i){
-    i = Math.max(0, Math.min(i, items.length - 1));
-    const it = items[i];
-    track.scrollTo({ left: it.offsetLeft - (track.clientWidth - it.clientWidth) / 2, behavior: reduced ? 'auto' : 'smooth' });
-  }
-  items.forEach((_, i) => {
-    const d = document.createElement('button');
-    d.className = 't-dot'; d.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
-    d.addEventListener('click', () => go(i));
-    dotsBox.appendChild(d);
-  });
-  const dots = [...dotsBox.children];
-  let cur = 0;
-  function sync(){
-    const mid = track.scrollLeft + track.clientWidth / 2;
-    cur = items.reduce((best, it, i) =>
-      Math.abs(it.offsetLeft + it.clientWidth / 2 - mid) <
-      Math.abs(items[best].offsetLeft + items[best].clientWidth / 2 - mid) ? i : best, 0);
-    dots.forEach((d, i) => d.classList.toggle('on', i === cur));
-    prev.disabled = cur === 0;
-    next.disabled = cur === items.length - 1;
-  }
-  track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
-  prev.addEventListener('click', () => go(cur - 1));
-  next.addEventListener('click', () => go(cur + 1));
-  sync();
-})();
 </script>
-
 </body>
 </html>
