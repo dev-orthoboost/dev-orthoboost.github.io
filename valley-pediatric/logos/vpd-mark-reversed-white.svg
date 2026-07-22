@@ -11,9 +11,9 @@
       C385 272 368 290 340 290 H305
       V450 Z"
       fill="#FFFFFF" stroke="#FFFFFF" stroke-width="12"/>
-    <path d="M196 202 Q211 184 226 202" fill="none" stroke="#29833D" stroke-width="10"/>
-    <path d="M254 202 Q269 184 284 202" fill="none" stroke="#29833D" stroke-width="10"/>
-    <path d="M197 236 C210 272 270 272 283 236 Z" fill="#29833D"/>
+    <path d="M196 202 Q211 184 226 202" fill="none" stroke="#069DB1" stroke-width="10"/>
+    <path d="M254 202 Q269 184 284 202" fill="none" stroke="#069DB1" stroke-width="10"/>
+    <path d="M197 236 C210 272 270 272 283 236 Z" fill="#069DB1"/>
     <line x1="118" y1="456" x2="362" y2="456" stroke="#FFFFFF" stroke-width="12"/>
   </g>
 </svg>

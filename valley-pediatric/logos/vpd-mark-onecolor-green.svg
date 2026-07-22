@@ -10,10 +10,10 @@
       C335 143 346 132 360 132 C374 132 385 143 385 157 V244
       C385 272 368 290 340 290 H305
       V450 Z"
-      fill="#29833D" stroke="#29833D" stroke-width="12"/>
+      fill="#069DB1" stroke="#069DB1" stroke-width="12"/>
     <path d="M196 202 Q211 184 226 202" fill="none" stroke="#FFFFFF" stroke-width="10"/>
     <path d="M254 202 Q269 184 284 202" fill="none" stroke="#FFFFFF" stroke-width="10"/>
     <path d="M197 236 C210 272 270 272 283 236 Z" fill="#FFFFFF"/>
-    <line x1="118" y1="456" x2="362" y2="456" stroke="#29833D" stroke-width="12"/>
+    <line x1="118" y1="456" x2="362" y2="456" stroke="#069DB1" stroke-width="12"/>
   </g>
 </svg>
