@@ -68,8 +68,8 @@ header{position:sticky;top:0;z-index:60;background:var(--white);box-shadow:0 1px
 
 /* hero — split band: copy panel left, photo right. Nothing overlays the photo,
    so faces stay clear at every viewport. */
-.hero{display:grid;grid-template-columns:minmax(430px,5fr) 6fr;align-items:stretch;background:var(--cream);padding:0}
-.hero-copy{align-self:center;padding:72px 64px 72px max(24px, calc((100vw - var(--wrap))/2 + 24px));max-width:680px}
+.hero{display:grid;grid-template-columns:minmax(430px,5fr) minmax(0,6fr);align-items:stretch;background:var(--cream);padding:0}
+.hero-copy{align-self:center;padding:72px 64px 72px max(24px, calc((100vw - var(--wrap))/2 + 24px))}
 .hero-copy h1{font-size:clamp(32px,3.8vw,52px);line-height:1.08;text-wrap:balance}
 .hero-copy h1 em{font-style:normal;color:var(--coral)}
 .hero-copy p{margin-top:18px;font-size:17.5px;max-width:44ch}
