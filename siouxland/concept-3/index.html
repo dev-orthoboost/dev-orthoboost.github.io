@@ -413,7 +413,8 @@ function toggleNav(btn){
 }
 if ('IntersectionObserver' in window) {
   document.documentElement.classList.add('anim');
-  const io = new IntersectionObserver(es => es.forEach(e => {
+  document.documentElement.classList.add("js-anim");
+    const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { threshold: .15, rootMargin: '0px 0px -40px 0px' });
   // stagger siblings within the same parent for a gentle cascade
