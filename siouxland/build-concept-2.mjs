@@ -53,7 +53,12 @@ const ICONS = {
   doc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-1a6 6 0 0 1 12 0v1"/><path d="M12 14v4"/><path d="M10 16h4"/></svg>',
   badge: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14 -1.5 7 5-2.5 5 2.5-1.5-7"/></svg>',
   clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+  sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5.5 16a6.5 6.5 0 0 1 13 0"/><path d="M12 4.5V7M4.6 9.6l1.7 1.7M19.4 9.6l-1.7 1.7M2.5 16h2M19.5 16h2"/><path d="M3 19.5h18"/></svg>',
 };
+
+// filled location pin in the office's assigned brand color (matches concept-1 mapping)
+const pinFill = (colorVar) =>
+  `<svg class="opin" viewBox="0 0 24 24" fill="var(--${colorVar})" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg>`;
 
 const NAV = [
   ['braces.html', 'Braces'],
@@ -72,12 +77,12 @@ function header(current) {
     `<a href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`).join('');
   return `<header>
   <div class="util"><div class="wrap util-in">
+    <span class="util-msg"><span class="dot" aria-hidden="true"></span>Accepting new patients<a class="util-tel" href="tel:+17122762766">(712) 276-2766</a></span>
     <nav class="util-links" aria-label="Practice">
       <a href="about.html">About Dr. Williams</a>
       <a href="financing.html">Payment &amp; financing</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a class="util-tel" href="tel:+17122762766">(712) 276-2766</a>
   </div></div>
   <div class="masthead"><div class="wrap mast-in">
     <a class="logo" href="index.html"><img src="assets/logo-horizontal.png" alt="Siouxland Orthodontics"></a>
@@ -128,6 +133,8 @@ const FOOTER = `<section class="prefoot"><div class="wrap prefoot-in">
       <a href="about.html">About Dr. Williams</a>
       <a href="financing.html">Payment &amp; financing</a>
       <a href="appointment.html">Request a free consult</a>
+      <a href="financing.html#pay">Make a payment</a>
+      <a href="contact.html#refer">Refer a patient</a>
       <a href="contact.html">Contact us</a>
     </div>
   </div>
@@ -165,7 +172,10 @@ const FOOTER = `<section class="prefoot"><div class="wrap prefoot-in">
 })();
 </script>`;
 
-function page({ file, title, current, main, bodyClass = '' }) {
+const DEFAULT_DESC = 'Premium, personal orthodontic care for kids, teens, and adults across Siouxland. You get Dr. Williams, every visit.';
+
+function page({ file, title, current, main, bodyClass = '', desc = DEFAULT_DESC }) {
+  const sticky = file === 'appointment.html' ? '' : '<a class="sticky-cta" href="appointment.html">Request a free consult</a>';
   const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -173,6 +183,12 @@ function page({ file, title, current, main, bodyClass = '' }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>${title}</title>
+<meta name="description" content="${desc}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:image" content="https://dev-orthoboost.github.io/siouxland/concept-2/assets/photos/hero-team.jpg">
+<link rel="icon" type="image/png" href="assets/logo-main.png">
 ${FONTS}
 <link rel="stylesheet" href="assets/rei.css">
 </head>
@@ -181,6 +197,7 @@ ${header(current)}
 <main>
 ${main}
 </main>
+${sticky}
 ${FOOTER}
 </body>
 </html>`;
@@ -195,7 +212,8 @@ const CSS = `/* Siouxland Orthodontics — Concept 2 "outfitter" direction.
    tile grids, membership band) rendered in the Siouxland sunset brand system. */
 :root{
   --coral:#F65822; --warm:#FC9C12; --amber:#D53C00; --gold:#FFDC49;
-  --green:#415B2F; --black:#121520; --white:#FEFEFE;
+  --green:#415B2F; --scarlet:#A42C42; --purple:#6B3F82; --dusk:#4270AF;
+  --black:#121520; --white:#FEFEFE;
   --ink:#1b1e2a; --body:#4a4d5a; --muted:#696c78;
   --cream:#FFF8F1; --cream-2:#FDEFE3; --line:#e8e4de;
   --serif:'Volkhov',Georgia,serif;
@@ -230,6 +248,8 @@ header{position:sticky;top:0;z-index:60;background:var(--white);box-shadow:0 1px
 .util{background:var(--cream);border-bottom:1px solid var(--line)}
 .util-in{display:flex;justify-content:space-between;align-items:center;height:34px}
 .util-links{display:flex;gap:20px}
+.util-msg{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;color:var(--ink)}
+.util-msg .dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex:none}
 .util a{font-size:12.5px;font-weight:600;color:var(--muted)}
 .util a:hover{color:var(--coral)}
 .util-tel{font-weight:700 !important;color:var(--ink) !important}
@@ -260,6 +280,7 @@ header{position:sticky;top:0;z-index:60;background:var(--white);box-shadow:0 1px
 .hero img{width:100%;height:min(560px,62vh);object-fit:cover;object-position:center 30%}
 .hero-card{position:absolute;left:max(24px,4vw);bottom:44px;background:#fff;border-radius:6px;box-shadow:0 14px 40px -18px rgba(18,21,32,.45);padding:30px 32px;max-width:470px}
 .hero-card h1{font-size:clamp(26px,2.8vw,34px)}
+.hero-card h1 em{font-style:normal;color:var(--coral)}
 .hero-card p{margin-top:12px;font-size:15.5px}
 .hero-ctas{display:flex;align-items:center;gap:20px;margin-top:20px;flex-wrap:wrap}
 
@@ -323,7 +344,8 @@ header{position:sticky;top:0;z-index:60;background:var(--white);box-shadow:0 1px
 /* office cards */
 .offices{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .office{background:#fff;border:1px solid var(--line);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:8px}
-.office h3{font-size:19px}
+.office h3{font-size:19px;display:flex;align-items:center;gap:8px}
+.opin{width:18px;height:18px;flex:none}
 .office .tag{font-size:14px;color:var(--muted)}
 .office .addr{font-size:14.5px;margin-top:4px}
 .office .tel{font-weight:700;color:var(--ink);font-size:14.5px}
@@ -405,7 +427,7 @@ footer{background:var(--cream);padding-top:52px}
 .prose p,.prose li{font-size:15.5px;margin-top:12px}
 .prose ul{padding-left:22px;margin:8px 0 0}
 .addr-card{background:var(--cream);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:8px;font-size:15px}
-.addr-card h3{font-size:18px}
+.addr-card h3{font-size:18px;display:flex;align-items:center;gap:8px}
 .addr-card .tel{font-weight:700;color:var(--ink)}
 
 /* forms */
@@ -425,11 +447,14 @@ footer{background:var(--cream);padding-top:52px}
   .foot-cols{grid-template-columns:1fr 1fr;gap:28px}
   .foot-brand{grid-column:1/-1}
 }
+.sticky-cta{display:none}
 @media (max-width:820px){
   section{padding:44px 0}
+  body{padding-bottom:52px}
+  .sticky-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--coral);color:#fff;font-weight:700;font-size:15.5px;justify-content:center;padding:15px;text-decoration:none}
   .mast-in{flex-wrap:wrap;gap:14px}
   .search{order:3;flex-basis:100%;max-width:none}
-  .util-links a:not(:first-child){display:none}
+  .util-links{display:none}
   .promos,.kicks,.advice,.steps{grid-template-columns:1fr}
   .adv{grid-template-columns:1fr}
   .adv img{min-height:180px;max-height:220px}
@@ -509,7 +534,7 @@ page({
 <section class="hero">
   <img src="assets/photos/hero-team.jpg" alt="The Siouxland Orthodontics team welcoming a patient">
   <div class="hero-card">
-    <h1>Get the straight, confident smile you deserve.</h1>
+    <h1>Get the Straight, <em>Confident Smile</em> You Deserve.</h1>
     <p>Expert orthodontic care for kids, teens, and adults across Siouxland, guided personally by Dr. Williams from your first visit to your last.</p>
     <div class="hero-ctas">
       <a class="btn btn-coral" href="appointment.html">Request your free consult</a>
@@ -624,26 +649,26 @@ page({
     <div class="prop"><div class="ring">${ICONS.doc}</div><h3>One doctor, every visit</h3><p>You get Dr. Williams personally, from your first appointment to your last.</p></div>
     <div class="prop"><div class="ring">${ICONS.badge}</div><h3>Board-eligible orthodontist</h3><p>University of Iowa DDS, University of Colorado specialty training, 10+ years in practice.</p></div>
     <div class="prop"><div class="ring">${ICONS.pin}</div><h3>Four locations</h3><p>Morningside, Leeds, Le Mars, and Wayne. Pick the office closest to home.</p></div>
-    <div class="prop"><div class="ring">${ICONS.clock}</div><h3>Fits your schedule</h3><p>Before and after school appointments, with digital scans and 3D imaging.</p></div>
+    <div class="prop"><div class="ring">${ICONS.sun}</div><h3>Continuing 30+ years of care</h3><p>Rooted in Siouxland, carrying three decades of trusted hometown care forward.</p></div>
   </div>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap">
   <div class="sechead"><h2>Four locations to choose from</h2><a href="locations.html">See all locations</a></div>
   <div class="offices">
-    <div class="office"><h3>Morningside</h3><span class="tag">Sioux City, IA</span>
+    <div class="office"><h3>${pinFill('purple')}Morningside</h3><span class="tag">Sioux City, IA</span>
       <span class="addr">4224 Sergeant Rd, Sioux City, IA 51106</span>
       <a class="tel" href="tel:+17122762766">(712) 276-2766</a>
       <a class="link-arrow" href="location-morningside.html">Visit this office ${ICONS.arrow}</a></div>
-    <div class="office"><h3>Leeds</h3><span class="tag">Sioux City, IA</span>
+    <div class="office"><h3>${pinFill('green')}Leeds</h3><span class="tag">Sioux City, IA</span>
       <span class="addr">2801 Outer Dr N, Sioux City, IA 51104</span>
       <a class="tel" href="tel:+17122390420">(712) 239-0420</a>
       <a class="link-arrow" href="location-leeds.html">Visit this office ${ICONS.arrow}</a></div>
-    <div class="office"><h3>Le Mars</h3><span class="tag">Le Mars, IA</span>
+    <div class="office"><h3>${pinFill('scarlet')}Le Mars</h3><span class="tag">Le Mars, IA</span>
       <span class="addr">405 Plymouth St NW, Le Mars, IA 51031</span>
       <a class="tel" href="tel:+17125465179">(712) 546-5179</a>
       <a class="link-arrow" href="location-lemars.html">Visit this office ${ICONS.arrow}</a></div>
-    <div class="office"><h3>Wayne</h3><span class="tag">Wayne, NE</span>
+    <div class="office"><h3>${pinFill('dusk')}Wayne</h3><span class="tag">Wayne, NE</span>
       <span class="addr">617 Pearl St Ste #2, Wayne, NE 68787</span>
       <a class="tel" href="tel:+14028331333">(402) 833-1333</a>
       <a class="link-arrow" href="location-wayne.html">Visit this office ${ICONS.arrow}</a></div>
@@ -754,7 +779,7 @@ const TREATMENTS = [
 
 for (const t of TREATMENTS) {
   page({
-    file: t.file, title: t.title, current: t.file,
+    file: t.file, title: t.title, current: t.file, desc: t.lede,
     main: `
 ${crumbs([t.crumb])}
 ${pagehead(t.h1, t.lede, t.photo, 'Request a free consult')}
@@ -857,7 +882,7 @@ ${pagehead('Payment &amp; financing made simple',
   <div><h2>We make the money part easy</h2>
     <p>Starting treatment is a big step, and the cost question is often the first one on your mind. We walk through it with you in plain language, help you understand your benefits, and find a plan that works for your family. No surprises and no pressure.</p>
     <ul class="checklist">
-      <li>${ICONS.check}<span>Most insurance accepted</span></li>
+      <li>${ICONS.check}<span>Most insurance accepted, including Medicaid</span></li>
       <li>${ICONS.check}<span>We help you understand and file your benefits</span></li>
       <li>${ICONS.check}<span>Flexible monthly payment options</span></li>
       <li>${ICONS.check}<span>Your first consultation is on us</span></li>
@@ -870,6 +895,13 @@ ${steps('Three simple steps from your first hello to a plan that fits your budge
     ['Free consult and a clear plan', 'Meet Dr. Williams, get a full look at your smile, and leave with a clear treatment plan and a written breakdown you can take home.'],
     ['We review your insurance and options', 'We check your benefits for you, explain what they cover in plain language, and lay out the options so nothing is confusing.'],
     ['A monthly plan that fits', 'Together we choose flexible monthly payment options that work for your family, and then it is time to get started.']])}
+<section id="pay" style="padding-top:0"><div class="wrap">
+  <div class="cta-band" style="background:var(--black)">
+    <div><h2>Already a patient?</h2>
+    <p>You can pay your account online through Vanco, the secure payment service our offices already use. We are connecting the online payment link now. Until it is live, call your office and the team will help you right away.</p></div>
+    <a class="btn btn-gold" href="locations.html">Find your office</a>
+  </div>
+</div></section>
 ${faqSection('financing.html')}
 ${CTA_BAND}`
 });
@@ -877,10 +909,10 @@ ${CTA_BAND}`
 /* ---------- locations index ---------- */
 
 const OFFICES = [
-  { file: 'location-morningside.html', name: 'Morningside', place: 'Sioux City, IA', tag: 'Fast, modern orthodontics that fits your family&rsquo;s schedule.', addr: '4224 Sergeant Rd, Sioux City, IA 51106', tel: '(712) 276-2766', telHref: '+17122762766' },
-  { file: 'location-leeds.html', name: 'Leeds', place: 'Sioux City, IA', tag: 'Your neighborhood braces team for every kid on the block.', addr: '2801 Outer Dr N, Sioux City, IA 51104', tel: '(712) 239-0420', telHref: '+17122390420' },
-  { file: 'location-lemars.html', name: 'Le Mars', place: 'Le Mars, IA', tag: 'Big-city orthodontics with small-town relationships.', addr: '405 Plymouth St NW, Le Mars, IA 51031', tel: '(712) 546-5179', telHref: '+17125465179' },
-  { file: 'location-wayne.html', name: 'Wayne', place: 'Wayne, NE', tag: 'Wayne&rsquo;s hometown orthodontist for families, teachers, and staff.', addr: '617 Pearl St Ste #2, Wayne, NE 68787', tel: '(402) 833-1333', telHref: '+14028331333' },
+  { file: 'location-morningside.html', name: 'Morningside', place: 'Sioux City, IA', color: 'purple', tag: 'Fast, modern orthodontics that fits your family&rsquo;s schedule.', addr: '4224 Sergeant Rd, Sioux City, IA 51106', tel: '(712) 276-2766', telHref: '+17122762766' },
+  { file: 'location-leeds.html', name: 'Leeds', place: 'Sioux City, IA', color: 'green', tag: 'Your neighborhood braces team for every kid on the block.', addr: '2801 Outer Dr N, Sioux City, IA 51104', tel: '(712) 239-0420', telHref: '+17122390420' },
+  { file: 'location-lemars.html', name: 'Le Mars', place: 'Le Mars, IA', color: 'scarlet', tag: 'Big-city orthodontics with small-town relationships.', addr: '405 Plymouth St NW, Le Mars, IA 51031', tel: '(712) 546-5179', telHref: '+17125465179' },
+  { file: 'location-wayne.html', name: 'Wayne', place: 'Wayne, NE', color: 'dusk', tag: 'Wayne&rsquo;s hometown orthodontist for families, teachers, and staff.', addr: '617 Pearl St Ste #2, Wayne, NE 68787', tel: '(402) 833-1333', telHref: '+14028331333' },
 ];
 
 page({
@@ -892,7 +924,7 @@ ${pagehead('Four locations to choose from',
     { src: 'team-outdoor.jpg', alt: 'The Siouxland Orthodontics team outdoors' })}
 <section><div class="wrap">
   <div class="offices">${OFFICES.map(o => `
-    <div class="office"><h3>${o.name}</h3><span class="tag">${o.place}</span>
+    <div class="office"><h3>${pinFill(o.color)}${o.name}</h3><span class="tag">${o.place}</span>
       <span class="addr">${o.addr}</span>
       <span class="addr">By appointment, Monday through Friday.</span>
       <a class="tel" href="tel:${o.telHref}">${o.tel}</a>
@@ -968,14 +1000,14 @@ const LOC_PHOTOS = {
 for (const o of OFFICES) {
   const d = LOC_DETAIL[o.file];
   page({
-    file: o.file, title: d.title, current: 'locations.html',
+    file: o.file, title: d.title, current: 'locations.html', desc: d.lede,
     main: `
 ${crumbs([['locations.html', 'Locations'], d.crumb])}
 ${pagehead(d.h1, d.lede, { src: LOC_PHOTOS[o.file], alt: `Siouxland Orthodontics ${o.name} office team` }, 'Request a free consult')}
 <section><div class="wrap split">
   <div><h2>${d.h2}</h2>${d.body.map(p => `<p>${p}</p>`).join('')}</div>
   <div style="display:flex;flex-direction:column;gap:16px">
-    <div class="addr-card"><h3>${o.name} office</h3>
+    <div class="addr-card"><h3>${pinFill(o.color)}${o.name} office</h3>
       <span>${o.addr}</span>
       <span>By appointment, Monday through Friday.</span>
       <a class="tel" href="tel:${o.telHref}">${o.tel}</a>
@@ -1091,14 +1123,19 @@ ${pagehead('Contact Siouxland Orthodontics',
       <li>${ICONS.check}<span>A warm hello from our team, never a hard sell.</span></li>
       <li>${ICONS.check}<span>Clear answers to your questions in plain language.</span></li>
       <li>${ICONS.check}<span>Help finding the office and time that fit your family.</span></li>
+      <li>${ICONS.check}<span>Se habla espa&ntilde;ol.</span></li>
     </ul>
   </div>
   <div style="display:flex;flex-direction:column;gap:16px">
-    ${OFFICES.map(o => `<div class="addr-card"><h3>${o.name}</h3>
+    ${OFFICES.map(o => `<div class="addr-card"><h3>${pinFill(o.color)}${o.name}</h3>
       <span>${o.addr}</span>
       <span>By appointment, Monday through Friday.</span>
       <a class="tel" href="tel:${o.telHref}">${o.tel}</a></div>`).join('')}
   </div>
+</div></section>
+<section id="refer" style="padding-top:0"><div class="wrap">
+  <div class="sechead"><h2>Referring doctors</h2></div>
+  <p style="margin:-12px 0 0;max-width:64ch">Referring offices can send patients through our online referral form, powered by JotForm. The form is being connected now. Until then, call <a href="tel:+17122762766" style="color:var(--coral);font-weight:700">(712) 276-2766</a> and we will take it from there.</p>
 </div></section>
 ${CTA_BAND}`
 });
