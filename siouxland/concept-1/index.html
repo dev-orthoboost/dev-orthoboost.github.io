@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Siouxland Orthodontics — Get the Straight, Confident Smile You Deserve</title>
 <meta name="description" content="Premium, personal orthodontic care for kids, teens, and adults across Siouxland. Braces, clear aligners, and airway-focused orthodontics. You get Dr. Williams, every visit.">
+<link rel="icon" type="image/png" href="./assets/favicon.png">
+<link rel="preload" as="image" href="./assets/photos/hero-team.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Figtree:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Figtree:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Figtree:wght@400;500;600;700&display=swap"></noscript>
 <script src="./image-slot.js"></script>
 <style>
 :root{
@@ -26,7 +28,7 @@ body{margin:0;font-family:var(--sans);color:var(--body);background:var(--white);
 h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);margin:0;line-height:1.15;font-weight:700}
 p{margin:0}
 a{color:var(--amber);text-decoration:none;transition:color .18s}
-a:hover{color:var(--coral)}
+a:hover{color:#B83400}
 img{display:block;max-width:100%}
 :focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:3px}
 .btn:focus-visible,.sticky-cta:focus-visible{outline-color:var(--black)}
@@ -37,15 +39,15 @@ section{padding:76px 0}
 /* Buttons — rectangular, uppercase, arrow (per mockup) */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.07em;text-transform:uppercase;border:none;border-radius:8px;padding:17px 30px;cursor:pointer;transition:background .18s,color .18s;white-space:nowrap;text-decoration:none}
 .btn svg{width:17px;height:17px}
-.btn-primary{background:var(--coral);color:#fff}
-.btn-primary:hover{background:var(--amber);color:#fff}
+.btn-primary{background:var(--amber);color:#fff}
+.btn-primary:hover{background:#B83400;color:#fff}
 .btn-dark{background:var(--black);color:#fff}
 .btn-dark:hover{background:var(--coral);color:#fff}
 .btn-outline{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
 .btn-outline:hover{color:var(--coral);box-shadow:inset 0 0 0 1.5px var(--coral)}
-.link-more{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--coral)}
+.link-more{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber)}
 .link-more svg{width:15px;height:15px}
-.link-more:hover{color:var(--amber)}
+.link-more:hover{color:#B83400}
 
 /* Section titles with flanking rules (per mockup) — sunset-segment horizon lines */
 .rule-title{display:flex;align-items:center;justify-content:center;gap:20px;text-align:center}
@@ -106,14 +108,14 @@ header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1p
 .band>div{padding:34px 34px;display:flex;gap:18px;align-items:flex-start}
 .band>div+div{border-left:1px solid var(--line)}
 .band svg{flex:none;width:34px;height:34px;margin-top:3px}
-.band h3{font-size:18px;line-height:1.35;margin-bottom:6px}
+.band h2{font-size:18px;line-height:1.35;margin-bottom:6px}
 .band p{font-size:14.5px}
 
 /* Centered CTA */
 .cta-center{text-align:center;padding:0 0 84px}
 .cta-center .btn{padding:20px 44px;font-size:15px}
 .reassure{margin-top:18px;font-size:14.5px;font-weight:600;color:var(--body)}
-.reassure b{color:var(--coral);font-weight:700;padding:0 10px}
+.reassure b{color:var(--amber);font-weight:700;padding:0 10px}
 
 /* Locations */
 .locs{background:var(--cream);padding:84px 0}
@@ -187,7 +189,7 @@ header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1p
 /* Footer */
 footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk);padding:64px 0 32px}
 .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line-dk)}
-.foot-top .brand img{height:60px;margin-bottom:16px}
+.foot-top .brand img{height:60px;width:auto;margin-bottom:16px}
 .foot-top .brand p{font-size:14px;max-width:30ch;color:#9a9caa}
 .socials{display:flex;gap:18px;margin-top:18px}
 .socials a{color:#b9bbc6}
@@ -260,8 +262,8 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 }
 
 /* Mobile sticky CTA (per mobile mockup) */
-.sticky-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--coral);text-align:center;padding:16px 20px;color:#fff;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
-.sticky-cta:hover{color:#fff;background:var(--amber)}
+.sticky-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--amber);text-align:center;padding:16px 20px;color:#fff;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.sticky-cta:hover{color:#fff;background:#B83400}
 
 @media(max-width:1000px){
   .nav ul{display:none}.burger{display:block}
@@ -320,7 +322,7 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 <!-- ADDRESSES/PHONES carried from Kaler — verify against the live site before publishing (brief §11). Leeds vs. "Indian Hills" office name pending Dr. Williams' confirmation. -->
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#" aria-label="Siouxland Orthodontics home"><img src="./assets/logo-horizontal.png" alt="Siouxland Orthodontics"></a>
+    <a class="logo" href="#" aria-label="Siouxland Orthodontics home"><img src="./assets/logo-horizontal.webp" width="480" height="181" alt="Siouxland Orthodontics"></a>
     <ul>
       <li><a href="locations.html">Locations</a></li>
       <li><a href="braces.html">Braces</a></li>
@@ -364,7 +366,7 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
     </div>
     <div class="hero-visual">
       <svg class="bigsun" viewBox="0 0 130 130" aria-hidden="true"><circle cx="65" cy="78" r="44"/><line x1="65" y1="26" x2="65" y2="10"/><line x1="101.8" y1="41.2" x2="111.7" y2="31.3"/><line x1="28.2" y1="41.2" x2="18.3" y2="31.3"/></svg>
-      <div class="hero-media"><image-slot id="hero" shape="rect" fit="cover" src="./assets/photos/hero-team.jpg" placeholder="Drop hero photo: team with a patient"></image-slot></div>
+      <div class="hero-media"><image-slot id="hero" shape="rect" fit="cover" src="./assets/photos/hero-team.webp" placeholder="Drop hero photo: team with a patient"></image-slot></div>
     </div>
   </div>
 </section>
@@ -373,9 +375,9 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 <div class="trust">
   <div class="wrap">
     <div class="band">
-      <div><svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76"/><path d="m9 12 2 2 4-4"/></svg><div><h3>Continuing 30+ Years of Trusted Care in Siouxland</h3><p>Rooted in our community. Focused on your family.</p></div></div>
-      <div><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div><h3>Our Experienced Team</h3><p>Brings decades of orthodontic experience to help you love your smile.</p></div></div>
-      <div><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg><div><h3>Flexible Financing</h3><p>Insurance accepted and monthly options that fit your budget.</p></div></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76"/><path d="m9 12 2 2 4-4"/></svg><div><h2>Continuing 30+ Years of Trusted Care in Siouxland</h2><p>Rooted in our community. Focused on your family.</p></div></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div><h2>Our Experienced Team</h2><p>Brings decades of orthodontic experience to help you love your smile.</p></div></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg><div><h2>Flexible Financing</h2><p>Insurance accepted and monthly options that fit your budget.</p></div></div>
     </div>
   </div>
 </div>
@@ -398,25 +400,25 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
         <div class="city">Sioux City, IA</div>
         <div class="desc">Fast, modern orthodontics that fits your family's schedule.</div>
         <a class="tel" href="tel:+17122762766">(712) 276-2766</a>
-        <a class="link-more" href="location-morningside.html">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+        <a class="link-more" href="location-morningside.html">Explore Morningside <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       <div class="loc"><div class="ph"><image-slot id="loc-leeds" shape="rect" fit="cover" placeholder="Leeds office photo"></image-slot></div><div class="body">
         <div class="name" style="color:var(--green)"><svg viewBox="0 0 24 24" fill="var(--green)"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg>Leeds</div>
         <div class="city">Sioux City, IA</div>
         <div class="desc">Your neighborhood braces team for every kid on the block.</div>
         <a class="tel" href="tel:+17122390420">(712) 239-0420</a>
-        <a class="link-more" href="location-leeds.html">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+        <a class="link-more" href="location-leeds.html">Explore Leeds <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       <div class="loc"><div class="ph"><image-slot id="loc-lemars" shape="rect" fit="cover" placeholder="Le Mars office photo"></image-slot></div><div class="body">
-        <div class="name" style="color:var(--coral)"><svg viewBox="0 0 24 24" fill="var(--coral)"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg>Le Mars</div>
+        <div class="name" style="color:var(--amber)"><svg viewBox="0 0 24 24" fill="var(--coral)"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg>Le Mars</div>
         <div class="city">Le Mars, IA</div>
         <div class="desc">Big-city orthodontics with small-town relationships.</div>
         <a class="tel" href="tel:+17125465179">(712) 546-5179</a>
-        <a class="link-more" href="location-lemars.html">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+        <a class="link-more" href="location-lemars.html">Explore Le Mars <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       <div class="loc"><div class="ph"><image-slot id="loc-wayne" shape="rect" fit="cover" placeholder="Wayne office photo"></image-slot></div><div class="body">
         <div class="name" style="color:var(--dusk)"><svg viewBox="0 0 24 24" fill="var(--dusk)"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg>Wayne</div>
         <div class="city">Wayne, NE</div>
         <div class="desc">Wayne's hometown orthodontist for families, teachers, and staff.</div>
         <a class="tel" href="tel:+14028331333">(402) 833-1333</a>
-        <a class="link-more" href="location-wayne.html">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+        <a class="link-more" href="location-wayne.html">Explore Wayne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
     </div>
   </div>
 </section>
@@ -426,12 +428,12 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   <div class="wrap">
     <div class="rule-title"><h2>Orthodontic Care for Every Age and Stage</h2></div>
     <div class="grid">
-      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h16v4H4z"/><path d="M4 11h16M8 9v4M12 9v4M16 9v4"/><circle cx="8" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="11" r="1" fill="currentColor" stroke="none"/></svg><h3>Metal Braces</h3><p>The proven, reliable way to correct crowding, spacing, and bite.</p><a class="link-more" href="braces.html">Learn More</a></div>
-      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h16v4H4z"/><path d="M8 9v4M12 9v4M16 9v4"/></svg><h3>Clear Braces</h3><p>Tooth-colored ceramic braces that blend in, with the same dependable results.</p><a class="link-more" href="clear-braces.html">Learn More</a></div>
-      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg><h3>Invisalign Aligners</h3><p>Removable, virtually invisible aligners that straighten teeth on your terms.</p><a class="link-more" href="invisalign.html">Learn More</a></div>
-      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg><span class="spec">Our Specialty</span><h3>Airway-Focused Care</h3><p>Attention to how jaw development may support healthy breathing and sleep.</p><a class="link-more" href="airway.html">Learn More</a></div>
-      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3>Kids &amp; Teens</h3><p>Gentle, proven care for growing smiles that fits school, sports, and life.</p><a class="link-more" href="kids-teens.html">Learn More</a></div>
-      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg><h3>Early Evaluations</h3><p>The right time for a first look, and clear answers with no pressure.</p><a class="link-more" href="kids-teens.html">Learn More</a></div>
+      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h16v4H4z"/><path d="M4 11h16M8 9v4M12 9v4M16 9v4"/><circle cx="8" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="11" r="1" fill="currentColor" stroke="none"/></svg><h3>Metal Braces</h3><p>The proven, reliable way to correct crowding, spacing, and bite.</p><a class="link-more" href="braces.html">About Metal Braces</a></div>
+      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h16v4H4z"/><path d="M8 9v4M12 9v4M16 9v4"/></svg><h3>Clear Braces</h3><p>Tooth-colored ceramic braces that blend in, with the same dependable results.</p><a class="link-more" href="clear-braces.html">About Clear Braces</a></div>
+      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg><h3>Invisalign Aligners</h3><p>Removable, virtually invisible aligners that straighten teeth on your terms.</p><a class="link-more" href="invisalign.html">About Invisalign</a></div>
+      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg><span class="spec">Our Specialty</span><h3>Airway-Focused Care</h3><p>Attention to how jaw development may support healthy breathing and sleep.</p><a class="link-more" href="airway.html">About Airway Care</a></div>
+      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3>Kids &amp; Teens</h3><p>Gentle, proven care for growing smiles that fits school, sports, and life.</p><a class="link-more" href="kids-teens.html">Kids &amp; Teens Care</a></div>
+      <div class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg><h3>Early Evaluations</h3><p>The right time for a first look, and clear answers with no pressure.</p><a class="link-more" href="kids-teens.html">Early Evaluations</a></div>
     </div>
   </div>
 </section>
@@ -439,7 +441,7 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 <!-- AIRWAY -->
 <section class="airway" id="airway">
   <div class="wrap">
-    <div class="airway-media"><image-slot id="airway-img" shape="rect" fit="cover" src="./assets/photos/family-airway.jpg" placeholder="Drop photo: child or family, calm and healthy"></image-slot></div>
+    <div class="airway-media"><image-slot id="airway-img" shape="rect" fit="cover" src="./assets/photos/family-airway.webp" placeholder="Drop photo: child or family, calm and healthy"></image-slot></div>
     <div>
       <h2>Airway-Focused Orthodontics</h2>
       <p class="lede">Orthodontics is about more than straight teeth. Dr. Williams also looks at how jaw and dental development relate to the airway, an approach designed to support healthy breathing, restful sleep, and overall wellbeing alongside a great smile.</p>
@@ -458,7 +460,7 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 <section class="real" id="doctor">
   <div class="wrap">
     <div class="duo">
-      <div class="photo"><image-slot id="doc" shape="rect" fit="cover" src="./assets/photos/dr-williams-home.jpg" placeholder="Drop photo: Dr. Aaron Williams"></image-slot></div>
+      <div class="photo"><image-slot id="doc" shape="rect" fit="cover" src="./assets/photos/dr-williams-home.webp" placeholder="Drop photo: Dr. Aaron Williams"></image-slot></div>
       <div>
         <h2>Meet Dr. Aaron Williams</h2>
         <div class="role">Board-eligible orthodontist · DDS, MS</div>
@@ -520,17 +522,17 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 <section class="features">
   <div class="wrap">
     <div class="grid" style="margin-top:76px">
-      <div class="feature"><div class="ph"><image-slot id="feat-schools" shape="rect" fit="cover" src="./assets/photos/team-outdoor.jpg" placeholder="Photo: local school or sports team"></image-slot></div><div class="body">
+      <div class="feature"><div class="ph"><image-slot id="feat-schools" shape="rect" fit="cover" src="./assets/photos/team-outdoor.webp" placeholder="Photo: local school or sports team"></image-slot></div><div class="body">
         <h3>School &amp; Sports Partnerships</h3>
         <p>Proud to support local schools, teams, and events across Siouxland.</p>
         <a class="link-more" href="contact.html">Get Involved <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div></div>
-      <div class="feature"><div class="ph"><image-slot id="feat-stories" shape="rect" fit="cover" src="./assets/photos/family-stories.jpg" placeholder="Photo: smiling family"></image-slot></div><div class="body">
+      <div class="feature"><div class="ph"><image-slot id="feat-stories" shape="rect" fit="cover" src="./assets/photos/family-stories.webp" placeholder="Photo: smiling family"></image-slot></div><div class="body">
         <h3>Patient Stories</h3>
         <p>Real smiles. Real families. Real results from right here in Siouxland.</p>
         <a class="link-more" href="about.html">Read Stories <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div></div>
-      <div class="feature"><div class="ph"><image-slot id="feat-payment" shape="rect" fit="cover" src="./assets/photos/kids-sunset.jpg" placeholder="Photo: warm sunset or family moment"></image-slot></div><div class="body">
+      <div class="feature"><div class="ph"><image-slot id="feat-payment" shape="rect" fit="cover" src="./assets/photos/kids-sunset.webp" placeholder="Photo: warm sunset or family moment"></image-slot></div><div class="body">
         <h3>Payment Options That Work for You</h3>
         <p>Quality care should feel accessible. Insurance help and flexible plans.</p>
         <a class="link-more" href="financing.html">Financing Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -543,7 +545,7 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   <div class="wrap">
     <div class="foot-top">
       <div class="brand">
-        <img src="./assets/logo-horizontal.png" alt="Siouxland Orthodontics">
+        <img src="./assets/logo-horizontal.webp" width="480" height="181" alt="Siouxland Orthodontics">
         <p>Premium, personal orthodontic care for every smile in Siouxland. You get Dr. Williams, every visit.</p>
         <div class="socials">
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V7c0-.8.5-1 .9-1H17V3h-2.6C11.7 3 11 5 11 6.5v2H9v3h2v9h3v-9h2.2l.5-3H14Z"/></svg></a>

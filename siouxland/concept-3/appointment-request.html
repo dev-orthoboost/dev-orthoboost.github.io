@@ -6,7 +6,7 @@
 <title>Request an Appointment | Siouxland Orthodontics</title>
 <meta name="description" content="Request your free orthodontic consultation with Dr. Aaron Williams at Siouxland Orthodontics. Four locations in Sioux City, Le Mars, and Wayne. No referral needed.">
 <!-- TODO at launch: swap Pages URLs for the confirmed client domain -->
-<link rel="icon" type="image/png" href="assets/logo-stacked.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Request an Appointment | Siouxland Orthodontics">
 <meta property="og:description" content="Request your free orthodontic consultation with Dr. Aaron Williams at Siouxland Orthodontics. Four locations in Sioux City, Le Mars, and Wayne. No referral needed.">
@@ -16,7 +16,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
 <link rel="stylesheet" href="css/concept2.css?v=a634e23b">
 
 </head>
@@ -24,7 +26,7 @@
 
 <header class="wrap">
   <div class="nav-inner">
-    <a class="brand" href="index.html"><img src="assets/logo-horizontal.png" alt="Siouxland Orthodontics"></a>
+    <a class="brand" href="index.html"><img src="assets/logo-horizontal.webp" width="480" height="181" alt="Siouxland Orthodontics"></a>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="toggleNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -140,7 +142,7 @@
 <div class="wrap">
   <footer class="footer2" id="footer">
     <div class="footer2-top">
-      <img src="assets/logo-horizontal.png" alt="Siouxland Orthodontics">
+      <img src="assets/logo-horizontal.webp" width="480" height="181" alt="Siouxland Orthodontics">
       <nav aria-label="Footer">
         <a href="index.html#care">Our Care</a>
         <a href="index.html#airway">Airway-Focused</a>

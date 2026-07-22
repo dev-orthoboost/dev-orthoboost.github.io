@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orthodontist | Siouxland Orthodontics</title>
-<meta name="robots" content="noindex">
 <meta name="description" content="Get the straight, confident smile you deserve. Braces, clear aligners, and airway-focused orthodontics for kids, teens, and adults at four Siouxland locations. Free consultations with Dr. Aaron Williams.">
 <!-- TODO at launch: swap the Pages URLs below for the confirmed client domain -->
-<link rel="icon" type="image/png" href="assets/logo-stacked.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Orthodontist | Siouxland Orthodontics">
 <meta property="og:description" content="Braces, clear aligners, and airway-focused orthodontics for kids, teens, and adults. Four locations in Sioux City, Le Mars, and Wayne. Free consultations.">
@@ -61,7 +60,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Argentum+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Argentum+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Argentum+Sans:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Argentum+Sans:wght@400;600;700;800&display=swap"></noscript>
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -70,7 +71,7 @@
 <header class="topbar">
   <div class="topbar__inner">
     <a class="logo" href="index.html" aria-label="Siouxland Orthodontics home">
-      <img src="assets/logo-horizontal.png" alt="Siouxland Orthodontics">
+      <img src="assets/logo-horizontal.webp" width="480" height="181" alt="Siouxland Orthodontics">
     </a>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="toggleNav(this)">
       <span></span><span></span><span></span>
@@ -137,7 +138,7 @@
       </div>
     </div>
     <div class="photo">
-      <img src="assets/photos/hero-team.jpg" alt="The Siouxland Orthodontics team on the office staircase">
+      <img src="assets/photos/hero-team.webp" width="1200" height="797" fetchpriority="high" alt="The Siouxland Orthodontics team on the office staircase">
     </div>
   </div>
 </section>
@@ -334,7 +335,7 @@
       </div>
     </div>
     <div class="doc-card reveal">
-      <div class="photo"><img src="assets/photos/dr-williams-home.jpg" alt="Dr. Aaron Williams"></div>
+      <div class="photo"><img src="assets/photos/dr-williams-home.webp" width="800" height="800" loading="lazy" alt="Dr. Aaron Williams"></div>
       <div>
         <h3>Meet Dr. Aaron Williams</h3>
         <div class="creds">DDS, MS &middot; Board-Eligible Orthodontist</div>
@@ -374,7 +375,7 @@
   </div>
   <div class="foot-main">
     <div class="foot-logo">
-      <img src="assets/logo-horizontal.png" alt="Siouxland Orthodontics">
+      <img src="assets/logo-horizontal.webp" width="480" height="181" alt="Siouxland Orthodontics">
       <p>One trusted doctor who gets to know you, continuing 30+ years of orthodontic care in Siouxland.</p>
     </div>
     <div>

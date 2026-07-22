@@ -52,14 +52,14 @@ a:hover { text-decoration: underline; }
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
-  background: var(--coral); color: var(--white);
+  background: var(--amber); color: var(--white);
   font-family: var(--sans); font-weight: 700; letter-spacing: .02em;
   padding: 15px 28px; border-radius: 10px; border: none; cursor: pointer;
   font-size: 16px; text-decoration: none;
   transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
   box-shadow: 0 6px 18px rgba(246, 88, 34, .35);
 }
-.btn:hover { background: var(--amber); transform: translateY(-2px); text-decoration: none; color: var(--white); }
+.btn:hover { background: #B83400; transform: translateY(-2px); text-decoration: none; color: var(--white); }
 .btn .arrow { transition: transform .18s ease; }
 .btn:hover .arrow { transform: translateX(4px); }
 .btn--big { padding: 20px 44px; font-size: 19px; border-radius: 12px; }
@@ -213,9 +213,9 @@ a:hover { text-decoration: underline; }
 .loc-card .city { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--body); font-weight: 700; }
 .loc-card p.blurb { font-size: 15px; flex: 1; }
 .loc-card .meta { font-size: 14px; color: var(--body); }
-.loc-card .meta a { font-weight: 700; }
-.loc-card .more { font-weight: 700; color: var(--coral); font-size: 14.5px; letter-spacing: .03em; }
-.loc-card .more:hover { color: var(--amber); }
+.loc-card .meta a { font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+.loc-card .more { font-weight: 700; color: var(--amber); font-size: 14.5px; letter-spacing: .03em; }
+.loc-card .more:hover { color: #B83400; }
 
 /* ---------- Care grid ---------- */
 .care { background: var(--paper); border-block: 1px solid var(--line); padding: var(--section-pad) 0; }
@@ -318,23 +318,23 @@ footer { background: var(--ink); color: #B9BEC9; }
 }
 .foot-main h4 { color: var(--white); font-family: var(--serif); font-size: 17px; margin-bottom: 14px; }
 .foot-main ul { list-style: none; display: grid; gap: 8px; }
-.foot-main a { color: #B9BEC9; }
+.foot-main a { color: #B9BEC9; text-decoration: underline; text-underline-offset: 2px; }
 .foot-main a:hover { color: var(--gold); }
-.foot-logo img { height: 52px; border-radius: 8px; margin-bottom: 14px; }
+.foot-logo img { height: 52px; width: auto; border-radius: 8px; margin-bottom: 14px; }
 .legal {
   border-top: 1px solid rgba(254,254,254,.12); padding: 20px 24px; text-align: center;
   font-size: 13px; color: #8B90A0;
 }
-.legal a { color: #B9BEC9; margin: 0 10px; }
+.legal a { color: #B9BEC9; margin: 0 10px; text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---------- Sticky mobile CTA ---------- */
 .sticky-cta {
   display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-  background: var(--coral); color: var(--white); text-align: center;
+  background: var(--amber); color: var(--white); text-align: center;
   padding: 16px; font-weight: 800; font-size: 17px; letter-spacing: .02em;
   box-shadow: 0 -6px 20px rgba(18,21,32,.25);
 }
-.sticky-cta:hover { background: var(--amber); text-decoration: none; color: var(--white); }
+.sticky-cta:hover { background: #B83400; text-decoration: none; color: var(--white); }
 
 /* ---------- Forms (appointment request) ---------- */
 .form-hero { background: var(--paper); border-bottom: 1px solid var(--line); padding: 56px 0 48px; text-align: center; }
@@ -348,7 +348,7 @@ footer { background: var(--ink); color: #B9BEC9; }
 }
 .field { margin-bottom: 22px; }
 .field label { display: block; font-weight: 700; color: var(--ink); font-size: 15px; margin-bottom: 7px; }
-.field .req { color: var(--coral); }
+.field .req { color: var(--amber); }
 .field input, .field select, .field textarea {
   width: 100%; font-family: var(--sans); font-size: 16px; color: var(--ink);
   border: 1.5px solid var(--line); border-radius: 10px; padding: 13px 15px; background: var(--white);
