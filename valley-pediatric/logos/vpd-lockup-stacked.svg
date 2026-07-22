@@ -9,9 +9,9 @@
   </style>
   <g transform="translate(210,0)">
   <g stroke-linejoin="round" stroke-linecap="round">
-    <path d="M175 450 V318 H140 C112 318 95 300 95 272 V185 C95 171 106 160 120 160 C134 160 145 171 145 185 V250 C145 260 152 268 163 268 H175 V130 C175 92 204 65 240 65 C276 65 305 92 305 130 V240 H317 C328 240 335 232 335 222 V157 C335 143 346 132 360 132 C374 132 385 143 385 157 V244 C385 272 368 290 340 290 H305 V450 Z" fill="#52B250" stroke="#1A1F1A" stroke-width="12"/>
-    <path d="M278 78 C295 90 305 108 305 130 V450 H262 C280 340 282 180 278 78 Z" fill="#29833D" opacity="0.55"/>
-    <g fill="#29833D">
+    <path d="M175 450 V318 H140 C112 318 95 300 95 272 V185 C95 171 106 160 120 160 C134 160 145 171 145 185 V250 C145 260 152 268 163 268 H175 V130 C175 92 204 65 240 65 C276 65 305 92 305 130 V240 H317 C328 240 335 232 335 222 V157 C335 143 346 132 360 132 C374 132 385 143 385 157 V244 C385 272 368 290 340 290 H305 V450 Z" fill="#52B250" stroke="#474747" stroke-width="12"/>
+    <path d="M278 78 C295 90 305 108 305 130 V450 H262 C280 340 282 180 278 78 Z" fill="#069DB1" opacity="0.35"/>
+    <g fill="#417BD3">
       <ellipse cx="205" cy="120" rx="7" ry="3" transform="rotate(-30 205 120)"/>
       <ellipse cx="262" cy="150" rx="7" ry="3" transform="rotate(25 262 150)"/>
       <ellipse cx="196" cy="315" rx="7" ry="3" transform="rotate(-20 196 315)"/>
@@ -22,10 +22,19 @@
       <ellipse cx="360" cy="180" rx="6" ry="2.6" transform="rotate(25 360 180)"/>
       <ellipse cx="362" cy="238" rx="6" ry="2.6" transform="rotate(-20 362 238)"/>
     </g>
-    <path d="M196 202 Q211 184 226 202" fill="none" stroke="#1A1F1A" stroke-width="10"/>
-    <path d="M254 202 Q269 184 284 202" fill="none" stroke="#1A1F1A" stroke-width="10"/>
-    <path d="M197 236 C210 272 270 272 283 236 Z" fill="#FFFFFF" stroke="#1A1F1A" stroke-width="9"/>
-    <line x1="118" y1="456" x2="362" y2="456" stroke="#1A1F1A" stroke-width="12"/>
+    <!-- arm blooms -->
+    <g fill="#C5D630">
+      <circle cx="120" cy="137" r="8"/><circle cx="130.5" cy="144.5" r="8"/><circle cx="126.5" cy="157" r="8"/><circle cx="113.5" cy="157" r="8"/><circle cx="109.5" cy="144.5" r="8"/>
+    </g>
+    <circle cx="120" cy="148" r="5.5" fill="#798BC5"/>
+    <g fill="#798BC5">
+      <circle cx="360" cy="109" r="8"/><circle cx="370.5" cy="116.5" r="8"/><circle cx="366.5" cy="129" r="8"/><circle cx="353.5" cy="129" r="8"/><circle cx="349.5" cy="116.5" r="8"/>
+    </g>
+    <circle cx="360" cy="120" r="5.5" fill="#C5D630"/>
+    <path d="M196 202 Q211 184 226 202" fill="none" stroke="#474747" stroke-width="10"/>
+    <path d="M254 202 Q269 184 284 202" fill="none" stroke="#474747" stroke-width="10"/>
+    <path d="M197 236 C210 272 270 272 283 236 Z" fill="#FFFFFF" stroke="#474747" stroke-width="9"/>
+    <line x1="118" y1="456" x2="362" y2="456" stroke="#474747" stroke-width="12"/>
   </g>
   </g>
   <text class="wm-1" x="450" y="620" text-anchor="middle">Valley</text>
