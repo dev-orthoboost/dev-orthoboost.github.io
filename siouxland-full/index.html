@@ -157,24 +157,23 @@ header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1p
 .qualify{margin-top:20px;font-size:13px;color:var(--muted);font-style:italic}
 .airway .btn{margin-top:26px}
 
-/* Built around real life — 2 balanced columns: checklist+quote | doctor */
-.real .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;margin-top:8px;align-items:start}
-.real h2{font-size:clamp(24px,2.6vw,30px);margin-bottom:24px}
-.real ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.real li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
-.real li svg{flex:none;width:19px;height:19px;color:var(--coral);margin-top:4px}
-.real .col .link-more{margin-top:26px}
-.quote{margin-top:36px;padding-top:32px;border-top:1px solid var(--line)}
-.quote .mark{font-family:var(--serif);font-size:52px;line-height:.5;color:var(--coral)}
-.quote blockquote{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--ink);margin:16px 0 12px;max-width:46ch}
-.quote .stars{color:var(--warm);letter-spacing:3px;font-size:17px}
-.quote .who{display:inline;margin-left:12px;font-weight:600;font-size:14.5px}
-.quote .note{margin-top:12px;font-size:11.5px;color:var(--muted)}
-.docblock .ph{border-radius:10px;overflow:hidden;aspect-ratio:4/3.4;background:var(--cream);margin-bottom:22px}
-.docblock .role{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin:8px 0 12px}
-.docblock p{font-size:15px}
-.docblock p+p{margin-top:10px}
-.docblock .btn{margin-top:20px}
+/* Meet Dr. Williams — one cohesive feature: portrait | bio + checklist, quote band below */
+.real .duo{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.real .photo{border-radius:14px;overflow:hidden;aspect-ratio:4/4.3;background:var(--cream)}
+.real h2{font-size:clamp(26px,3vw,34px)}
+.real .role{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin:10px 0 16px}
+.real .bio{font-size:16px;max-width:56ch}
+.real .listlead{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:17px;margin:26px 0 14px}
+.real ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.real li{display:flex;gap:11px;align-items:flex-start;font-size:15px}
+.real li svg{flex:none;width:18px;height:18px;color:var(--coral);margin-top:4px}
+.real .actions{display:flex;align-items:center;gap:24px;margin-top:28px;flex-wrap:wrap}
+.quoteband{max-width:720px;margin:64px auto 0;padding-top:44px;border-top:1px solid var(--line);text-align:center}
+.quoteband .mark{font-family:var(--serif);font-size:52px;line-height:.5;color:var(--coral)}
+.quoteband blockquote{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.55;color:var(--ink);margin:18px 0 12px}
+.quoteband .stars{color:var(--warm);letter-spacing:3px;font-size:17px}
+.quoteband .who{display:inline;margin-left:12px;font-weight:600;font-size:14.5px}
+.quoteband .note{margin-top:12px;font-size:11.5px;color:var(--muted)}
 
 /* Final band — flat dark */
 .final{background:var(--black);text-align:center}
@@ -272,7 +271,9 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
   .band{grid-template-columns:1fr}
   .band>div+div{border-left:none;border-top:1px solid var(--line)}
   .locs .grid{grid-template-columns:repeat(2,1fr)}
-  .real .cols{grid-template-columns:1fr;gap:44px}
+  .real .duo{grid-template-columns:1fr;gap:38px}
+  .real .photo{order:-1;max-width:480px}
+  .real ul{grid-template-columns:1fr}
   .visit .steps{grid-template-columns:1fr}
   .visit .step{padding:30px 6px}
   .visit .step+.step{border-left:none;border-top:1px solid var(--line)}
@@ -456,9 +457,13 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
 <!-- BUILT AROUND REAL LIFE -->
 <section class="real" id="doctor">
   <div class="wrap">
-    <div class="cols">
-      <div class="col">
-        <h2>Built Around Real Life.</h2>
+    <div class="duo">
+      <div class="photo"><image-slot id="doc" shape="rect" fit="cover" src="./assets/photos/dr-williams-home.jpg" placeholder="Drop photo: Dr. Aaron Williams"></image-slot></div>
+      <div>
+        <h2>Meet Dr. Aaron Williams</h2>
+        <div class="role">Board-eligible orthodontist · DDS, MS</div>
+        <p class="bio">University of Iowa DDS (2010), University of Colorado orthodontic specialty and master's (2013), and 10+ years in practice. A dad of five with hometown values, committed to your confidence.</p>
+        <div class="listlead">Care built around real life:</div>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5 9-11"/></svg><span>Before and after school appointments</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5 9-11"/></svg><span>Digital scans and 3D imaging</span></li>
@@ -466,21 +471,17 @@ footer{background:var(--black);color:#b9bbc6;border-top:1px solid var(--line-dk)
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5 9-11"/></svg><span>Flexible payment plans</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5 9-11"/></svg><span>You get Dr. Williams, every visit</span></li>
         </ul>
-        <a class="link-more" href="appointment.html">Learn More About Our Care <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <div class="quote">
-          <div class="mark">&ldquo;</div>
-          <blockquote>The team is genuinely kind, and every visit feels personal. We always know exactly what is happening and what comes next.</blockquote>
-          <span class="stars">★★★★★</span><span class="who">A Siouxland parent</span>
-          <div class="note">Placeholder review for layout only. Replace with a real, consented patient review before publishing.</div>
+        <div class="actions">
+          <a class="btn btn-dark" href="about.html">Meet Dr. Williams <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="link-more" href="appointment.html">Request a Free Consult <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="col docblock">
-        <div class="ph"><image-slot id="doc" shape="rect" fit="cover" src="./assets/photos/dr-williams-home.jpg" placeholder="Drop photo: Dr. Aaron Williams"></image-slot></div>
-        <h2 style="margin-bottom:0">Meet Dr. Aaron Williams</h2>
-        <div class="role">Board-eligible orthodontist · DDS, MS</div>
-        <p>University of Iowa DDS (2010), University of Colorado orthodontic specialty and master's (2013), and 10+ years in practice. A dad of five with hometown values, committed to your confidence.</p>
-        <a class="btn btn-dark" href="appointment.html">Meet Dr. Williams</a>
-      </div>
+    </div>
+    <div class="quoteband">
+      <div class="mark">&ldquo;</div>
+      <blockquote>The team is genuinely kind, and every visit feels personal. We always know exactly what is happening and what comes next.</blockquote>
+      <span class="stars">★★★★★</span><span class="who">A Siouxland parent</span>
+      <div class="note">Placeholder review for layout only. Replace with a real, consented patient review before publishing.</div>
     </div>
   </div>
 </section>
