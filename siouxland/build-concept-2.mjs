@@ -1,4 +1,4 @@
-// Siouxland Orthodontics — Concept 2 ("outfitter" direction, REI-modeled).
+// Siouxland Orthodontics — Concept 2 (browse-first direction).
 // Generates the full flat site into dev-orthoboost/siouxland/concept-2 reusing
 // the copy, photos, and logo from the existing siouxland-full build.
 import { mkdirSync, writeFileSync, readFileSync, cpSync, copyFileSync, readdirSync, existsSync } from 'node:fs';
@@ -190,7 +190,7 @@ function page({ file, title, current, main, bodyClass = '', desc = DEFAULT_DESC 
 <meta property="og:image" content="https://dev-orthoboost.github.io/siouxland/concept-2/assets/photos/kids-sunset.jpg">
 <link rel="icon" type="image/png" href="assets/logo-main.png">
 ${FONTS}
-<link rel="stylesheet" href="assets/rei.css">
+<link rel="stylesheet" href="assets/browse.css">
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
 ${header(current)}
@@ -207,9 +207,9 @@ ${FOOTER}
 
 /* ---------- css ---------- */
 
-const CSS = `/* Siouxland Orthodontics — Concept 2 "outfitter" direction.
-   Retail-style structure (search-led masthead, department nav, promo cards,
-   tile grids, membership band) rendered in the Siouxland sunset brand system. */
+const CSS = `/* Siouxland Orthodontics — Concept 2, browse-first direction.
+   Search-led masthead, quick treatment menu, promo cards, and tile grids
+   rendered in the Siouxland sunset brand system. */
 :root{
   --coral:#F65822; --warm:#FC9C12; --amber:#D53C00; --gold:#FFDC49;
   --green:#415B2F; --scarlet:#A42C42; --purple:#6B3F82; --dusk:#4270AF;
@@ -472,8 +472,8 @@ footer{background:var(--cream);padding-top:52px}
 }
 `;
 
-writeFileSync(join(OUT, 'assets', 'rei.css'), CSS, 'utf8');
-console.log('wrote assets/rei.css');
+writeFileSync(join(OUT, 'assets', 'browse.css'), CSS, 'utf8');
+console.log('wrote assets/browse.css');
 
 /* ---------- reusable page fragments ---------- */
 
