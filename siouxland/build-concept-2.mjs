@@ -187,7 +187,7 @@ function page({ file, title, current, main, bodyClass = '', desc = DEFAULT_DESC 
 <meta property="og:type" content="website">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${desc}">
-<meta property="og:image" content="https://dev-orthoboost.github.io/siouxland/concept-2/assets/photos/hero-team.jpg">
+<meta property="og:image" content="https://dev-orthoboost.github.io/siouxland/concept-2/assets/photos/kids-sunset.jpg">
 <link rel="icon" type="image/png" href="assets/logo-main.png">
 ${FONTS}
 <link rel="stylesheet" href="assets/rei.css">
@@ -275,14 +275,15 @@ header{position:sticky;top:0;z-index:60;background:var(--white);box-shadow:0 1px
 .deptnav a:hover{border-bottom-color:var(--black)}
 .deptnav a[aria-current="page"]{border-bottom-color:var(--coral);color:var(--coral)}
 
-/* hero */
-.hero{position:relative;padding:0}
-.hero img{width:100%;height:min(560px,62vh);object-fit:cover;object-position:center 30%}
-.hero-card{position:absolute;left:max(24px,4vw);bottom:44px;background:#fff;border-radius:6px;box-shadow:0 14px 40px -18px rgba(18,21,32,.45);padding:30px 32px;max-width:470px}
-.hero-card h1{font-size:clamp(26px,2.8vw,34px)}
-.hero-card h1 em{font-style:normal;color:var(--coral)}
-.hero-card p{margin-top:12px;font-size:15.5px}
-.hero-ctas{display:flex;align-items:center;gap:20px;margin-top:20px;flex-wrap:wrap}
+/* hero — split band: copy panel left, photo right. Nothing overlays the photo,
+   so faces stay clear at every viewport. */
+.hero{display:grid;grid-template-columns:minmax(400px,2fr) 3fr;align-items:stretch;background:var(--cream);padding:0}
+.hero-copy{align-self:center;padding:56px 44px 56px max(24px, calc((100vw - var(--wrap))/2 + 24px));max-width:660px}
+.hero-copy h1{font-size:clamp(28px,3vw,42px)}
+.hero-copy h1 em{font-style:normal;color:var(--coral)}
+.hero-copy p{margin-top:14px;font-size:16.5px;max-width:46ch}
+.hero-ctas{display:flex;align-items:center;gap:20px;margin-top:24px;flex-wrap:wrap}
+.hero img{width:100%;height:min(560px,62vh);object-fit:cover;object-position:50% 35%}
 
 /* section header row */
 .sechead{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-bottom:26px}
@@ -459,8 +460,9 @@ footer{background:var(--cream);padding-top:52px}
   .adv{grid-template-columns:1fr}
   .adv img{min-height:180px;max-height:220px}
   .pagehead-in,.split{grid-template-columns:1fr}
-  .hero img{height:70vh}
-  .hero-card{left:16px;right:16px;bottom:22px;padding:24px}
+  .hero{grid-template-columns:1fr}
+  .hero img{height:46vh;order:-1}
+  .hero-copy{padding:30px 24px 40px;max-width:none}
   .form-grid{grid-template-columns:1fr}
   .cta-band{padding:30px}
 }
@@ -532,8 +534,7 @@ page({
   current: 'index.html',
   main: `
 <section class="hero">
-  <img src="assets/photos/hero-team.jpg" alt="The Siouxland Orthodontics team welcoming a patient">
-  <div class="hero-card">
+  <div class="hero-copy">
     <h1>Get the Straight, <em>Confident Smile</em> You Deserve.</h1>
     <p>Expert orthodontic care for kids, teens, and adults across Siouxland, guided personally by Dr. Williams from your first visit to your last.</p>
     <div class="hero-ctas">
@@ -541,13 +542,14 @@ page({
       <a class="link-arrow" href="about.html">Meet Dr. Williams ${ICONS.arrow}</a>
     </div>
   </div>
+  <img src="assets/photos/kids-sunset.jpg" alt="Five Siouxland kids smiling on an overlook at sunset">
 </section>
 
 <section><div class="wrap">
   <div class="sechead"><h2>Care for every age and stage</h2><a href="appointment.html">Request a free consult</a></div>
   <div class="promos">
     <a class="promo" href="kids-teens.html">
-      <div class="ph"><img src="assets/photos/kids-sunset.jpg" alt="Kids smiling outdoors at sunset"></div>
+      <div class="ph"><img src="assets/photos/family-stories.jpg" alt="A Siouxland family with kids and teens"></div>
       <h3>Kids &amp; teens</h3>
       <p>Gentle, proven care for growing smiles that fits school, sports, and life. Early evaluations around age 7, with no pressure to start.</p>
       <span class="link-arrow">See kids &amp; teens care ${ICONS.arrow}</span>
@@ -620,7 +622,7 @@ page({
   <div class="sechead"><h2>Advice from Dr. Williams</h2></div>
   <div class="advice">
     <a class="adv" href="airway.html">
-      <img src="assets/photos/family-stories.jpg" alt="A Siouxland family smiling together">
+      <img src="assets/photos/dr-williams-home.jpg" alt="Dr. Aaron Williams">
       <div class="adv-body">
         <h3>What airway-focused orthodontics means</h3>
         <p>Orthodontics is about more than straight teeth. Dr. Williams looks at how jaw and dental development relate to the airway, an approach designed to support healthy breathing and restful sleep.</p>
@@ -628,7 +630,7 @@ page({
       </div>
     </a>
     <a class="adv" href="appointment.html">
-      <img src="assets/photos/dr-williams-home.jpg" alt="Dr. Aaron Williams">
+      <img src="assets/photos/hero-team.jpg" alt="The Siouxland Orthodontics team welcoming a patient">
       <div class="adv-body">
         <h3>Your first visit, step by step</h3>
         <p>No pressure, no guesswork. A warm welcome, a relaxed first look, and a plain-language plan. Here is exactly what happens when you come see us.</p>
