@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chang Orthodontics — Carbon Home (assembly preview)</title>
+<!-- Assembly preview built 1:1 from claude-design-brief.md PASTE 1 + PASTE 2.
+     This is the fidelity yardstick for the Claude Design sessions, not the deliverable. -->
+<link rel="stylesheet" href="tokens.css">
+<style>
+  .wrap{max-width:1312px;margin:0 auto;padding:0 32px}
+  section{padding:96px 0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr)}
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .sec-head{margin-bottom:48px}
+  .backplate{position:relative;padding:32px 0 0 32px;background:transparent}
+  .backplate::before{content:"";position:absolute;inset:0 96px 96px 0;background:var(--cds-highlight);z-index:0}
+  .backplate img{position:relative;z-index:1;width:100%;display:block}
+  .proc{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;border-top:1px solid var(--cds-border-subtle)}
+  .proc>div{padding-top:24px;border-top:2px solid var(--cds-interactive);margin-top:-1px}
+  footer a{font:400 14px/2 var(--font-sans);color:var(--cds-text-secondary);text-decoration:none;display:block}
+  footer a:hover{color:var(--cds-link)}
+  @media(max-width:900px){
+    .grid2,.why,.cat,.grid4,.proc{grid-template-columns:1fr!important}
+    .wrap{padding:0 16px}
+    section{padding:64px 0}
+    header .wrap{height:auto!important;padding:12px 16px!important;gap:12px}
+    header nav{display:none!important}
+    .hdr-phone{display:none!important}
+    header .btn{padding:0 12px;gap:12px;font-size:13px}
+    .backplate{padding:16px 0 0 16px}
+    .backplate::before{inset:0 32px 32px 0}
+    footer .wrap{grid-template-columns:1fr 1fr!important}
+  }
+  @media(max-width:560px){footer .wrap{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+
+<header style="position:sticky;top:0;background:#fff;border-bottom:1px solid var(--cds-border-subtle);z-index:10">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:48px;padding-top:0;padding-bottom:0">
+    <div style="display:flex;align-items:center;gap:32px">
+      <img src="assets/chang-logo.svg" alt="Chang Orthodontics" style="height:30px;width:auto">
+      <nav style="display:flex">
+        <a href="#treatments" style="font:400 14px/1 var(--font-sans);color:var(--cds-text-primary);text-decoration:none;padding:16px">Treatments</a>
+        <a href="#technology" style="font:400 14px/1 var(--font-sans);color:var(--cds-text-primary);text-decoration:none;padding:16px">Technology</a>
+        <a href="#doctor" style="font:400 14px/1 var(--font-sans);color:var(--cds-text-primary);text-decoration:none;padding:16px">About</a>
+        <a href="#reviews" style="font:400 14px/1 var(--font-sans);color:var(--cds-text-primary);text-decoration:none;padding:16px">Reviews</a>
+        <a href="#contact" style="font:400 14px/1 var(--font-sans);color:var(--cds-text-primary);text-decoration:none;padding:16px">Contact</a>
+      </nav>
+    </div>
+    <div style="display:flex;align-items:center;gap:24px">
+      <a href="tel:6505980888" class="label-mono hdr-phone" style="text-decoration:none;color:var(--cds-text-primary)">(650) 598-0888</a>
+      <a class="btn btn-primary" href="#contact">Book a free consultation <span>→</span></a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap grid2">
+    <div>
+      <h1 class="display">Precision orthodontics for the&nbsp;Peninsula.</h1>
+      <p class="body-01" style="margin:24px 0 40px;max-width:52ch">Dr. Michael Chang pairs 3D diagnostics with 16+ years of board-certified experience to plan every smile down to the detail, for kids, teens, and adults.</p>
+      <div style="display:flex">
+        <a class="btn btn-primary" href="#contact">Book a free consultation <span>→</span></a>
+        <a class="btn btn-secondary" href="#treatments">See how treatment works <span>→</span></a>
+      </div>
+      <p class="label-mono" style="margin-top:32px">San Carlos, CA · ABO board-certified · UCSF faculty</p>
+    </div>
+    <div class="backplate"><img src="assets/chang-doctor-scanner-01.jpg" alt="Dr. Michael Chang beside the iTero scanner"></div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="grid4" style="border:1px solid var(--cds-border-subtle)">
+    <div style="padding:24px;border-right:1px solid var(--cds-border-subtle)"><div style="font-family:var(--font-serif);font-size:40px;font-weight:300;line-height:1.1">10,000+</div><p class="label-mono" style="margin:12px 0 0">Patients served</p></div>
+    <div style="padding:24px;border-right:1px solid var(--cds-border-subtle)"><div style="font-family:var(--font-serif);font-size:40px;font-weight:300;line-height:1.1">100+</div><p class="label-mono" style="margin:12px 0 0">Five-star reviews</p></div>
+    <div style="padding:24px;border-right:1px solid var(--cds-border-subtle)"><div style="font-family:var(--font-serif);font-size:40px;font-weight:300;line-height:1.1">16+</div><p class="label-mono" style="margin:12px 0 0">Years of experience</p></div>
+    <div style="padding:24px"><div style="font-family:var(--font-serif);font-size:40px;font-weight:300;line-height:1.1">UCSF</div><p class="label-mono" style="margin:12px 0 0">Faculty appointment</p></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 class="heading-04 sec-head">Care built like a discipline.</h2>
+    <div class="why">
+      <a class="tile tile--bordered tile--clickable" href="#doctor" style="display:block;text-decoration:none;color:inherit;min-height:180px;position:relative"><h3 class="heading-03">Board-certified precision</h3><p class="body-01" style="margin:12px 0 0;max-width:40ch">ABO certification means every treatment plan is held to measurable clinical targets, not guesswork.</p><span style="position:absolute;right:24px;bottom:24px;color:#005daa">→</span></a>
+      <a class="tile tile--bordered tile--clickable" href="#treatments" style="display:block;text-decoration:none;color:inherit;min-height:180px;position:relative"><h3 class="heading-03">Built for every age</h3><p class="body-01" style="margin:12px 0 0;max-width:40ch">Mostly kids, happily all ages. Treatment paths are tuned to each stage of growth, from age-7 evaluations to adult retreatment.</p><span style="position:absolute;right:24px;bottom:24px;color:#005daa">→</span></a>
+      <a class="tile tile--bordered tile--clickable" href="#technology" style="display:block;text-decoration:none;color:inherit;min-height:180px;position:relative"><h3 class="heading-03">Technology under one roof</h3><p class="body-01" style="margin:12px 0 0;max-width:40ch">iTero scanning, 3D imaging, and treatment planning in one San Carlos clinic. Fewer handoffs, faster answers.</p><span style="position:absolute;right:24px;bottom:24px;color:#005daa">→</span></a>
+      <a class="tile tile--bordered tile--clickable" href="#contact" style="display:block;text-decoration:none;color:inherit;min-height:180px;position:relative"><h3 class="heading-03">After-school friendly</h3><p class="body-01" style="margin:12px 0 0;max-width:40ch">Appointments that work around school and work, with low wait times protected by design.</p><span style="position:absolute;right:24px;bottom:24px;color:#005daa">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="treatments" style="background:var(--cds-layer-01)">
+  <div class="wrap">
+    <h2 class="heading-04 sec-head">Treatments</h2>
+    <div class="cat">
+      <div class="tile tile--bordered"><h3 class="heading-03" style="margin-bottom:16px">Braces</h3><div class="spec-row"><span class="label-mono">Options</span><span style="font:500 14px/1 var(--font-sans)">Metal · Ceramic · Self-ligating</span></div><div class="spec-row"><span class="label-mono">Ages</span><span style="font:500 14px/1 var(--font-sans)">Kids, teens, adults</span></div><div class="spec-row" style="border-bottom:none"><span class="label-mono">Visibility</span><span style="font:500 14px/1 var(--font-sans)">Low-profile available</span></div><a href="#" style="display:inline-block;margin-top:16px;font:400 14px/1 var(--font-sans);color:#005daa;text-decoration:none">Learn more →</a></div>
+      <div class="tile tile--bordered"><h3 class="heading-03" style="margin-bottom:16px">Invisalign</h3><div class="spec-row"><span class="label-mono">Provider</span><span style="font:500 14px/1 var(--font-sans)">Platinum Plus</span></div><div class="spec-row"><span class="label-mono">Lines</span><span style="font:500 14px/1 var(--font-sans)">Teen · First · Limited</span></div><div class="spec-row" style="border-bottom:none"><span class="label-mono">Preview</span><span style="font:500 14px/1 var(--font-sans)">Full 3D simulation</span></div><a href="#" style="display:inline-block;margin-top:16px;font:400 14px/1 var(--font-sans);color:#005daa;text-decoration:none">Learn more →</a></div>
+      <div class="tile tile--bordered"><h3 class="heading-03" style="margin-bottom:16px">Early orthodontics</h3><div class="spec-row"><span class="label-mono">First exam</span><span style="font:500 14px/1 var(--font-sans)">Age 7 recommended</span></div><div class="spec-row"><span class="label-mono">Appliances</span><span style="font:500 14px/1 var(--font-sans)">Expanders · Space maintainers</span></div><div class="spec-row" style="border-bottom:none"><span class="label-mono">Goal</span><span style="font:500 14px/1 var(--font-sans)">Guide growth, prevent complexity</span></div><a href="#" style="display:inline-block;margin-top:16px;font:400 14px/1 var(--font-sans);color:#005daa;text-decoration:none">Learn more →</a></div>
+      <div class="tile tile--bordered"><h3 class="heading-03" style="margin-bottom:16px">Airway &amp; functional</h3><div class="spec-row"><span class="label-mono">Focus</span><span style="font:500 14px/1 var(--font-sans)">Breathing, bite, jaw</span></div><div class="spec-row"><span class="label-mono">Appliances</span><span style="font:500 14px/1 var(--font-sans)">Expansion · MARPE · Sleep</span></div><div class="spec-row" style="border-bottom:none"><span class="label-mono">Training</span><span style="font:500 14px/1 var(--font-sans)">Master's-level airway education</span></div><a href="#" style="display:inline-block;margin-top:16px;font:400 14px/1 var(--font-sans);color:#005daa;text-decoration:none">Learn more →</a></div>
+      <div class="tile tile--bordered"><h3 class="heading-03" style="margin-bottom:16px">Retainers</h3><div class="spec-row"><span class="label-mono">Types</span><span style="font:500 14px/1 var(--font-sans)">Permanent · Clear · Hawley</span></div><div class="spec-row"><span class="label-mono">Fit</span><span style="font:500 14px/1 var(--font-sans)">Same-day impressions</span></div><div class="spec-row" style="border-bottom:none"><span class="label-mono">Purpose</span><span style="font:500 14px/1 var(--font-sans)">Keep the result you earned</span></div><a href="#" style="display:inline-block;margin-top:16px;font:400 14px/1 var(--font-sans);color:#005daa;text-decoration:none">Learn more →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="technology" style="background:var(--cds-inverse-bg)">
+  <div class="wrap">
+    <h2 class="display" style="color:var(--cds-highlight);font-size:48px">Diagnostics in three dimensions.</h2>
+    <p class="body-01" style="color:rgba(255,255,255,.78);margin:24px 0 0;max-width:56ch">Treatment starts with data. A comfortable, putty-free iTero scan and low-dose 3D imaging give Dr. Chang a complete picture of teeth, roots, and airway before anything touches your smile.</p>
+    <div style="display:flex;gap:48px;margin:48px 0;flex-wrap:wrap">
+      <span class="label-mono" style="color:var(--cds-highlight)">Itero · 20µm scan accuracy</span>
+      <span class="label-mono" style="color:var(--cds-highlight)">CBCT · low-dose 3D imaging</span>
+      <span class="label-mono" style="color:var(--cds-highlight)">Monitoring · checked every visit</span>
+    </div>
+    <a class="btn btn-inverse" href="#">See the technology <span>→</span></a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="heading-04 sec-head">Your treatment, start to finish.</h2>
+    <div class="proc">
+      <div><p class="label-mono" style="color:#005daa;margin:0 0 12px">01</p><h3 class="heading-03">Scan</h3><p class="body-01" style="margin:12px 0 0">A comfortable digital scan builds a complete model of your bite. No putty, no gagging, about ten minutes.</p></div>
+      <div><p class="label-mono" style="color:#005daa;margin:0 0 12px">02</p><h3 class="heading-03">Plan</h3><p class="body-01" style="margin:12px 0 0">Dr. Chang maps the tooth movement and reviews the plan and timeline with you before treatment starts.</p></div>
+      <div><p class="label-mono" style="color:#005daa;margin:0 0 12px">03</p><h3 class="heading-03">Treat</h3><p class="body-01" style="margin:12px 0 0">Braces or aligners, adjusted on a schedule that respects school days and workdays.</p></div>
+      <div><p class="label-mono" style="color:#005daa;margin:0 0 12px">04</p><h3 class="heading-03">Retain</h3><p class="body-01" style="margin:12px 0 0">Retention protects the result you earned, with digital checks to make sure it holds.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="doctor" style="background:var(--cds-layer-01)">
+  <div class="wrap grid2">
+    <div class="backplate"><img src="assets/chang-team-01.jpg" alt="The Chang Orthodontics team"></div>
+    <div>
+      <h2 class="heading-04">Meet Dr. Michael Chang, DDS MS</h2>
+      <p class="body-01" style="margin:24px 0 32px;max-width:52ch">Board-certified orthodontist, UCSF faculty, with master's-level training in airway orthodontics. Sixteen years in, he still reviews every scan himself. (And yes, those are real Candlestick Park seats in his office.)</p>
+      <div class="spec-row" style="border-top:1px solid var(--cds-border-subtle)"><span class="label-mono">Certification</span><span style="font:500 14px/1 var(--font-sans)">ABO Board-Certified</span></div>
+      <div class="spec-row"><span class="label-mono">Faculty</span><span style="font:500 14px/1 var(--font-sans)">UCSF</span></div>
+      <div class="spec-row"><span class="label-mono">Advanced training</span><span style="font:500 14px/1 var(--font-sans)">Airway orthodontics (master's)</span></div>
+      <div class="spec-row"><span class="label-mono">Invisalign tier</span><span style="font:500 14px/1 var(--font-sans)">Platinum Plus Provider</span></div>
+      <a class="btn btn-tertiary" href="#" style="margin-top:32px">About the practice <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <h2 class="heading-04" style="margin-bottom:8px">What patients say.</h2>
+    <p class="body-01" style="margin:0 0 48px">100+ five-star reviews from Peninsula families.</p>
+    <div class="cat">
+      <figure class="tile tile--bordered" style="margin:0"><blockquote class="body-01" style="margin:0">[GBP REVIEW 1 — real five-star review text drops in here at build; we never write testimonials.]</blockquote><figcaption class="label-mono" style="margin-top:24px;padding-top:16px;border-top:1px solid var(--cds-border-subtle)">Google review · ★★★★★</figcaption></figure>
+      <figure class="tile tile--bordered" style="margin:0"><blockquote class="body-01" style="margin:0">[GBP REVIEW 2]</blockquote><figcaption class="label-mono" style="margin-top:24px;padding-top:16px;border-top:1px solid var(--cds-border-subtle)">Google review · ★★★★★</figcaption></figure>
+      <figure class="tile tile--bordered" style="margin:0"><blockquote class="body-01" style="margin:0">[GBP REVIEW 3]</blockquote><figcaption class="label-mono" style="margin-top:24px;padding-top:16px;border-top:1px solid var(--cds-border-subtle)">Google review · ★★★★★</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap" style="max-width:800px">
+    <h2 class="heading-04 sec-head">Answers, before you ask.</h2>
+    <details open style="border-top:1px solid var(--cds-border-subtle)"><summary style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;list-style:none"><span class="heading-03">What ages do you treat?</span><span style="color:#005daa;font-size:20px">+</span></summary><p class="body-01" style="margin:0;padding:0 0 24px;max-width:60ch">Everyone. Mostly kids and teens, and a growing number of adults. The American Association of Orthodontists recommends a first evaluation around age 7, and we time treatment to growth from there.</p></details>
+    <details style="border-top:1px solid var(--cds-border-subtle)"><summary style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;list-style:none"><span class="heading-03">How much does treatment cost?</span><span style="color:#005daa;font-size:20px">+</span></summary><p class="body-01" style="margin:0;padding:0 0 24px;max-width:60ch">It depends on the plan. Your free consultation includes a digital scan and a clear, itemized estimate. In-house financing and insurance coordination are available.</p></details>
+    <details style="border-top:1px solid var(--cds-border-subtle)"><summary style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;list-style:none"><span class="heading-03">How long does treatment take?</span><span style="color:#005daa;font-size:20px">+</span></summary><p class="body-01" style="margin:0;padding:0 0 24px;max-width:60ch">Most plans run 12 to 18 months. You'll see the projected timeline in your 3D simulation before anything starts, and digital monitoring keeps it on track.</p></details>
+    <details style="border-top:1px solid var(--cds-border-subtle)"><summary style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;list-style:none"><span class="heading-03">Do you take insurance?</span><span style="color:#005daa;font-size:20px">+</span></summary><p class="body-01" style="margin:0;padding:0 0 24px;max-width:60ch">We work with most major plans and handle the coordination for you, so your orthodontic benefit gets used fully.</p></details>
+    <details style="border-top:1px solid var(--cds-border-subtle)"><summary style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;list-style:none"><span class="heading-03">What happens at the first visit?</span><span style="color:#005daa;font-size:20px">+</span></summary><p class="body-01" style="margin:0;padding:0 0 24px;max-width:60ch">A free consultation and digital scan, about 45 minutes. You leave understanding your options, your timeline, and your estimate. No obligation.</p></details>
+    <details style="border-top:1px solid var(--cds-border-subtle);border-bottom:1px solid var(--cds-border-subtle)"><summary style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;list-style:none"><span class="heading-03">Invisalign or braces?</span><span style="color:#005daa;font-size:20px">+</span></summary><p class="body-01" style="margin:0;padding:0 0 24px;max-width:60ch">Both get excellent results in the right case. After your scan we'll show you a simulation of each option and recommend the better fit for your goals.</p></details>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--cds-interactive)">
+  <div class="wrap">
+    <h2 class="display" style="color:#fff;font-size:48px">Book your free consultation.</h2>
+    <p class="body-01" style="color:rgba(255,255,255,.8);margin:24px 0 40px;max-width:52ch">A complimentary exam and digital scan with Dr. Chang. You leave with a clear plan and an itemized estimate.</p>
+    <a class="btn" style="background:#fff;color:var(--cds-text-primary)" href="tel:6505980888">Request an appointment <span>→</span></a>
+    <p class="label-mono" style="color:rgba(255,255,255,.85);margin-top:40px">10 El Camino Real, Ste. 201, San Carlos · (650) 598-0888 · Mon–Fri 9–5</p>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--cds-border-subtle);padding:64px 0 40px">
+  <div class="wrap" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px">
+    <div><img src="assets/chang-logo.svg" alt="Chang Orthodontics" style="height:32px;width:auto;margin-bottom:24px"><p class="body-01" style="max-width:36ch">Precision orthodontics for kids, teens, and adults on the Peninsula.</p></div>
+    <div><p class="label-mono" style="margin-bottom:16px;color:var(--cds-text-primary)">Treatments</p><a href="#">Braces</a><a href="#">Invisalign</a><a href="#">Early orthodontics</a><a href="#">Airway &amp; functional</a><a href="#">Retainers</a></div>
+    <div><p class="label-mono" style="margin-bottom:16px;color:var(--cds-text-primary)">Practice</p><a href="#doctor">About</a><a href="#technology">Technology</a><a href="#reviews">Reviews</a><a href="#">FAQ</a><a href="#contact">Contact</a></div>
+    <div><p class="label-mono" style="margin-bottom:16px;color:var(--cds-text-primary)">Visit</p><p class="body-01" style="font-size:14px">10 El Camino Real, Ste. 201<br>San Carlos, CA 94070<br>(650) 598-0888<br>Mon–Fri 9–5</p></div>
+  </div>
+  <div class="wrap" style="display:flex;justify-content:space-between;margin-top:48px;padding-top:24px;border-top:1px solid var(--cds-border-subtle)">
+    <span class="label-mono">© 2026 Chang Orthodontics</span>
+    <span class="label-mono">ABO Board-Certified · Platinum Plus Invisalign Provider</span>
+  </div>
+</footer>
+
+</body>
+</html>

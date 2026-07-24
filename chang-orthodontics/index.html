@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Chang Orthodontics — Design Previews</title>
+<style>
+  :root {
+    --blue:#005daa; --blue-deep:#004a88; --ice:#c1e4ea;
+    --ink:#0d0d0d; --ink-soft:#3f4450; --faint:#6b7280;
+    --line:#e4e8ee; --card:#ffffff; --ground:#f6f9fb;
+  }
+  * { margin:0; box-sizing:border-box; }
+  html, body { height:100%; }
+  body {
+    font-family:"Segoe UI", system-ui, -apple-system, sans-serif;
+    color:var(--ink); background:var(--ground);
+    display:grid; place-items:center;
+    padding:clamp(18px, 3vh, 40px) clamp(18px, 3vw, 40px);
+  }
+  main { width:100%; max-width:1000px; display:flex; flex-direction:column; gap:clamp(16px, 2.8vh, 30px); }
+
+  .top { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+  .brand img { height:clamp(40px, 6vh, 52px); width:auto; }
+  .top .note { font-size:.78rem; color:var(--faint); }
+
+  .intro h1 { font-size:clamp(1.3rem, 3.2vh, 1.7rem); font-weight:600; line-height:1.25; letter-spacing:-.01em; }
+  .intro h1 em { font-style:normal; color:var(--blue); }
+  .intro p { color:var(--ink-soft); line-height:1.55; margin-top:8px; font-size:clamp(.86rem, 1.7vh, .96rem); max-width:76ch; }
+
+  .concepts { display:grid; grid-template-columns:repeat(3, 1fr); gap:clamp(12px, 1.6vw, 18px); align-items:stretch; }
+  .concept {
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:clamp(16px, 2.4vh, 22px) clamp(16px, 1.6vw, 22px);
+    box-shadow:0 1px 2px rgba(13,13,13,.04), 0 12px 28px -22px rgba(13,13,13,.2);
+    display:flex; flex-direction:column;
+  }
+  .concept.pending { background:transparent; border-style:dashed; box-shadow:none; }
+  .concept-head { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .concept-head h2 { font-size:clamp(.94rem, 1.8vh, 1.04rem); font-weight:700; }
+  .concept-head .sub { display:block; color:var(--faint); font-weight:400; font-size:.78rem; margin-top:2px; }
+  .tag {
+    font-size:.66rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--blue-deep); background:var(--ice);
+    border-radius:999px; padding:4px 10px; white-space:nowrap; flex:0 0 auto;
+  }
+  .tag.muted { color:var(--faint); background:var(--line); }
+  .concept p { color:var(--ink-soft); line-height:1.52; font-size:clamp(.8rem, 1.6vh, .88rem); margin-top:10px; }
+  .concept-foot { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:14px; flex-wrap:wrap; }
+  .open {
+    text-decoration:none; font-size:.8rem; font-weight:700; color:#fff; background:var(--blue);
+    border-radius:999px; padding:8px 18px; transition:background .15s;
+  }
+  .open:hover { background:var(--blue-deep); }
+  .alt { font-size:.76rem; color:var(--blue); text-decoration:none; font-weight:600; }
+  .alt:hover { text-decoration:underline; }
+  .pending .placeholder { color:var(--faint); font-size:.78rem; font-style:italic; }
+
+  footer { display:flex; justify-content:space-between; align-items:center; gap:12px; color:var(--faint); font-size:.78rem; flex-wrap:wrap; }
+
+  @media (max-width: 760px) {
+    body { place-items:start center; }
+    .concepts { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div class="brand" aria-label="Chang Orthodontics">
+      <img src="concept-2/assets/chang-logo.svg" alt="Chang Orthodontics">
+    </div>
+    <span class="note">Unlisted previews, just for your team.</span>
+  </div>
+
+  <div class="intro">
+    <h1>Directions for the new <em>Chang Orthodontics</em> website</h1>
+    <p>Each concept is a working page you can click through and scroll, built with your real logo, photos, and practice details. They share the same content and the same navy brand color; what changes is the structure, the typography, and how the clinical side of the practice is presented. Patient review quotes appear as marked placeholders in every concept, and the real Google reviews drop in once a direction is chosen.</p>
+  </div>
+
+  <div class="concepts">
+    <div class="concept">
+      <div class="concept-head">
+        <h2>Concept 1<span class="sub">clinical instrument</span></h2>
+        <span class="tag">Data-led</span>
+      </div>
+      <p>A technical, instrument-panel look. Schematic diagrams stand in for photography, figures count up as you scroll, and the page reads like a clinical readout. This is the most process-forward of the three, and the one that leans hardest on precision as the selling point.</p>
+      <div class="concept-foot">
+        <a class="open" href="concept-1/">Open Concept 1 &rarr;</a>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="concept-head">
+        <h2>Concept 2<span class="sub">editorial precision</span></h2>
+        <span class="tag">Carbon system</span>
+      </div>
+      <p>Built on IBM's Carbon design system, the same language behind IBM's own products. Square corners, hairline rules, and serif headlines, paired with real photography from the office. Includes a homepage and a separate back-to-school offer page.</p>
+      <div class="concept-foot">
+        <a class="open" href="concept-2/">Open Concept 2 &rarr;</a>
+        <a class="alt" href="concept-2/landing/">Offer page &rarr;</a>
+      </div>
+    </div>
+
+    <div class="concept pending">
+      <div class="concept-head">
+        <h2>Concept 3<span class="sub">to come</span></h2>
+        <span class="tag muted">In progress</span>
+      </div>
+      <p>A third direction is being built and will appear here. It will use the same logo, photos, and practice details as the other two, so all three can be compared side by side.</p>
+      <div class="concept-foot">
+        <span class="placeholder">Available shortly</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>Prepared for Dr. Chang and the Chang Orthodontics team</span>
+    <span>OrthoBoost</span>
+  </footer>
+</main>
+</body>
+</html>

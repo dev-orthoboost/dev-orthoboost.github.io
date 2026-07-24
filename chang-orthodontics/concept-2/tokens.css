@@ -1,0 +1,38 @@
+/* Chang Orthodontics × IBM Carbon — token layer */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500&display=swap');
+:root{
+  /* brand → carbon roles */
+  --cds-background:#ffffff; --cds-layer-01:#f4f4f4; --cds-layer-02:#ffffff;
+  --cds-border-subtle:#e0e0e0; --cds-border-strong:#8d8d8d;
+  --cds-text-primary:#0d0d0d; --cds-text-secondary:#585959; --cds-text-placeholder:#939598;
+  --cds-link:#005daa; --cds-interactive:#005daa; --cds-hover:#004a88; --cds-active:#003b6e;
+  --cds-highlight:#c1e4ea; --cds-inverse-bg:#0d0d0d; --cds-inverse-text:#ffffff;
+  --cds-error:#da1e28; --cds-success:#24a148;
+  /* type */
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif; --font-serif:'IBM Plex Serif',Georgia,serif; --font-mono:'IBM Plex Mono',monospace;
+  /* spacing scale (carbon) */
+  --sp-01:2px;--sp-02:4px;--sp-03:8px;--sp-04:12px;--sp-05:16px;--sp-06:24px;--sp-07:32px;--sp-08:40px;--sp-09:48px;--sp-10:64px;--sp-11:80px;--sp-12:96px;--sp-13:160px;
+}
+*{box-sizing:border-box;border-radius:0!important}
+body{margin:0;font-family:var(--font-sans);color:var(--cds-text-primary);background:var(--cds-background);font-size:16px;line-height:1.5}
+h1,h2,h3,h4{margin:0;font-weight:300}
+.display{font-family:var(--font-serif);font-size:clamp(42px,5vw,64px);line-height:1.1;letter-spacing:0}
+.heading-04{font-size:28px;line-height:36px;font-weight:400}
+.heading-03{font-size:20px;line-height:28px;font-weight:400}
+.body-01{font-size:16px;line-height:24px;color:var(--cds-text-secondary)}
+.label-mono{font-family:var(--font-mono);font-size:12px;line-height:16px;letter-spacing:.32px;text-transform:uppercase;color:var(--cds-text-secondary)}
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:var(--sp-07);height:48px;padding:0 var(--sp-05);font:400 14px/1 var(--font-sans);text-decoration:none;cursor:pointer;border:none}
+.btn-primary{background:var(--cds-interactive);color:#fff}.btn-primary:hover{background:var(--cds-hover)}.btn-primary:active{background:var(--cds-active)}
+.btn-secondary{background:#0d0d0d;color:#fff}.btn-secondary:hover{background:#2a2a2a}
+.btn-tertiary{background:transparent;color:var(--cds-link);border:1px solid var(--cds-interactive)}.btn-tertiary:hover{background:var(--cds-interactive);color:#fff}
+.btn-inverse{background:transparent;color:#fff;border:1px solid #fff}.btn-inverse:hover{background:#fff;color:var(--cds-inverse-bg)}
+.btn:focus-visible{outline:2px solid var(--cds-interactive);outline-offset:1px}
+.tile{background:var(--cds-layer-01);padding:var(--sp-06);border:1px solid transparent}
+.tile--bordered{background:#fff;border:1px solid var(--cds-border-subtle)}
+.tile--clickable{position:relative;transition:border-color 110ms cubic-bezier(.2,0,.38,.9)}
+.tile--clickable:hover{border-color:var(--cds-interactive)}
+.rule{border:none;border-top:1px solid var(--cds-border-subtle);margin:0}
+.spec-row{display:flex;justify-content:space-between;gap:var(--sp-05);padding:var(--sp-04) 0;border-bottom:1px solid var(--cds-border-subtle)}
+.input{width:100%;height:48px;padding:0 var(--sp-05);border:1px solid var(--cds-border-strong);background:#fff;font:400 14px/1 var(--font-sans);color:var(--cds-text-primary)}
+.input:focus{outline:2px solid var(--cds-interactive);outline-offset:-2px;border-color:transparent}
+.input::placeholder{color:var(--cds-text-placeholder)}
