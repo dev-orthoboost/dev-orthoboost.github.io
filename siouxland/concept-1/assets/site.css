@@ -53,7 +53,7 @@ header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1p
 .nav{display:flex;align-items:center;gap:26px;height:92px}
 .nav .logo img{height:58px;width:auto;border-radius:10px}
 .nav ul{display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0;flex:1;justify-content:center}
-.nav ul a{color:var(--ink);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.nav ul a{color:var(--ink);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .nav ul a:hover,.nav ul a[aria-current="page"]{color:var(--coral)}
 .burger{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--ink)}
 .burger svg{width:28px;height:28px}
