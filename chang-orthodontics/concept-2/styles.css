@@ -154,6 +154,10 @@ a.tile:hover{border-color:var(--interactive)}
 .faq details[open] summary .plus{transform:rotate(45deg)}
 .faq .answer{padding:0 0 24px}
 
+.faq-group{margin-bottom:56px}
+.faq-group:last-child{margin-bottom:0}
+.faq-group>.h2{margin-bottom:8px}
+
 /* cta band */
 .cta-band{background:var(--interactive);color:#fff;padding:80px 0}
 .cta-band .display{color:#fff}
@@ -175,7 +179,7 @@ a.tile:hover{border-color:var(--interactive)}
 
 /* footer */
 .site-footer{background:var(--ink);color:#fff;padding:64px 0 32px}
-.site-footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:32px}
+.site-footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.1fr;gap:32px}
 .site-footer h4{font-family:var(--mono);font-size:12px;letter-spacing:.32px;text-transform:uppercase;color:var(--tint);margin-bottom:16px;font-weight:400}
 .site-footer a{display:block;font:400 14px/2.1 var(--sans);color:rgba(255,255,255,.78);text-decoration:none}
 .site-footer a:hover{color:#fff}
@@ -186,7 +190,7 @@ a.tile:hover{border-color:var(--interactive)}
 .site-footer .legal-links{display:flex;gap:20px}
 .site-footer .legal-links a{display:inline;font-size:12px}
 
-@media (max-width:1000px){
+@media (max-width:1120px){
   .nav,.hdr-phone{display:none}
   .menu{display:block}
   .site-header .container{position:relative}
