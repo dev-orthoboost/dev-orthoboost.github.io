@@ -7,6 +7,7 @@
 <title>Accessibility | Chang Orthodontics</title>
 <meta name="description" content="Our commitment to a site that works for everyone.">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -41,13 +42,13 @@
   <li><span aria-current="page">Accessibility</span></li>
 </ol></div></nav>
 <section class="hero hero--compact">
-  <div class="hero__copy"><div class="hero__inner">
-    <h1 class="display display--sm">Accessibility</h1>
-    <p class="lede measure" style="margin-top:20px">Our commitment to a site that works for everyone.</p>
+  <div class="hero__copy"><div class="hero__inner stagger">
+    <h1 class="display display--sm reveal">Accessibility</h1>
+    <p class="lede measure reveal">Our commitment to a site that works for everyone.</p>
   </div></div>
 </section>
-<section class="section"><div class="container" style="max-width:800px">
-<p class="body measure" style="margin-bottom:20px">This design is built to WCAG 2.1 AA intent: color contrast on text and interface elements, visible keyboard focus, semantic landmarks and headings, alt text on images, and full keyboard operation of menus and accordions.</p><p class="body measure" style="margin-bottom:20px">Motion is limited by design, and the site honors the reduced-motion setting in your operating system.</p><p class="body measure" style="margin-bottom:20px">If you encounter a barrier on the live site, call the practice at (650) 598-0888 and we will address it and help you get what you need in the meantime.</p>
+<section class="section"><div class="container container--prose">
+<p class="body measure prose-p">This design is built to WCAG 2.1 AA intent: color contrast on text and interface elements, visible keyboard focus, semantic landmarks and headings, alt text on images, and full keyboard operation of menus and accordions.</p><p class="body measure prose-p">Motion is limited by design, and the site honors the reduced-motion setting in your operating system.</p><p class="body measure prose-p">If you encounter a barrier on the live site, call the practice at (650) 598-0888 and we will address it and help you get what you need in the meantime.</p>
 </div></section>
 </main>
 <footer class="site-footer">
@@ -95,5 +96,33 @@
     </div>
   </div>
 </footer>
+<script>(function(){
+  var io;
+  function reveal(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    [].forEach.call(els,function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < innerHeight*0.9){e.classList.add('is-in');return} // already in view on load
+      io.observe(e);
+    });
+  }
+  function header(){
+    var on=false;
+    addEventListener('scroll',function(){
+      var s=scrollY>8;
+      if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}
+    },{passive:true});
+  }
+  if(document.readyState!=='loading'){reveal();header()}
+  else document.addEventListener('DOMContentLoaded',function(){reveal();header()});
+})();</script>
 </body>
 </html>

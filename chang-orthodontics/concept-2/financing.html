@@ -7,6 +7,7 @@
 <title>Financing and payment plans | Chang Orthodontics</title>
 <meta name="description" content="In-house payment plans and insurance coordination at Chang Orthodontics in San Carlos, CA.">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,30 +44,30 @@
 </ol></div></nav>
 
 <section class="hero hero--compact">
-  <div class="hero__copy"><div class="hero__inner">
-    <h1 class="display display--sm">Clear numbers, before you commit.</h1>
-    <p class="lede measure" style="margin-top:20px">Orthodontics is an investment. You will know exactly what yours is after your free consultation: one itemized estimate, in writing, before any decision.</p>
+  <div class="hero__copy"><div class="hero__inner stagger">
+    <h1 class="display display--sm reveal">Clear numbers, before you commit.</h1>
+    <p class="lede measure reveal">Orthodontics is an investment. You will know exactly what yours is after your free consultation: one itemized estimate, in writing, before any decision.</p>
   </div></div>
 </section>
 <section class="section">
   <div class="container">
     <div class="tiles tiles--3">
-      <div class="tile"><h3 class="h3">In-house payment plans</h3><p class="body">Monthly plans arranged directly with our office and matched to your budget, not routed through a third party.</p></div>
-      <div class="tile"><h3 class="h3">Insurance, handled</h3><p class="body">We verify your orthodontic benefit and file the paperwork, so the coordination is not your job.</p></div>
-      <div class="tile"><h3 class="h3">No surprises</h3><p class="body">The estimate you approve is the plan you are on. Changes only happen with your sign-off.</p></div>
+      <div class="tile reveal"><h3 class="h3">In-house payment plans</h3><p class="body">Monthly plans arranged directly with our office and matched to your budget, not routed through a third party.</p></div>
+      <div class="tile reveal"><h3 class="h3">Insurance, handled</h3><p class="body">We verify your orthodontic benefit and file the paperwork, so the coordination is not your job.</p></div>
+      <div class="tile reveal"><h3 class="h3">No surprises</h3><p class="body">The estimate you approve is the plan you are on. Changes only happen with your sign-off.</p></div>
     </div>
   </div>
 </section>
 <section class="section section--layer">
   <div class="container">
-    <div class="section-head"><h2 class="h2">How it works</h2></div>
-    <div class="steps"><div><p class="num">01</p><h3 class="h3">Consultation and scan</h3><p class="body">Free, including the exam and 3D scan. No obligation to proceed.</p></div><div><p class="num">02</p><h3 class="h3">Itemized estimate</h3><p class="body">A written breakdown of the recommended plan, reviewed with you in the same visit.</p></div><div><p class="num">03</p><h3 class="h3">Choose a plan</h3><p class="body">Pick a payment schedule that works, and we handle the insurance side from there.</p></div></div>
+    <div class="section-head reveal"><h2 class="h2">How it works</h2></div>
+    <div class="steps stagger"><div class="reveal"><p class="num">01</p><h3 class="h3">Consultation and scan</h3><p class="body step__body">Free, including the exam and 3D scan. No obligation to proceed.</p></div><div class="reveal"><p class="num">02</p><h3 class="h3">Itemized estimate</h3><p class="body step__body">A written breakdown of the recommended plan, reviewed with you in the same visit.</p></div><div class="reveal"><p class="num">03</p><h3 class="h3">Choose a plan</h3><p class="body step__body">Pick a payment schedule that works, and we handle the insurance side from there.</p></div></div>
   </div>
 </section>
 <section class="section">
-  <div class="container" style="max-width:900px">
-    <div class="section-head"><h2 class="h2">Common questions</h2></div>
-    <div class="faq">
+  <div class="container container--narrow">
+    <div class="section-head reveal"><h2 class="h2">Common questions</h2></div>
+    <div class="faq reveal">
   <details open>
     <summary><span class="h3">Do you take insurance?</span><span class="plus" aria-hidden="true">+</span></summary>
     <div class="answer"><p class="body measure">We work with most major plans and will help you use your orthodontic benefit fully. We verify coverage and file on your behalf.</p></div>
@@ -86,11 +87,11 @@
   </div>
 </section>
 <section class="cta-band">
-  <div class="container stack">
-    <h2 class="display display--sm">Get your estimate.</h2>
-    <p class="body measure">The consultation ends with a written, itemized number. No pressure attached to it.</p>
-    <a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a>
-    <p class="mono">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
+  <div class="container stack stagger">
+    <h2 class="display display--sm reveal">Get your estimate.</h2>
+    <p class="body measure reveal">The consultation ends with a written, itemized number. No pressure attached to it.</p>
+    <span class="reveal"><a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a></span>
+    <p class="mono reveal">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
   </div>
 </section>
 </main>
@@ -139,5 +140,33 @@
     </div>
   </div>
 </footer>
+<script>(function(){
+  var io;
+  function reveal(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    [].forEach.call(els,function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < innerHeight*0.9){e.classList.add('is-in');return} // already in view on load
+      io.observe(e);
+    });
+  }
+  function header(){
+    var on=false;
+    addEventListener('scroll',function(){
+      var s=scrollY>8;
+      if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}
+    },{passive:true});
+  }
+  if(document.readyState!=='loading'){reveal();header()}
+  else document.addEventListener('DOMContentLoaded',function(){reveal();header()});
+})();</script>
 </body>
 </html>

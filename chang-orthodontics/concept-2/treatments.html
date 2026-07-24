@@ -7,6 +7,7 @@
 <title>Treatments | Chang Orthodontics</title>
 <meta name="description" content="Braces, Invisalign, early orthodontics, airway and functional treatment, and retainers in San Carlos, CA.">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,29 +44,29 @@
 </ol></div></nav>
 
 <section class="hero hero--compact">
-  <div class="hero__copy"><div class="hero__inner">
-    <h1 class="display display--sm">Treatments.</h1>
-    <p class="lede measure" style="margin-top:20px">Five disciplines, one standard of precision. Every plan starts with a 3D scan and ends with a measurable result.</p>
+  <div class="hero__copy"><div class="hero__inner stagger">
+    <h1 class="display display--sm reveal">Treatments.</h1>
+    <p class="lede measure reveal">Five disciplines, one standard of precision. Every plan starts with a 3D scan and ends with a measurable result.</p>
   </div></div>
 </section>
 <section class="section">
   <div class="container">
     <div class="tiles tiles--2">
-      <a class="tile" href="braces.html"><h3 class="h3">Braces</h3><p class="body">Metal, ceramic, and self-ligating systems, planned from a 3D scan and adjusted on a schedule that works around school days.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
-      <a class="tile" href="invisalign.html"><h3 class="h3">Invisalign</h3><p class="body">Clear, removable aligners from a Platinum Plus provider, with a full 3D simulation of the result before treatment starts.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
-      <a class="tile" href="early-orthodontics.html"><h3 class="h3">Early orthodontics</h3><p class="body">Phase 1 treatment, expanders, space maintainers, and corrective appliances, timed to a child’s growth.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
-      <a class="tile" href="airway.html"><h3 class="h3">Airway &amp; functional</h3><p class="body">Expansion and appliance therapy for patients whose bite, jaw, and breathing are worth looking at together.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
-      <a class="tile" href="retainers.html"><h3 class="h3">Retainers</h3><p class="body">Permanent, clear, and Hawley retention, fitted and monitored so the result holds.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
-      <a class="tile" href="appointment.html"><h3 class="h3">Not sure which applies?</h3><p class="body">Bring the question to a free consultation. The scan usually answers it in one visit.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
+      <a class="tile reveal" href="braces.html"><h3 class="h3">Braces</h3><p class="body">Metal, ceramic, and self-ligating systems, planned from a 3D scan and adjusted on a schedule that works around school days.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
+      <a class="tile reveal" href="invisalign.html"><h3 class="h3">Invisalign</h3><p class="body">Clear, removable aligners from a Platinum Plus provider, with a full 3D simulation of the result before treatment starts.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
+      <a class="tile reveal" href="early-orthodontics.html"><h3 class="h3">Early orthodontics</h3><p class="body">Phase 1 treatment, expanders, space maintainers, and corrective appliances, timed to a child’s growth.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
+      <a class="tile reveal" href="airway.html"><h3 class="h3">Airway &amp; functional</h3><p class="body">Expansion and appliance therapy for patients whose bite, jaw, and breathing are worth looking at together.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
+      <a class="tile reveal" href="retainers.html"><h3 class="h3">Retainers</h3><p class="body">Permanent, clear, and Hawley retention, fitted and monitored so the result holds.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
+      <a class="tile reveal" href="appointment.html"><h3 class="h3">Not sure which applies?</h3><p class="body">Bring the question to a free consultation. The scan usually answers it in one visit.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
     </div>
   </div>
 </section>
 <section class="cta-band">
-  <div class="container stack">
-    <h2 class="display display--sm">Start with a scan.</h2>
-    <p class="body measure">A free consultation tells you which treatment fits, how long it takes, and what it costs.</p>
-    <a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a>
-    <p class="mono">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
+  <div class="container stack stagger">
+    <h2 class="display display--sm reveal">Start with a scan.</h2>
+    <p class="body measure reveal">A free consultation tells you which treatment fits, how long it takes, and what it costs.</p>
+    <span class="reveal"><a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a></span>
+    <p class="mono reveal">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
   </div>
 </section>
 </main>
@@ -114,5 +115,33 @@
     </div>
   </div>
 </footer>
+<script>(function(){
+  var io;
+  function reveal(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    [].forEach.call(els,function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < innerHeight*0.9){e.classList.add('is-in');return} // already in view on load
+      io.observe(e);
+    });
+  }
+  function header(){
+    var on=false;
+    addEventListener('scroll',function(){
+      var s=scrollY>8;
+      if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}
+    },{passive:true});
+  }
+  if(document.readyState!=='loading'){reveal();header()}
+  else document.addEventListener('DOMContentLoaded',function(){reveal();header()});
+})();</script>
 </body>
 </html>

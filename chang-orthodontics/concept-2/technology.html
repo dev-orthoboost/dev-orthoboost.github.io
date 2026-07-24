@@ -7,6 +7,7 @@
 <title>Technology | Chang Orthodontics</title>
 <meta name="description" content="Digital scanning, low-dose 3D imaging, and treatment simulation at Chang Orthodontics in San Carlos, CA.">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,38 +44,38 @@
 </ol></div></nav>
 <section class="section section--ink">
   <div class="container stack">
-    <h1 class="display" style="color:var(--tint)">Diagnostics in three dimensions.</h1>
+    <h1 class="display display--tint reveal">Diagnostics in three dimensions.</h1>
     <p class="lede measure">Every plan here starts as data: a digital scan, low-dose 3D imaging, and a simulation you can look at before treatment begins.</p>
   </div>
 </section>
 <section class="section section--ink section--rule">
   <div class="container">
     <div class="tiles tiles--3">
-      <div class="tile"><h3 class="h3">Digital scanning</h3><p class="body">A wand, not a tray of putty. The scan is comfortable, takes about ten minutes, and produces a precise 3D model of your bite.</p></div>
-      <div class="tile"><h3 class="h3">Low-dose 3D imaging</h3><p class="body">Imaging shows roots, bone, and airway in one pass. It is how complex cases stop being guesswork.</p></div>
-      <div class="tile"><h3 class="h3">Planning and monitoring</h3><p class="body">Dr. Chang simulates tooth movement digitally, then checks real progress against that plan at every visit.</p></div>
+      <div class="tile reveal"><h3 class="h3">Digital scanning</h3><p class="body">A wand, not a tray of putty. The scan is comfortable, takes about ten minutes, and produces a precise 3D model of your bite.</p></div>
+      <div class="tile reveal"><h3 class="h3">Low-dose 3D imaging</h3><p class="body">Imaging shows roots, bone, and airway in one pass. It is how complex cases stop being guesswork.</p></div>
+      <div class="tile reveal"><h3 class="h3">Planning and monitoring</h3><p class="body">Dr. Chang simulates tooth movement digitally, then checks real progress against that plan at every visit.</p></div>
     </div>
   </div>
 </section>
 <section class="section">
   <div class="container">
     <div class="split">
-      <div class="split__media"><img src="assets/chang-doctor-scanner-01.jpg" alt="Dr. Chang using the digital scanner"></div>
-      <div class="stack">
+      <div class="split__media reveal reveal--still"><img src="assets/chang-doctor-scanner-01.jpg" alt="Dr. Chang using the digital scanner"></div>
+      <div class="stack stagger">
         <h2 class="h2">What this means for you</h2>
         <p class="body measure">Better diagnostics are only worth something if they change your experience. Here is where they do.</p>
-        <dl class="spec"><div class="spec__row"><dt>Fewer surprises</dt><dd>Plan and timeline seen up front</dd></div><div class="spec__row"><dt>Fewer visits</dt><dd>Fewer mid-course corrections</dd></div><div class="spec__row"><dt>More comfort</dt><dd>No impression trays</dd></div><div class="spec__row"><dt>Safer imaging</dt><dd>Low-dose, used when it changes a decision</dd></div></dl>
+        <dl class="spec reveal"><div class="spec__row"><dt>Fewer surprises</dt><dd>Plan and timeline seen up front</dd></div><div class="spec__row"><dt>Fewer visits</dt><dd>Fewer mid-course corrections</dd></div><div class="spec__row"><dt>More comfort</dt><dd>No impression trays</dd></div><div class="spec__row"><dt>Safer imaging</dt><dd>Low-dose, used when it changes a decision</dd></div></dl>
         <a class="btn btn--tertiary" href="appointment.html">Book a free consultation</a>
       </div>
     </div>
   </div>
 </section>
 <section class="cta-band">
-  <div class="container stack">
-    <h2 class="display display--sm">See it on your own scan.</h2>
-    <p class="body measure">The consultation includes the scan. You will see your own anatomy and your projected result in the same visit.</p>
-    <a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a>
-    <p class="mono">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
+  <div class="container stack stagger">
+    <h2 class="display display--sm reveal">See it on your own scan.</h2>
+    <p class="body measure reveal">The consultation includes the scan. You will see your own anatomy and your projected result in the same visit.</p>
+    <span class="reveal"><a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a></span>
+    <p class="mono reveal">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
   </div>
 </section>
 </main>
@@ -123,5 +124,33 @@
     </div>
   </div>
 </footer>
+<script>(function(){
+  var io;
+  function reveal(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    [].forEach.call(els,function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < innerHeight*0.9){e.classList.add('is-in');return} // already in view on load
+      io.observe(e);
+    });
+  }
+  function header(){
+    var on=false;
+    addEventListener('scroll',function(){
+      var s=scrollY>8;
+      if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}
+    },{passive:true});
+  }
+  if(document.readyState!=='loading'){reveal();header()}
+  else document.addEventListener('DOMContentLoaded',function(){reveal();header()});
+})();</script>
 </body>
 </html>

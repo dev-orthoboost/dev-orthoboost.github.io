@@ -7,6 +7,7 @@
 <title>Page not found | Chang Orthodontics</title>
 <meta name="description" content="That page could not be found.">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -38,16 +39,16 @@
 <main id="main">
 
 <section class="hero hero--compact">
-  <div class="hero__copy"><div class="hero__inner">
-    <h1 class="display display--sm">That page has moved.</h1>
-    <p class="lede measure" style="margin-top:20px">The link you followed does not point anywhere on this site any more. These are the pages people usually want.</p>
+  <div class="hero__copy"><div class="hero__inner stagger">
+    <h1 class="display display--sm reveal">That page has moved.</h1>
+    <p class="lede measure reveal">The link you followed does not point anywhere on this site any more. These are the pages people usually want.</p>
   </div></div>
 </section>
 <section class="section"><div class="container">
 <div class="tiles tiles--3">
-  <a class="tile" href="treatments.html"><h3 class="h3">Treatments</h3><p class="body">Braces, Invisalign, early orthodontics, airway care, and retainers.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
-  <a class="tile" href="appointment.html"><h3 class="h3">Book a consultation</h3><p class="body">Free exam and 3D scan, with a written estimate.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
-  <a class="tile" href="contact.html"><h3 class="h3">Contact</h3><p class="body">Address, hours, and directions to the San Carlos office.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
+  <a class="tile reveal" href="treatments.html"><h3 class="h3">Treatments</h3><p class="body">Braces, Invisalign, early orthodontics, airway care, and retainers.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
+  <a class="tile reveal" href="appointment.html"><h3 class="h3">Book a consultation</h3><p class="body">Free exam and 3D scan, with a written estimate.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
+  <a class="tile reveal" href="contact.html"><h3 class="h3">Contact</h3><p class="body">Address, hours, and directions to the San Carlos office.</p><span class="arrow"><span aria-hidden="true">&rarr;</span></span></a>
 </div>
 </div></section>
 </main>
@@ -96,5 +97,33 @@
     </div>
   </div>
 </footer>
+<script>(function(){
+  var io;
+  function reveal(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    [].forEach.call(els,function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < innerHeight*0.9){e.classList.add('is-in');return} // already in view on load
+      io.observe(e);
+    });
+  }
+  function header(){
+    var on=false;
+    addEventListener('scroll',function(){
+      var s=scrollY>8;
+      if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}
+    },{passive:true});
+  }
+  if(document.readyState!=='loading'){reveal();header()}
+  else document.addEventListener('DOMContentLoaded',function(){reveal();header()});
+})();</script>
 </body>
 </html>

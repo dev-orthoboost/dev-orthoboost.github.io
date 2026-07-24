@@ -7,6 +7,7 @@
 <title>Contact | Chang Orthodontics in San Carlos, CA</title>
 <meta name="description" content="Chang Orthodontics, 10 El Camino Real, Ste. 201, San Carlos, CA 94070. Call (650) 598-0888, Mon–Fri 9–5.">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,30 +44,30 @@
 </ol></div></nav>
 
 <section class="hero hero--compact">
-  <div class="hero__copy"><div class="hero__inner">
-    <h1 class="display display--sm">Come see us.</h1>
-    <p class="lede measure" style="margin-top:20px">We are the northernmost building in San Carlos, right on the Belmont line, between the Holiday Inn Express and Hyatt Place on El Camino Real.</p>
+  <div class="hero__copy"><div class="hero__inner stagger">
+    <h1 class="display display--sm reveal">Come see us.</h1>
+    <p class="lede measure reveal">We are the northernmost building in San Carlos, right on the Belmont line, between the Holiday Inn Express and Hyatt Place on El Camino Real.</p>
   </div></div>
 </section>
 <section class="section">
   <div class="container">
     <div class="split">
-      <div class="stack">
+      <div class="stack stagger">
         <h2 class="h2">Visit the practice</h2>
-        <dl class="spec"><div class="spec__row"><dt>Address</dt><dd>10 El Camino Real, Ste. 201, San Carlos, CA 94070</dd></div><div class="spec__row"><dt>Phone</dt><dd>(650) 598-0888</dd></div><div class="spec__row"><dt>Hours</dt><dd>Mon–Fri 9–5</dd></div><div class="spec__row"><dt>Parking</dt><dd>On site</dd></div></dl>
+        <dl class="spec reveal"><div class="spec__row"><dt>Address</dt><dd>10 El Camino Real, Ste. 201, San Carlos, CA 94070</dd></div><div class="spec__row"><dt>Phone</dt><dd>(650) 598-0888</dd></div><div class="spec__row"><dt>Hours</dt><dd>Mon–Fri 9–5</dd></div><div class="spec__row"><dt>Parking</dt><dd>On site</dd></div></dl>
         <p class="body measure">Phones are answered through lunch. If we miss you, we call back the same day.</p>
         <a class="btn btn--primary" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="split__media"><img src="assets/chang-office-reception-02.jpg" alt="Reception at Chang Orthodontics in San Carlos"></div>
+      <div class="split__media reveal reveal--still"><img src="assets/chang-office-reception-02.jpg" alt="Reception at Chang Orthodontics in San Carlos"></div>
     </div>
   </div>
 </section>
 <section class="cta-band">
-  <div class="container stack">
-    <h2 class="display display--sm">Prefer to talk it through?</h2>
-    <p class="body measure">Call (650) 598-0888 during office hours and ask for a free consultation.</p>
-    <a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a>
-    <p class="mono">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
+  <div class="container stack stagger">
+    <h2 class="display display--sm reveal">Prefer to talk it through?</h2>
+    <p class="body measure reveal">Call (650) 598-0888 during office hours and ask for a free consultation.</p>
+    <span class="reveal"><a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a></span>
+    <p class="mono reveal">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
   </div>
 </section>
 </main>
@@ -115,5 +116,33 @@
     </div>
   </div>
 </footer>
+<script>(function(){
+  var io;
+  function reveal(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    [].forEach.call(els,function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < innerHeight*0.9){e.classList.add('is-in');return} // already in view on load
+      io.observe(e);
+    });
+  }
+  function header(){
+    var on=false;
+    addEventListener('scroll',function(){
+      var s=scrollY>8;
+      if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}
+    },{passive:true});
+  }
+  if(document.readyState!=='loading'){reveal();header()}
+  else document.addEventListener('DOMContentLoaded',function(){reveal();header()});
+})();</script>
 </body>
 </html>

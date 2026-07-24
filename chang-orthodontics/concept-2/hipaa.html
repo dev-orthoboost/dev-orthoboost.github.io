@@ -7,6 +7,7 @@
 <title>HIPAA notice | Chang Orthodontics</title>
 <meta name="description" content="How your protected health information is used and disclosed.">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -41,13 +42,13 @@
   <li><span aria-current="page">HIPAA notice</span></li>
 </ol></div></nav>
 <section class="hero hero--compact">
-  <div class="hero__copy"><div class="hero__inner">
-    <h1 class="display display--sm">HIPAA notice</h1>
-    <p class="lede measure" style="margin-top:20px">How your protected health information is used and disclosed.</p>
+  <div class="hero__copy"><div class="hero__inner stagger">
+    <h1 class="display display--sm reveal">HIPAA notice</h1>
+    <p class="lede measure reveal">How your protected health information is used and disclosed.</p>
   </div></div>
 </section>
-<section class="section"><div class="container" style="max-width:800px">
-<p class="body measure" style="margin-bottom:20px">This page is a placeholder in the design preview. The live site carries the practice’s HIPAA Notice of Privacy Practices, which describes how medical information about you may be used and disclosed and how you can get access to it.</p><p class="body measure" style="margin-bottom:20px">The final wording is supplied by the practice or its counsel before launch and is not drafted here.</p>
+<section class="section"><div class="container container--prose">
+<p class="body measure prose-p">This page is a placeholder in the design preview. The live site carries the practice’s HIPAA Notice of Privacy Practices, which describes how medical information about you may be used and disclosed and how you can get access to it.</p><p class="body measure prose-p">The final wording is supplied by the practice or its counsel before launch and is not drafted here.</p>
 </div></section>
 </main>
 <footer class="site-footer">
@@ -95,5 +96,33 @@
     </div>
   </div>
 </footer>
+<script>(function(){
+  var io;
+  function reveal(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    [].forEach.call(els,function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < innerHeight*0.9){e.classList.add('is-in');return} // already in view on load
+      io.observe(e);
+    });
+  }
+  function header(){
+    var on=false;
+    addEventListener('scroll',function(){
+      var s=scrollY>8;
+      if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}
+    },{passive:true});
+  }
+  if(document.readyState!=='loading'){reveal();header()}
+  else document.addEventListener('DOMContentLoaded',function(){reveal();header()});
+})();</script>
 </body>
 </html>

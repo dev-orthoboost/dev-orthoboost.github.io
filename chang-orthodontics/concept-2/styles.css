@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500&display=swap');
 :root{
   --interactive:#005daa; --hover:#004a88; --active:#003b6e;
   --tint:#c1e4ea; --ink:#0d0d0d; --text:#0d0d0d; --text-2:#585959; --placeholder:#939598;
   --layer:#f4f4f4; --border:#e0e0e0; --border-strong:#8d8d8d; --error:#da1e28; --success:#24a148;
-  --sans:'IBM Plex Sans',system-ui,sans-serif; --serif:'IBM Plex Serif',Georgia,serif; --mono:'IBM Plex Mono',monospace;
-  --container:1312px;
+  --sans:'IBM Plex Sans',system-ui,sans-serif; --serif:'IBM Plex Serif',Georgia,serif; --mono:'Azeret Mono',ui-monospace,monospace;
+  --container:1312px; --gutter:32px;
+  --ease-productive:cubic-bezier(.2,0,.38,.9); --ease-expressive:cubic-bezier(.4,.14,.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;border-radius:0}
 html{scroll-behavior:smooth}
+::selection{background:var(--tint);color:var(--ink)}
 body{margin:0;font-family:var(--sans);font-size:16px;line-height:1.5;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{margin:0;font-weight:300;letter-spacing:0}
 p{margin:0}
@@ -18,7 +20,19 @@ a{color:var(--interactive)}
 .skip{position:absolute;left:-9999px;top:0;background:var(--interactive);color:#fff;padding:12px 16px;z-index:100;font-size:14px}
 .skip:focus{left:0}
 
-.container{max-width:var(--container);margin:0 auto;padding:0 32px;width:100%}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter);width:100%}
+/* Narrow reading columns stay locked to the page's left grid line instead of
+   centring themselves, so headings above them never sit out of alignment. */
+.container--narrow,.container--prose{
+  margin-left:max(var(--gutter),calc(50% - var(--container)/2 + var(--gutter)));
+  margin-right:auto;padding-left:0;width:auto}
+.container--narrow{max-width:952px}
+.stat-wrap{margin-top:-1px}
+.after-list{margin-top:32px}
+.stat-gap{margin-top:48px}
+.note-body{margin-top:12px}
+.container--prose{max-width:840px}
+.prose-p{margin-bottom:20px}
 .section{padding:96px 0}
 .section--tight{padding:64px 0}
 .section--layer{background:var(--layer)}
@@ -26,14 +40,14 @@ a{color:var(--interactive)}
 .section--rule{border-top:1px solid var(--border)}
 
 /* type */
-.display{font-family:var(--serif);font-weight:300;font-size:clamp(38px,4.6vw,60px);line-height:1.08}
-.display--sm{font-size:clamp(32px,3.4vw,44px);line-height:1.14}
+.display{font-family:var(--serif);font-weight:300;font-size:clamp(38px,4.6vw,60px);line-height:1.08;letter-spacing:-.012em}
+.display--sm{font-size:clamp(32px,3.4vw,44px);line-height:1.14;letter-spacing:-.008em}
 .h2{font-size:clamp(24px,2.4vw,30px);line-height:1.25;font-weight:400}
 .h3{font-size:20px;line-height:28px;font-weight:400}
 .lede{font-size:18px;line-height:28px;color:var(--text-2)}
 .body{font-size:16px;line-height:24px;color:var(--text-2)}
 .small{font-size:14px;line-height:22px;color:var(--text-2)}
-.mono{font-family:var(--mono);font-size:12px;line-height:16px;letter-spacing:.32px;text-transform:uppercase;color:var(--text-2)}
+.mono{font-family:var(--mono);font-size:11px;line-height:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);font-weight:500}
 .measure{max-width:60ch}
 .section--ink .body,.section--ink .lede{color:rgba(255,255,255,.78)}
 .section--ink .mono{color:var(--tint)}
@@ -93,19 +107,22 @@ a{color:var(--interactive)}
 /* hero */
 .hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;border-bottom:1px solid var(--border)}
 .hero__copy{padding:80px 0;display:flex;flex-direction:column;gap:28px;align-items:flex-start}
-.hero__inner{max-width:calc(var(--container)/2);margin-left:auto;padding:0 48px 0 32px;width:100%}
+.hero__inner{max-width:calc(var(--container)/2);margin-left:auto;padding:0 48px 0 var(--gutter);width:100%;
+  display:flex;flex-direction:column;gap:28px;align-items:flex-start}
+.step__body{margin-top:12px}
+.display--tint{color:var(--tint)}
 .hero__media{position:relative;background:var(--tint);align-self:stretch;min-height:420px}
 .hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero--compact{grid-template-columns:1fr;background:var(--layer)}
 .hero--compact .hero__copy{padding:64px 0}
-.hero--compact .hero__inner{max-width:var(--container);margin:0 auto;padding:0 32px}
+.hero--compact .hero__inner{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
 .checklist{display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none}
 .checklist li{display:flex;gap:12px;align-items:flex-start}
 .checklist .tick{color:var(--interactive);font-weight:600;line-height:1.5}
 
 /* stat bar */
 .statbar{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border)}
-.statbar>div{padding:24px 28px;border-right:1px solid var(--border)}
+.statbar>div{padding:24px;border-right:1px solid var(--border)}
 .statbar>div:last-child{border-right:none}
 .statbar .value{font-family:var(--serif);font-weight:300;font-size:36px;line-height:1.1}
 .statbar .mono{margin-top:8px}
@@ -119,7 +136,7 @@ a{color:var(--interactive)}
 .tile--layer{background:var(--layer)}
 a.tile:hover{border-color:var(--interactive)}
 .tile .h3{margin-bottom:12px}
-.tile .arrow{margin-top:auto;padding-top:20px;color:var(--interactive);font-size:14px}
+.tile .arrow{margin-top:auto;padding-top:20px;color:var(--interactive);font-size:14px;text-align:right}
 .section--ink .tile{background:transparent;border-color:rgba(255,255,255,.25);color:#fff}
 .section--ink .tile .body{color:rgba(255,255,255,.78)}
 
@@ -195,7 +212,7 @@ a.tile:hover{border-color:var(--interactive)}
   .menu{display:block}
   .site-header .container{position:relative}
   .hero{grid-template-columns:1fr}
-  .hero__inner{max-width:var(--container);margin:0;padding:0 24px}
+  .hero__inner{max-width:var(--container);margin:0;padding:0 var(--gutter)}
   .hero__copy{padding:56px 0}
   .hero__media{min-height:300px;order:-1}
   .split,.split--wide{grid-template-columns:1fr;gap:32px}
@@ -207,7 +224,7 @@ a.tile:hover{border-color:var(--interactive)}
   .site-footer .cols{grid-template-columns:1fr 1fr}
 }
 @media (max-width:680px){
-  .container{padding:0 24px}
+  :root{--gutter:24px}
   .section{padding:64px 0}
   .tiles--2,.tiles--3{grid-template-columns:1fr}
   .statbar{grid-template-columns:1fr}
@@ -219,4 +236,39 @@ a.tile:hover{border-color:var(--interactive)}
   .spec__row{flex-direction:column;gap:4px}
   .spec__row dd{text-align:left}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+/* ── motion ───────────────────────────────────────────────
+   Reveals are opt-in via html.js, set by an inline head script, so a
+   no-JS visitor sees everything immediately instead of a blank page. */
+html.js .reveal{opacity:0;transform:translateY(14px);
+  transition:opacity 520ms var(--ease-expressive),transform 520ms var(--ease-expressive);
+  transition-delay:calc(var(--i,0) * 70ms);will-change:opacity,transform}
+html.js .reveal.is-in{opacity:1;transform:none}
+html.js .reveal--still{transform:none}
+.stagger>*:nth-child(1){--i:0}.stagger>*:nth-child(2){--i:1}.stagger>*:nth-child(3){--i:2}
+.stagger>*:nth-child(4){--i:3}.stagger>*:nth-child(5){--i:4}.stagger>*:nth-child(6){--i:5}
+
+/* header condenses once you leave the top */
+.site-header .container{transition:min-height 220ms var(--ease-productive)}
+html.scrolled .site-header .container{min-height:52px}
+html.scrolled .site-header{border-bottom-color:var(--border-strong)}
+
+/* accordion body eases in; the marker rotates */
+.faq summary .plus{transition:transform 200ms var(--ease-productive)}
+.faq details[open] .answer{animation:answerIn 240ms var(--ease-productive) both}
+@keyframes answerIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+/* interactive polish */
+.tile .arrow{transition:transform 160ms var(--ease-productive)}
+a.tile:hover .arrow{transform:translateX(4px)}
+.link-arrow span{transition:transform 160ms var(--ease-productive);display:inline-block}
+.link-arrow:hover span{transform:translateX(4px)}
+.btn span{transition:transform 160ms var(--ease-productive);display:inline-block}
+.btn:hover span{transform:translateX(3px)}
+.nav a{transition:color 110ms var(--ease-productive)}
+.hero__media img{transition:transform 900ms var(--ease-expressive)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+  html.js .reveal{opacity:1;transform:none}
+}

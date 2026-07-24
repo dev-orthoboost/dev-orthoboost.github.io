@@ -7,6 +7,7 @@
 <title>Orthodontic tips and advice | Chang Orthodontics</title>
 <meta name="description" content="Practical articles on braces care, Invisalign, early treatment, and retention from Chang Orthodontics.">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,30 +44,30 @@
 </ol></div></nav>
 
 <section class="hero hero--compact">
-  <div class="hero__copy"><div class="hero__inner">
-    <h1 class="display display--sm">Notes from the practice.</h1>
-    <p class="lede measure" style="margin-top:20px">Practical answers to the questions that come up most, written by the person doing the treatment.</p>
+  <div class="hero__copy"><div class="hero__inner stagger">
+    <h1 class="display display--sm reveal">Notes from the practice.</h1>
+    <p class="lede measure reveal">Practical answers to the questions that come up most, written by the person doing the treatment.</p>
   </div></div>
 </section>
 <section class="section">
   <div class="container">
-    <div class="placeholder-note">
+    <div class="placeholder-note reveal">
       <p class="mono">Articles pending</p>
-      <p class="body" style="margin-top:12px">Article topics are planned with the practice and written before launch. The layout below shows how posts will be listed.</p>
+      <p class="body note-body">Article topics are planned with the practice and written before launch. The layout below shows how posts will be listed.</p>
     </div>
-    <div class="tiles tiles--3" style="margin-top:32px">
-      <div class="tile tile--layer"><h3 class="h3">Planned: caring for braces at home</h3><p class="body">[Placeholder] What to eat, what to avoid, and how to keep brackets clean without making it a chore.</p></div>
-      <div class="tile tile--layer"><h3 class="h3">Planned: when to have a child evaluated</h3><p class="body">[Placeholder] Why age 7 is the recommendation, and what an early exam actually looks at.</p></div>
-      <div class="tile tile--layer"><h3 class="h3">Planned: why retainers are not optional</h3><p class="body">[Placeholder] What relapse looks like, how fast it happens, and what retention actually requires.</p></div>
+    <div class="tiles tiles--3 after-list">
+      <div class="tile reveal tile--layer"><h3 class="h3">Planned: caring for braces at home</h3><p class="body">[Placeholder] What to eat, what to avoid, and how to keep brackets clean without making it a chore.</p></div>
+      <div class="tile reveal tile--layer"><h3 class="h3">Planned: when to have a child evaluated</h3><p class="body">[Placeholder] Why age 7 is the recommendation, and what an early exam actually looks at.</p></div>
+      <div class="tile reveal tile--layer"><h3 class="h3">Planned: why retainers are not optional</h3><p class="body">[Placeholder] What relapse looks like, how fast it happens, and what retention actually requires.</p></div>
     </div>
   </div>
 </section>
 <section class="cta-band">
-  <div class="container stack">
-    <h2 class="display display--sm">Have a question that is not covered?</h2>
-    <p class="body measure">Ask it at a free consultation, or call (650) 598-0888.</p>
-    <a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a>
-    <p class="mono">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
+  <div class="container stack stagger">
+    <h2 class="display display--sm reveal">Have a question that is not covered?</h2>
+    <p class="body measure reveal">Ask it at a free consultation, or call (650) 598-0888.</p>
+    <span class="reveal"><a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a></span>
+    <p class="mono reveal">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
   </div>
 </section>
 </main>
@@ -115,5 +116,33 @@
     </div>
   </div>
 </footer>
+<script>(function(){
+  var io;
+  function reveal(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    [].forEach.call(els,function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < innerHeight*0.9){e.classList.add('is-in');return} // already in view on load
+      io.observe(e);
+    });
+  }
+  function header(){
+    var on=false;
+    addEventListener('scroll',function(){
+      var s=scrollY>8;
+      if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}
+    },{passive:true});
+  }
+  if(document.readyState!=='loading'){reveal();header()}
+  else document.addEventListener('DOMContentLoaded',function(){reveal();header()});
+})();</script>
 </body>
 </html>

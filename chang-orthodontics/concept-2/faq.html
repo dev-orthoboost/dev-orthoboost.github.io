@@ -7,6 +7,7 @@
 <title>Orthodontic FAQ | Braces, Invisalign, and cost questions | Chang Orthodontics</title>
 <meta name="description" content="Answers about braces, Invisalign, treatment length, cost, insurance, and retainers at Chang Orthodontics in San Carlos, CA.">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,17 +44,17 @@
 </ol></div></nav>
 
 <section class="hero hero--compact">
-  <div class="hero__copy"><div class="hero__inner">
-    <h1 class="display display--sm">Questions, answered plainly.</h1>
-    <p class="lede measure" style="margin-top:20px">The things people actually ask at a first visit. If your question is not here, call the office and ask, or bring it to a free consultation.</p>
+  <div class="hero__copy"><div class="hero__inner stagger">
+    <h1 class="display display--sm reveal">Questions, answered plainly.</h1>
+    <p class="lede measure reveal">The things people actually ask at a first visit. If your question is not here, call the office and ask, or bring it to a free consultation.</p>
   </div></div>
 </section>
 <section class="section">
-  <div class="container" style="max-width:900px">
+  <div class="container container--narrow">
     
-    <div class="faq-group">
+    <div class="faq-group reveal">
       <h2 class="h2">Getting started</h2>
-      <div class="faq">
+      <div class="faq reveal">
   <details open>
     <summary><span class="h3">What ages do you treat?</span><span class="plus" aria-hidden="true">+</span></summary>
     <div class="answer"><p class="body measure">Everyone. Mostly kids and teens, and a growing number of adults. Treatment paths are tuned to each stage of growth.</p></div>
@@ -75,9 +76,9 @@
     <div class="answer"><p class="body measure">Yes. The exam, the 3D scan, and the written estimate cost nothing, whether or not you start treatment.</p></div>
   </details></div>
     </div>
-    <div class="faq-group">
+    <div class="faq-group reveal">
       <h2 class="h2">Choosing a treatment</h2>
-      <div class="faq">
+      <div class="faq reveal">
   <details open>
     <summary><span class="h3">Invisalign or braces?</span><span class="plus" aria-hidden="true">+</span></summary>
     <div class="answer"><p class="body measure">Both get excellent results in the right case. After your scan we show you a simulation of each and recommend the better fit for your goals. If your case genuinely does better with fixed braces, we will say so.</p></div>
@@ -99,9 +100,9 @@
     <div class="answer"><p class="body measure">It considers how the jaw and palate relate to the nasal airway alongside alignment and bite. It is an evaluation lens rather than a separate product, and it is part of the standard exam here.</p></div>
   </details></div>
     </div>
-    <div class="faq-group">
+    <div class="faq-group reveal">
       <h2 class="h2">Cost and insurance</h2>
-      <div class="faq">
+      <div class="faq reveal">
   <details open>
     <summary><span class="h3">How much does treatment cost?</span><span class="plus" aria-hidden="true">+</span></summary>
     <div class="answer"><p class="body measure">It depends on the plan. Your free consultation ends with a clear, itemized estimate in writing before any decision.</p></div>
@@ -119,9 +120,9 @@
     <div class="answer"><p class="body measure">Any change to scope or cost is reviewed and approved with you before it happens. The estimate you sign is the plan you are on.</p></div>
   </details></div>
     </div>
-    <div class="faq-group">
+    <div class="faq-group reveal">
       <h2 class="h2">During treatment</h2>
-      <div class="faq">
+      <div class="faq reveal">
   <details open>
     <summary><span class="h3">How long does treatment take?</span><span class="plus" aria-hidden="true">+</span></summary>
     <div class="answer"><p class="body measure">Most plans run 12 to 18 months. Your projected timeline comes from the 3D plan and is reviewed with you before anything starts.</p></div>
@@ -147,9 +148,9 @@
     <div class="answer"><p class="body measure">Call us. Most of these are simple fixes, and we hold same-day slots for existing patients with active problems.</p></div>
   </details></div>
     </div>
-    <div class="faq-group">
+    <div class="faq-group reveal">
       <h2 class="h2">After treatment</h2>
-      <div class="faq">
+      <div class="faq reveal">
   <details open>
     <summary><span class="h3">Will I need a retainer?</span><span class="plus" aria-hidden="true">+</span></summary>
     <div class="answer"><p class="body measure">Yes, always. Teeth drift when nothing holds them, and retention is what decides whether the result lasts.</p></div>
@@ -166,11 +167,11 @@
   </div>
 </section>
 <section class="cta-band">
-  <div class="container stack">
-    <h2 class="display display--sm">Still have a question?</h2>
-    <p class="body measure">Call (650) 598-0888 during office hours, or bring it to a free consultation and get it answered with your scan in front of you.</p>
-    <a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a>
-    <p class="mono">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
+  <div class="container stack stagger">
+    <h2 class="display display--sm reveal">Still have a question?</h2>
+    <p class="body measure reveal">Call (650) 598-0888 during office hours, or bring it to a free consultation and get it answered with your scan in front of you.</p>
+    <span class="reveal"><a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a></span>
+    <p class="mono reveal">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
   </div>
 </section>
 </main>
@@ -219,5 +220,33 @@
     </div>
   </div>
 </footer>
+<script>(function(){
+  var io;
+  function reveal(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    [].forEach.call(els,function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < innerHeight*0.9){e.classList.add('is-in');return} // already in view on load
+      io.observe(e);
+    });
+  }
+  function header(){
+    var on=false;
+    addEventListener('scroll',function(){
+      var s=scrollY>8;
+      if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}
+    },{passive:true});
+  }
+  if(document.readyState!=='loading'){reveal();header()}
+  else document.addEventListener('DOMContentLoaded',function(){reveal();header()});
+})();</script>
 </body>
 </html>
