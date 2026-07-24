@@ -14,10 +14,10 @@
         theme: {
           extend: {
             colors: {
-              "primary": "#0047bb",
-              "primary-bright": "#2e6dff",
+              "primary": "#005DAA",
+              "primary-bright": "#3E90CE",
               "on-primary": "#ffffff",
-              "primary-container": "#0047bb",
+              "primary-container": "#005DAA",
               "on-primary-container": "#afc1ff",
               "ink": "#1b1c1c",
               "surface": "#f5f8fe",
@@ -76,13 +76,13 @@
 
   /* Accessibility: visible focus + skip link */
   a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
-    outline: 2px solid #0047bb; outline-offset: 3px; border-radius: 3px;
+    outline: 2px solid #005DAA; outline-offset: 3px; border-radius: 3px;
   }
 
   /* ---- Scroll progress (transform, not width) ---- */
   #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; z-index: 60;
     transform-origin: 0 50%; transform: scaleX(0);
-    background: linear-gradient(90deg, #0047bb, #2e6dff); transition: transform .1s linear; }
+    background: #005DAA; transition: transform .1s linear; }
 
   /* ---- Scroll reveal (varied directions + stagger) ---- */
   [data-reveal] { opacity: 0; transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
@@ -98,11 +98,11 @@
   /* ---- Clean button (no hard shadow, centered) ---- */
   .btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
     border-radius: 5px; transition: transform .2s cubic-bezier(.16,1,.3,1), box-shadow .25s, background-color .2s, color .2s; }
-  .btn-primary { background: #0047bb; color: #fff; }
-  .btn-primary:hover { background: #2e6dff; }
-  .btn-primary:active { background: #003a99; }
+  .btn-primary { background: #005DAA; color: #fff; }
+  .btn-primary:hover { background: #3E90CE; }
+  .btn-primary:active { background: #003B6E; }
   .btn-outline { background: transparent; color: #1b1c1c; border: 1px solid #c3c6d6; }
-  .btn-outline:hover { background: #0047bb; color: #fff; border-color: #0047bb; }
+  .btn-outline:hover { background: #005DAA; color: #fff; border-color: #005DAA; }
 
   /* Vertical text swap on hover */
   .swap { position: relative; display: inline-block; overflow: hidden; line-height: 1.1; }
@@ -116,26 +116,24 @@
 
   /* ---- Nav underline + form success reveal ---- */
   .nav-link::after { content: ""; position: absolute; left: 0; bottom: -5px; height: 1px; width: 100%;
-    background: #0047bb; transform: scaleX(0); transform-origin: left;
+    background: #005DAA; transform: scaleX(0); transform-origin: left;
     transition: transform .35s cubic-bezier(.16,1,.3,1); }
   .nav-link:hover::after { transform: scaleX(1); }
   #consult-done, #hero-done { opacity: 0; transform: translateY(8px);
     transition: opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1); }
   #consult-done.is-shown, #hero-done.is-shown { opacity: 1; transform: none; }
   .faq-item { transition: border-color .3s ease; }
-  .faq-item[open] { border-color: rgba(0,71,187,.4); }
+  .faq-item[open] { border-color: rgba(0,93,170,.4); }
 
   /* ---- Card hover: hairline highlight, no shadow ---- */
   .lift { transition: border-color .35s ease, background-color .35s ease; }
-  .lift:hover { border-color: #0047bb; }
+  .lift:hover { border-color: #005DAA; }
 
   .badge-pill { transition: border-color .35s ease; }
-  .badge-pill:hover { border-color: #0047bb; }
+  .badge-pill:hover { border-color: #005DAA; }
 
   /* ---- Gradient border under hero ---- */
-  .gradient-rule { height: 3px; width: 100%;
-    background: linear-gradient(90deg, transparent 0%, rgba(0,71,187,0) 8%, #2e6dff 38%, #0047bb 50%, #2e6dff 62%, rgba(0,71,187,0) 92%, transparent 100%);
-    background-size: 200% 100%; animation: rule-shimmer 7s linear infinite; }
+  .gradient-rule { height: 2px; width: 100%; background: #005DAA; }
   @keyframes rule-shimmer { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
 
   /* Reveal animations translate elements in from off-canvas; clip the axis so
@@ -212,7 +210,7 @@
   @media (prefers-reduced-motion: reduce) { .rev-card { transition: none; } }
 
   .telemetry-readout { font-family: 'Hanken Grotesk', sans-serif; font-size: 9px; font-weight: 600; color: rgba(27,28,28,.78); text-transform: uppercase; letter-spacing: .12em; }
-  .dot-grid { background-image: radial-gradient(#0047bb 1px, transparent 1px); background-size: 22px 22px; }
+  .dot-grid { background-image: radial-gradient(#005DAA 1px, transparent 1px); background-size: 22px 22px; }
 
   html { scroll-behavior: smooth; }
   section[id], main > section { scroll-margin-top: 110px; }
@@ -230,29 +228,29 @@
      CLAY / GLASS DESIGN SYSTEM  (navy reskin of the medical hero)
      ============================================================ */
   :root{
-    --navy:#0047bb; --navy-bright:#2e6dff; --navy-deep:#003a99;
-    --clay-soft:#f4f7fe; --c-line:rgba(11,28,60,.08); --c-line-2:rgba(11,28,60,.14);
+    --navy:#005DAA; --navy-bright:#3E90CE; --navy-deep:#003B6E;
+    --clay-soft:#EEF6F8; --c-line:rgba(11,28,60,.08); --c-line-2:rgba(11,28,60,.14);
     --c-mute:#74747c; --c-mute-2:#9aa0b3; --c-ink:#1b1c1c; --c-ink-2:#434653;
     --display:'Archivo Black','Hanken Grotesk',sans-serif;
   }
 
   /* paper grain + atmosphere on the whole page */
   body::before{ content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
-    background:radial-gradient(circle at 1px 1px, rgba(0,71,187,.05) 1px, transparent 1.4px) 0 0/22px 22px;
+    background:radial-gradient(circle at 1px 1px, rgba(0,93,170,.05) 1px, transparent 1.4px) 0 0/22px 22px;
     opacity:.5; }
 
   /* soften the existing cards toward the clay language (page-wide theme) */
-  .lift{ box-shadow:0 1px 2px rgba(0,71,187,.04); }
-  .lift:hover{ box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 16px 42px rgba(0,71,187,.10); }
+  .lift{ box-shadow:0 1px 2px rgba(0,93,170,.04); }
+  .lift:hover{ box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 16px 42px rgba(0,93,170,.10); }
 
   /* ---- frosted pill nav ---- */
   #site-nav.pill-nav{ display:flex; align-items:center; justify-content:space-between; gap:14px;
     padding:9px 11px; background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.85);
     border-radius:999px; backdrop-filter:blur(18px) saturate(150%); -webkit-backdrop-filter:blur(18px) saturate(150%);
-    box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 8px 28px rgba(0,71,187,.12), 0 1px 4px rgba(0,0,0,.04); }
+    box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 8px 28px rgba(0,93,170,.12), 0 1px 4px rgba(0,0,0,.04); }
   .pill-logo{ display:inline-flex; align-items:center; gap:10px; padding:4px 12px 4px 6px; flex-shrink:0; }
   .pill-logo .logo-mark{ width:36px; height:36px; background:var(--navy); border-radius:10px; display:grid; place-items:center; color:#fff;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.25), inset 0 -2px 4px rgba(0,0,0,.32), 0 4px 12px rgba(0,71,187,.4); }
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.25), inset 0 -2px 4px rgba(0,0,0,.32), 0 4px 12px rgba(0,93,170,.4); }
   .pill-logo .logo-mark .material-symbols-outlined{ font-size:21px; }
   .pill-logo .logo-text{ display:flex; flex-direction:column; line-height:1; }
   .pill-logo .logo-text .a{ font-family:'Hanken Grotesk'; font-weight:800; font-size:14px; letter-spacing:-.01em; color:var(--c-ink); }
@@ -262,12 +260,12 @@
     font-family:'Hanken Grotesk'; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
     color:var(--c-ink-2); transition:background .25s,color .25s,transform .25s; }
   .nav-pill .material-symbols-outlined{ font-size:17px; opacity:.7; }
-  .nav-pill:hover{ background:rgba(0,71,187,.07); color:var(--navy); transform:translateY(-1px); }
+  .nav-pill:hover{ background:rgba(0,93,170,.07); color:var(--navy); transform:translateY(-1px); }
   .nav-pill.active{ background:var(--navy); color:#fff; }
   .nav-pill.active .material-symbols-outlined{ opacity:.95; }
   .pill-cta{ display:inline-flex; align-items:center; gap:8px; padding:5px 6px 5px 18px; background:#fff; border-radius:999px;
-    box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 4px 14px rgba(0,71,187,.12); transition:transform .25s, box-shadow .3s; white-space:nowrap; }
-  .pill-cta:hover{ transform:translateY(-1px); box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 8px 20px rgba(0,71,187,.22); }
+    box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 4px 14px rgba(0,93,170,.12); transition:transform .25s, box-shadow .3s; white-space:nowrap; }
+  .pill-cta:hover{ transform:translateY(-1px); box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 8px 20px rgba(0,93,170,.22); }
   .pill-cta .cta-text{ font-family:'Hanken Grotesk'; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--c-ink); }
   .pill-cta .cta-dot{ width:36px; height:36px; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center;
     box-shadow:inset 0 1px 0 rgba(255,255,255,.22), inset 0 -3px 5px rgba(0,0,0,.32); }
@@ -276,7 +274,7 @@
   /* ---- atmospheric glow blobs ---- */
   .wave-glow{ position:absolute; pointer-events:none; z-index:0; filter:blur(72px); aspect-ratio:1; }
   .wave-glow.a{ top:-60px; right:-40px; width:46%; background:radial-gradient(closest-side, rgba(46,109,255,.30), transparent 70%); }
-  .wave-glow.b{ top:34%; right:16%; width:34%; background:radial-gradient(closest-side, rgba(0,71,187,.20), transparent 70%); }
+  .wave-glow.b{ top:34%; right:16%; width:34%; background:radial-gradient(closest-side, rgba(0,93,170,.20), transparent 70%); }
   .wave-glow.c{ top:14%; left:-70px; width:30%; background:radial-gradient(closest-side, rgba(120,170,255,.26), transparent 70%); }
 
   /* ---- giant background stroked text (slow scroll) ---- */
@@ -285,7 +283,7 @@
   .bg-text-track{ display:inline-flex; white-space:nowrap; will-change:transform;
     animation:bg-text-scroll 100s linear infinite; }
   .bg-text-track span{ font-family:var(--display); font-size:clamp(110px,19vw,290px); line-height:.85; letter-spacing:-.04em;
-    color:transparent; -webkit-text-stroke:1.5px rgba(0,71,187,.24); user-select:none; padding-right:.35em; }
+    color:transparent; -webkit-text-stroke:1.5px rgba(0,93,170,.24); user-select:none; padding-right:.35em; }
   @keyframes bg-text-scroll{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-50%); } }
 
   /* ---- hero display ---- */
@@ -301,15 +299,15 @@
   .paren-group{ display:inline-flex; align-items:center; gap:8px; line-height:.94; }
   .paren-group .paren{ color:var(--navy); font-family:var(--display); transform:translateY(-2%); }
   .avatar-stack{ display:flex; }
-  .avatar-stack span{ width:42px; height:42px; border-radius:50%; border:2px solid #fff; margin-left:-15px;
+  .avatar-stack img{ object-fit:cover; }
+  .avatar-stack span,.avatar-stack img{ width:42px; height:42px; border-radius:50%; border:2px solid #fff; margin-left:-15px;
     display:grid; place-items:center; font-family:'Hanken Grotesk'; font-size:12px; font-weight:800; color:#fff;
-    box-shadow:2px 2px 6px rgba(0,71,187,.28); }
-  .avatar-stack span:first-child{ margin-left:0; }
-  .icon-tile{ position:relative; width:54px; height:54px; border-radius:100px; background:linear-gradient(160deg,#2e6dff,#0047bb);
+    box-shadow:2px 2px 6px rgba(0,93,170,.28); }
+  .avatar-stack span:first-child,.avatar-stack img:first-child{ margin-left:0; }
+  .icon-tile{ position:relative; width:54px; height:54px; border-radius:100px; background:#005DAA;
     display:inline-flex; align-items:center; justify-content:center; color:#eaf1ff; cursor:pointer; z-index:10;
-    box-shadow:0 24px 40px -16px rgba(0,40,110,.55), 0 10px 20px -6px rgba(0,40,110,.32), 0 3px 6px -1px rgba(0,40,110,.18), inset 0 2px 0 rgba(255,255,255,.18), inset 0 -3px 6px rgba(0,0,0,.4); }
-  .icon-tile::after{ content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
-    background:linear-gradient(155deg, rgba(255,255,255,.16) 0%, transparent 35%, transparent 70%, rgba(0,0,0,.3) 100%); }
+    box-shadow:0 24px 40px -16px rgba(0,59,110,.55), 0 10px 20px -6px rgba(0,59,110,.32), 0 3px 6px -1px rgba(0,59,110,.18), inset 0 2px 0 rgba(255,255,255,.18), inset 0 -3px 6px rgba(0,0,0,.4); }
+
   .icon-tile .material-symbols-outlined{ font-size:26px; }
 
   /* ---- spinning badge ---- */
@@ -319,7 +317,7 @@
   @keyframes badge-spin{ to{ transform:rotate(360deg); } }
   .badge-center{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:30px; height:30px; border-radius:50%;
     background:#fff; border:1px solid var(--c-line-2); display:grid; place-items:center; color:var(--navy);
-    box-shadow:0 4px 10px rgba(0,71,187,.12), inset 0 1px 0 #fff; }
+    box-shadow:0 4px 10px rgba(0,93,170,.12), inset 0 1px 0 #fff; }
 
   @media (max-width:1100px){ .spin-badge{ display:none; } }
   @media (max-width:900px){ .bg-text{ font-size:clamp(84px,26vw,180px); } }
@@ -359,11 +357,11 @@
 
   /* soft cobalt depth (replaces the flat hairline look) */
   #main .lift{ transition:border-color .35s ease, box-shadow .4s ease, transform .4s cubic-bezier(.34,1.56,.64,1);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 1px 4px rgba(0,0,0,.03), 0 12px 34px rgba(0,71,187,.07); }
-  #main .lift:hover{ box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 18px 48px rgba(0,71,187,.12), 0 38px 70px rgba(0,71,187,.05); }
-  #main .proc-card{ box-shadow:0 1px 4px rgba(0,0,0,.03), 0 10px 30px rgba(0,71,187,.06); }
-  #main .proc-card.is-active{ box-shadow:0 14px 40px rgba(0,71,187,.12); }
-  #contact .rounded-2xl{ box-shadow:0 1px 4px rgba(0,0,0,.03), 0 22px 60px rgba(0,71,187,.10); }
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 1px 4px rgba(0,0,0,.03), 0 12px 34px rgba(0,93,170,.07); }
+  #main .lift:hover{ box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 18px 48px rgba(0,93,170,.12), 0 38px 70px rgba(0,93,170,.05); }
+  #main .proc-card{ box-shadow:0 1px 4px rgba(0,0,0,.03), 0 10px 30px rgba(0,93,170,.06); }
+  #main .proc-card.is-active{ box-shadow:0 14px 40px rgba(0,93,170,.12); }
+  #contact .rounded-2xl{ box-shadow:0 1px 4px rgba(0,0,0,.03), 0 22px 60px rgba(0,93,170,.10); }
 
   /* bookend the closing CTA headline in the hero display face */
   #contact h2{ font-family:var(--display); font-weight:400; letter-spacing:-.03em; }
@@ -441,9 +439,9 @@
           <span class="paren-group">
             <span class="paren">(</span>
             <span class="avatar-stack" aria-hidden="true">
-              <span style="background:linear-gradient(135deg,#2e6dff,#0047bb)">PM</span>
-              <span style="background:linear-gradient(135deg,#0047bb,#003a99)">DR</span>
-              <span style="background:linear-gradient(135deg,#5b86ff,#2e6dff)">AT</span>
+              <img src="assets/chang-team-01.jpg" alt="">
+              <img src="assets/chang-community-01.jpg" alt="">
+              <img src="assets/chang-doctor-scanner-01.jpg" alt="">
             </span>
             <span class="icon-tile" title="3D scan"><span class="material-symbols-outlined" aria-hidden="true">view_in_ar</span></span>
             <span class="paren">)</span>
@@ -511,15 +509,15 @@
       </div>
       <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-8 pointer-events-none opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
         <svg viewBox="0 0 400 280" class="w-full" aria-hidden="true">
-          <g fill="none" stroke="#0047bb">
+          <g fill="none" stroke="#005DAA">
             <path d="M60 90 Q200 -10 340 90" stroke-opacity="0.25" stroke-width="1"/><path d="M70 120 Q200 250 330 120" stroke-opacity="0.5" stroke-width="1.5"/>
             <ellipse cx="200" cy="140" rx="150" ry="100" stroke-opacity="0.12"/><ellipse cx="200" cy="140" rx="110" ry="70" stroke-opacity="0.12"/>
             <line x1="200" y1="20" x2="200" y2="260" stroke-opacity="0.15" stroke-dasharray="2 6"/><line x1="40" y1="140" x2="360" y2="140" stroke-opacity="0.15" stroke-dasharray="2 6"/>
           </g>
-          <g fill="#0047bb" fill-opacity="0.85">
+          <g fill="#005DAA" fill-opacity="0.85">
             <rect x="92" y="150" width="14" height="22" rx="2"/><rect x="112" y="168" width="14" height="24" rx="2"/><rect x="135" y="182" width="15" height="26" rx="2"/><rect x="160" y="192" width="16" height="27" rx="2"/><rect x="186" y="196" width="17" height="28" rx="2"/><rect x="213" y="192" width="16" height="27" rx="2"/><rect x="239" y="182" width="15" height="26" rx="2"/><rect x="263" y="168" width="14" height="24" rx="2"/><rect x="284" y="150" width="14" height="22" rx="2"/>
           </g>
-          <g stroke="#0047bb" stroke-width="1">
+          <g stroke="#005DAA" stroke-width="1">
             <circle cx="195" cy="205" r="20" fill="none" stroke-opacity="0.6"/><line x1="195" y1="178" x2="195" y2="232" stroke-opacity="0.4"/><line x1="168" y1="205" x2="222" y2="205" stroke-opacity="0.4"/>
           </g>
         </svg>
@@ -649,6 +647,26 @@
   </div>
 </section>
 
+
+<!-- ===== The Specialist ===== -->
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto" id="doctor">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <div class="lift bg-white border border-outline-variant rounded-lg overflow-hidden" data-reveal="left">
+      <img src="assets/chang-doctor-scanner-01.jpg" alt="Dr. Michael Chang beside the digital scanner at Chang Orthodontics" class="w-full h-[440px] object-cover"/>
+    </div>
+    <div data-reveal="right">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface leading-tight">Meet Dr. Michael Chang</h2>
+      <p class="font-body-md text-on-surface-variant leading-relaxed mt-5 max-w-md">Board-certified orthodontist, UCSF faculty, with master&#39;s-level training in airway orthodontics. Sixteen years in, he still reviews every scan himself.</p>
+      <dl class="mt-8 border-t border-outline">
+        <div class="flex justify-between gap-4 py-4 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-widest text-on-surface-variant">Certification</dt><dd class="font-data-point text-sm font-bold text-on-surface">ABO Board-Certified</dd></div>
+        <div class="flex justify-between gap-4 py-4 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-widest text-on-surface-variant">Faculty</dt><dd class="font-data-point text-sm font-bold text-on-surface">UCSF</dd></div>
+        <div class="flex justify-between gap-4 py-4 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-widest text-on-surface-variant">Advanced Training</dt><dd class="font-data-point text-sm font-bold text-on-surface">Airway Orthodontics</dd></div>
+        <div class="flex justify-between gap-4 py-4 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-widest text-on-surface-variant">Invisalign Tier</dt><dd class="font-data-point text-sm font-bold text-on-surface">Platinum Plus</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Quantifiable Results ===== -->
 <section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto reveal" id="results">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -658,15 +676,15 @@
         <span class="font-label-sans text-[11px] uppercase tracking-widest text-primary font-bold">11.4 mo</span>
       </div>
       <svg viewBox="0 0 620 310" class="w-full" role="img" aria-label="Line chart: predicted versus achieved alignment rising from month 0 to month 11, reaching the target.">
-        <defs><linearGradient id="curve-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0047bb" stop-opacity="0.12"/><stop offset="100%" stop-color="#0047bb" stop-opacity="0"/></linearGradient></defs>
+        <defs><linearGradient id="curve-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#005DAA" stop-opacity="0.12"/><stop offset="100%" stop-color="#005DAA" stop-opacity="0"/></linearGradient></defs>
         <g stroke="#c3c6d6" stroke-width="1"><line x1="64" y1="40" x2="580" y2="40"/><line x1="64" y1="110" x2="580" y2="110"/><line x1="64" y1="180" x2="580" y2="180"/><line x1="64" y1="250" x2="580" y2="250"/></g>
         <line x1="64" y1="40" x2="64" y2="250" stroke="#737685" stroke-width="1"/>
         <g fill="#737685" style="font-family:'JetBrains Mono';font-size:9px;letter-spacing:0.5px;"><text x="58" y="44" text-anchor="end">100%</text><text x="58" y="114" text-anchor="end">75%</text><text x="58" y="184" text-anchor="end">50%</text><text x="58" y="254" text-anchor="end">25%</text></g>
-        <line x1="64" y1="56" x2="580" y2="56" stroke="#0047bb" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.45"/>
-        <text x="576" y="48" text-anchor="end" fill="#0047bb" style="font-family:'JetBrains Mono';font-size:9px;letter-spacing:1px;">TARGET</text>
+        <line x1="64" y1="56" x2="580" y2="56" stroke="#005DAA" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.45"/>
+        <text x="576" y="48" text-anchor="end" fill="#005DAA" style="font-family:'JetBrains Mono';font-size:9px;letter-spacing:1px;">TARGET</text>
         <path class="chart-area" d="M64 240 C190 232, 270 150, 350 118 S520 64, 580 56 L580 250 L64 250 Z" fill="url(#curve-fill)"/>
-        <path class="chart-line" d="M64 240 C190 232, 270 150, 350 118 S520 64, 580 56" fill="none" stroke="#0047bb" stroke-width="2.5" stroke-linecap="round"/>
-        <g fill="#fff" stroke="#0047bb" stroke-width="2"><circle class="chart-dot" cx="64" cy="240" r="4.5"/><circle class="chart-dot" cx="350" cy="118" r="4.5"/><circle class="chart-dot" cx="580" cy="56" r="4.5"/></g>
+        <path class="chart-line" d="M64 240 C190 232, 270 150, 350 118 S520 64, 580 56" fill="none" stroke="#005DAA" stroke-width="2.5" stroke-linecap="round"/>
+        <g fill="#fff" stroke="#005DAA" stroke-width="2"><circle class="chart-dot" cx="64" cy="240" r="4.5"/><circle class="chart-dot" cx="350" cy="118" r="4.5"/><circle class="chart-dot" cx="580" cy="56" r="4.5"/></g>
         <g fill="#434653" style="font-family:'JetBrains Mono';font-size:9px;letter-spacing:1px;"><text x="64" y="276">MONTH 0</text><text x="318" y="276">MONTH 6</text><text x="536" y="276">MONTH 11</text></g>
       </svg>
       <p class="font-label-sans text-[10px] uppercase tracking-widest text-on-surface-variant mt-6">Predicted vs. achieved alignment, tracked at every visit.</p>
