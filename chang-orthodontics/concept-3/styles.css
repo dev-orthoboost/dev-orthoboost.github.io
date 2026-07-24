@@ -5,9 +5,9 @@
   --ground:#fbfaf8; --warm:#f4f1ec; --line:#e7e4de; --line-soft:#f0ede8;
   --white:#ffffff; --error:#c0392b; --ok:#1f8a5b;
   --sans:'Karla',system-ui,sans-serif; --serif:'Newsreader',Georgia,serif;
-  --r-card:16px; --r-btn:10px; --r-img:18px; --r-pill:999px;
-  --shadow:0 1px 2px rgba(20,23,26,.04), 0 14px 34px -26px rgba(20,23,26,.28);
-  --shadow-lift:0 2px 4px rgba(20,23,26,.05), 0 22px 46px -28px rgba(20,23,26,.34);
+  --r-card:0; --r-btn:0; --r-img:0; --r-pill:0;
+  --shadow:none;
+  --shadow-lift:none;
   --container:1180px; --gutter:32px;
   --ease:cubic-bezier(.22,.61,.36,1); --ease-soft:cubic-bezier(.33,.02,.24,1);
 }
@@ -131,7 +131,25 @@ html.scrolled .site-header{border-bottom-color:var(--line);background:rgba(251,2
 .stats .label{margin-top:10px}
 .stats--ruled{border-top:1px solid var(--line);padding-top:36px}
 
-/* cards */
+/* editorial rows — the default here; hairlines instead of boxes */
+.rows{border-top:1px solid var(--line)}
+.rows__item{display:grid;grid-template-columns:minmax(190px,.85fr) 2fr minmax(0,auto);gap:36px;align-items:baseline;
+  padding:30px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;
+  transition:background 220ms var(--ease),padding-left 220ms var(--ease)}
+a.rows__item:hover{background:var(--white);padding-left:14px}
+a.rows__item:hover .rows__title{color:var(--navy)}
+.rows__title{font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.24;letter-spacing:-.012em;
+  transition:color 220ms var(--ease)}
+.rows__body{font-size:17px;line-height:1.62;color:var(--text-2)}
+.rows__go{font:600 15px/1.6 var(--sans);color:var(--navy);white-space:nowrap}
+
+/* plain column sets — a rule on top, no container */
+.colset{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:44px}
+.colset>div{border-top:2px solid var(--navy);padding-top:24px}
+.colset .h3{margin-bottom:10px}
+.section--navy .colset>div{border-top-color:var(--ice)}
+
+/* cards — kept only where the content really is a discrete object */
 .cards{display:grid;gap:22px}
 .cards--2{grid-template-columns:repeat(2,1fr)}
 .cards--3{grid-template-columns:repeat(3,1fr)}
@@ -229,6 +247,21 @@ html.js .reveal--still{transform:none}
 .stagger>*:nth-child(1){--i:0}.stagger>*:nth-child(2){--i:1}.stagger>*:nth-child(3){--i:2}
 .stagger>*:nth-child(4){--i:3}.stagger>*:nth-child(5){--i:4}.stagger>*:nth-child(6){--i:5}
 
+/* Desktop: the whole centred hero — copy, actions and photograph — is sized
+   to sit inside the first screen. The media flexes into whatever is left. */
+@media (min-width:1061px){
+  /* height, not min-height: the media is a flex child sized from what is
+     left over, which only works against a definite parent height. */
+  .hero--center{display:flex;height:calc(100vh - 124px);min-height:560px;padding:28px 0 36px;overflow:hidden}
+  .hero--center>.container{display:flex;flex-direction:column;justify-content:center;width:100%;min-height:0}
+  .hero--center .hero__copy{flex:0 0 auto}
+  .hero--center .display{font-size:clamp(38px,3.8vw,54px)}
+  .hero--center .hero__lede{margin-top:16px;font-size:18px}
+  .hero--center .hero__actions{margin-top:24px}
+  .hero--center .hero__note{margin-top:16px}
+  .hero--center .hero__media{margin-top:30px;aspect-ratio:auto;flex:1 1 0;min-height:0}
+  .hero--center .hero__media img{height:100%}
+}
 @media (max-width:1060px){
   .nav,.hdr-phone{display:none}
   .menu{display:block}
@@ -246,6 +279,10 @@ html.js .reveal--still{transform:none}
   .hero{padding:52px 0 0}
   .hero__media{margin-top:44px;aspect-ratio:4/3}
   .cards--2,.cards--3{grid-template-columns:1fr}
+  .rows__item{grid-template-columns:1fr;gap:8px;padding:24px 0}
+  a.rows__item:hover{padding-left:0}
+  .rows__title{font-size:22px}
+  .colset{gap:32px}
   .stats{grid-template-columns:1fr;gap:22px}
   .site-footer .cols{grid-template-columns:1fr}
   .cta{padding:56px 26px}
