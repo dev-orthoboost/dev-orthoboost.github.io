@@ -5,71 +5,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Treatments | Chang Orthodontics</title>
 <meta name="description" content="Chang Orthodontics: clinical-grade precision orthodontics. 3D volumetric imaging, AI-assisted treatment planning, and board-certified expertise for confident, healthy smiles."/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="stylesheet" href="tailwind.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#005DAA",
-              "primary-bright": "#3E90CE",
-              "on-primary": "#ffffff",
-              "primary-container": "#005DAA",
-              "on-primary-container": "#afc1ff",
-              "ink": "#1b1c1c",
-              "surface": "#f5f8fe",
-              "on-surface": "#1b1c1c",
-              "surface-variant": "#e4e2e2",
-              "on-surface-variant": "#434653",
-              "outline": "#737685",
-              "outline-variant": "#c3c6d6",
-              "background": "#f5f8fe",
-              "accent": "#e6edff",
-              "accent-strong": "#cfe0ff",
-              "surface-container-low": "#edf2fc",
-              "surface-container-highest": "#e4e2e2"
-            },
-            borderRadius: {
-              "none": "0px", "sm": "3px", "DEFAULT": "4px", "md": "5px",
-              "lg": "6px", "xl": "8px", "2xl": "10px", "3xl": "14px", "full": "9999px"
-            },
-            boxShadow: {
-              "sharp-sm": "3px 3px 0 #1b1c1c",
-              "sharp": "4px 4px 0 #1b1c1c",
-              "sharp-lg": "5px 6px 0 #1b1c1c"
-            },
-            spacing: {
-              "component-gap": "1.5rem", "grid-gutter": "1rem", "grid-margin": "4rem", "section-padding": "7rem"
-            },
-            fontFamily: {
-              "headline-lg": ["Hanken Grotesk"], "label-sans": ["Hanken Grotesk"], "data-point": ["Hanken Grotesk"],
-              "display-xl": ["Hanken Grotesk"], "body-md": ["Hanken Grotesk"], "headline-lg-mobile": ["Hanken Grotesk"]
-            },
-            fontSize: {
-              "headline-lg": ["clamp(28px, 5vw, 46px)", {"lineHeight": "1.04", "letterSpacing": "-0.025em", "fontWeight": "800"}],
-              "label-sans": ["11px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500"}],
-              "data-point": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
-              "display-xl": ["clamp(40px, 6vw, 72px)", {"lineHeight": "0.96", "letterSpacing": "-0.04em", "fontWeight": "800"}],
-              "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-            },
-            keyframes: {
-              marquee: { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } },
-              floaty: { "0%,100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-6px)" } },
-              floaty2: { "0%,100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(5px)" } }
-            },
-            animation: {
-              marquee: "marquee 34s linear infinite",
-              floaty: "floaty 9s ease-in-out infinite",
-              floaty2: "floaty2 11s ease-in-out infinite"
-            }
-          }
-        }
-      }
-    </script>
 <style>
   body { font-family: 'Hanken Grotesk', sans-serif; letter-spacing: -0.01em; overflow-x: hidden; }
   h1, h2, h3 { text-wrap: balance; }
@@ -383,6 +324,7 @@
   @media (max-width:640px){ .offer-strip{font-size:11px} #nav-wrap{top:calc(1rem + 48px)} .page-hero{padding-top:170px} }
 </style>
 </head>
+
 <body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary antialiased">
 
 <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-md">Skip to content</a>
