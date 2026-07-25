@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap');
 :root{
   --navy:#005daa; --navy-deep:#00457f; --ice:#c1e4ea; --ice-soft:#e6f3f6;
-  --ink:#14171a; --text:#14171a; --text-2:#5a6068; --muted:#8b9199;
+  --ink:#14171a; --text:#14171a; --text-2:#5a6068; --muted:#5f666e;
   --ground:#fbfaf8; --warm:#f4f1ec; --line:#e7e4de; --line-soft:#f0ede8;
   --white:#ffffff; --error:#c0392b; --ok:#1f8a5b;
   /* One grotesque carries the whole concept: display, body and labels. */
@@ -231,7 +231,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-col
 /* footer */
 .site-footer{background:var(--ink);color:#fff;padding:76px 0 34px;margin-top:0}
 .site-footer .cols{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1.1fr;gap:34px}
-.site-footer h4{font:700 12px/1.5 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ice);margin-bottom:16px}
+.site-footer h2{font:700 12px/1.5 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ice);margin-bottom:16px}
 .site-footer a{display:block;font:400 15px/2.1 var(--sans);color:rgba(255,255,255,.76);text-decoration:none}
 .site-footer a:hover{color:#fff}
 .site-footer .logo{height:42px;width:auto;filter:brightness(0) invert(1);margin-bottom:18px}

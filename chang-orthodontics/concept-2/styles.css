@@ -92,6 +92,7 @@ a{color:var(--interactive)}
 /* banner */
 .banner{background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;gap:16px;
   flex-wrap:wrap;text-align:center;padding:10px 24px;font-size:14px}
+.banner .mono{color:var(--tint)}
 .banner a{color:var(--tint);text-decoration:none}
 .banner a:hover{text-decoration:underline}
 
@@ -197,9 +198,10 @@ a.tile:hover{border-color:var(--interactive)}
 /* footer */
 .site-footer{background:var(--ink);color:#fff;padding:64px 0 32px}
 .site-footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.1fr;gap:32px}
-.site-footer h4{font-family:var(--mono);font-size:12px;letter-spacing:.32px;text-transform:uppercase;color:var(--tint);margin-bottom:16px;font-weight:400}
+.site-footer h2{font-family:var(--mono);font-size:12px;letter-spacing:.32px;text-transform:uppercase;color:var(--tint);margin-bottom:16px;font-weight:400}
 .site-footer a{display:block;font:400 14px/2.1 var(--sans);color:rgba(255,255,255,.78);text-decoration:none}
 .site-footer a:hover{color:#fff}
+.site-footer .mono,.site-footer .small,.site-footer p{color:rgba(255,255,255,.78)}
 .site-footer .logo{height:38px;width:auto;filter:brightness(0) invert(1);margin-bottom:16px}
 .site-footer .legal{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:48px;padding-top:24px;
   border-top:1px solid rgba(255,255,255,.25)}
