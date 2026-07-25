@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap');
 :root{
   --navy:#005daa; --navy-deep:#00457f; --ice:#c1e4ea; --ice-soft:#e6f3f6;
   --ink:#14171a; --text:#14171a; --text-2:#5a6068; --muted:#8b9199;
   --ground:#fbfaf8; --warm:#f4f1ec; --line:#e7e4de; --line-soft:#f0ede8;
   --white:#ffffff; --error:#c0392b; --ok:#1f8a5b;
-  --sans:'Karla',system-ui,sans-serif; --serif:'Newsreader',Georgia,serif;
+  /* One grotesque carries the whole concept: display, body and labels. */
+  --sans:'Schibsted Grotesk',system-ui,sans-serif; --serif:'Schibsted Grotesk',system-ui,sans-serif;
   --r-card:0; --r-btn:0; --r-img:0; --r-pill:0;
   --shadow:none;
   --shadow-lift:none;
@@ -35,10 +36,10 @@ a{color:var(--navy)}
 .section--navy{background:var(--navy);color:#fff}
 
 /* type */
-.display{font-family:var(--serif);font-weight:300;font-size:clamp(40px,5vw,66px);line-height:1.08;letter-spacing:-.02em}
-.display--sm{font-size:clamp(30px,3.2vw,42px);line-height:1.16}
-.h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.7vw,36px);line-height:1.22;letter-spacing:-.015em}
-.h3{font-family:var(--sans);font-weight:600;font-size:18px;line-height:1.4;letter-spacing:0}
+.display{font-family:var(--sans);font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1.06;letter-spacing:-.034em}
+.display--sm{font-size:clamp(30px,3.2vw,42px);line-height:1.14;letter-spacing:-.028em}
+.h2{font-family:var(--sans);font-weight:500;font-size:clamp(26px,2.7vw,35px);line-height:1.2;letter-spacing:-.024em}
+.h3{font-family:var(--sans);font-weight:600;font-size:18px;line-height:1.4;letter-spacing:-.008em}
 .lede{font-size:19px;line-height:1.62;color:var(--text-2)}
 .body{font-size:17px;line-height:1.62;color:var(--text-2)}
 .small{font-size:15px;line-height:1.55;color:var(--text-2)}
@@ -53,8 +54,9 @@ a{color:var(--navy)}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:var(--r-btn);border:1px solid transparent;
-  font:600 15px/1 var(--sans);text-decoration:none;cursor:pointer;transition:background 200ms var(--ease),color 200ms var(--ease),
-  border-color 200ms var(--ease),transform 200ms var(--ease)}
+  font:600 15px/1 var(--sans);text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:background 200ms var(--ease),color 200ms var(--ease),border-color 200ms var(--ease),transform 200ms var(--ease)}
+.site-header .btn{padding:14px 20px}
 .btn:hover{transform:translateY(-1px)}
 .btn--primary{background:var(--navy);color:#fff}
 .btn--primary:hover{background:var(--navy-deep)}
@@ -76,8 +78,8 @@ html.scrolled .site-header{border-bottom-color:var(--line);background:rgba(251,2
 .brand{display:flex;align-items:center;gap:36px}
 .brand__logo{height:40px;width:auto}
 .nav{display:flex;gap:4px}
-.nav a{font:500 15px/1 var(--sans);color:var(--text);text-decoration:none;padding:10px 14px;border-radius:var(--r-pill);
-  transition:background 180ms var(--ease),color 180ms var(--ease)}
+.nav a{font:500 15px/1 var(--sans);color:var(--text);text-decoration:none;padding:10px 12px;border-radius:var(--r-pill);
+  white-space:nowrap;transition:background 180ms var(--ease),color 180ms var(--ease)}
 .nav a:hover{background:var(--warm)}
 .nav a[aria-current="page"]{color:var(--navy);background:var(--ice-soft)}
 .hdr-actions{display:flex;align-items:center;gap:18px}
@@ -127,7 +129,8 @@ html.scrolled .site-header{border-bottom-color:var(--line);background:rgba(251,2
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
 .stats>div{padding:4px 0}
-.stats .value{font-family:var(--serif);font-weight:300;font-size:clamp(34px,3.6vw,46px);line-height:1.05;color:var(--navy)}
+.stats .value{font-family:var(--sans);font-weight:400;font-size:clamp(34px,3.6vw,46px);line-height:1.05;
+  letter-spacing:-.032em;color:var(--navy)}
 .stats .label{margin-top:10px}
 .stats--ruled{border-top:1px solid var(--line);padding-top:36px}
 
@@ -138,7 +141,7 @@ html.scrolled .site-header{border-bottom-color:var(--line);background:rgba(251,2
   transition:background 220ms var(--ease),padding-left 220ms var(--ease)}
 a.rows__item:hover{background:var(--white);padding-left:14px}
 a.rows__item:hover .rows__title{color:var(--navy)}
-.rows__title{font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.24;letter-spacing:-.012em;
+.rows__title{font-family:var(--sans);font-weight:500;font-size:23px;line-height:1.26;letter-spacing:-.022em;
   transition:color 220ms var(--ease)}
 .rows__body{font-size:17px;line-height:1.62;color:var(--text-2)}
 .rows__go{font:600 15px/1.6 var(--sans);color:var(--navy);white-space:nowrap}
@@ -249,10 +252,11 @@ html.js .reveal--still{transform:none}
 
 /* Desktop: the whole centred hero — copy, actions and photograph — is sized
    to sit inside the first screen. The media flexes into whatever is left. */
-@media (min-width:1061px){
+@media (min-width:1201px){
   /* height, not min-height: the media is a flex child sized from what is
      left over, which only works against a definite parent height. */
-  .hero--center{display:flex;height:calc(100vh - 124px);min-height:560px;padding:28px 0 36px;overflow:hidden}
+  /* 46px offer banner + 79px header = 125px of chrome, plus 1px cushion. */
+  .hero--center{display:flex;height:calc(100vh - 126px);min-height:560px;padding:28px 0 36px;overflow:hidden}
   .hero--center>.container{display:flex;flex-direction:column;justify-content:center;width:100%;min-height:0}
   .hero--center .hero__copy{flex:0 0 auto}
   .hero--center .display{font-size:clamp(38px,3.8vw,54px)}
@@ -262,7 +266,7 @@ html.js .reveal--still{transform:none}
   .hero--center .hero__media{margin-top:30px;aspect-ratio:auto;flex:1 1 0;min-height:0}
   .hero--center .hero__media img{height:100%}
 }
-@media (max-width:1060px){
+@media (max-width:1200px){
   .nav,.hdr-phone{display:none}
   .menu{display:block}
   .hero--split{grid-template-columns:1fr;gap:40px;padding-bottom:72px}
@@ -275,6 +279,8 @@ html.js .reveal--still{transform:none}
 @media (max-width:680px){
   :root{--gutter:22px}
   body{font-size:16px}
+  /* logo + burger only; the menu panel already carries the booking link */
+  .hdr-actions .btn{display:none}
   .section{padding:68px 0}
   .hero{padding:52px 0 0}
   .hero__media{margin-top:44px;aspect-ratio:4/3}
