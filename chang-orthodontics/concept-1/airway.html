@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Airway &amp; functional | Chang Orthodontics</title>
+<meta name="description" content="Chang Orthodontics: clinical-grade precision orthodontics. 3D volumetric imaging, AI-assisted treatment planning, and board-certified expertise for confident, healthy smiles."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#005DAA",
+              "primary-bright": "#3E90CE",
+              "on-primary": "#ffffff",
+              "primary-container": "#005DAA",
+              "on-primary-container": "#afc1ff",
+              "ink": "#1b1c1c",
+              "surface": "#f5f8fe",
+              "on-surface": "#1b1c1c",
+              "surface-variant": "#e4e2e2",
+              "on-surface-variant": "#434653",
+              "outline": "#737685",
+              "outline-variant": "#c3c6d6",
+              "background": "#f5f8fe",
+              "accent": "#e6edff",
+              "accent-strong": "#cfe0ff",
+              "surface-container-low": "#edf2fc",
+              "surface-container-highest": "#e4e2e2"
+            },
+            borderRadius: {
+              "none": "0px", "sm": "3px", "DEFAULT": "4px", "md": "5px",
+              "lg": "6px", "xl": "8px", "2xl": "10px", "3xl": "14px", "full": "9999px"
+            },
+            boxShadow: {
+              "sharp-sm": "3px 3px 0 #1b1c1c",
+              "sharp": "4px 4px 0 #1b1c1c",
+              "sharp-lg": "5px 6px 0 #1b1c1c"
+            },
+            spacing: {
+              "component-gap": "1.5rem", "grid-gutter": "1rem", "grid-margin": "4rem", "section-padding": "7rem"
+            },
+            fontFamily: {
+              "headline-lg": ["Hanken Grotesk"], "label-sans": ["Hanken Grotesk"], "data-point": ["Hanken Grotesk"],
+              "display-xl": ["Hanken Grotesk"], "body-md": ["Hanken Grotesk"], "headline-lg-mobile": ["Hanken Grotesk"]
+            },
+            fontSize: {
+              "headline-lg": ["clamp(28px, 5vw, 46px)", {"lineHeight": "1.04", "letterSpacing": "-0.025em", "fontWeight": "800"}],
+              "label-sans": ["11px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500"}],
+              "data-point": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+              "display-xl": ["clamp(40px, 6vw, 72px)", {"lineHeight": "0.96", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+              "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            },
+            keyframes: {
+              marquee: { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } },
+              floaty: { "0%,100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-6px)" } },
+              floaty2: { "0%,100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(5px)" } }
+            },
+            animation: {
+              marquee: "marquee 34s linear infinite",
+              floaty: "floaty 9s ease-in-out infinite",
+              floaty2: "floaty2 11s ease-in-out infinite"
+            }
+          }
+        }
+      }
+    </script>
+<style>
+  body { font-family: 'Hanken Grotesk', sans-serif; letter-spacing: -0.01em; overflow-x: hidden; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  /* Accessibility: visible focus + skip link */
+  a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+    outline: 2px solid #005DAA; outline-offset: 3px; border-radius: 3px;
+  }
+
+  /* ---- Scroll progress (transform, not width) ---- */
+  #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; z-index: 60;
+    transform-origin: 0 50%; transform: scaleX(0);
+    background: #005DAA; transition: transform .1s linear; }
+
+  /* ---- Scroll reveal (varied directions + stagger) ---- */
+  [data-reveal] { opacity: 0; transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+    transition-delay: var(--d, 0s); will-change: opacity, transform; }
+  [data-reveal="up"]    { transform: translateY(30px); }
+  [data-reveal="down"]  { transform: translateY(-26px); }
+  [data-reveal="left"]  { transform: translateX(-40px); }
+  [data-reveal="right"] { transform: translateX(40px); }
+  [data-reveal="scale"] { transform: scale(.93); }
+  [data-reveal="fade"]  { transform: none; }
+  [data-reveal].in { opacity: 1; transform: none; }
+
+  /* ---- Clean button (no hard shadow, centered) ---- */
+  .btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+    border-radius: 5px; transition: transform .2s cubic-bezier(.16,1,.3,1), box-shadow .25s, background-color .2s, color .2s; }
+  .btn-primary { background: #005DAA; color: #fff; }
+  .btn-primary:hover { background: #3E90CE; }
+  .btn-primary:active { background: #003B6E; }
+  .btn-outline { background: transparent; color: #1b1c1c; border: 1px solid #c3c6d6; }
+  .btn-outline:hover { background: #005DAA; color: #fff; border-color: #005DAA; }
+
+  /* Vertical text swap on hover */
+  .swap { position: relative; display: inline-block; overflow: hidden; line-height: 1.1; }
+  .swap > span { display: block; transition: transform .38s cubic-bezier(.16,1,.3,1); }
+  .swap__in { position: absolute; inset: 0; transform: translateY(115%); }
+  .group:hover .swap__out, .btn:hover .swap__out { transform: translateY(-115%); }
+  .group:hover .swap__in, .btn:hover .swap__in { transform: translateY(0); }
+  .arrow-slide { display: inline-flex; overflow: hidden; width: 1.2rem; }
+  .arrow-slide .material-symbols-outlined { transform: translateX(-130%); transition: transform .38s cubic-bezier(.16,1,.3,1); }
+  .group:hover .arrow-slide .material-symbols-outlined, .btn:hover .arrow-slide .material-symbols-outlined { transform: translateX(0); }
+
+  /* ---- Nav underline + form success reveal ---- */
+  .nav-link::after { content: ""; position: absolute; left: 0; bottom: -5px; height: 1px; width: 100%;
+    background: #005DAA; transform: scaleX(0); transform-origin: left;
+    transition: transform .35s cubic-bezier(.16,1,.3,1); }
+  .nav-link:hover::after { transform: scaleX(1); }
+  #consult-done, #hero-done { opacity: 0; transform: translateY(8px);
+    transition: opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1); }
+  #consult-done.is-shown, #hero-done.is-shown { opacity: 1; transform: none; }
+  .faq-item { transition: border-color .3s ease; }
+  .faq-item[open] { border-color: rgba(0,93,170,.4); }
+
+  /* ---- Card hover: hairline highlight, no shadow ---- */
+  .lift { transition: border-color .35s ease, background-color .35s ease; }
+  .lift:hover { border-color: #005DAA; }
+
+  .badge-pill { transition: border-color .35s ease; }
+  .badge-pill:hover { border-color: #005DAA; }
+
+  /* ---- Gradient border under hero ---- */
+  .gradient-rule { height: 2px; width: 100%; background: #005DAA; }
+  @keyframes rule-shimmer { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
+
+  /* Reveal animations translate elements in from off-canvas; clip the axis so
+     they never produce a horizontal scrollbar mid-animation. No sticky here. */
+  body { overflow-x: hidden; }
+
+  /* ---- Marquee ---- */
+  .marquee-mask { overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+  .marquee-track { display: inline-flex; white-space: nowrap; will-change: transform; }
+  .marquee-mask:hover .marquee-track { animation-play-state: paused; }
+
+  /* ---- Expanding process row (grid-rows reveal, not max-height) ---- */
+  .proc-row { display: flex; gap: 1rem; }
+  .proc-card { flex: 1 1 0; min-width: 0; overflow: hidden; position: relative;
+    transition: flex-grow .45s cubic-bezier(.16,1,.3,1), background-color .4s, box-shadow .25s; }
+  .proc-card.is-active { flex-grow: 2.6; }
+  .proc-card .proc-body { display: grid; grid-template-rows: 0fr; opacity: 0;
+    transition: grid-template-rows .45s cubic-bezier(.16,1,.3,1), opacity .4s ease; }
+  .proc-card .proc-body > div { overflow: hidden; }
+  .proc-card.is-active .proc-body { grid-template-rows: 1fr; opacity: 1; }
+  @media (max-width: 900px) {
+    .proc-row { flex-direction: column; }
+    .proc-card { flex: 1 1 auto; }
+    .proc-card .proc-body { grid-template-rows: 1fr; opacity: 1; }
+  }
+
+  /* ---- Stats wipe-in ---- */
+  @keyframes os-wipe { to { clip-path: inset(0 0 0 0); } }
+  .active .outcomes-stat { clip-path: inset(0 100% 0 0); animation: os-wipe .6s cubic-bezier(.65,0,.35,1) forwards; }
+  .active .outcomes-stat:nth-child(1) { animation-delay: .1s; }
+  .active .outcomes-stat:nth-child(2) { animation-delay: .28s; }
+  .active .outcomes-stat:nth-child(3) { animation-delay: .46s; }
+
+  /* ---- Chart line draw (ease-out, no bounce) ---- */
+  .chart-line { transition: stroke-dashoffset 1.6s cubic-bezier(.45,0,.15,1); }
+  .chart-area { opacity: 0; transition: opacity .9s ease .5s; }
+  .chart-dot { transform: scale(0); transform-box: fill-box; transform-origin: center; transition: transform .5s cubic-bezier(.22,1,.36,1); }
+  .active .chart-area { opacity: 1; }
+  .active .chart-dot { transform: scale(1); }
+  .active .chart-dot:nth-child(1) { transition-delay: .55s; }
+  .active .chart-dot:nth-child(2) { transition-delay: .9s; }
+  .active .chart-dot:nth-child(3) { transition-delay: 1.25s; }
+
+  /* ---- FAQ accordion ---- */
+  .faq-item summary { list-style: none; cursor: pointer; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item .faq-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .faq-item[open] .faq-body { grid-template-rows: 1fr; }
+  .faq-item .faq-body > div { overflow: hidden; }
+  .faq-item .faq-plus { transition: transform .3s ease; }
+  .faq-item[open] .faq-plus { transform: rotate(45deg); }
+
+  /* ---- Mobile menu ---- */
+  #mobile-menu { transform-origin: top; transition: opacity .25s ease, transform .25s cubic-bezier(.16,1,.3,1); }
+  #mobile-menu.closed { opacity: 0; transform: translateY(-8px) scaleY(.98); pointer-events: none; }
+
+  /* ---- Testimonial full-bleed auto-scroll ---- */
+  .rev-full-bleed { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; }
+  .rev-viewport { -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+  .rev-track { display: flex; gap: 1.25rem; width: max-content; padding: 0 5vw;
+    animation: rev-scroll 46s linear infinite; }
+  .rev-track:hover, .rev-track:focus-within { animation-play-state: paused; }
+  @keyframes rev-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .rev-card { flex: 0 0 clamp(265px, 82vw, 430px); position: relative; overflow: hidden;
+    transition: border-color .3s, background-color .3s;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 8px; padding: 2rem; }
+  .rev-card:hover { background: rgba(255,255,255,.09); border-color: rgba(46,109,255,.55); }
+  @media (min-width: 768px) { .rev-card { flex-basis: 430px; } }
+  .rev-quote { position: absolute; top: .1rem; right: 1.1rem; font-family: Georgia, 'Times New Roman', serif;
+    font-size: 4.5rem; line-height: 1; color: rgba(46,109,255,.22); pointer-events: none; }
+  @media (prefers-reduced-motion: reduce) { .rev-card { transition: none; } }
+
+  .telemetry-readout { font-family: 'Hanken Grotesk', sans-serif; font-size: 9px; font-weight: 600; color: rgba(27,28,28,.78); text-transform: uppercase; letter-spacing: .12em; }
+  .dot-grid { background-image: radial-gradient(#005DAA 1px, transparent 1px); background-size: 22px 22px; }
+
+  html { scroll-behavior: smooth; }
+  section[id], main > section { scroll-margin-top: 110px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gradient-rule, .marquee-track, .bg-text-track, .rev-track, .animate-floaty, .animate-floaty2, .animate-pulse { animation: none !important; }
+    [data-reveal] { transition: none; opacity: 1; transform: none; }
+    .active .outcomes-stat { clip-path: none; animation: none; }
+    .chart-line { transition: none; }
+    .btn, .lift, .proc-card, .swap > span, #mobile-menu, #consult-done, #hero-done, .nav-link::after { transition: none; }
+    .spin-badge .ring { animation: none !important; }
+  }
+
+  /* ============================================================
+     CLAY / GLASS DESIGN SYSTEM  (navy reskin of the medical hero)
+     ============================================================ */
+  :root{
+    --navy:#005DAA; --navy-bright:#3E90CE; --navy-deep:#003B6E;
+    --clay-soft:#EEF6F8; --c-line:rgba(11,28,60,.08); --c-line-2:rgba(11,28,60,.14);
+    --c-mute:#74747c; --c-mute-2:#9aa0b3; --c-ink:#1b1c1c; --c-ink-2:#434653;
+    --display:'Archivo Black','Hanken Grotesk',sans-serif;
+  }
+
+  /* paper grain + atmosphere on the whole page */
+  body::before{ content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:radial-gradient(circle at 1px 1px, rgba(0,93,170,.05) 1px, transparent 1.4px) 0 0/22px 22px;
+    opacity:.5; }
+
+  /* soften the existing cards toward the clay language (page-wide theme) */
+  .lift{ box-shadow:0 1px 2px rgba(0,93,170,.04); }
+  .lift:hover{ box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 16px 42px rgba(0,93,170,.10); }
+
+  /* ---- frosted pill nav ---- */
+  #site-nav.pill-nav{ display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding:9px 11px; background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.85);
+    border-radius:999px; backdrop-filter:blur(18px) saturate(150%); -webkit-backdrop-filter:blur(18px) saturate(150%);
+    box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 8px 28px rgba(0,93,170,.12), 0 1px 4px rgba(0,0,0,.04); }
+  .pill-logo{ display:inline-flex; align-items:center; gap:10px; padding:4px 12px 4px 6px; flex-shrink:0; }
+  .pill-logo .logo-mark{ width:36px; height:36px; background:var(--navy); border-radius:10px; display:grid; place-items:center; color:#fff;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.25), inset 0 -2px 4px rgba(0,0,0,.32), 0 4px 12px rgba(0,93,170,.4); }
+  .pill-logo .logo-mark .material-symbols-outlined{ font-size:21px; }
+  .pill-logo .logo-text{ display:flex; flex-direction:column; line-height:1; }
+  .pill-logo .logo-text .a{ font-family:'Hanken Grotesk'; font-weight:800; font-size:14px; letter-spacing:-.01em; color:var(--c-ink); }
+  .pill-logo .logo-text .b{ font-family:'Hanken Grotesk'; font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--c-mute); margin-top:3px; }
+  .nav-pills{ align-items:center; gap:3px; }
+  .nav-pill{ display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border-radius:999px;
+    font-family:'Hanken Grotesk'; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--c-ink-2); transition:background .25s,color .25s,transform .25s; }
+  .nav-pill .material-symbols-outlined{ font-size:17px; opacity:.7; }
+  .nav-pill:hover{ background:rgba(0,93,170,.07); color:var(--navy); transform:translateY(-1px); }
+  .nav-pill.active{ background:var(--navy); color:#fff; }
+  .nav-pill.active .material-symbols-outlined{ opacity:.95; }
+  .pill-cta{ display:inline-flex; align-items:center; gap:8px; padding:5px 6px 5px 18px; background:#fff; border-radius:999px;
+    box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 4px 14px rgba(0,93,170,.12); transition:transform .25s, box-shadow .3s; white-space:nowrap; }
+  .pill-cta:hover{ transform:translateY(-1px); box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 8px 20px rgba(0,93,170,.22); }
+  .pill-cta .cta-text{ font-family:'Hanken Grotesk'; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--c-ink); }
+  .pill-cta .cta-dot{ width:36px; height:36px; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.22), inset 0 -3px 5px rgba(0,0,0,.32); }
+  .pill-cta .cta-dot .material-symbols-outlined{ font-size:18px; }
+
+  /* ---- atmospheric glow blobs ---- */
+  .wave-glow{ position:absolute; pointer-events:none; z-index:0; filter:blur(72px); aspect-ratio:1; }
+  .wave-glow.a{ top:-60px; right:-40px; width:46%; background:radial-gradient(closest-side, rgba(46,109,255,.30), transparent 70%); }
+  .wave-glow.b{ top:34%; right:16%; width:34%; background:radial-gradient(closest-side, rgba(0,93,170,.20), transparent 70%); }
+  .wave-glow.c{ top:14%; left:-70px; width:30%; background:radial-gradient(closest-side, rgba(120,170,255,.26), transparent 70%); }
+
+  /* ---- giant background stroked text (slow scroll) ---- */
+  .bg-text-mask{ position:absolute; left:0; top:42%; transform:translateY(-50%); z-index:0;
+    width:100%; overflow:hidden; pointer-events:none; }
+  .bg-text-track{ display:inline-flex; white-space:nowrap; will-change:transform;
+    animation:bg-text-scroll 100s linear infinite; }
+  .bg-text-track span{ font-family:var(--display); font-size:clamp(110px,19vw,290px); line-height:.85; letter-spacing:-.04em;
+    color:transparent; -webkit-text-stroke:1.5px rgba(0,93,170,.24); user-select:none; padding-right:.35em; }
+  @keyframes bg-text-scroll{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-50%); } }
+
+  /* ---- hero display ---- */
+  .clay-hero{ position:relative; }
+  .hero-eyebrow{ display:inline-flex; align-items:center; gap:10px; font-family:'Hanken Grotesk'; font-size:11px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.18em; color:var(--navy); }
+  .hero-eyebrow::before{ content:""; width:18px; height:1px; background:currentColor; }
+  .hero-eyebrow::after{ content:""; width:5px; height:5px; border-radius:50%; background:currentColor; }
+  .clay-title{ font-family:var(--display); font-weight:400; font-size:clamp(38px,6.6vw,86px); line-height:.96; letter-spacing:-.03em;
+    color:var(--c-ink); margin:0; position:relative; z-index:4; }
+  .title-line{ display:flex; align-items:center; gap:clamp(12px,1.4vw,22px); flex-wrap:wrap; }
+  .clay-title .word{ display:inline-block; }
+  .paren-group{ display:inline-flex; align-items:center; gap:8px; line-height:.94; }
+  .paren-group .paren{ color:var(--navy); font-family:var(--display); transform:translateY(-2%); }
+  .avatar-stack{ display:flex; }
+  .avatar-stack img{ object-fit:cover; }
+  .avatar-stack span,.avatar-stack img{ width:42px; height:42px; border-radius:50%; border:2px solid #fff; margin-left:-15px;
+    display:grid; place-items:center; font-family:'Hanken Grotesk'; font-size:12px; font-weight:800; color:#fff;
+    box-shadow:2px 2px 6px rgba(0,93,170,.28); }
+  .avatar-stack span:first-child,.avatar-stack img:first-child{ margin-left:0; }
+  .icon-tile{ position:relative; width:54px; height:54px; border-radius:100px; background:#005DAA;
+    display:inline-flex; align-items:center; justify-content:center; color:#eaf1ff; cursor:pointer; z-index:10;
+    box-shadow:0 24px 40px -16px rgba(0,59,110,.55), 0 10px 20px -6px rgba(0,59,110,.32), 0 3px 6px -1px rgba(0,59,110,.18), inset 0 2px 0 rgba(255,255,255,.18), inset 0 -3px 6px rgba(0,0,0,.4); }
+
+  .icon-tile .material-symbols-outlined{ font-size:26px; }
+
+  /* ---- spinning badge ---- */
+  .spin-badge{ position:absolute; top:-4px; right:1%; width:108px; height:108px; z-index:6; }
+  .spin-badge .ring{ position:absolute; inset:0; animation:badge-spin 18s linear infinite; }
+  .spin-badge:hover .ring{ animation-duration:6s; }
+  @keyframes badge-spin{ to{ transform:rotate(360deg); } }
+  .badge-center{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:30px; height:30px; border-radius:50%;
+    background:#fff; border:1px solid var(--c-line-2); display:grid; place-items:center; color:var(--navy);
+    box-shadow:0 4px 10px rgba(0,93,170,.12), inset 0 1px 0 #fff; }
+
+  @media (max-width:1100px){ .spin-badge{ display:none; } }
+  @media (max-width:900px){ .bg-text{ font-size:clamp(84px,26vw,180px); } }
+  @media (max-width:540px){
+    .clay-title{ font-size:clamp(32px,10.5vw,54px); }
+    .pill-cta .cta-text{ display:none; }
+    .pill-cta{ padding:5px; }
+    .pill-logo .logo-text{ display:none; }
+  }
+
+  /* ---- distilled hero: supporting line, action, trust ---- */
+  .hero-actions{ position:relative; z-index:5; margin-top:34px; max-width:680px; }
+  .hero-sub{ font-family:'Hanken Grotesk'; font-size:clamp(15px,1.3vw,18px); line-height:1.6; color:var(--c-ink-2); margin:0 0 22px; max-width:48ch; }
+  .hero-cta-row{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+  .hero-note{ display:inline-flex; align-items:center; gap:8px; font-family:'Hanken Grotesk'; font-size:12.5px; font-weight:600; color:var(--c-ink-2); }
+  .hero-note .material-symbols-outlined{ font-size:18px; color:var(--navy); }
+  .hero-trust-strip{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 0; margin-top:30px; padding-top:22px; border-top:1px solid var(--c-line-2); }
+  .hero-trust-strip span{ display:inline-flex; align-items:center; gap:9px; padding:0 22px; font-family:'Hanken Grotesk'; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--c-ink-2); }
+  .hero-trust-strip span:first-child{ padding-left:0; }
+  .hero-trust-strip span + span{ border-left:1px solid var(--c-line-2); }
+  @media (max-width:540px){ .hero-trust-strip span{ padding:0; } .hero-trust-strip span + span{ border-left:0; } }
+  .hero-trust-strip .material-symbols-outlined{ font-size:18px; color:var(--navy); }
+
+  /* ============================================================
+     UNIFY EXISTING SECTIONS WITH THE CLAY / GLASS HERO
+     ============================================================ */
+  /* pills everywhere */
+  .btn{ border-radius:999px; }
+  #main input[type="email"]{ border-radius:999px; }
+  footer a.rounded-md{ border-radius:999px; }
+
+  /* clay rounding across cards */
+  #main .lift, #main .proc-card{ border-radius:22px; }
+  #reviews .rev-card{ border-radius:20px; }
+  #contact .rounded-2xl{ border-radius:28px; }
+  footer .bg-accent.rounded-lg{ border-radius:20px; }
+
+  /* soft cobalt depth (replaces the flat hairline look) */
+  #main .lift{ transition:border-color .35s ease, box-shadow .4s ease, transform .4s cubic-bezier(.34,1.56,.64,1);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 1px 4px rgba(0,0,0,.03), 0 12px 34px rgba(0,93,170,.07); }
+  #main .lift:hover{ box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 18px 48px rgba(0,93,170,.12), 0 38px 70px rgba(0,93,170,.05); }
+  #main .proc-card{ box-shadow:0 1px 4px rgba(0,0,0,.03), 0 10px 30px rgba(0,93,170,.06); }
+  #main .proc-card.is-active{ box-shadow:0 14px 40px rgba(0,93,170,.12); }
+  #contact .rounded-2xl{ box-shadow:0 1px 4px rgba(0,0,0,.03), 0 22px 60px rgba(0,93,170,.10); }
+
+  /* bookend the closing CTA headline in the hero display face */
+  #contact h2{ font-family:var(--display); font-weight:400; letter-spacing:-.03em; }
+
+  @media (max-width:540px){ .info-grid{ grid-template-columns:1fr; } }
+</style>
+<noscript><style>[data-reveal]{opacity:1!important;transform:none!important;}</style></noscript>
+
+<style>
+  .offer-strip{position:fixed;top:0;left:0;width:100%;z-index:60;background:var(--c-ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:7px 16px;text-align:center}
+  .offer-strip span:first-child{color:#c1e4ea}
+  .offer-strip a{color:#c1e4ea}
+  #nav-wrap{top:calc(1rem + 34px)}
+  .page-hero{padding-top:clamp(150px,17vh,210px)}
+  .crumb-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .crumb-row a{color:var(--navy)}
+  @media (max-width:640px){ .offer-strip{font-size:11px} #nav-wrap{top:calc(1rem + 48px)} .page-hero{padding-top:170px} }
+</style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-md">Skip to content</a>
+
+<div id="scroll-progress"></div>
+
+<div class="offer-strip">
+  <span class="font-label-sans text-[10px] uppercase tracking-[0.2em]">Back to school</span>
+  <span class="font-body-md text-[13px]">$500 off full treatment with braces or Invisalign. New patients, all ages.</span>
+  <a class="font-label-sans text-[10px] uppercase tracking-widest underline underline-offset-4" href="appointment.html">Book a consult</a>
+</div>
+
+<!-- ===== Frosted pill navigation ===== -->
+<div class="fixed top-4 left-0 w-full z-50 px-4 md:px-grid-margin pointer-events-none" id="nav-wrap">
+  <div class="max-w-[1320px] mx-auto pointer-events-auto">
+    <div id="site-nav" class="pill-nav transition-transform duration-300">
+      <a href="index.html" class="pill-logo" aria-label="Chang Orthodontics home">
+        <span class="logo-mark" aria-hidden="true"><span class="material-symbols-outlined">dentistry</span></span>
+        <span class="logo-text"><span class="a">Chang</span><span class="b">Orthodontics</span></span>
+      </a>
+      <nav class="nav-pills hidden lg:flex" aria-label="Primary">
+        <a class="nav-pill" href="treatments.html"><span class="material-symbols-outlined">dentistry</span>Treatments</a>
+        <a class="nav-pill" href="new-patients.html"><span class="material-symbols-outlined">person_add</span>New patients</a>
+        <a class="nav-pill" href="technology.html"><span class="material-symbols-outlined">view_in_ar</span>Technology</a>
+        <a class="nav-pill" href="about.html"><span class="material-symbols-outlined">badge</span>About</a>
+        <a class="nav-pill" href="reviews.html"><span class="material-symbols-outlined">star</span>Reviews</a>
+        <a class="nav-pill" href="contact.html"><span class="material-symbols-outlined">call</span>Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="appointment.html" class="pill-cta hidden sm:inline-flex" aria-label="Book a consult">
+          <span class="cta-text">Book Consult</span>
+          <span class="cta-dot"><span class="material-symbols-outlined">arrow_outward</span></span>
+        </a>
+        <button id="nav-toggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-outline-variant text-on-surface" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="material-symbols-outlined" id="nav-toggle-icon">menu</span>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="closed lg:hidden mt-2 bg-white/90 backdrop-blur-md border border-outline-variant rounded-3xl p-3 shadow-lg">
+      <nav class="flex flex-col" aria-label="Mobile">
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="treatments.html">Treatments</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="new-patients.html">New patients</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="technology.html">Technology</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="about.html">About</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="reviews.html">Reviews</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="contact.html">Contact</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 transition-colors" href="faq.html">FAQ</a>
+      </nav>
+      <a href="appointment.html" class="pill-cta w-full mt-3 justify-between pl-5">
+        <span class="cta-text">Book Consult</span>
+        <span class="cta-dot"><span class="material-symbols-outlined">arrow_outward</span></span>
+      </a>
+    </div>
+  </div>
+</div>
+<main id="main">
+<div class="px-5 md:px-grid-margin max-w-[1320px] mx-auto pt-4">
+  <div class="crumb-row font-label-sans text-[10px] uppercase tracking-widest text-on-surface-variant">
+    <a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="treatments.html">Treatments</a> <span aria-hidden="true">/</span> <span aria-current="page">Airway &amp; functional</span>
+  </div>
+</div>
+
+<section class="page-hero pb-12 px-5 md:px-grid-margin max-w-[1320px] mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <h1 class="font-display-xl text-[clamp(2.1rem,5vw,3.6rem)] text-on-surface tracking-tight leading-[1.02]" data-reveal="up">Orthodontics with the airway in view.</h1>
+      <p class="font-body-md text-on-surface-variant leading-relaxed mt-6 max-w-xl" data-reveal="up" style="--d:.1s">How the jaw, palate, and airway develop together affects more than tooth position. Dr. Chang holds master’s-level training in airway orthodontics and evaluates the whole structure.</p>
+      <div class="flex flex-wrap gap-3 mt-9" data-reveal="up" style="--d:.18s"><a href="appointment.html" class="btn btn-primary group px-7 py-4 font-label-sans text-[12px] uppercase tracking-widest">
+  <span class="swap"><span class="swap__out">Book a free consult</span><span class="swap__in">Book a free consult</span></span>
+  <span class="arrow-slide"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+</a><a href="financing.html" class="btn btn-outline group px-7 py-4 font-label-sans text-[11px] uppercase tracking-widest">
+  <span class="swap"><span class="swap__out">See financing</span><span class="swap__in">See financing</span></span>
+  <span class="arrow-slide"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+</a></div>
+    </div>
+    <div class="lift bg-white border border-outline-variant rounded-lg overflow-hidden" data-reveal="right">
+      <img src="assets/chang-office-reception-02.jpg" alt="The reception area at Chang Orthodontics" class="w-full h-[420px] object-cover"/>
+    </div>
+  </div>
+</section>
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+  <div class="lg:col-span-4"><div class="mb-12">
+  <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">Sound Familiar?</h2>
+  <p class="font-body-md text-on-surface-variant leading-relaxed mt-5 max-w-2xl" data-reveal="up" style="--d:.1s">If any of these describe what you are seeing, an evaluation is the fastest way to get a clear answer.</p>
+</div></div>
+  <div class="lg:col-span-8"><ul class="border-t border-outline" data-reveal="up">
+  <li class="flex items-start gap-4 py-5 border-b border-outline-variant"><span class="material-symbols-outlined text-primary text-xl shrink-0" aria-hidden="true">check_circle</span><span class="font-body-md text-on-surface-variant leading-relaxed">Mouth breathing, snoring, or restless sleep</span></li>
+  <li class="flex items-start gap-4 py-5 border-b border-outline-variant"><span class="material-symbols-outlined text-primary text-xl shrink-0" aria-hidden="true">check_circle</span><span class="font-body-md text-on-surface-variant leading-relaxed">A narrow upper jaw or high palate</span></li>
+  <li class="flex items-start gap-4 py-5 border-b border-outline-variant"><span class="material-symbols-outlined text-primary text-xl shrink-0" aria-hidden="true">check_circle</span><span class="font-body-md text-on-surface-variant leading-relaxed">Crowding that keeps returning</span></li>
+  <li class="flex items-start gap-4 py-5 border-b border-outline-variant"><span class="material-symbols-outlined text-primary text-xl shrink-0" aria-hidden="true">check_circle</span><span class="font-body-md text-on-surface-variant leading-relaxed">A dentist or physician suggested an airway-focused evaluation</span></li>
+</ul></div>
+</div></section>
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="mb-12">
+  <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">How It Works</h2>
+  
+</div><div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+  <article class="lift bg-white border border-outline-variant rounded-lg p-8 flex flex-col" data-reveal="scale" style="--d:.0s">
+    <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface mb-4 leading-tight">Assess the structure</h3>
+    <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Imaging shows the palate, jaw relationship, and airway together rather than teeth in isolation.</p>
+  </article>
+  <article class="lift bg-white border border-outline-variant rounded-lg p-8 flex flex-col" data-reveal="scale" style="--d:.1s">
+    <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface mb-4 leading-tight">Expand where indicated</h3>
+    <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Palatal expansion, including MARPE and MSE approaches, can widen a narrow upper jaw in the right candidates.</p>
+  </article>
+  <article class="lift bg-white border border-outline-variant rounded-lg p-8 flex flex-col" data-reveal="scale" style="--d:.2s">
+    <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface mb-4 leading-tight">Coordinate care</h3>
+    <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">When findings fall outside orthodontics, we refer and work alongside your physician or dentist rather than treating past our lane.</p>
+  </article>
+</div></section>
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="mb-12">
+  <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">What To Expect</h2>
+  
+</div><div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+  <article class="bg-accent border border-outline-variant rounded-lg p-7 flex flex-col" data-reveal="up" style="--d:.0s">
+    <span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 01</span>
+    <h3 class="font-headline-lg text-[20px] uppercase tracking-tight text-on-surface leading-tight mt-6">Evaluation</h3>
+    <p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">A free consultation, scan, and airway assessment as part of the exam.</p>
+  </article>
+  <article class="bg-accent border border-outline-variant rounded-lg p-7 flex flex-col" data-reveal="up" style="--d:.1s">
+    <span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 02</span>
+    <h3 class="font-headline-lg text-[20px] uppercase tracking-tight text-on-surface leading-tight mt-6">Plan</h3>
+    <p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">If treatment is indicated, you get the reasoning, the appliance, and the timeline in writing.</p>
+  </article>
+  <article class="bg-accent border border-outline-variant rounded-lg p-7 flex flex-col" data-reveal="up" style="--d:.2s">
+    <span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 03</span>
+    <h3 class="font-headline-lg text-[20px] uppercase tracking-tight text-on-surface leading-tight mt-6">Follow-through</h3>
+    <p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">Progress is monitored at each visit, with referrals coordinated where they are needed.</p>
+  </article>
+</div></section>
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+  <div><div class="mb-12">
+  <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">What It Costs</h2>
+  <p class="font-body-md text-on-surface-variant leading-relaxed mt-5 max-w-2xl" data-reveal="up" style="--d:.1s">Treatment is quoted as part of a complete plan after your scan. Your consultation ends with an itemized estimate, and we arrange payment plans in house and coordinate your insurance benefit directly.</p>
+</div>
+  <a href="financing.html" class="btn btn-outline group px-7 py-4 font-label-sans text-[11px] uppercase tracking-widest">
+  <span class="swap"><span class="swap__out">Financing and payment plans</span><span class="swap__in">Financing and payment plans</span></span>
+  <span class="arrow-slide"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+</a></div>
+  <div class="lift bg-accent border border-outline-variant rounded-lg p-8" data-reveal="right">
+  <dl>
+    <div class="flex justify-between gap-3 py-3 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-wide text-on-surface-variant">Training</dt><dd class="font-data-point text-sm font-bold text-on-surface text-right">Master's-level airway education</dd></div>
+    <div class="flex justify-between gap-3 py-3 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-wide text-on-surface-variant">Approaches</dt><dd class="font-data-point text-sm font-bold text-on-surface text-right">Expansion · MARPE · MSE</dd></div>
+    <div class="flex justify-between gap-3 py-3 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-wide text-on-surface-variant">Assessment</dt><dd class="font-data-point text-sm font-bold text-on-surface text-right">Included in the exam</dd></div>
+    <div class="flex justify-between gap-3 py-3 "><dt class="font-label-sans text-[11px] uppercase tracking-wide text-on-surface-variant">Ages</dt><dd class="font-data-point text-sm font-bold text-on-surface text-right">Children and adults</dd></div>
+  </dl>
+</div>
+</div></section>
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="max-w-[920px] mx-auto"><div class="mb-12">
+  <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">Common Questions</h2>
+  
+</div><div class="flex flex-col gap-3">
+  <details class="faq-item lift bg-white border border-outline-variant rounded-lg px-6" data-reveal="up" style="--d:.00s" open>
+    <summary class="flex items-center justify-between gap-4 py-5"><span class="font-headline-lg text-[18px] tracking-tight text-on-surface">What is airway-focused orthodontics?</span><span class="faq-plus material-symbols-outlined text-primary text-2xl shrink-0" aria-hidden="true">add</span></summary>
+    <div class="faq-body"><div><p class="font-body-md text-on-surface-variant leading-relaxed pb-6">It considers how jaw and palate development relate to the nasal airway, alongside the usual goals of alignment and bite. It is an evaluation lens, not a separate product.</p></div></div>
+  </details>
+  <details class="faq-item lift bg-white border border-outline-variant rounded-lg px-6" data-reveal="up" style="--d:.01s">
+    <summary class="flex items-center justify-between gap-4 py-5"><span class="font-headline-lg text-[18px] tracking-tight text-on-surface">Is this a treatment for sleep apnea?</span><span class="faq-plus material-symbols-outlined text-primary text-2xl shrink-0" aria-hidden="true">add</span></summary>
+    <div class="faq-body"><div><p class="font-body-md text-on-surface-variant leading-relaxed pb-6">No. Sleep apnea is diagnosed and managed by physicians. Orthodontic treatment can sometimes support that care, and we coordinate with your medical team rather than replacing it.</p></div></div>
+  </details>
+  <details class="faq-item lift bg-white border border-outline-variant rounded-lg px-6" data-reveal="up" style="--d:.02s">
+    <summary class="flex items-center justify-between gap-4 py-5"><span class="font-headline-lg text-[18px] tracking-tight text-on-surface">Can adults be treated this way?</span><span class="faq-plus material-symbols-outlined text-primary text-2xl shrink-0" aria-hidden="true">add</span></summary>
+    <div class="faq-body"><div><p class="font-body-md text-on-surface-variant leading-relaxed pb-6">Sometimes. Adult palates are fused, so options differ from children and often involve skeletal approaches such as MARPE. The evaluation tells us what is realistic.</p></div></div>
+  </details>
+</div>
+<div class="text-center mt-10" data-reveal="up"><a href="faq.html" class="btn btn-outline group px-7 py-4 font-label-sans text-[11px] uppercase tracking-widest">
+  <span class="swap"><span class="swap__out">All frequently asked questions</span><span class="swap__in">All frequently asked questions</span></span>
+  <span class="arrow-slide"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+</a></div></div></section>
+
+<section class="px-5 md:px-grid-margin max-w-[1320px] mx-auto mb-section-padding">
+  <div class="relative bg-accent border border-outline-variant rounded-2xl px-5 py-16 md:py-24 overflow-hidden text-center" data-reveal="scale">
+    <div class="absolute inset-0 dot-grid opacity-[0.05] pointer-events-none"></div>
+    <div class="relative z-10 max-w-2xl mx-auto">
+      <h2 class="font-display-xl text-[clamp(1.9rem,4.4vw,3.2rem)] text-on-surface tracking-tight leading-[1.02]" data-reveal="up">Book your free consult.</h2>
+      <p class="font-body-md text-on-surface-variant mt-6 mb-10 max-w-lg mx-auto leading-relaxed" data-reveal="up" style="--d:.1s">A complimentary exam and digital scan with Dr. Chang. You leave with a clear plan and an itemized estimate.</p>
+      <div class="flex flex-wrap gap-3 justify-center" data-reveal="up" style="--d:.2s">
+        <a href="appointment.html" class="btn btn-primary group px-7 py-4 font-label-sans text-[12px] uppercase tracking-widest">
+  <span class="swap"><span class="swap__out">Request an appointment</span><span class="swap__in">Request an appointment</span></span>
+  <span class="arrow-slide"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+</a>
+        <a href="tel:6505980888" class="btn btn-outline group px-7 py-4 font-label-sans text-[11px] uppercase tracking-widest">
+  <span class="swap"><span class="swap__out">Call (650) 598-0888</span><span class="swap__in">Call (650) 598-0888</span></span>
+  <span class="arrow-slide"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+</a>
+      </div>
+      <div class="mt-9 flex flex-wrap justify-center gap-x-8 gap-y-2">
+        <span class="telemetry-readout">10 El Camino Real, Ste. 201, San Carlos, CA 94070</span>
+        <span class="telemetry-readout">Mon–Fri 9–5</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="bg-white border-t border-outline pt-16 pb-10">
+  <div class="grid grid-cols-12 gap-8 px-5 md:px-grid-margin max-w-[1320px] mx-auto">
+    <div class="col-span-12 md:col-span-4">
+      <img src="assets/chang-logo.svg" alt="Chang Orthodontics" class="h-8 w-auto mb-7"/>
+      <p class="font-label-sans text-[10px] uppercase text-on-surface-variant max-w-xs leading-loose tracking-widest">Precision clinical orthodontics. Confident, healthy smiles for every age.</p>
+    </div>
+    <div class="col-span-6 md:col-span-2">
+      <h5 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Treatments</h5>
+      <ul class="space-y-5">
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="braces.html">Braces</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="invisalign.html">Invisalign</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="early-orthodontics.html">Early orthodontics</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="airway.html">Airway & functional</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="retainers.html">Retainers</a></li>
+      </ul>
+    </div>
+    <div class="col-span-6 md:col-span-2">
+      <h5 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Patients</h5>
+      <ul class="space-y-5">
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="new-patients.html">New patients</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="faq.html">FAQ</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="financing.html">Financing</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="emergencies.html">Emergencies</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="reviews.html">Reviews</a></li>
+      </ul>
+    </div>
+    <div class="col-span-6 md:col-span-2">
+      <h5 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Practice</h5>
+      <ul class="space-y-5">
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="technology.html">Technology</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="kids-teens.html">Kids &amp; teens</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="adults.html">Adults</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="col-span-12 md:col-span-2">
+      <h5 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Practice Status</h5>
+      <div class="bg-accent border border-outline-variant rounded-lg p-7">
+        <p class="font-data-point text-[11px] text-on-surface-variant mb-5 flex justify-between"><span>BOOKING:</span><span class="text-primary font-bold">OPEN</span></p>
+        <p class="font-data-point text-[11px] text-on-surface-variant mb-5 flex justify-between"><span>HOURS:</span><span class="text-primary font-bold">MON–FRI 9–5</span></p>
+        <p class="font-data-point text-[11px] text-on-surface-variant mb-7 leading-relaxed">10 EL CAMINO REAL, STE. 201<br>SAN CARLOS, CA 94070</p>
+        <div class="flex gap-3">
+          <a class="inline-flex items-center justify-center w-11 h-11 rounded-md border border-outline-variant hover:bg-primary hover:text-white hover:border-primary transition-all" href="tel:6505980888" aria-label="Call (650) 598-0888"><span class="material-symbols-outlined text-sm" aria-hidden="true">call</span></a>
+          <a class="inline-flex items-center justify-center w-11 h-11 rounded-md border border-outline-variant hover:bg-primary hover:text-white hover:border-primary transition-all" href="appointment.html" aria-label="Request an appointment"><span class="material-symbols-outlined text-sm" aria-hidden="true">event</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-12 mt-14 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-[0.2em]">© 2026 Chang Orthodontics. 10 El Camino Real, Ste. 201, San Carlos, CA 94070. (650) 598-0888.</div>
+      <div class="flex gap-6 flex-wrap justify-center">
+        <a class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-widest hover:text-primary" href="privacy.html">Privacy</a>
+        <a class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-widest hover:text-primary" href="hipaa.html">HIPAA</a>
+        <a class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-widest hover:text-primary" href="terms.html">Terms</a>
+        <a class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-widest hover:text-primary" href="accessibility.html">Accessibility</a>
+        <span class="font-label-sans text-[10px] uppercase text-primary font-bold tracking-widest">ABO Board-Certified</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- ===== GSAP: hero load timeline + float + parallax ===== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  if(!window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.set("#site-nav > *",{y:-18,opacity:0});
+  gsap.set(".hero-eyebrow",{y:12,opacity:0});
+  gsap.set(".clay-title .word",{yPercent:115,opacity:0});
+  gsap.set(".paren-group .paren",{scale:0,opacity:0});
+  gsap.set(".avatar-stack",{scale:0,opacity:0});
+  gsap.set(".icon-tile",{scale:0,rotation:-45,opacity:0});
+  gsap.set(".spin-badge",{scale:0,rotation:-90,opacity:0});
+  gsap.set(".bg-text",{opacity:0,scale:1.1});
+  gsap.set(".wave-glow",{opacity:0});
+  gsap.set(".hero-actions > *",{y:18,opacity:0});
+
+  var tl = gsap.timeline({defaults:{ease:"power3.out"}, delay:.1});
+  tl.to("#site-nav > *",{y:0,opacity:1,duration:.6,stagger:.06})
+    .to(".wave-glow",{opacity:1,duration:1.1},"-=.4")
+    .to(".bg-text",{opacity:1,scale:1,duration:1.2},"-=1")
+    .to(".hero-eyebrow",{y:0,opacity:1,duration:.5},"-=.9")
+    .to(".clay-title .word",{yPercent:0,opacity:1,duration:.85,stagger:.06,ease:"power4.out"},"-=.7")
+    .to(".paren-group .paren",{scale:1,opacity:1,duration:.45,stagger:.1,ease:"back.out(2)"},"-=.45")
+    .to(".avatar-stack",{scale:1,opacity:1,duration:.5,ease:"back.out(1.7)"},"-=.3")
+    .to(".icon-tile",{scale:1,rotation:0,opacity:1,duration:.55,ease:"back.out(1.7)"},"-=.4")
+    .to(".spin-badge",{scale:1,rotation:0,opacity:1,duration:.7,ease:"back.out(1.7)"},"-=.45")
+    .to(".hero-actions > *",{y:0,opacity:1,duration:.55,stagger:.1},"-=.45");
+
+  // gentle continuous motion
+  gsap.to(".wave-glow.a",{y:12,scale:1.05,duration:6,repeat:-1,yoyo:true,ease:"sine.inOut"});
+  gsap.to(".wave-glow.b",{y:-16,x:-10,duration:7,repeat:-1,yoyo:true,ease:"sine.inOut"});
+  gsap.to(".wave-glow.c",{y:14,duration:8,repeat:-1,yoyo:true,ease:"sine.inOut"});
+  gsap.to(".icon-tile .material-symbols-outlined",{rotation:10,duration:4,repeat:-1,yoyo:true,ease:"sine.inOut",transformOrigin:"50% 50%"});
+
+  // scroll parallax
+  gsap.to(".bg-text",{scrollTrigger:{trigger:"#hero-section",start:"top top",end:"+=900",scrub:1.2},xPercent:-8,opacity:.45});
+  gsap.to(".spin-badge",{scrollTrigger:{trigger:"#hero-section",start:"top top",end:"+=700",scrub:1.5},y:70,rotation:24});
+})();
+</script>
+
+<script>
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Scroll progress (scaleX) ---- */
+  (function(){
+    var bar = document.getElementById('scroll-progress');
+    function update(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? (h.scrollTop / max) : 0) + ')';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  /* ---- Reveal observer ---- */
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ revealObs.observe(el); });
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- Section triggers: counters + chart draw + stat wipe ---- */
+  var sectionObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){ entry.target.classList.add('active'); animateCounters(); animateChart(); }
+    });
+  }, { threshold: 0.18 });
+  document.querySelectorAll('.reveal').forEach(function(el){ sectionObs.observe(el); });
+
+  function animateCounters(){
+    document.querySelectorAll('.diagnostic-counter').forEach(function(counter){
+      if (counter.dataset.done) return;
+      counter.dataset.done = '1';
+      var target = parseFloat(counter.getAttribute('data-target'));
+      var decimals = parseInt(counter.getAttribute('data-decimals') || '0');
+      var delay = parseInt(counter.getAttribute('data-delay') || '0');
+      if (reduceMotion){ counter.innerText = decimals > 0 ? target.toFixed(decimals) : target.toLocaleString(); return; }
+      var duration = 1800;
+      counter.innerText = decimals > 0 ? (0).toFixed(decimals) : '0';
+      setTimeout(function(){
+        var startTime = performance.now();
+        function update(now){
+          var progress = Math.min((now - startTime) / duration, 1);
+          var ease = 1 - Math.pow(2, -10 * progress);
+          var val = ease * target;
+          counter.innerText = decimals > 0 ? val.toFixed(decimals) : Math.floor(val).toLocaleString();
+          if (progress < 1) requestAnimationFrame(update);
+          else counter.innerText = decimals > 0 ? target.toFixed(decimals) : target.toLocaleString();
+        }
+        requestAnimationFrame(update);
+      }, delay);
+    });
+  }
+
+  function animateChart(){
+    var line = document.querySelector('.chart-line');
+    if (!line || line.dataset.done) return;
+    line.dataset.done = '1';
+    if (reduceMotion) return;
+    var len = line.getTotalLength();
+    line.style.strokeDasharray = len;
+    line.style.strokeDashoffset = len;
+    line.getBoundingClientRect();
+    line.style.strokeDashoffset = '0';
+  }
+
+  /* ---- Floating nav hide/show + mobile menu ---- */
+  (function(){
+    var nav = document.getElementById('site-nav');
+    var toggle = document.getElementById('nav-toggle');
+    var icon = document.getElementById('nav-toggle-icon');
+    var menu = document.getElementById('mobile-menu');
+    var lastY = window.scrollY, open = false;
+
+    function setMenu(o){
+      open = o;
+      menu.classList.toggle('closed', !o);
+      toggle.setAttribute('aria-expanded', o ? 'true' : 'false');
+      toggle.setAttribute('aria-label', o ? 'Close menu' : 'Open menu');
+      icon.textContent = o ? 'close' : 'menu';
+    }
+    setMenu(false);
+
+    toggle.addEventListener('click', function(){ setMenu(!open); });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setMenu(false); });
+
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      if (y < 80 || y < lastY) nav.style.transform = 'translateY(0)';
+      else if (y > lastY) { nav.style.transform = 'translateY(-160%)'; if (open) setMenu(false); }
+      lastY = y;
+    }, { passive: true });
+  })();
+
+  /* ---- Expanding process row ---- */
+  (function(){
+    var cards = document.querySelectorAll('#proc-row [data-proc]');
+    cards.forEach(function(card){
+      card.addEventListener('mouseenter', function(){
+        cards.forEach(function(c){
+          c.classList.toggle('is-active', c === card);
+          c.classList.toggle('bg-accent', c === card);
+          c.classList.toggle('bg-white', c !== card);
+        });
+      });
+    });
+  })();
+
+  /* ---- FAQ single-open ---- */
+  (function(){
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function(item){
+      item.addEventListener('toggle', function(){
+        if (item.open) items.forEach(function(o){ if (o !== item) o.open = false; });
+      });
+    });
+  })();
+
+  /* ---- Forms: refined success reveal ---- */
+  function showDone(done){
+    if (!done) return;
+    done.classList.remove('hidden');
+    done.getBoundingClientRect();
+    done.classList.add('is-shown');
+  }
+  function wireForm(formId, doneId){
+    var form = document.getElementById(formId), done = document.getElementById(doneId);
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = form.querySelector('input[type="email"]');
+      if (!email.checkValidity()){ email.reportValidity(); return; }
+      form.classList.add('hidden');
+      showDone(done);
+    });
+  }
+  wireForm('consult-form', 'consult-done');
+  wireForm('hero-form', 'hero-done');
+</script>
+</body>
+</html>

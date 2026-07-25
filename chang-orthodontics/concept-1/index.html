@@ -369,56 +369,74 @@
   @media (max-width:540px){ .info-grid{ grid-template-columns:1fr; } }
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;}</style></noscript>
+
+<style>
+  .offer-strip{position:fixed;top:0;left:0;width:100%;z-index:60;background:var(--c-ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:7px 16px;text-align:center}
+  .offer-strip span:first-child{color:#c1e4ea}
+  .offer-strip a{color:#c1e4ea}
+  #nav-wrap{top:calc(1rem + 34px)}
+  .page-hero{padding-top:clamp(150px,17vh,210px)}
+  .crumb-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .crumb-row a{color:var(--navy)}
+  @media (max-width:640px){ .offer-strip{font-size:11px} #nav-wrap{top:calc(1rem + 48px)} .page-hero{padding-top:170px} }
+</style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary antialiased">
 
-<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:font-label-sans focus:text-[11px] focus:uppercase focus:tracking-widest">Skip to content</a>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-md">Skip to content</a>
 
 <div id="scroll-progress"></div>
+
+<div class="offer-strip">
+  <span class="font-label-sans text-[10px] uppercase tracking-[0.2em]">Back to school</span>
+  <span class="font-body-md text-[13px]">$500 off full treatment with braces or Invisalign. New patients, all ages.</span>
+  <a class="font-label-sans text-[10px] uppercase tracking-widest underline underline-offset-4" href="appointment.html">Book a consult</a>
+</div>
 
 <!-- ===== Frosted pill navigation ===== -->
 <div class="fixed top-4 left-0 w-full z-50 px-4 md:px-grid-margin pointer-events-none" id="nav-wrap">
   <div class="max-w-[1320px] mx-auto pointer-events-auto">
     <div id="site-nav" class="pill-nav transition-transform duration-300">
-      <a href="#hero-section" class="pill-logo" aria-label="Chang Orthodontics home">
+      <a href="index.html" class="pill-logo" aria-label="Chang Orthodontics home">
         <span class="logo-mark" aria-hidden="true"><span class="material-symbols-outlined">dentistry</span></span>
         <span class="logo-text"><span class="a">Chang</span><span class="b">Orthodontics</span></span>
       </a>
       <nav class="nav-pills hidden lg:flex" aria-label="Primary">
-        <a class="nav-pill active" href="#hero-section"><span class="material-symbols-outlined">home</span>Home</a>
-        <a class="nav-pill" href="#diagnostics"><span class="material-symbols-outlined">view_in_ar</span>Diagnostics</a>
-        <a class="nav-pill" href="#modalities"><span class="material-symbols-outlined">dentistry</span>Treatments</a>
-        <a class="nav-pill" href="#process"><span class="material-symbols-outlined">conversion_path</span>Process</a>
-        <a class="nav-pill" href="#results"><span class="material-symbols-outlined">trending_up</span>Outcomes</a>
+        <a class="nav-pill" href="treatments.html"><span class="material-symbols-outlined">dentistry</span>Treatments</a>
+        <a class="nav-pill" href="new-patients.html"><span class="material-symbols-outlined">person_add</span>New patients</a>
+        <a class="nav-pill" href="technology.html"><span class="material-symbols-outlined">view_in_ar</span>Technology</a>
+        <a class="nav-pill" href="about.html"><span class="material-symbols-outlined">badge</span>About</a>
+        <a class="nav-pill" href="reviews.html"><span class="material-symbols-outlined">star</span>Reviews</a>
+        <a class="nav-pill" href="contact.html"><span class="material-symbols-outlined">call</span>Contact</a>
       </nav>
       <div class="flex items-center gap-2">
-        <a href="#contact" class="pill-cta hidden sm:inline-flex" aria-label="Book a consult">
+        <a href="appointment.html" class="pill-cta hidden sm:inline-flex" aria-label="Book a consult">
           <span class="cta-text">Book Consult</span>
           <span class="cta-dot"><span class="material-symbols-outlined">arrow_outward</span></span>
         </a>
-        <button id="nav-toggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-outline-variant text-on-surface hover:bg-primary hover:text-white hover:border-primary transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <button id="nav-toggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-outline-variant text-on-surface" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
           <span class="material-symbols-outlined" id="nav-toggle-icon">menu</span>
         </button>
       </div>
     </div>
-    <!-- mobile menu -->
     <div id="mobile-menu" class="closed lg:hidden mt-2 bg-white/90 backdrop-blur-md border border-outline-variant rounded-3xl p-3 shadow-lg">
       <nav class="flex flex-col" aria-label="Mobile">
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="#diagnostics">DIAGNOSTICS</a>
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="#modalities">TREATMENTS</a>
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="#process">PROCESS</a>
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="#results">OUTCOMES</a>
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="#reviews">REVIEWS</a>
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 transition-colors" href="#faq">FAQ</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="treatments.html">Treatments</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="new-patients.html">New patients</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="technology.html">Technology</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="about.html">About</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="reviews.html">Reviews</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="contact.html">Contact</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 transition-colors" href="faq.html">FAQ</a>
       </nav>
-      <a href="#contact" class="pill-cta w-full mt-3 justify-between pl-5">
+      <a href="appointment.html" class="pill-cta w-full mt-3 justify-between pl-5">
         <span class="cta-text">Book Consult</span>
         <span class="cta-dot"><span class="material-symbols-outlined">arrow_outward</span></span>
       </a>
     </div>
   </div>
 </div>
-
 <main id="main">
 <!-- ===== Hero (clay / glass) ===== -->
 <section class="relative overflow-hidden pt-32 md:pt-40 pb-12" id="hero-section">
@@ -856,7 +874,6 @@
 </section>
 </main>
 
-<!-- ===== Footer ===== -->
 <footer class="bg-white border-t border-outline pt-16 pb-10">
   <div class="grid grid-cols-12 gap-8 px-5 md:px-grid-margin max-w-[1320px] mx-auto">
     <div class="col-span-12 md:col-span-4">
@@ -866,40 +883,57 @@
     <div class="col-span-6 md:col-span-2">
       <h5 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Treatments</h5>
       <ul class="space-y-5">
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="#diagnostics">Diagnostics</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="#modalities">Clear Aligners</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="#modalities">Braces</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="#process">Process</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="braces.html">Braces</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="invisalign.html">Invisalign</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="early-orthodontics.html">Early orthodontics</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="airway.html">Airway & functional</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="retainers.html">Retainers</a></li>
       </ul>
     </div>
     <div class="col-span-6 md:col-span-2">
       <h5 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Patients</h5>
       <ul class="space-y-5">
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="#contact">Book a Consult</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="#faq">FAQ</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="#results">Outcomes</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="#reviews">Reviews</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="new-patients.html">New patients</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="faq.html">FAQ</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="financing.html">Financing</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="emergencies.html">Emergencies</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="reviews.html">Reviews</a></li>
       </ul>
     </div>
-    <div class="col-span-12 md:col-span-4">
+    <div class="col-span-6 md:col-span-2">
+      <h5 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Practice</h5>
+      <ul class="space-y-5">
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="technology.html">Technology</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="kids-teens.html">Kids &amp; teens</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="adults.html">Adults</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="col-span-12 md:col-span-2">
       <h5 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Practice Status</h5>
       <div class="bg-accent border border-outline-variant rounded-lg p-7">
         <p class="font-data-point text-[11px] text-on-surface-variant mb-5 flex justify-between"><span>BOOKING:</span><span class="text-primary font-bold">OPEN</span></p>
-        <p class="font-data-point text-[11px] text-on-surface-variant mb-7 flex justify-between"><span>HOURS:</span><span class="text-primary font-bold">MON–FRI 9–5</span></p>
+        <p class="font-data-point text-[11px] text-on-surface-variant mb-5 flex justify-between"><span>HOURS:</span><span class="text-primary font-bold">MON–FRI 9–5</span></p>
         <p class="font-data-point text-[11px] text-on-surface-variant mb-7 leading-relaxed">10 EL CAMINO REAL, STE. 201<br>SAN CARLOS, CA 94070</p>
         <div class="flex gap-3">
           <a class="inline-flex items-center justify-center w-11 h-11 rounded-md border border-outline-variant hover:bg-primary hover:text-white hover:border-primary transition-all" href="tel:6505980888" aria-label="Call (650) 598-0888"><span class="material-symbols-outlined text-sm" aria-hidden="true">call</span></a>
-          <a class="inline-flex items-center justify-center w-11 h-11 rounded-md border border-outline-variant hover:bg-primary hover:text-white hover:border-primary transition-all" href="#contact" aria-label="Request an appointment"><span class="material-symbols-outlined text-sm" aria-hidden="true">event</span></a>
+          <a class="inline-flex items-center justify-center w-11 h-11 rounded-md border border-outline-variant hover:bg-primary hover:text-white hover:border-primary transition-all" href="appointment.html" aria-label="Request an appointment"><span class="material-symbols-outlined text-sm" aria-hidden="true">event</span></a>
         </div>
       </div>
     </div>
     <div class="col-span-12 mt-14 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-[0.2em]">© 2026 Chang Orthodontics. 10 El Camino Real, Ste. 201, San Carlos, CA 94070. (650) 598-0888.</div>
-      <div class="flex gap-8"><span class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-widest">ABO Board-Certified</span><span class="font-label-sans text-[10px] uppercase text-primary font-bold tracking-widest">Now Accepting Patients</span></div>
+      <div class="flex gap-6 flex-wrap justify-center">
+        <a class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-widest hover:text-primary" href="privacy.html">Privacy</a>
+        <a class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-widest hover:text-primary" href="hipaa.html">HIPAA</a>
+        <a class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-widest hover:text-primary" href="terms.html">Terms</a>
+        <a class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-widest hover:text-primary" href="accessibility.html">Accessibility</a>
+        <span class="font-label-sans text-[10px] uppercase text-primary font-bold tracking-widest">ABO Board-Certified</span>
+      </div>
     </div>
   </div>
 </footer>
-
 <!-- ===== GSAP: hero load timeline + float + parallax ===== -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -1088,4 +1122,5 @@
   wireForm('consult-form', 'consult-done');
   wireForm('hero-form', 'hero-done');
 </script>
-</body></html>
+</body>
+</html>
