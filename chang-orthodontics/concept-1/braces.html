@@ -266,7 +266,7 @@
   }
 
   /* ---- distilled hero: supporting line, action, trust ---- */
-  .hero-actions{ position:relative; z-index:5; margin-top:34px; max-width:680px; }
+  .hero-actions{ position:relative; z-index:5; margin-top:0; max-width:680px; }
   .hero-sub{ font-family:'Hanken Grotesk'; font-size:clamp(15px,1.3vw,18px); line-height:1.6; color:var(--c-ink-2); margin:0 0 22px; max-width:48ch; }
   .hero-cta-row{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
   .hero-note{ display:inline-flex; align-items:center; gap:8px; font-family:'Hanken Grotesk'; font-size:12.5px; font-weight:600; color:var(--c-ink-2); }
@@ -274,9 +274,9 @@
   .why-photo{ margin-top:28px; }
   .why-photo img{ width:100%; height:260px; object-fit:cover; border-radius:14px; border:1px solid var(--c-line-2); box-shadow:4px 4px 0 #1b1c1c; }
   @media (max-width:1023px){ .why-photo img{ height:220px; } }
-  .hero-foot{ position:relative; z-index:5; display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:48px; align-items:start; }
+  .hero-foot{ position:relative; z-index:5; display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:48px; align-items:center; margin-top:40px; }
   .hero-photo{ margin:0; position:relative; }
-  .hero-photo img{ width:100%; height:360px; object-fit:cover; border-radius:14px; border:1px solid var(--c-line-2); box-shadow:5px 6px 0 #1b1c1c; }
+  .hero-photo img{ width:100%; height:400px; object-fit:cover; border-radius:14px; border:1px solid var(--c-line-2); box-shadow:5px 6px 0 #1b1c1c; }
   .hero-photo figcaption{ display:flex; align-items:center; gap:8px; margin-top:14px; font-family:'Hanken Grotesk'; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--c-ink-2); }
   .hero-photo figcaption .material-symbols-outlined{ font-size:16px; color:var(--navy); }
   @media (max-width:1023px){ .hero-foot{ grid-template-columns:1fr; gap:32px; } .hero-photo img{ height:280px; } }
@@ -385,8 +385,9 @@
   </div>
 </div>
 
-<section class="page-hero pb-12 px-5 md:px-grid-margin max-w-[1320px] mx-auto">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+<section class="page-hero relative overflow-hidden pb-14 px-5 md:px-grid-margin max-w-[1320px] mx-auto">
+  <div class="absolute inset-0 dot-grid opacity-[0.05] pointer-events-none"></div>
+  <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
     <div>
       <h1 class="font-display-xl text-[clamp(2.1rem,5vw,3.6rem)] text-on-surface tracking-tight leading-[1.02]" data-reveal="up">Braces, planned to the millimeter.</h1>
       <p class="font-body-md text-on-surface-variant leading-relaxed mt-6 max-w-xl" data-reveal="up" style="--d:.1s">Metal, ceramic, and self-ligating systems for kids, teens, and adults, mapped from a 3D scan before the first bracket goes on.</p>
@@ -397,16 +398,17 @@
   <span class="swap"><span class="swap__out">See financing</span><span class="swap__in">See financing</span></span>
   <span class="arrow-slide"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
 </a></div>
+      <div class="mt-8 flex flex-wrap gap-x-7 gap-y-2" data-reveal="up" style="--d:.26s"><span class="telemetry-readout">Free consult &amp; 3D scan</span><span class="telemetry-readout">No obligation</span></div>
     </div>
-    <div class="lift bg-white border border-outline-variant rounded-lg overflow-hidden" data-reveal="right">
+    <div class="lift bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sharp-lg" data-reveal="right">
       <img src="assets/web/chang-office-consult-01-1800.webp" srcset="assets/web/chang-office-consult-01-480.webp 480w, assets/web/chang-office-consult-01-768.webp 768w, assets/web/chang-office-consult-01-1200.webp 1200w, assets/web/chang-office-consult-01-1800.webp 1800w" sizes="(max-width: 1060px) 100vw, 50vw" width="1800" height="1350" alt="A consultation room at Chang Orthodontics" fetchpriority="high" decoding="async" class="w-full h-[420px] object-cover">
     </div>
   </div>
 </section>
 <section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
-  <div class="lg:col-span-4"><div class="mb-12">
+  <div class="lg:col-span-4"><div class="mb-12 md:flex md:items-end md:justify-between md:gap-10">
   <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">Sound Familiar?</h2>
-  <p class="font-body-md text-on-surface-variant leading-relaxed mt-5 max-w-2xl" data-reveal="up" style="--d:.1s">If any of these describe what you are seeing, an evaluation is the fastest way to get a clear answer.</p>
+  <p class="font-body-md text-base text-on-surface-variant leading-relaxed mt-4 md:mt-0 md:text-right max-w-sm" data-reveal="up" style="--d:.1s">If any of these describe what you are seeing, an evaluation is the fastest way to get a clear answer.</p>
 </div></div>
   <div class="lg:col-span-8"><ul class="border-t border-outline" data-reveal="up">
   <li class="flex items-start gap-4 py-5 border-b border-outline-variant"><span class="material-symbols-outlined text-primary text-xl shrink-0" aria-hidden="true">check_circle</span><span class="font-body-md text-on-surface-variant leading-relaxed">Teeth look crowded, overlapping, or gapped</span></li>
@@ -415,54 +417,58 @@
   <li class="flex items-start gap-4 py-5 border-b border-outline-variant"><span class="material-symbols-outlined text-primary text-xl shrink-0" aria-hidden="true">check_circle</span><span class="font-body-md text-on-surface-variant leading-relaxed">A teen is ready to start treatment</span></li>
 </ul></div>
 </div></section>
-<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="mb-12">
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="mb-12 md:flex md:items-end md:justify-between md:gap-10">
   <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">How It Works</h2>
   
 </div><div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-  <article class="lift bg-white border border-outline-variant rounded-lg p-8 flex flex-col" data-reveal="scale" style="--d:.0s">
-    <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface mb-4 leading-tight">Mapped from a scan</h3>
-    <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">A digital scan and 3D imaging show roots and bone, not just the surface, so the plan accounts for what is underneath.</p>
+  <article class="lift group bg-white border border-outline-variant rounded-lg p-8 flex flex-col hover:bg-primary transition-colors" data-reveal="scale" style="--d:.0s">
+    
+    <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface group-hover:text-on-primary transition-colors mb-4 leading-tight">Mapped from a scan</h3>
+    <p class="font-body-md text-sm text-on-surface-variant group-hover:text-white/80 transition-colors leading-relaxed">A digital scan and 3D imaging show roots and bone, not just the surface, so the plan accounts for what is underneath.</p>
   </article>
-  <article class="lift bg-white border border-outline-variant rounded-lg p-8 flex flex-col" data-reveal="scale" style="--d:.1s">
-    <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface mb-4 leading-tight">Brackets matched to the case</h3>
-    <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Metal, ceramic, or self-ligating, chosen for the movement required and how visible you want treatment to be.</p>
+  <article class="lift group bg-white border border-outline-variant rounded-lg p-8 flex flex-col hover:bg-primary transition-colors" data-reveal="scale" style="--d:.1s">
+    
+    <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface group-hover:text-on-primary transition-colors mb-4 leading-tight">Brackets matched to the case</h3>
+    <p class="font-body-md text-sm text-on-surface-variant group-hover:text-white/80 transition-colors leading-relaxed">Metal, ceramic, or self-ligating, chosen for the movement required and how visible you want treatment to be.</p>
   </article>
-  <article class="lift bg-white border border-outline-variant rounded-lg p-8 flex flex-col" data-reveal="scale" style="--d:.2s">
-    <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface mb-4 leading-tight">Adjusted on schedule</h3>
-    <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Short, predictable visits that keep the plan on target and respect school and work hours.</p>
+  <article class="lift group bg-white border border-outline-variant rounded-lg p-8 flex flex-col hover:bg-primary transition-colors" data-reveal="scale" style="--d:.2s">
+    
+    <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface group-hover:text-on-primary transition-colors mb-4 leading-tight">Adjusted on schedule</h3>
+    <p class="font-body-md text-sm text-on-surface-variant group-hover:text-white/80 transition-colors leading-relaxed">Short, predictable visits that keep the plan on target and respect school and work hours.</p>
   </article>
 </div></section>
-<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="mb-12">
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="mb-12 md:flex md:items-end md:justify-between md:gap-10">
   <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">What To Expect</h2>
   
 </div><div class="grid grid-cols-1 md:grid-cols-3 gap-5">
   <article class="bg-accent border border-outline-variant rounded-lg p-7 flex flex-col" data-reveal="up" style="--d:.0s">
-    <span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 01</span>
-    <h3 class="font-headline-lg text-[20px] uppercase tracking-tight text-on-surface leading-tight mt-6">Consultation and scan</h3>
+    <div class="flex items-center justify-between mb-7"><span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 01</span><span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">view_in_ar</span></div>
+    <h3 class="font-headline-lg text-[20px] uppercase tracking-tight text-on-surface leading-tight">Consultation and scan</h3>
     <p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">A free exam, a digital scan, and an itemized estimate. No obligation to start.</p>
   </article>
   <article class="bg-accent border border-outline-variant rounded-lg p-7 flex flex-col" data-reveal="up" style="--d:.1s">
-    <span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 02</span>
-    <h3 class="font-headline-lg text-[20px] uppercase tracking-tight text-on-surface leading-tight mt-6">Placement</h3>
+    <div class="flex items-center justify-between mb-7"><span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 02</span><span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">psychology</span></div>
+    <h3 class="font-headline-lg text-[20px] uppercase tracking-tight text-on-surface leading-tight">Placement</h3>
     <p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">Brackets are placed in one appointment. Expect pressure rather than pain for the first few days.</p>
   </article>
   <article class="bg-accent border border-outline-variant rounded-lg p-7 flex flex-col" data-reveal="up" style="--d:.2s">
-    <span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 03</span>
-    <h3 class="font-headline-lg text-[20px] uppercase tracking-tight text-on-surface leading-tight mt-6">Adjustments and finish</h3>
+    <div class="flex items-center justify-between mb-7"><span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 03</span><span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">precision_manufacturing</span></div>
+    <h3 class="font-headline-lg text-[20px] uppercase tracking-tight text-on-surface leading-tight">Adjustments and finish</h3>
     <p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">Regular short visits until the target bite is reached, then straight into retention.</p>
   </article>
 </div></section>
 <section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-  <div><div class="mb-12">
+  <div><div class="mb-12 md:flex md:items-end md:justify-between md:gap-10">
   <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">What It Costs</h2>
-  <p class="font-body-md text-on-surface-variant leading-relaxed mt-5 max-w-2xl" data-reveal="up" style="--d:.1s">Treatment is quoted as part of a complete plan after your scan. Your consultation ends with an itemized estimate, and we arrange payment plans in house and coordinate your insurance benefit directly.</p>
+  <p class="font-body-md text-base text-on-surface-variant leading-relaxed mt-4 md:mt-0 md:text-right max-w-sm" data-reveal="up" style="--d:.1s">Treatment is quoted as part of a complete plan after your scan. Your consultation ends with an itemized estimate, and we arrange payment plans in house and coordinate your insurance benefit directly.</p>
 </div>
   <a href="financing.html" class="btn btn-outline group px-7 py-4 font-label-sans text-[11px] uppercase tracking-widest">
   <span class="swap"><span class="swap__out">Financing and payment plans</span><span class="swap__in">Financing and payment plans</span></span>
   <span class="arrow-slide"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
 </a></div>
   <div class="lift bg-accent border border-outline-variant rounded-lg p-8" data-reveal="right">
-  <dl>
+  <span class="font-label-sans text-[10px] bg-primary text-white px-3 py-1.5 rounded-sm uppercase tracking-widest">Spec sheet</span>
+  <dl class="mt-6">
     <div class="flex justify-between gap-3 py-3 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-wide text-on-surface-variant">Systems</dt><dd class="font-data-point text-sm font-bold text-on-surface text-right">Metal · Ceramic · Self-ligating</dd></div>
     <div class="flex justify-between gap-3 py-3 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-wide text-on-surface-variant">Ages</dt><dd class="font-data-point text-sm font-bold text-on-surface text-right">Kids, teens, adults</dd></div>
     <div class="flex justify-between gap-3 py-3 border-b border-outline-variant"><dt class="font-label-sans text-[11px] uppercase tracking-wide text-on-surface-variant">Planning</dt><dd class="font-data-point text-sm font-bold text-on-surface text-right">3D scan and imaging</dd></div>
@@ -470,7 +476,7 @@
   </dl>
 </div>
 </div></section>
-<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="max-w-[920px] mx-auto"><div class="mb-12">
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="max-w-[920px] mx-auto"><div class="mb-12 md:flex md:items-end md:justify-between md:gap-10">
   <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">Common Questions</h2>
   
 </div><div class="flex flex-col gap-3">
@@ -596,17 +602,20 @@
   gsap.set(".wave-glow",{opacity:0});
   gsap.set(".hero-actions > *",{y:18,opacity:0});
 
-  var tl = gsap.timeline({defaults:{ease:"power3.out"}, delay:.1});
-  tl.to("#site-nav > *",{y:0,opacity:1,duration:.6,stagger:.06})
-    .to(".wave-glow",{opacity:1,duration:1.1},"-=.4")
-    .to(".bg-text",{opacity:1,scale:1,duration:1.2},"-=1")
-    .to(".hero-eyebrow",{y:0,opacity:1,duration:.5},"-=.9")
-    .to(".clay-title .word",{yPercent:0,opacity:1,duration:.85,stagger:.06,ease:"power4.out"},"-=.7")
-    .to(".paren-group .paren",{scale:1,opacity:1,duration:.45,stagger:.1,ease:"back.out(2)"},"-=.45")
-    .to(".avatar-stack",{scale:1,opacity:1,duration:.5,ease:"back.out(1.7)"},"-=.3")
-    .to(".icon-tile",{scale:1,rotation:0,opacity:1,duration:.55,ease:"back.out(1.7)"},"-=.4")
-    .to(".spin-badge",{scale:1,rotation:0,opacity:1,duration:.7,ease:"back.out(1.7)"},"-=.45")
-    .to(".hero-actions > *",{y:0,opacity:1,duration:.55,stagger:.1},"-=.45");
+  var tl = gsap.timeline({defaults:{ease:"power3.out"}});
+  tl.to("#site-nav > *",{y:0,opacity:1,duration:.45,stagger:.04})
+    .to(".wave-glow",{opacity:1,duration:.8},"-=.35")
+    .to(".bg-text",{opacity:1,scale:1,duration:.9},"-=.75")
+    .to(".hero-eyebrow",{y:0,opacity:1,duration:.4},"-=.7")
+    .to(".clay-title .word",{yPercent:0,opacity:1,duration:.6,stagger:.045,ease:"power4.out"},"-=.55")
+    .to(".paren-group .paren",{scale:1,opacity:1,duration:.35,stagger:.06,ease:"back.out(1.4)"},"-=.4")
+    .to(".avatar-stack",{scale:1,opacity:1,duration:.4,ease:"back.out(1.4)"},"-=.3")
+    .to(".icon-tile",{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(1.4)"},"-=.32")
+    .to(".spin-badge",{scale:1,rotation:0,opacity:1,duration:.5,ease:"back.out(1.4)"},"-=.35")
+    .to(".hero-actions > *",{y:0,opacity:1,duration:.45,stagger:.06},"-=.75");
+
+  // hard-finish: whatever happens, the hero is fully present by 2.6s
+  setTimeout(function(){ if (tl.progress() < 1) tl.progress(1); }, 2600);
 
   // gentle continuous motion
   gsap.to(".wave-glow.a",{y:12,scale:1.05,duration:6,repeat:-1,yoyo:true,ease:"sine.inOut"});
@@ -641,7 +650,12 @@
     var revealObs = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); revealObs.unobserve(e.target); } });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('[data-reveal]').forEach(function(el){ revealObs.observe(el); });
+    // Anything already in view reveals immediately; only below-fold content waits
+    // on the observer. Sidesteps initial-entry quirks on short pages.
+    document.querySelectorAll('[data-reveal]').forEach(function(el){
+      if (el.getBoundingClientRect().top < innerHeight * 0.92) el.classList.add('in');
+      else revealObs.observe(el);
+    });
   } else {
     document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in'); });
   }
@@ -712,10 +726,10 @@
     menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setMenu(false); });
 
+    nav.style.transform = 'translateY(0)'; // sticky: the pill never leaves
     window.addEventListener('scroll', function(){
       var y = window.scrollY;
-      if (y < 80 || y < lastY) nav.style.transform = 'translateY(0)';
-      else if (y > lastY) { nav.style.transform = 'translateY(-160%)'; if (open) setMenu(false); }
+      if (open && y > lastY + 4) setMenu(false);
       lastY = y;
     }, { passive: true });
   })();
@@ -765,5 +779,6 @@
   wireForm('consult-form', 'consult-done');
   wireForm('hero-form', 'hero-done');
 </script>
+
 </body>
 </html>

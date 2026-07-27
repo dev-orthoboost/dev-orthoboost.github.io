@@ -266,7 +266,7 @@
   }
 
   /* ---- distilled hero: supporting line, action, trust ---- */
-  .hero-actions{ position:relative; z-index:5; margin-top:34px; max-width:680px; }
+  .hero-actions{ position:relative; z-index:5; margin-top:0; max-width:680px; }
   .hero-sub{ font-family:'Hanken Grotesk'; font-size:clamp(15px,1.3vw,18px); line-height:1.6; color:var(--c-ink-2); margin:0 0 22px; max-width:48ch; }
   .hero-cta-row{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
   .hero-note{ display:inline-flex; align-items:center; gap:8px; font-family:'Hanken Grotesk'; font-size:12.5px; font-weight:600; color:var(--c-ink-2); }
@@ -274,9 +274,9 @@
   .why-photo{ margin-top:28px; }
   .why-photo img{ width:100%; height:260px; object-fit:cover; border-radius:14px; border:1px solid var(--c-line-2); box-shadow:4px 4px 0 #1b1c1c; }
   @media (max-width:1023px){ .why-photo img{ height:220px; } }
-  .hero-foot{ position:relative; z-index:5; display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:48px; align-items:start; }
+  .hero-foot{ position:relative; z-index:5; display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:48px; align-items:center; margin-top:40px; }
   .hero-photo{ margin:0; position:relative; }
-  .hero-photo img{ width:100%; height:360px; object-fit:cover; border-radius:14px; border:1px solid var(--c-line-2); box-shadow:5px 6px 0 #1b1c1c; }
+  .hero-photo img{ width:100%; height:400px; object-fit:cover; border-radius:14px; border:1px solid var(--c-line-2); box-shadow:5px 6px 0 #1b1c1c; }
   .hero-photo figcaption{ display:flex; align-items:center; gap:8px; margin-top:14px; font-family:'Hanken Grotesk'; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--c-ink-2); }
   .hero-photo figcaption .material-symbols-outlined{ font-size:16px; color:var(--navy); }
   @media (max-width:1023px){ .hero-foot{ grid-template-columns:1fr; gap:32px; } .hero-photo img{ height:280px; } }
@@ -385,12 +385,14 @@
   </div>
 </div>
 
-<section class="page-hero pb-12 px-5 md:px-grid-margin max-w-[1320px] mx-auto">
-  <div class="grid grid-cols-1  gap-10 items-center">
+<section class="page-hero relative overflow-hidden pb-14 px-5 md:px-grid-margin max-w-[1320px] mx-auto">
+  <div class="absolute inset-0 dot-grid opacity-[0.05] pointer-events-none"></div>
+  <div class="relative z-10 grid grid-cols-1  gap-10 items-center">
     <div>
       <h1 class="font-display-xl text-[clamp(2.1rem,5vw,3.6rem)] text-on-surface tracking-tight leading-[1.02]" data-reveal="up">Accessibility</h1>
       <p class="font-body-md text-on-surface-variant leading-relaxed mt-6 max-w-xl" data-reveal="up" style="--d:.1s">Our commitment to a site that works for everyone.</p>
-      <div class="flex flex-wrap gap-3 mt-9" data-reveal="up" style="--d:.18s"></div>
+      
+      
     </div>
     
   </div>
@@ -481,17 +483,20 @@
   gsap.set(".wave-glow",{opacity:0});
   gsap.set(".hero-actions > *",{y:18,opacity:0});
 
-  var tl = gsap.timeline({defaults:{ease:"power3.out"}, delay:.1});
-  tl.to("#site-nav > *",{y:0,opacity:1,duration:.6,stagger:.06})
-    .to(".wave-glow",{opacity:1,duration:1.1},"-=.4")
-    .to(".bg-text",{opacity:1,scale:1,duration:1.2},"-=1")
-    .to(".hero-eyebrow",{y:0,opacity:1,duration:.5},"-=.9")
-    .to(".clay-title .word",{yPercent:0,opacity:1,duration:.85,stagger:.06,ease:"power4.out"},"-=.7")
-    .to(".paren-group .paren",{scale:1,opacity:1,duration:.45,stagger:.1,ease:"back.out(2)"},"-=.45")
-    .to(".avatar-stack",{scale:1,opacity:1,duration:.5,ease:"back.out(1.7)"},"-=.3")
-    .to(".icon-tile",{scale:1,rotation:0,opacity:1,duration:.55,ease:"back.out(1.7)"},"-=.4")
-    .to(".spin-badge",{scale:1,rotation:0,opacity:1,duration:.7,ease:"back.out(1.7)"},"-=.45")
-    .to(".hero-actions > *",{y:0,opacity:1,duration:.55,stagger:.1},"-=.45");
+  var tl = gsap.timeline({defaults:{ease:"power3.out"}});
+  tl.to("#site-nav > *",{y:0,opacity:1,duration:.45,stagger:.04})
+    .to(".wave-glow",{opacity:1,duration:.8},"-=.35")
+    .to(".bg-text",{opacity:1,scale:1,duration:.9},"-=.75")
+    .to(".hero-eyebrow",{y:0,opacity:1,duration:.4},"-=.7")
+    .to(".clay-title .word",{yPercent:0,opacity:1,duration:.6,stagger:.045,ease:"power4.out"},"-=.55")
+    .to(".paren-group .paren",{scale:1,opacity:1,duration:.35,stagger:.06,ease:"back.out(1.4)"},"-=.4")
+    .to(".avatar-stack",{scale:1,opacity:1,duration:.4,ease:"back.out(1.4)"},"-=.3")
+    .to(".icon-tile",{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(1.4)"},"-=.32")
+    .to(".spin-badge",{scale:1,rotation:0,opacity:1,duration:.5,ease:"back.out(1.4)"},"-=.35")
+    .to(".hero-actions > *",{y:0,opacity:1,duration:.45,stagger:.06},"-=.75");
+
+  // hard-finish: whatever happens, the hero is fully present by 2.6s
+  setTimeout(function(){ if (tl.progress() < 1) tl.progress(1); }, 2600);
 
   // gentle continuous motion
   gsap.to(".wave-glow.a",{y:12,scale:1.05,duration:6,repeat:-1,yoyo:true,ease:"sine.inOut"});
@@ -526,7 +531,12 @@
     var revealObs = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); revealObs.unobserve(e.target); } });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('[data-reveal]').forEach(function(el){ revealObs.observe(el); });
+    // Anything already in view reveals immediately; only below-fold content waits
+    // on the observer. Sidesteps initial-entry quirks on short pages.
+    document.querySelectorAll('[data-reveal]').forEach(function(el){
+      if (el.getBoundingClientRect().top < innerHeight * 0.92) el.classList.add('in');
+      else revealObs.observe(el);
+    });
   } else {
     document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in'); });
   }
@@ -597,10 +607,10 @@
     menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setMenu(false); });
 
+    nav.style.transform = 'translateY(0)'; // sticky: the pill never leaves
     window.addEventListener('scroll', function(){
       var y = window.scrollY;
-      if (y < 80 || y < lastY) nav.style.transform = 'translateY(0)';
-      else if (y > lastY) { nav.style.transform = 'translateY(-160%)'; if (open) setMenu(false); }
+      if (open && y > lastY + 4) setMenu(false);
       lastY = y;
     }, { passive: true });
   })();
@@ -650,5 +660,6 @@
   wireForm('consult-form', 'consult-done');
   wireForm('hero-form', 'hero-done');
 </script>
+
 </body>
 </html>
