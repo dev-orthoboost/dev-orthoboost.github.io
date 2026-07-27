@@ -275,12 +275,12 @@
   .hero-cta-row{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
   .hero-note{ display:inline-flex; align-items:center; gap:8px; font-family:'Hanken Grotesk'; font-size:12.5px; font-weight:600; color:var(--c-ink-2); }
   .hero-note .material-symbols-outlined{ font-size:18px; color:var(--navy); }
-  .hero-trust-strip{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 0; margin-top:30px; padding-top:22px; border-top:1px solid var(--c-line-2); }
-  .hero-trust-strip span{ display:inline-flex; align-items:center; gap:9px; padding:0 22px; font-family:'Hanken Grotesk'; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--c-ink-2); }
-  .hero-trust-strip span:first-child{ padding-left:0; }
-  .hero-trust-strip span + span{ border-left:1px solid var(--c-line-2); }
-  @media (max-width:540px){ .hero-trust-strip span{ padding:0; } .hero-trust-strip span + span{ border-left:0; } }
-  .hero-trust-strip .material-symbols-outlined{ font-size:18px; color:var(--navy); }
+  .hero-foot{ position:relative; z-index:5; display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:48px; align-items:start; }
+  .hero-photo{ margin:0; position:relative; }
+  .hero-photo img{ width:100%; height:360px; object-fit:cover; border-radius:14px; border:1px solid var(--c-line-2); box-shadow:5px 6px 0 #1b1c1c; }
+  .hero-photo figcaption{ display:flex; align-items:center; gap:8px; margin-top:14px; font-family:'Hanken Grotesk'; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--c-ink-2); }
+  .hero-photo figcaption .material-symbols-outlined{ font-size:16px; color:var(--navy); }
+  @media (max-width:1023px){ .hero-foot{ grid-template-columns:1fr; gap:32px; } .hero-photo img{ height:280px; } }
 
   /* ============================================================
      UNIFY EXISTING SECTIONS WITH THE CLAY / GLASS HERO
@@ -411,7 +411,8 @@
 
     </div>
 
-    <!-- supporting line + actions -->
+    <!-- supporting line + actions + portrait -->
+    <div class="hero-foot">
     <div class="hero-actions">
       <p class="hero-sub">3D diagnostics and board-certified expertise, turned into precise, comfortable treatment plans — for every age.</p>
       <div class="hero-cta-row">
@@ -421,11 +422,15 @@
         </a>
         <span class="hero-note"><span class="material-symbols-outlined">check_circle</span> Free 3D scan &amp; consult — no obligation</span>
       </div>
-      <div class="hero-trust-strip">
-        <span><span class="material-symbols-outlined">verified</span> ABO Board-Certified</span>
-        <span><span class="material-symbols-outlined">view_in_ar</span> 3D iTero &amp; CBCT imaging</span>
-        <span><span class="material-symbols-outlined">sentiment_satisfied</span> 10,000+ smiles delivered</span>
-      </div>
+    </div>
+      <figure class="hero-photo">
+        <img src="assets/web/chang-doctor-scanner-01-1200.webp"
+             srcset="assets/web/chang-doctor-scanner-01-480.webp 480w, assets/web/chang-doctor-scanner-01-768.webp 768w, assets/web/chang-doctor-scanner-01-1200.webp 1200w"
+             sizes="(max-width: 1023px) 100vw, 420px" width="1200" height="1803"
+             alt="Dr. Michael Chang beside the digital scanner at Chang Orthodontics"
+             fetchpriority="high" decoding="async">
+        <figcaption>Dr. Michael Chang, DDS MS</figcaption>
+      </figure>
     </div>
   </div>
 </section>

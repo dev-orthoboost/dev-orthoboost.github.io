@@ -127,6 +127,11 @@ a{color:var(--interactive)}
 .statbar .value{font-family:var(--serif);font-weight:300;font-size:36px;line-height:1.1}
 .statbar .mono{margin-top:8px}
 
+/* icons */
+.tile__ic{display:block;color:var(--interactive);margin-bottom:16px}
+.num__ic{display:inline-flex;vertical-align:-4px;margin-right:8px;color:var(--interactive)}
+.section--ink .tile__ic,.section--ink .num__ic{color:var(--tint)}
+
 /* tiles */
 .tiles{display:grid;gap:16px}
 .tiles--2{grid-template-columns:repeat(2,1fr)}
