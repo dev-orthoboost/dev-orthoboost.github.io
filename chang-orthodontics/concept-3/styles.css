@@ -137,9 +137,10 @@ html.scrolled .site-header{border-bottom-color:var(--line);background:rgba(251,2
 .hero--plain-media .hero__media--band img{width:100%;height:340px;object-fit:cover;display:block}
 @media (max-width:680px){.hero--plain-media .hero__media--band img{height:230px}}
 
-.why-split{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.6fr);gap:56px;align-items:start}
-.why-media{margin-top:28px;overflow:hidden;background:var(--ice)}
-.why-media img{width:100%;height:330px;object-fit:cover;display:block}
+.why-split{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.6fr);gap:56px;align-items:stretch}
+.why-split>.section-head{display:flex;flex-direction:column;margin-bottom:0}
+.why-media{margin-top:28px;overflow:hidden;background:var(--ice);flex:1;min-height:260px;position:relative}
+.why-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .tech-media{overflow:hidden;background:rgba(255,255,255,.08);margin-bottom:26px}
 .tech-media img{width:100%;height:260px;object-fit:cover;display:block}
 @media (max-width:1060px){.why-split{grid-template-columns:1fr;gap:32px}.why-media img{height:240px}}
@@ -258,11 +259,13 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-col
 .site-footer .legal-links a{display:inline}
 
 /* motion — gentler than concept 2: longer, softer, less travel */
-html.js .reveal{opacity:0;transform:translateY(18px);
-  transition:opacity 760ms var(--ease-soft),transform 760ms var(--ease-soft);
+/* Content is visible by default. The runtime marks only below-fold elements
+   .pre before they can be seen, and IO promotes them to .is-in — so no JS,
+   a failed observer, or a headless renderer all get the complete page. */
+.reveal{transition:opacity 760ms var(--ease-soft),transform 760ms var(--ease-soft);
   transition-delay:calc(var(--i,0) * 90ms)}
-html.js .reveal.is-in{opacity:1;transform:none}
-html.js .reveal--still{transform:none}
+html.js .reveal.pre:not(.is-in){opacity:0;transform:translateY(18px);will-change:opacity,transform}
+html.js .reveal--still.pre:not(.is-in){transform:none}
 .stagger>*:nth-child(1){--i:0}.stagger>*:nth-child(2){--i:1}.stagger>*:nth-child(3){--i:2}
 .stagger>*:nth-child(4){--i:3}.stagger>*:nth-child(5){--i:4}.stagger>*:nth-child(6){--i:5}
 
@@ -316,6 +319,6 @@ html.js .reveal--still{transform:none}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
-  html.js .reveal{opacity:1;transform:none}
+  html.js .reveal.pre:not(.is-in){opacity:1;transform:none}
   .btn:hover,a.card:hover{transform:none}
 }

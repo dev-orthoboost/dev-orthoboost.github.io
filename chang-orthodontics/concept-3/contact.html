@@ -117,14 +117,16 @@
 </footer>
 <script>(function(){
   function reveal(){
-    var els=document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('is-in')});return}
+    if(!('IntersectionObserver' in window))return; // content is visible by default
     var io=new IntersectionObserver(function(en){en.forEach(function(x){
       if(!x.isIntersecting)return; x.target.classList.add('is-in'); io.unobserve(x.target);})},
       {rootMargin:'0px 0px -6% 0px',threshold:0.06});
-    [].forEach.call(els,function(e){
-      if(e.getBoundingClientRect().top < innerHeight*0.92){e.classList.add('is-in');return}
-      io.observe(e);});
+    [].forEach.call(document.querySelectorAll('.reveal'),function(e){
+      if(e.getBoundingClientRect().top >= innerHeight*0.92){e.classList.add('pre');io.observe(e)}
+    });
+    setTimeout(function(){
+      [].forEach.call(document.querySelectorAll('.reveal.pre'),function(e){e.classList.add('is-in')});
+    },5000); // safety net: nothing stays hidden forever
   }
   function header(){var on=false;addEventListener('scroll',function(){
     var s=scrollY>6; if(s!==on){on=s;document.documentElement.classList.toggle('scrolled',s)}},{passive:true});}
