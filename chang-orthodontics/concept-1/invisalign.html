@@ -137,8 +137,11 @@
   .rev-full-bleed { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; }
   .rev-viewport { -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
-  .rev-track { display: flex; gap: 1.25rem; width: max-content; padding: 0 5vw;
+  /* Seamless: no flex gap or track padding — each card carries its own
+     margin, so the duplicated half is exactly 50% and the loop has no seam. */
+  .rev-track { display: flex; width: max-content;
     animation: rev-scroll 46s linear infinite; }
+  .rev-track > .rev-card { margin-right: 1.25rem; }
   .rev-track:hover, .rev-track:focus-within { animation-play-state: paused; }
   @keyframes rev-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   .rev-card { flex: 0 0 clamp(265px, 82vw, 430px); position: relative; overflow: hidden;
@@ -148,7 +151,7 @@
   @media (min-width: 768px) { .rev-card { flex-basis: 430px; } }
   .rev-quote { position: absolute; top: .1rem; right: 1.1rem; font-family: Georgia, 'Times New Roman', serif;
     font-size: 4.5rem; line-height: 1; color: rgba(46,109,255,.22); pointer-events: none; }
-  @media (prefers-reduced-motion: reduce) { .rev-card { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .rev-card { transition: none; } .rev-full-bleed { overflow-x: auto; } }
 
   .telemetry-readout { font-family: 'Hanken Grotesk', sans-serif; font-size: 9px; font-weight: 600; color: rgba(27,28,28,.78); text-transform: uppercase; letter-spacing: .12em; }
   .dot-grid { background-image: radial-gradient(#005DAA 1px, transparent 1px); background-size: 22px 22px; }
@@ -458,6 +461,13 @@
     <p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">Short check-ins through treatment, then retention to hold the result.</p>
   </article>
 </div></section>
+
+<section class="px-5 md:px-grid-margin max-w-[1320px] mx-auto pb-section-padding">
+  <figure class="lift relative bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sharp-lg m-0" data-reveal="up">
+    <img src="assets/web/chang-doctor-portrait-01-1200.webp" srcset="assets/web/chang-doctor-portrait-01-480.webp 480w, assets/web/chang-doctor-portrait-01-768.webp 768w, assets/web/chang-doctor-portrait-01-1200.webp 1200w" sizes="(max-width: 1200px) 100vw, 1180px" width="1200" height="1803" alt="Dr. Michael Chang at Chang Orthodontics" loading="lazy" decoding="async" class="w-full h-[380px] object-cover">
+    <figcaption class="absolute left-4 bottom-4 bg-white/90 backdrop-blur-sm border border-outline-variant rounded-md px-4 py-2 font-label-sans text-[10px] uppercase tracking-widest text-on-surface">Dr. Michael Chang, DDS MS</figcaption>
+  </figure>
+</section>
 <section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
   <div><div class="mb-12 md:flex md:items-end md:justify-between md:gap-10">
   <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up">What It Costs</h2>

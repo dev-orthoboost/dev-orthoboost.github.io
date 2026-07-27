@@ -137,8 +137,11 @@
   .rev-full-bleed { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; }
   .rev-viewport { -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
-  .rev-track { display: flex; gap: 1.25rem; width: max-content; padding: 0 5vw;
+  /* Seamless: no flex gap or track padding — each card carries its own
+     margin, so the duplicated half is exactly 50% and the loop has no seam. */
+  .rev-track { display: flex; width: max-content;
     animation: rev-scroll 46s linear infinite; }
+  .rev-track > .rev-card { margin-right: 1.25rem; }
   .rev-track:hover, .rev-track:focus-within { animation-play-state: paused; }
   @keyframes rev-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   .rev-card { flex: 0 0 clamp(265px, 82vw, 430px); position: relative; overflow: hidden;
@@ -148,7 +151,7 @@
   @media (min-width: 768px) { .rev-card { flex-basis: 430px; } }
   .rev-quote { position: absolute; top: .1rem; right: 1.1rem; font-family: Georgia, 'Times New Roman', serif;
     font-size: 4.5rem; line-height: 1; color: rgba(46,109,255,.22); pointer-events: none; }
-  @media (prefers-reduced-motion: reduce) { .rev-card { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .rev-card { transition: none; } .rev-full-bleed { overflow-x: auto; } }
 
   .telemetry-readout { font-family: 'Hanken Grotesk', sans-serif; font-size: 9px; font-weight: 600; color: rgba(27,28,28,.78); text-transform: uppercase; letter-spacing: .12em; }
   .dot-grid { background-image: radial-gradient(#005DAA 1px, transparent 1px); background-size: 22px 22px; }
@@ -403,6 +406,64 @@
     </div>
   </div>
 </section>
+<!-- ===== Advanced Diagnostics ===== -->
+<section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto" id="diagnostics">
+  <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-12 gap-6">
+    <div>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface" data-reveal="up" style="--d:.08s">Advanced Diagnostics</h2>
+    </div>
+    <p class="font-body-md text-base text-on-surface-variant md:text-right max-w-sm leading-relaxed" data-reveal="up" style="--d:.16s">High-resolution imaging and AI-assisted anatomical analysis, with no messy impressions.</p>
+  </div>
+
+  <div class="grid grid-cols-12 gap-5">
+    <div class="col-span-12 md:col-span-8 lift bg-white border border-outline-variant rounded-lg p-8 md:p-10 flex flex-col justify-between min-h-[420px] md:min-h-[440px] relative overflow-hidden group" data-reveal="left">
+      <div class="absolute inset-0 dot-grid opacity-[0.05] pointer-events-none"></div>
+      <div class="relative z-10 flex justify-between items-start gap-4">
+        <div>
+          <span class="font-label-sans text-[10px] bg-primary text-white px-3 py-1.5 rounded-sm uppercase tracking-widest">CBCT // 3D Scan</span>
+          <h3 class="font-headline-lg text-[28px] md:text-[38px] text-on-surface mt-6 tracking-tight leading-none">Volumetric Imaging</h3>
+        </div>
+        <div class="flex gap-2 shrink-0 mt-1">
+          <div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div><div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div><div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+        </div>
+      </div>
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-8 pointer-events-none opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+        <svg viewBox="0 0 400 280" class="w-full" aria-hidden="true">
+          <g fill="none" stroke="#005DAA">
+            <path d="M60 90 Q200 -10 340 90" stroke-opacity="0.25" stroke-width="1"/><path d="M70 120 Q200 250 330 120" stroke-opacity="0.5" stroke-width="1.5"/>
+            <ellipse cx="200" cy="140" rx="150" ry="100" stroke-opacity="0.12"/><ellipse cx="200" cy="140" rx="110" ry="70" stroke-opacity="0.12"/>
+            <line x1="200" y1="20" x2="200" y2="260" stroke-opacity="0.15" stroke-dasharray="2 6"/><line x1="40" y1="140" x2="360" y2="140" stroke-opacity="0.15" stroke-dasharray="2 6"/>
+          </g>
+          <g fill="#005DAA" fill-opacity="0.85">
+            <rect x="92" y="150" width="14" height="22" rx="2"/><rect x="112" y="168" width="14" height="24" rx="2"/><rect x="135" y="182" width="15" height="26" rx="2"/><rect x="160" y="192" width="16" height="27" rx="2"/><rect x="186" y="196" width="17" height="28" rx="2"/><rect x="213" y="192" width="16" height="27" rx="2"/><rect x="239" y="182" width="15" height="26" rx="2"/><rect x="263" y="168" width="14" height="24" rx="2"/><rect x="284" y="150" width="14" height="22" rx="2"/>
+          </g>
+          <g stroke="#005DAA" stroke-width="1">
+            <circle cx="195" cy="205" r="20" fill="none" stroke-opacity="0.6"/><line x1="195" y1="178" x2="195" y2="232" stroke-opacity="0.4"/><line x1="168" y1="205" x2="222" y2="205" stroke-opacity="0.4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="relative z-10 flex justify-between items-end gap-4">
+        <p class="font-body-md text-on-surface-variant max-w-xs text-sm leading-relaxed">Low-dose 3D radiographic imaging gives a complete view of skeletal and dental structures, the foundation of every precise plan.</p>
+        <div class="flex items-center gap-3 shrink-0"><span class="font-label-sans text-[10px] text-on-surface-variant uppercase tracking-widest">Low-dose</span><span class="material-symbols-outlined text-4xl text-primary font-light" aria-hidden="true">analytics</span></div>
+      </div>
+    </div>
+
+    <div class="col-span-12 md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-5">
+      <div class="lift bg-accent border border-outline-variant rounded-lg p-8 relative overflow-hidden" data-reveal="right" style="--d:.1s">
+        <div class="flex justify-between mb-6"><span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">view_in_ar</span><span class="telemetry-readout">20µm</span></div>
+        <h4 class="font-label-sans text-sm font-bold uppercase tracking-wide mb-3 text-on-surface">Intraoral Scanning</h4>
+        <p class="font-data-point text-sm text-on-surface-variant leading-relaxed">Digital iTero impressions at 20-micron accuracy: comfortable, fast, and completely putty-free.</p>
+      </div>
+      <div class="lift bg-accent border border-outline-variant rounded-lg p-8 relative overflow-hidden" data-reveal="right" style="--d:.22s">
+        <div class="flex justify-between mb-6"><span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">psychology</span><span class="telemetry-readout">Auto</span></div>
+        <h4 class="font-label-sans text-sm font-bold uppercase tracking-wide mb-3 text-on-surface">AI Cephalometrics</h4>
+        <p class="font-data-point text-sm text-on-surface-variant leading-relaxed">Automated cephalometric landmarking for consistent, repeatable tracing on every scan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="py-section-padding px-5 md:px-grid-margin max-w-[1320px] mx-auto"><div class="grid grid-cols-1 md:grid-cols-3 gap-5">
   <article class="lift group bg-white border border-outline-variant rounded-lg p-8 flex flex-col hover:bg-primary transition-colors" data-reveal="scale" style="--d:.0s">
     
