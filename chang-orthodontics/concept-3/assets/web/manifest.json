@@ -69,5 +69,22 @@
    1200,
    1800
   ]
+ },
+ "chang-team-full-01": {
+  "ratio": 0.75,
+  "widths": [
+   480,
+   768,
+   1200,
+   1800
+  ]
+ },
+ "chang-doctor-portrait-01": {
+  "ratio": 0.6654,
+  "widths": [
+   480,
+   768,
+   1200
+  ]
  }
 }
