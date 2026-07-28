@@ -1,6 +1,12 @@
 // Siouxland Orthodontics — Concept 2 (browse-first direction).
 // Generates the full flat site into dev-orthoboost/siouxland/concept-2 reusing
 // the copy, photos, and logo from the existing siouxland-full build.
+//
+// !! STALE AS OF 2026-07-28 — DO NOT RUN. The Jul 27 client-feedback pass
+// (two-doctor positioning, airway-aware, new 4-action nav, Espanol toggle,
+// doctors.html + team.html, Leaflet map, warmth/sunrise pass) was applied
+// directly to the concept-2/ output HTML. Running this script would wipe it.
+// The concept-2/ folder is now the source of truth.
 import { mkdirSync, writeFileSync, readFileSync, cpSync, copyFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
