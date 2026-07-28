@@ -47,7 +47,7 @@ header{position:sticky;top:0;z-index:60;background:var(--white);box-shadow:0 1px
 .util-tel:hover{color:#B83400 !important}
 .masthead{padding:14px 0}
 .mast-in{display:flex;align-items:center;gap:26px}
-.logo img{height:48px;width:auto}
+.logo img{height:48px;width:auto;border-radius:6px}
 .search{flex:1;max-width:600px;display:flex;align-items:center;background:var(--cream);border:1.5px solid var(--line);border-radius:999px;padding:4px 4px 4px 20px;transition:border-color .15s}
 .search:focus-within{border-color:var(--coral);background:#fff}
 .search input{flex:1;border:none;background:none;font-family:var(--sans);font-size:15px;color:var(--ink);outline:none;min-width:0}
