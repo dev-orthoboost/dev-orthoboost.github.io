@@ -11,7 +11,6 @@
 <meta property="og:image" content="https://dev-orthoboost.github.io/siouxland/concept-2/assets/photos/kids-sunset.jpg">
 <link rel="icon" type="image/png" href="assets/logo-main.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="assets/browse.css">
 </head>
 <body>
@@ -166,10 +165,10 @@
   });
 })();
 </script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function(){
-  if(!window.L)return;
+  var el=document.getElementById('locmap');if(!el)return;
+  var started=false;
   var offices=[
     ['Morningside','Sioux City, IA','4224 Sergeant Rd, Sioux City, IA 51106','(712) 276-2766','location-morningside.html',42.4487,-96.3519,'#F65822'],
     ['Leeds','Sioux City, IA','2801 Outer Dr N, Sioux City, IA 51104','(712) 239-0420','location-leeds.html',42.5362,-96.3727,'#FC9C12'],
@@ -199,19 +198,31 @@
       c.addEventListener('click',function(){if(j!==i)show(j)});
     });
   }
-  var map=L.map('locmap',{scrollWheelZoom:false});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap contributors &copy; CARTO',maxZoom:18}).addTo(map);
-  var b=[];
-  offices.forEach(function(o,i){
-    var icon=L.divIcon({className:'',html:'<svg width="34" height="34" viewBox="0 0 24 24" fill="'+o[7]+'"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg>',iconSize:[34,34],iconAnchor:[17,32]});
-    L.marker([o[5],o[6]],{icon:icon,title:o[0],alt:o[0]})
-      .addTo(map)
-      .on('mouseover',function(){show(i)})
-      .on('click',function(){show(i)});
-    b.push([o[5],o[6]]);
-  });
-  map.fitBounds(b,{padding:[40,40]});
+  function init(){
+    if(!window.L)return;
+    var map=L.map('locmap',{scrollWheelZoom:false});
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap contributors &copy; CARTO',maxZoom:18}).addTo(map);
+    var b=[];
+    offices.forEach(function(o,i){
+      var icon=L.divIcon({className:'',html:'<svg width="44" height="44" viewBox="0 0 24 24" fill="'+o[7]+'"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg>',iconSize:[44,44],iconAnchor:[22,41]});
+      L.marker([o[5],o[6]],{icon:icon,title:o[0],alt:o[0]})
+        .addTo(map)
+        .on('mouseover',function(){show(i)})
+        .on('click',function(){show(i)});
+      b.push([o[5],o[6]]);
+    });
+    map.fitBounds(b,{padding:[40,40]});
+  }
+  function boot(){
+    if(started)return;started=true;
+    var l=document.createElement('link');l.rel='stylesheet';l.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';document.head.appendChild(l);
+    var s=document.createElement('script');s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';s.onload=init;document.head.appendChild(s);
+  }
   show(0);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();boot()}},{rootMargin:'600px 0px'});
+    io.observe(el);
+  } else boot();
 })();
 </script>
 <script>
