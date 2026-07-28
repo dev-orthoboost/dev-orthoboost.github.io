@@ -3,14 +3,17 @@
 /* Siouxland Orthodontics — Concept 2, browse-first direction.
    Search-led masthead, quick treatment menu, promo cards, and tile grids
    rendered in the Siouxland sunset brand system. */
+/* Metric-matched local fallbacks: text lays out at web-font size before Volkhov/Figtree arrive, so the swap causes no layout shift. Metrics computed from the actual woff2 files. */
+@font-face{font-family:'Volkhov Fallback';src:local('Georgia');size-adjust:122.66%;ascent-override:79.16%;descent-override:26.01%;line-gap-override:0%}
+@font-face{font-family:'Figtree Fallback';src:local('Arial');size-adjust:120.07%;ascent-override:79.12%;descent-override:20.82%;line-gap-override:0%}
 :root{
   --coral:#F65822; --warm:#FC9C12; --amber:#D53C00; --gold:#FFDC49;
   --green:#415B2F; --scarlet:#A42C42; --purple:#6B3F82; --dusk:#4270AF;
   --black:#121520; --white:#FEFEFE;
   --ink:#1b1e2a; --body:#4a4d5a; --muted:#696c78;
   --cream:#FFF8F1; --cream-2:#FDEFE3; --line:#e8e4de;
-  --serif:'Volkhov',Georgia,serif;
-  --sans:'Figtree',-apple-system,'Segoe UI',sans-serif;
+  --serif:'Volkhov','Volkhov Fallback',Georgia,serif;
+  --sans:'Figtree','Figtree Fallback',-apple-system,'Segoe UI',sans-serif;
   --wrap:1280px;
 }
 *{box-sizing:border-box}
