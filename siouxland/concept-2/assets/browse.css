@@ -442,12 +442,12 @@ footer{background:var(--black)}
 
 /* --- Jul 29 feedback pass: proof band under hero, cream section, wide/map zig slots --- */
 .proofband{background:var(--green);color:#fff;padding:24px 0}
-.proofband-in{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.proofband-in{display:flex;justify-content:space-between;align-items:center;gap:26px}
 .proof{display:flex;align-items:center;justify-content:center;gap:14px}
-.proof svg{width:30px;height:30px;color:var(--gold);flex:none}
-.proof strong{display:block;font-family:var(--serif);font-size:19px;line-height:1.25;color:#fff;white-space:nowrap}
-.proof span{display:block;font-size:14px;color:rgba(255,255,255,.85);margin-top:3px;white-space:nowrap}
-@media (max-width:1200px){.proofband-in{grid-template-columns:1fr;gap:16px}.proof{justify-content:flex-start}}
+.proof svg{width:28px;height:28px;color:var(--gold);flex:none}
+.proof strong{display:block;font-family:var(--serif);font-size:17px;line-height:1.25;color:#fff;white-space:nowrap}
+.proof span{display:block;font-size:13px;color:rgba(255,255,255,.85);margin-top:3px;white-space:nowrap}
+@media (max-width:940px){.proofband-in{flex-direction:column;align-items:flex-start;gap:16px}.proof{justify-content:flex-start}}
 .sec-cream{background:var(--cream)}
 .zig .ph.ph--wide{aspect-ratio:16/10}
 .zig .ph.ph--map{aspect-ratio:5/4}
