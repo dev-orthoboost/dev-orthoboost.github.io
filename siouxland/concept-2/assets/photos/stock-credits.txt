@@ -1,0 +1,11 @@
+Stock photos (Pexels license: free for commercial use, no attribution required)
+Added 2026-07-29 per Dr. Ty service-imagery feedback.
+
+card-braces-kids     https://www.pexels.com/photo/20013423/  (teen boy with braces)
+card-invis-adults    https://www.pexels.com/photo/11887613/  (woman holding clear aligner)
+card-braces-adults   https://www.pexels.com/photo/16961221/  (adult woman with braces)
+card-clear           https://www.pexels.com/photo/13740288/  (young man, clear brackets)
+card-airway          https://www.pexels.com/photo/6670077/   (child sleeping)
+
+All other photos are client-owned (Dr. Williams shoots / drive intake).
+hero-doctor + team-outdoor recropped 2026-07-29 from client originals.
