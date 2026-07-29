@@ -342,13 +342,21 @@
   /* diagnostics card backgrounds: stock imagery at low opacity under a blue wash */
   #diagnostics .lift{isolation:isolate}
   .diag-bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
-  .diag-bg img{width:100%;height:100%;object-fit:cover;opacity:.16;filter:grayscale(55%)}
-  .diag-bg::after{content:'';position:absolute;inset:0;background:rgba(0,93,170,.2)}
+  .diag-bg img{width:100%;height:100%;object-fit:cover;opacity:.32;filter:grayscale(45%)}
+  .diag-bg::after{content:'';position:absolute;inset:0;background:rgba(0,93,170,.16)}
   /* trust bar logos */
   .trust-logo{width:auto;filter:grayscale(1);opacity:.72}
   .trust-logo--abo{height:48px}
   .trust-logo--inv{height:30px}
   .trust-logo--ucsf{height:26px}
+  /* location map embed */
+  .map-frame{display:block;width:100%;height:430px;border:0}
+  @media (max-width:640px){ .map-frame{height:320px} }
+  /* interior imagery scale — plain classes, NOT Tailwind arbitrary values, because
+     h-[340px]/h-[300px] don't exist in the compiled sheet and would silently no-op */
+  .img-hero{height:340px;width:100%;object-fit:cover}
+  .img-band{height:300px;width:100%;object-fit:cover}
+  @media (max-width:640px){ .img-hero{height:250px} .img-band{height:210px} }
   /* proof band — flat navy, three verified points, never wraps, stacks when narrow */
   .proofband{background:var(--navy);color:#fff}
   /* horizontal padding comes from the same px-5/md:px-grid-margin utilities every
@@ -474,7 +482,7 @@
       <div class="mt-8 flex flex-wrap gap-x-7 gap-y-2" data-reveal="up" style="--d:.26s"><span class="telemetry-readout">Free consult &amp; 3D scan</span><span class="telemetry-readout">No obligation</span></div>
     </div>
     <div class="lift bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sharp-lg" data-reveal="right">
-      <img src="assets/web/chang-doctor-scanner-01-1200.webp" srcset="assets/web/chang-doctor-scanner-01-480.webp 480w, assets/web/chang-doctor-scanner-01-768.webp 768w, assets/web/chang-doctor-scanner-01-1200.webp 1200w" sizes="(max-width: 1060px) 100vw, 50vw" width="1200" height="1803" alt="Dr. Chang using the digital scanner" fetchpriority="high" decoding="async" class="w-full h-[420px] object-cover">
+      <img src="assets/web/chang-doctor-scanner-01-1200.webp" srcset="assets/web/chang-doctor-scanner-01-480.webp 480w, assets/web/chang-doctor-scanner-01-768.webp 768w, assets/web/chang-doctor-scanner-01-1200.webp 1200w" sizes="(max-width: 1060px) 100vw, 50vw" width="1200" height="1803" alt="Dr. Chang using the digital scanner" fetchpriority="high" decoding="async" class="img-hero">
     </div>
   </div>
 </section>
@@ -499,21 +507,6 @@
         <div class="flex gap-2 shrink-0 mt-1">
           <div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div><div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div><div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
         </div>
-      </div>
-      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-8 pointer-events-none opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
-        <svg viewBox="0 0 400 280" class="w-full" aria-hidden="true">
-          <g fill="none" stroke="#005DAA">
-            <path d="M60 90 Q200 -10 340 90" stroke-opacity="0.25" stroke-width="1"/><path d="M70 120 Q200 250 330 120" stroke-opacity="0.5" stroke-width="1.5"/>
-            <ellipse cx="200" cy="140" rx="150" ry="100" stroke-opacity="0.12"/><ellipse cx="200" cy="140" rx="110" ry="70" stroke-opacity="0.12"/>
-            <line x1="200" y1="20" x2="200" y2="260" stroke-opacity="0.15" stroke-dasharray="2 6"/><line x1="40" y1="140" x2="360" y2="140" stroke-opacity="0.15" stroke-dasharray="2 6"/>
-          </g>
-          <g fill="#005DAA" fill-opacity="0.85">
-            <rect x="92" y="150" width="14" height="22" rx="2"/><rect x="112" y="168" width="14" height="24" rx="2"/><rect x="135" y="182" width="15" height="26" rx="2"/><rect x="160" y="192" width="16" height="27" rx="2"/><rect x="186" y="196" width="17" height="28" rx="2"/><rect x="213" y="192" width="16" height="27" rx="2"/><rect x="239" y="182" width="15" height="26" rx="2"/><rect x="263" y="168" width="14" height="24" rx="2"/><rect x="284" y="150" width="14" height="22" rx="2"/>
-          </g>
-          <g stroke="#005DAA" stroke-width="1">
-            <circle cx="195" cy="205" r="20" fill="none" stroke-opacity="0.6"/><line x1="195" y1="178" x2="195" y2="232" stroke-opacity="0.4"/><line x1="168" y1="205" x2="222" y2="205" stroke-opacity="0.4"/>
-          </g>
-        </svg>
       </div>
       <div class="relative z-10 flex justify-between items-end gap-4">
         <p class="font-body-md text-on-surface-variant max-w-xs text-sm leading-relaxed">Low-dose 3D radiographic imaging gives a complete view of skeletal and dental structures, the foundation of every precise plan.</p>

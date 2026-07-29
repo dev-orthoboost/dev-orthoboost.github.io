@@ -342,13 +342,21 @@
   /* diagnostics card backgrounds: stock imagery at low opacity under a blue wash */
   #diagnostics .lift{isolation:isolate}
   .diag-bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
-  .diag-bg img{width:100%;height:100%;object-fit:cover;opacity:.16;filter:grayscale(55%)}
-  .diag-bg::after{content:'';position:absolute;inset:0;background:rgba(0,93,170,.2)}
+  .diag-bg img{width:100%;height:100%;object-fit:cover;opacity:.32;filter:grayscale(45%)}
+  .diag-bg::after{content:'';position:absolute;inset:0;background:rgba(0,93,170,.16)}
   /* trust bar logos */
   .trust-logo{width:auto;filter:grayscale(1);opacity:.72}
   .trust-logo--abo{height:48px}
   .trust-logo--inv{height:30px}
   .trust-logo--ucsf{height:26px}
+  /* location map embed */
+  .map-frame{display:block;width:100%;height:430px;border:0}
+  @media (max-width:640px){ .map-frame{height:320px} }
+  /* interior imagery scale — plain classes, NOT Tailwind arbitrary values, because
+     h-[340px]/h-[300px] don't exist in the compiled sheet and would silently no-op */
+  .img-hero{height:340px;width:100%;object-fit:cover}
+  .img-band{height:300px;width:100%;object-fit:cover}
+  @media (max-width:640px){ .img-hero{height:250px} .img-band{height:210px} }
   /* proof band — flat navy, three verified points, never wraps, stacks when narrow */
   .proofband{background:var(--navy);color:#fff}
   /* horizontal padding comes from the same px-5/md:px-grid-margin utilities every

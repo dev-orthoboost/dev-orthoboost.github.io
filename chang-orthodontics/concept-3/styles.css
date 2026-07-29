@@ -263,6 +263,11 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-col
 /* placeholder */
 .placeholder{border:1px dashed var(--muted);border-radius:var(--r-card);padding:26px 28px;background:var(--warm)}
 
+/* location map embed */
+.map-embed{border-radius:var(--r-img);overflow:hidden;box-shadow:var(--shadow);background:var(--ice)}
+.map-embed iframe{display:block;width:100%;height:430px;border:0}
+@media (max-width:680px){.map-embed iframe{height:320px}}
+
 /* footer */
 .site-footer{background:var(--ink);color:#fff;padding:76px 0 34px;margin-top:0}
 .site-footer .cols{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1.1fr;gap:34px}
