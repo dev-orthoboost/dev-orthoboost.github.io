@@ -14,7 +14,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 ::selection{background:var(--ice);color:var(--ink)}
-body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.62;color:var(--text);background:var(--ground);
+body{margin:0;font-family:var(--sans);font-size:18px;line-height:1.62;color:var(--text);background:var(--ground);
   -webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{margin:0;font-weight:400;letter-spacing:-.01em}
 p{margin:0}
@@ -38,10 +38,10 @@ a{color:var(--navy)}
 .display{font-family:var(--sans);font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1.06;letter-spacing:-.034em}
 .display--sm{font-size:clamp(30px,3.2vw,42px);line-height:1.14;letter-spacing:-.028em}
 .h2{font-family:var(--sans);font-weight:500;font-size:clamp(26px,2.7vw,35px);line-height:1.2;letter-spacing:-.024em}
-.h3{font-family:var(--sans);font-weight:600;font-size:18px;line-height:1.4;letter-spacing:-.008em}
-.lede{font-size:19px;line-height:1.62;color:var(--text-2)}
-.body{font-size:17px;line-height:1.62;color:var(--text-2)}
-.small{font-size:15px;line-height:1.55;color:var(--text-2)}
+.h3{font-family:var(--sans);font-weight:600;font-size:20px;line-height:1.4;letter-spacing:-.008em}
+.lede{font-size:20px;line-height:1.6;color:var(--text-2)}
+.body{font-size:18px;line-height:1.62;color:var(--text-2)}
+.small{font-size:16px;line-height:1.55;color:var(--text-2)}
 .eyebrow-free{}
 .label{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .measure{max-width:62ch}
@@ -119,6 +119,7 @@ html.scrolled .site-header{border-bottom-color:var(--line);background:rgba(251,2
 .hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
 .hero--split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-bottom:96px}
 .hero--split .hero__media{margin-top:0;aspect-ratio:4/5}
+.hero--split .hero__media--wide{aspect-ratio:4/3}
 .hero--plain{padding:76px 0 0}
 .checklist{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
 .checklist li{display:flex;gap:12px;align-items:flex-start}
@@ -160,7 +161,7 @@ a.rows__item:hover{background:var(--white);padding-left:14px}
 a.rows__item:hover .rows__title{color:var(--navy)}
 .rows__title{font-family:var(--sans);font-weight:500;font-size:23px;line-height:1.26;letter-spacing:-.022em;
   transition:color 220ms var(--ease)}
-.rows__body{font-size:17px;line-height:1.62;color:var(--text-2)}
+.rows__body{font-size:18px;line-height:1.62;color:var(--text-2)}
 .rows__go{font:600 15px/1.6 var(--sans);color:var(--navy);white-space:nowrap}
 
 /* plain column sets — a rule on top, no container */
@@ -228,6 +229,21 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-col
 .faq-group .h2{margin-bottom:20px}
 
 /* cta */
+/* proof band — flat navy, exactly three verified points, reused under the hero
+   of every money page. Content-sized columns so the text never wraps; stacks
+   vertically when narrow (site-conversion-blueprint). */
+.proofband{background:var(--navy);color:#fff}
+.proofband__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:26px 44px;padding-top:30px;padding-bottom:30px}
+.proofband__item{display:flex;align-items:center;gap:14px;flex:0 1 auto}
+.proofband__ic{display:inline-flex;color:var(--ice);flex:0 0 auto}
+.proofband__lead{font:600 17px/1.3 var(--sans);color:#fff;white-space:nowrap}
+/* .88 not .74 — at 14px on this navy, anything under ~.76 drops below AA 4.5:1 */
+.proofband__sub{font:400 14px/1.4 var(--sans);color:rgba(255,255,255,.88);white-space:nowrap;margin-top:3px}
+@media (max-width:940px){.proofband__row{flex-direction:column;align-items:flex-start;gap:20px}}
+
+.split--top{align-items:start}
+.callcol{border-top:2px solid var(--navy);padding-top:24px}
+
 .cta{background:var(--navy);color:#fff;border-radius:calc(var(--r-card) + 8px);padding:76px 56px;text-align:center}
 .cta .display{color:#fff}
 .cta .body{color:rgba(255,255,255,.85);margin:18px auto 32px}

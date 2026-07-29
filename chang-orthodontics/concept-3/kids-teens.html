@@ -63,9 +63,19 @@
       <h1 class="display reveal">Treatment timed to how they grow.</h1>
       <p class="lede hero__lede measure reveal">Most of this practice is kids and teens. Growth is an advantage when you use it, which is why timing matters as much as the appliance.</p>
       
-      <div class="btn-row hero__actions reveal"><a class="btn btn--primary" href="appointment.html">Book a free consultation <span aria-hidden="true">&rarr;</span></a><a class="btn btn--ghost" href="treatments.html">See treatments <span aria-hidden="true">&rarr;</span></a></div>
+      <div class="btn-row hero__actions reveal"><a class="btn btn--primary" href="#form">Request your free exam <span aria-hidden="true">&rarr;</span></a><a class="btn btn--ghost" href="tel:6505980888">Call (650) 598-0888 <span aria-hidden="true">&rarr;</span></a></div>
     </div>
     <div class="hero__media reveal reveal--still"><img src="assets/web/chang-community-01-1800.webp" srcset="assets/web/chang-community-01-480.webp 480w, assets/web/chang-community-01-768.webp 768w, assets/web/chang-community-01-1200.webp 1200w, assets/web/chang-community-01-1800.webp 1800w" sizes="(max-width: 1060px) 100vw, 50vw" width="1800" height="2400" alt="Dr. Chang with a young patient at Chang Orthodontics" fetchpriority="high" decoding="async"></div>
+  </div>
+</section>
+<section class="proofband">
+  <div class="container proofband__row">
+    <div class="proofband__item"><span class="proofband__ic"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.3l3.4 2"/></svg></span>
+      <div><p class="proofband__lead">16+ years on the Peninsula</p><p class="proofband__sub">Orthodontics only, every day</p></div></div>
+    <div class="proofband__item"><span class="proofband__ic"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.8 2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9L12 3.8Z"/></svg></span>
+      <div><p class="proofband__lead">ABO board-certified</p><p class="proofband__sub">Certified orthodontic specialist</p></div></div>
+    <div class="proofband__item"><span class="proofband__ic"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.6 6-5.6s6 2.3 6 5.6"/><path d="M16.2 5.4a3.2 3.2 0 0 1 0 6.1"/><path d="M18.2 14.9c1.9.8 3.2 2.6 3.2 5.1"/></svg></span>
+      <div><p class="proofband__lead">10,000+ patients treated</p><p class="proofband__sub">Kids, teens, and adults</p></div></div>
   </div>
 </section>
 <section class="section section--white">
@@ -101,14 +111,40 @@
   </details></div>
   </div>
 </section>
-<section class="section section--tight">
-  <div class="container"><div class="cta reveal">
-    <h2 class="display display--sm">Start with a free consultation.</h2>
-    <p class="body measure center">One visit tells you whether treatment is needed now, later, or not at all.</p>
-    <div class="btn-row"><a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a><a class="btn btn--onnavy" href="tel:6505980888">Call (650) 598-0888 <span aria-hidden="true">&rarr;</span></a></div>
-    <p class="label">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; Mon–Fri 9–5</p>
-  </div></div>
+
+<section class="section section--warm" id="form">
+  <div class="container split split--top">
+    <div>
+      <h2 class="h2 reveal">Ask about treatment for your child.</h2>
+      <p class="body measure reveal" style="margin-top:14px">One visit tells you whether treatment is needed now, later, or not at all. The exam and 3D scan are free, and you leave with a written estimate.</p>
+      <form id="lead" novalidate class="reveal" style="margin-top:32px">
+        <div class="field"><label for="name">Full name</label><input class="input" id="name" name="name" type="text" required></div>
+        <div class="field"><label for="phone">Phone</label><input class="input" id="phone" name="phone" type="tel" required></div>
+        <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email"></div>
+        <div class="field"><label for="who">Who is this for?</label>
+          <select class="select" id="who" name="who"><option>My child</option><option>Myself</option><option>Someone else</option></select></div>
+        <div class="field"><label for="notes">Anything we should know?</label><textarea class="textarea" id="notes" name="notes"></textarea></div>
+        <input type="hidden" name="interest" value="Kids &amp; teens">
+        <button class="btn btn--primary" type="submit">Request my free exam <span aria-hidden="true">&rarr;</span></button>
+        <p class="note">We reply within one business day. This form is a demonstration and does not send anything yet.</p>
+      </form>
+    </div>
+    <div class="callcol">
+      <h2 class="h3 reveal">Or just call the office</h2>
+      <p class="body reveal" style="margin-top:12px">Plenty of families would rather ask a couple of questions first. Call and we will tell you plainly whether an exam is worth your time.</p>
+      <p class="reveal" style="margin-top:22px"><a class="btn btn--primary" href="tel:6505980888">Call (650) 598-0888 <span aria-hidden="true">&rarr;</span></a></p>
+      <div class="reveal" style="margin-top:28px"><dl class="spec reveal"><div class="spec__row"><dt>Office</dt><dd>10 El Camino Real, Ste. 201, San Carlos, CA 94070</dd></div><div class="spec__row"><dt>Hours</dt><dd>Mon–Fri 9–5</dd></div><div class="spec__row"><dt>Consultation</dt><dd>Free, including the 3D scan</dd></div></dl></div>
+    </div>
+  </div>
 </section>
+<script>
+document.getElementById('lead').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('name'),p=document.getElementById('phone');
+  if(!n.value.trim()||!p.value.trim()){(n.value.trim()?p:n).focus();return;}
+  window.location.href='thank-you.html';
+});
+</script>
 </main>
 <footer class="site-footer">
   <div class="container">

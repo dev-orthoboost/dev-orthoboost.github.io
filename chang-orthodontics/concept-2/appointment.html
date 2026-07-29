@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Request an appointment | Chang Orthodontics</title>
-<meta name="description" content="Request a free consultation and 3D scan at Chang Orthodontics in San Carlos, CA.">
+<title>Your free first exam | Chang Orthodontics</title>
+<meta name="description" content="Your first exam at Chang Orthodontics is free and includes a 3D scan and a written estimate. San Carlos, CA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&family=Spectral:wght@300;400&display=swap">
@@ -54,36 +54,79 @@
 
 <nav class="crumb" aria-label="Breadcrumb"><div class="container"><ol>
   <li><a href="index.html">Home</a></li>
-  <li><span aria-current="page">Request an appointment</span></li>
+  <li><span aria-current="page">Book your free exam</span></li>
 </ol></div></nav>
 
 <section class="hero">
   <div class="hero__copy"><div class="hero__inner stagger">
-    <h1 class="display display--sm reveal">Request an appointment.</h1>
-    <p class="lede measure reveal">The consultation is free and includes a digital scan. You leave with your options, your timeline, and a written estimate.</p>
+    <h1 class="display reveal">Your first exam is free. Here is what it does for you.</h1>
+    <p class="lede measure reveal">Forty-five minutes with Dr. Chang, a 3D scan of your own teeth, and a written, itemized estimate you take home. Whether or not you ever start treatment.</p>
+    
+    <div class="btn-row reveal"><a class="btn btn--primary" href="#form">Request your free exam <span aria-hidden="true">&rarr;</span></a><a class="btn btn--tertiary" href="tel:6505980888">Call (650) 598-0888</a></div>
+    
   </div></div>
-  <div class="hero__media reveal reveal--still"><img src="assets/web/chang-office-reception-01-1800.webp" srcset="assets/web/chang-office-reception-01-480.webp 480w, assets/web/chang-office-reception-01-768.webp 768w, assets/web/chang-office-reception-01-1200.webp 1200w, assets/web/chang-office-reception-01-1800.webp 1800w" sizes="(max-width: 1120px) 100vw, 50vw" width="1800" height="1350" alt="The front desk at Chang Orthodontics" fetchpriority="high" decoding="async"></div>
+  <div class="hero__media reveal reveal--still"><img src="assets/web/chang-office-consult-01-1800.webp" srcset="assets/web/chang-office-consult-01-480.webp 480w, assets/web/chang-office-consult-01-768.webp 768w, assets/web/chang-office-consult-01-1200.webp 1200w, assets/web/chang-office-consult-01-1800.webp 1800w" sizes="(max-width: 1120px) 100vw, 50vw" width="1800" height="1350" alt="A consultation room at Chang Orthodontics" fetchpriority="high" decoding="async"></div>
+</section>
+<section class="proofband">
+  <div class="container proofband__row">
+    <div class="proofband__item"><span class="proofband__ic"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.3l3.4 2"/></svg></span>
+      <div><p class="proofband__lead">16+ years on the Peninsula</p><p class="proofband__sub">Orthodontics only, every day</p></div></div>
+    <div class="proofband__item"><span class="proofband__ic"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true" focusable="false"><path d="m12 3.8 2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9L12 3.8Z"/></svg></span>
+      <div><p class="proofband__lead">ABO board-certified</p><p class="proofband__sub">Certified orthodontic specialist</p></div></div>
+    <div class="proofband__item"><span class="proofband__ic"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.6 6-5.6s6 2.3 6 5.6"/><path d="M16.2 5.4a3.2 3.2 0 0 1 0 6.1"/><path d="M18.2 14.9c1.9.8 3.2 2.6 3.2 5.1"/></svg></span>
+      <div><p class="proofband__lead">10,000+ patients treated</p><p class="proofband__sub">Kids, teens, and adults</p></div></div>
+  </div>
 </section>
 <section class="section">
   <div class="container">
-    <div class="split">
-      <form id="lead" novalidate>
-        <div class="field"><label for="name">Full name</label><input class="input" id="name" name="name" type="text" required></div>
-        <div class="field"><label for="phone">Phone</label><input class="input" id="phone" name="phone" type="tel" required></div>
-        <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email"></div>
-        <div class="field"><label for="who">Who is this for?</label>
-          <select class="select" id="who" name="who">
-            <option>My child</option><option>Myself</option><option>Someone else</option>
-          </select></div>
-        <div class="field"><label for="notes">Anything we should know?</label><textarea class="textarea" id="notes" name="notes"></textarea></div>
-        <button class="btn btn--primary" type="submit">Request an appointment <span aria-hidden="true">&rarr;</span></button>
-        <p class="form-note">We reply within one business day. This form is a demonstration and does not send anything yet.</p>
-        <p class="form-note"><a href="faq.html">Questions before you book?</a></p>
-      </form>
+    <div class="section-head reveal"><h2 class="h2">What happens when you come in</h2></div>
+    <div class="steps stagger"><div class="reveal"><p class="num">01</p><h3 class="h3">Welcome and paperwork</h3><p class="body step__body">Short. We ask what brought you in and what you are hoping to change, then get you into the chair rather than the waiting room.</p></div><div class="reveal"><p class="num">02</p><h3 class="h3">Exam and 3D scan</h3><p class="body step__body">Dr. Chang examines the bite himself and takes a digital scan — no putty impressions. The scan shows roots and bone, not just the surface.</p></div><div class="reveal"><p class="num">03</p><h3 class="h3">Your plan, in plain language</h3><p class="body step__body">What is going on, what the options are, roughly how long each takes, and what each costs. Said in words, not chart notes.</p></div></div>
+  </div>
+</section>
+<section class="section section--layer">
+  <div class="container">
+    <div class="split split--top">
       <div class="stack stagger">
-        <h2 class="h2">What happens next</h2>
-        <div class="steps stagger"><div class="reveal"><p class="num">01</p><h3 class="h3">We call you back</h3><p class="body step__body">Usually the same day, always within one business day.</p></div><div class="reveal"><p class="num">02</p><h3 class="h3">The visit</h3><p class="body step__body">About 45 minutes: exam, digital scan, and time to ask questions.</p></div><div class="reveal"><p class="num">03</p><h3 class="h3">Your estimate</h3><p class="body step__body">Written, itemized, and yours to think about. No pressure to decide in the chair.</p></div></div>
-        <dl class="spec reveal"><div class="spec__row"><dt>Address</dt><dd>10 El Camino Real, Ste. 201, San Carlos, CA 94070</dd></div><div class="spec__row"><dt>Phone</dt><dd>(650) 598-0888</dd></div><div class="spec__row"><dt>Hours</dt><dd>Mon–Fri 9–5</dd></div></dl>
+        <h2 class="h2">What you will leave knowing</h2>
+        <p class="body measure">Nobody should have to decide about treatment in the chair. The point of the first visit is that you go home with enough to think it over properly.</p>
+        <a class="link-arrow" href="financing.html">How payment plans work <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <ul class="checklist reveal"><li><span class="tick" aria-hidden="true">&#10003;</span><span class="body">Whether you or your child needs treatment now, later, or not at all</span></li><li><span class="tick" aria-hidden="true">&#10003;</span><span class="body">Which options genuinely apply, and which ones do not</span></li><li><span class="tick" aria-hidden="true">&#10003;</span><span class="body">Roughly how long treatment would take</span></li><li><span class="tick" aria-hidden="true">&#10003;</span><span class="body">An itemized cost, in writing, before any decision</span></li><li><span class="tick" aria-hidden="true">&#10003;</span><span class="body">What your insurance benefit actually covers</span></li><li><span class="tick" aria-hidden="true">&#10003;</span><span class="body">What happens if you do nothing</span></li></ul>
+    </div>
+  </div>
+</section>
+<section class="section" aria-label="Patient review">
+  <div class="container container--narrow">
+    <div class="section-head reveal"><h2 class="h2">From a family who came in</h2></div>
+    <div class="measure"><div class="tile reveal"><p class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</p><p class="body">[Google review 1 — real five-star review text is pulled from the practice's Google Business Profile at build.]</p><p class="mono">Google review · Placeholder</p></div></div>
+  </div>
+</section>
+
+<section class="section section--layer" id="form">
+  <div class="container">
+    <div class="split split--top">
+      <div>
+        <h2 class="h2 reveal">Request your free exam.</h2>
+        <p class="body measure reveal" style="margin-top:14px">Tell us who it is for and how to reach you. We reply within one business day, and there is no obligation to start treatment.</p>
+        <form id="lead" novalidate style="margin-top:32px">
+          <div class="field"><label for="name">Full name</label><input class="input" id="name" name="name" type="text" required></div>
+          <div class="field"><label for="phone">Phone</label><input class="input" id="phone" name="phone" type="tel" required></div>
+          <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email"></div>
+          <div class="field"><label for="who">Who is this for?</label>
+            <select class="select" id="who" name="who">
+              <option>My child</option><option>Myself</option><option>Someone else</option>
+            </select></div>
+          <div class="field"><label for="notes">Anything we should know?</label><textarea class="textarea" id="notes" name="notes"></textarea></div>
+          
+          <button class="btn btn--primary" type="submit">Request my free exam <span aria-hidden="true">&rarr;</span></button>
+          <p class="form-note">We reply within one business day. This form is a demonstration and does not send anything yet.</p>
+        </form>
+      </div>
+      <div class="callcol">
+        <h2 class="h3 reveal">Or just call the office</h2>
+        <p class="body reveal" style="margin-top:12px">Plenty of families would rather ask a couple of questions first. Call and we will tell you plainly whether an exam is worth your time.</p>
+        <p class="reveal" style="margin-top:22px"><a class="btn btn--primary" href="tel:6505980888">Call (650) 598-0888 <span aria-hidden="true">&rarr;</span></a></p>
+        <div class="reveal" style="margin-top:28px"><dl class="spec reveal"><div class="spec__row"><dt>Office</dt><dd>10 El Camino Real, Ste. 201, San Carlos, CA 94070</dd></div><div class="spec__row"><dt>Hours</dt><dd>Mon–Fri 9–5</dd></div><div class="spec__row"><dt>Consultation</dt><dd>Free, including the 3D scan</dd></div></dl></div>
       </div>
     </div>
   </div>

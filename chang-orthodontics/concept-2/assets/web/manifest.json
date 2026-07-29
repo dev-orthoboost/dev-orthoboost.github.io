@@ -1,90 +1,121 @@
 {
- "chang-community-01": {
-  "ratio": 0.75,
-  "widths": [
-   480,
-   768,
-   1200,
-   1800
-  ]
- },
- "chang-community-booth-01": {
-  "ratio": 1.3333,
-  "widths": [
-   480,
-   768,
-   1200,
-   1800
-  ]
- },
- "chang-doctor-scanner-01": {
-  "ratio": 0.6654,
-  "widths": [
-   480,
-   768,
-   1200
-  ]
- },
- "chang-office-consult-01": {
-  "ratio": 1.3333,
-  "widths": [
-   480,
-   768,
-   1200,
-   1800
-  ]
- },
- "chang-office-reception-01": {
-  "ratio": 1.3333,
-  "widths": [
-   480,
-   768,
-   1200,
-   1800
-  ]
- },
- "chang-office-reception-02": {
-  "ratio": 0.75,
-  "widths": [
-   480,
-   768,
-   1200,
-   1800
-  ]
- },
- "chang-patient-01": {
-  "ratio": 0.75,
-  "widths": [
-   480,
-   768,
-   1200,
-   1800
-  ]
- },
- "chang-team-01": {
-  "ratio": 0.75,
-  "widths": [
-   480,
-   768,
-   1200,
-   1800
-  ]
- },
- "chang-team-full-01": {
-  "ratio": 0.75,
-  "widths": [
-   480,
-   768,
-   1200,
-   1800
-  ]
- },
- "chang-doctor-portrait-01": {
-  "ratio": 0.6654,
-  "widths": [
-   480,
-   768,
-   1200
-  ]
- }
+  "chang-community-01": {
+    "ratio": 0.75,
+    "widths": [
+      480,
+      768,
+      1200,
+      1800
+    ]
+  },
+  "chang-community-booth-01": {
+    "ratio": 1.3333,
+    "widths": [
+      480,
+      768,
+      1200,
+      1800
+    ]
+  },
+  "chang-doctor-scanner-01": {
+    "ratio": 0.6654,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "chang-office-consult-01": {
+    "ratio": 1.3333,
+    "widths": [
+      480,
+      768,
+      1200,
+      1800
+    ]
+  },
+  "chang-office-reception-01": {
+    "ratio": 1.3333,
+    "widths": [
+      480,
+      768,
+      1200,
+      1800
+    ]
+  },
+  "chang-office-reception-02": {
+    "ratio": 0.75,
+    "widths": [
+      480,
+      768,
+      1200,
+      1800
+    ]
+  },
+  "chang-patient-01": {
+    "ratio": 0.75,
+    "widths": [
+      480,
+      768,
+      1200,
+      1800
+    ]
+  },
+  "chang-team-01": {
+    "ratio": 0.75,
+    "widths": [
+      480,
+      768,
+      1200,
+      1800
+    ]
+  },
+  "chang-team-full-01": {
+    "ratio": 0.75,
+    "widths": [
+      480,
+      768,
+      1200,
+      1800
+    ]
+  },
+  "chang-doctor-portrait-01": {
+    "ratio": 0.6654,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "chang-stock-braces": {
+    "widths": [
+      480,
+      768
+    ],
+    "ratio": 1.3333333333333333
+  },
+  "chang-stock-child": {
+    "widths": [
+      480,
+      768,
+      1200
+    ],
+    "ratio": 1.3333333333333333
+  },
+  "chang-stock-retainer": {
+    "widths": [
+      480,
+      768,
+      1200
+    ],
+    "ratio": 1.3333333333333333
+  },
+  "chang-stock-sleeping": {
+    "widths": [
+      480,
+      768,
+      1200
+    ],
+    "ratio": 1.3333333333333333
+  }
 }
