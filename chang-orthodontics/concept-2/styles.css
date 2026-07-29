@@ -2,7 +2,7 @@
   --interactive:#005daa; --hover:#004a88; --active:#003b6e;
   --tint:#c1e4ea; --ink:#0d0d0d; --text:#0d0d0d; --text-2:#585959; --placeholder:#939598;
   --layer:#f4f4f4; --border:#e0e0e0; --border-strong:#8d8d8d; --error:#da1e28; --success:#24a148;
-  --sans:'IBM Plex Sans',system-ui,sans-serif; --serif:'IBM Plex Serif',Georgia,serif; --mono:'Azeret Mono',ui-monospace,monospace;
+  --sans:'Public Sans',system-ui,sans-serif; --serif:'Spectral',Georgia,serif; --mono:'Chivo Mono',ui-monospace,monospace;
   --container:1312px; --gutter:32px;
   --ease-productive:cubic-bezier(.2,0,.38,.9); --ease-expressive:cubic-bezier(.4,.14,.3,1);
 }
@@ -303,6 +303,27 @@ a.tile:hover .arrow{transform:translateX(4px)}
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:26px 0;margin-top:56px}
 .stars{color:var(--interactive);letter-spacing:4px;font-size:15px}
 .section--ink .stars{color:var(--tint)}
+
+/* bento treatments + wide tile */
+.tiles--feature{grid-template-columns:1fr 1fr}
+.tiles+.tiles{margin-top:16px}
+.tile--media--lg img{height:280px}
+.tile--wide{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+@media (max-width:900px){.tiles--feature{grid-template-columns:1fr}}
+
+/* trust logos */
+.trust img{width:auto;filter:grayscale(1);opacity:.72}
+.trust .logo-abo{height:48px}
+.trust .logo-inv{height:30px}
+.trust .logo-ucsf{height:26px}
+
+/* diagnostics split: media left, copy+spec right */
+.split--flip{grid-template-columns:1fr 1.2fr}
+.split--flip .tech-media{margin-bottom:0}
+
+/* long values (addresses) wrap inside the spec box */
+.spec__row dt{flex-shrink:0}
+.spec__row dd{min-width:0;overflow-wrap:break-word}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important}

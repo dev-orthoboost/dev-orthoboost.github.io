@@ -337,9 +337,18 @@
   @media (min-width:1150px){.pill-phone{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--c-ink);text-decoration:none;white-space:nowrap;padding:0 10px}}
   .pill-phone:hover{color:var(--navy)}
   .menu-grp-label{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:rgba(13,13,13,.55);padding:12px 12px 4px;margin:0}
-  /* photo service cards + review grid */
+  /* photo service cards */
   .mod-photo{width:100%;height:170px;object-fit:cover;display:block}
-  .rev-grid .rev-card{flex:none;width:auto;margin-right:0}
+  /* diagnostics card backgrounds: stock imagery at low opacity under a blue wash */
+  #diagnostics .lift{isolation:isolate}
+  .diag-bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+  .diag-bg img{width:100%;height:100%;object-fit:cover;opacity:.16;filter:grayscale(55%)}
+  .diag-bg::after{content:'';position:absolute;inset:0;background:rgba(0,93,170,.2)}
+  /* trust bar logos */
+  .trust-logo{width:auto;filter:grayscale(1);opacity:.72}
+  .trust-logo--abo{height:48px}
+  .trust-logo--inv{height:30px}
+  .trust-logo--ucsf{height:26px}
   @media (max-width:640px){ .offer-strip{font-size:11px} #nav-wrap{top:calc(1rem + 48px)} .page-hero{padding-top:170px} }
 </style>
 <script>document.documentElement.classList.add('js');addEventListener('load',function(){setTimeout(function(){[].forEach.call(document.querySelectorAll('[data-reveal]:not(.in)'),function(e){e.classList.add('in')})},5000)})</script>
@@ -580,7 +589,7 @@
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
     <article class="lift bg-white border border-outline-variant rounded-lg overflow-hidden flex flex-col" data-reveal="scale" style="--d:.05s">
-      <img class="mod-photo" src="assets/web/chang-office-consult-01-768.webp" srcset="assets/web/chang-office-consult-01-480.webp 480w, assets/web/chang-office-consult-01-768.webp 768w" sizes="(max-width: 767px) 100vw, 420px" width="768" height="576" alt="A consultation room at Chang Orthodontics" loading="lazy" decoding="async">
+      <img class="mod-photo" src="assets/web/chang-stock-braces-768.webp" srcset="assets/web/chang-stock-braces-480.webp 480w, assets/web/chang-stock-braces-768.webp 768w" sizes="(max-width: 767px) 100vw, 420px" width="768" height="576" alt="A teenager laughing with braces" loading="lazy" decoding="async">
       <div class="p-8 flex flex-col flex-1">
         <h3 class="font-headline-lg text-[26px] uppercase tracking-tight text-on-surface mb-6 leading-tight">Braces</h3>
         <dl class="mb-8">
@@ -604,7 +613,7 @@
       </div>
     </article>
     <article class="lift bg-white border border-outline-variant rounded-lg overflow-hidden flex flex-col" data-reveal="scale" style="--d:.25s">
-      <img class="mod-photo" src="assets/web/chang-community-01-768.webp" srcset="assets/web/chang-community-01-480.webp 480w, assets/web/chang-community-01-768.webp 768w" sizes="(max-width: 767px) 100vw, 420px" width="768" height="1024" alt="Dr. Chang with a young patient at Chang Orthodontics" loading="lazy" decoding="async">
+      <img class="mod-photo" src="assets/web/chang-stock-child-768.webp" srcset="assets/web/chang-stock-child-480.webp 480w, assets/web/chang-stock-child-768.webp 768w" sizes="(max-width: 767px) 100vw, 420px" width="768" height="576" alt="A young patient at a dental checkup" loading="lazy" decoding="async">
       <div class="p-8 flex flex-col flex-1">
         <h3 class="font-headline-lg text-[26px] uppercase tracking-tight text-on-surface mb-6 leading-tight">Early Orthodontics</h3>
         <dl class="mb-8">
@@ -616,7 +625,7 @@
       </div>
     </article>
     <article class="lift bg-white border border-outline-variant rounded-lg overflow-hidden flex flex-col" data-reveal="scale" style="--d:.05s">
-      <img class="mod-photo" src="assets/web/chang-office-reception-02-768.webp" srcset="assets/web/chang-office-reception-02-480.webp 480w, assets/web/chang-office-reception-02-768.webp 768w" sizes="(max-width: 767px) 100vw, 420px" width="768" height="1024" alt="The reception area at Chang Orthodontics" loading="lazy" decoding="async">
+      <img class="mod-photo" src="assets/web/chang-stock-sleeping-768.webp" srcset="assets/web/chang-stock-sleeping-480.webp 480w, assets/web/chang-stock-sleeping-768.webp 768w" sizes="(max-width: 767px) 100vw, 420px" width="768" height="576" alt="A child sleeping soundly beside their parents" loading="lazy" decoding="async">
       <div class="p-8 flex flex-col flex-1">
         <h3 class="font-headline-lg text-[26px] uppercase tracking-tight text-on-surface mb-6 leading-tight">Airway &amp; Functional</h3>
         <dl class="mb-8">
@@ -628,7 +637,7 @@
       </div>
     </article>
     <article class="lift bg-white border border-outline-variant rounded-lg overflow-hidden flex flex-col" data-reveal="scale" style="--d:.15s">
-      <img class="mod-photo" src="assets/web/chang-office-reception-01-768.webp" srcset="assets/web/chang-office-reception-01-480.webp 480w, assets/web/chang-office-reception-01-768.webp 768w" sizes="(max-width: 767px) 100vw, 420px" width="768" height="576" alt="The front desk at Chang Orthodontics" loading="lazy" decoding="async">
+      <img class="mod-photo" src="assets/web/chang-stock-retainer-768.webp" srcset="assets/web/chang-stock-retainer-480.webp 480w, assets/web/chang-stock-retainer-768.webp 768w" sizes="(max-width: 767px) 100vw, 420px" width="768" height="576" alt="A clear orthodontic retainer" loading="lazy" decoding="async">
       <div class="p-8 flex flex-col flex-1">
         <h3 class="font-headline-lg text-[26px] uppercase tracking-tight text-on-surface mb-6 leading-tight">Retainers</h3>
         <dl class="mb-8">
@@ -650,9 +659,9 @@
 
   <!-- credentials bar: borrowed credibility, directly below the service cards -->
   <div class="mt-10 border-y border-outline-variant py-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-2" data-reveal="up" aria-label="Credentials">
-    <span class="telemetry-readout">American Board of Orthodontics — Board-Certified</span>
-    <span class="telemetry-readout">Invisalign — Platinum Plus Provider</span>
-    <span class="telemetry-readout">UCSF School of Dentistry — Faculty</span>
+    <img class="trust-logo trust-logo--abo" src="assets/logos/abo.png" alt="American Board of Orthodontics — Board-Certified" loading="lazy" decoding="async">
+    <img class="trust-logo trust-logo--inv" src="assets/logos/invisalign.svg" alt="Invisalign — Platinum Plus Provider" loading="lazy" decoding="async">
+    <img class="trust-logo trust-logo--ucsf" src="assets/logos/ucsf.svg" alt="UCSF School of Dentistry — Faculty" loading="lazy" decoding="async">
     <span class="telemetry-readout">iTero — Digital 3D Scanning</span>
   </div>
 </section>
@@ -668,6 +677,7 @@
 
   <div class="grid grid-cols-12 gap-5">
     <div class="col-span-12 md:col-span-8 lift bg-white border border-outline-variant rounded-lg p-8 md:p-10 flex flex-col justify-between min-h-[420px] md:min-h-[440px] relative overflow-hidden group" data-reveal="left">
+      <div class="diag-bg" aria-hidden="true"><img src="assets/web/chang-stock-xray32-1200.webp" srcset="assets/web/chang-stock-xray32-768.webp 768w, assets/web/chang-stock-xray32-1200.webp 1200w" sizes="(max-width: 767px) 100vw, 860px" alt="" loading="lazy" decoding="async"></div>
       <div class="absolute inset-0 dot-grid opacity-[0.05] pointer-events-none"></div>
       <div class="relative z-10 flex justify-between items-start gap-4">
         <div>
@@ -701,11 +711,13 @@
 
     <div class="col-span-12 md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-5">
       <div class="lift bg-accent border border-outline-variant rounded-lg p-8 relative overflow-hidden" data-reveal="right" style="--d:.1s">
+        <div class="diag-bg" aria-hidden="true"><img src="assets/web/chang-doctor-scanner-01-480.webp" alt="" loading="lazy" decoding="async"></div>
         <div class="flex justify-between mb-6"><span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">view_in_ar</span><span class="telemetry-readout">20µm</span></div>
         <h4 class="font-label-sans text-sm font-bold uppercase tracking-wide mb-3 text-on-surface">Intraoral Scanning</h4>
         <p class="font-data-point text-sm text-on-surface-variant leading-relaxed">Digital iTero impressions at 20-micron accuracy: comfortable, fast, and completely putty-free.</p>
       </div>
       <div class="lift bg-accent border border-outline-variant rounded-lg p-8 relative overflow-hidden" data-reveal="right" style="--d:.22s">
+        <div class="diag-bg" aria-hidden="true"><img src="assets/web/chang-stock-xraypano-768.webp" alt="" loading="lazy" decoding="async"></div>
         <div class="flex justify-between mb-6"><span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">psychology</span><span class="telemetry-readout">Auto</span></div>
         <h4 class="font-label-sans text-sm font-bold uppercase tracking-wide mb-3 text-on-surface">AI Cephalometrics</h4>
         <p class="font-data-point text-sm text-on-surface-variant leading-relaxed">Automated cephalometric landmarking for consistent, repeatable tracing on every scan.</p>
@@ -757,8 +769,11 @@
       <p class="font-body-md text-surface/70 leading-relaxed mt-5" data-reveal="up" style="--d:.12s">Real families, real outcomes. More than 100 five-star reviews from Peninsula families.</p>
     </div>
 
-    <div class="rev-grid grid grid-cols-1 md:grid-cols-3 gap-5" data-reveal="up" style="--d:.16s">
-      <figure class="rev-card">
+  </div>
+
+  <div class="rev-full-bleed rev-viewport" data-reveal="up" style="--d:.16s">
+    <div class="rev-track" id="rev-track">
+      <figure class="rev-card" tabindex="0">
         <span class="rev-quote" aria-hidden="true">”</span>
         <div class="flex items-center gap-3 mb-5">
           <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
@@ -770,7 +785,7 @@
           <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
         </figcaption>
       </figure>
-      <figure class="rev-card">
+      <figure class="rev-card" tabindex="0">
         <span class="rev-quote" aria-hidden="true">”</span>
         <div class="flex items-center gap-3 mb-5">
           <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
@@ -782,7 +797,44 @@
           <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
         </figcaption>
       </figure>
-      <figure class="rev-card">
+      <figure class="rev-card" tabindex="0">
+        <span class="rev-quote" aria-hidden="true">”</span>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <span class="font-label-sans text-[12px] text-surface/70">5.0</span>
+        </div>
+        <blockquote class="font-body-md text-lg text-surface/90 leading-relaxed">[Google review 3 — pulled from the practice's Google Business Profile.]</blockquote>
+        <figcaption class="mt-7 pt-5 border-t border-white/10 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-label-sans text-[12px] font-bold shrink-0" aria-hidden="true">★</span>
+          <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
+        </figcaption>
+      </figure>
+      <!-- duplicate set for seamless loop -->
+      <figure class="rev-card" tabindex="-1" aria-hidden="true">
+        <span class="rev-quote" aria-hidden="true">”</span>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <span class="font-label-sans text-[12px] text-surface/70">5.0</span>
+        </div>
+        <blockquote class="font-body-md text-lg text-surface/90 leading-relaxed">[Google review 1 — real five-star review text drops in here at build. We never write testimonials.]</blockquote>
+        <figcaption class="mt-7 pt-5 border-t border-white/10 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-label-sans text-[12px] font-bold shrink-0" aria-hidden="true">★</span>
+          <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
+        </figcaption>
+      </figure>
+      <figure class="rev-card" tabindex="-1" aria-hidden="true">
+        <span class="rev-quote" aria-hidden="true">”</span>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <span class="font-label-sans text-[12px] text-surface/70">5.0</span>
+        </div>
+        <blockquote class="font-body-md text-lg text-surface/90 leading-relaxed">[Google review 2 — pulled from the practice's Google Business Profile.]</blockquote>
+        <figcaption class="mt-7 pt-5 border-t border-white/10 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-label-sans text-[12px] font-bold shrink-0" aria-hidden="true">★</span>
+          <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
+        </figcaption>
+      </figure>
+      <figure class="rev-card" tabindex="-1" aria-hidden="true">
         <span class="rev-quote" aria-hidden="true">”</span>
         <div class="flex items-center gap-3 mb-5">
           <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
@@ -795,10 +847,10 @@
         </figcaption>
       </figure>
     </div>
+  </div>
 
-    <div class="text-center mt-10" data-reveal="up">
-      <a href="reviews.html" class="font-label-sans text-[12px] uppercase tracking-widest text-primary-bright underline underline-offset-4">Read All 100+ Reviews</a>
-    </div>
+  <div class="px-5 md:px-grid-margin max-w-[1320px] mx-auto text-center mt-10" data-reveal="up">
+    <a href="reviews.html" class="font-label-sans text-[12px] uppercase tracking-widest text-primary-bright underline underline-offset-4">Read All 100+ Reviews</a>
   </div>
 </section>
 
@@ -809,28 +861,28 @@
     <p class="font-body-md text-on-surface-variant mt-5 leading-relaxed" data-reveal="up" style="--d:.16s">Four precise steps, all under one roof. Hover a step to see the detail, so you always know what comes next.</p>
   </div>
   <div class="proc-row" id="proc-row" data-reveal="up" style="--d:.1s">
-    <article class="proc-card is-active bg-accent border border-outline-variant rounded-lg p-7 min-h-[300px] flex flex-col justify-between" data-proc>
+    <article class="proc-card is-active bg-accent border border-outline-variant rounded-lg p-7 flex flex-col justify-between" data-proc>
       <div>
         <div class="flex items-center justify-between mb-8"><span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 01</span><span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">view_in_ar</span></div>
         <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface leading-tight">3D Scanning</h3>
         <div class="proc-body"><div><p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">CBCT and intraoral capture build a complete anatomical model of your bite, accurate down to the micron.</p></div></div>
       </div>
     </article>
-    <article class="proc-card bg-white border border-outline-variant rounded-lg p-7 min-h-[300px] flex flex-col justify-between" data-proc>
+    <article class="proc-card bg-white border border-outline-variant rounded-lg p-7 flex flex-col justify-between" data-proc>
       <div>
         <div class="flex items-center justify-between mb-8"><span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 02</span><span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">psychology</span></div>
         <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface leading-tight">Treatment Planning</h3>
         <div class="proc-body"><div><p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">We simulate tooth movement and map the precise path to your target bite before treatment begins.</p></div></div>
       </div>
     </article>
-    <article class="proc-card bg-white border border-outline-variant rounded-lg p-7 min-h-[300px] flex flex-col justify-between" data-proc>
+    <article class="proc-card bg-white border border-outline-variant rounded-lg p-7 flex flex-col justify-between" data-proc>
       <div>
         <div class="flex items-center justify-between mb-8"><span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 03</span><span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">precision_manufacturing</span></div>
         <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface leading-tight">In-House Fabrication</h3>
         <div class="proc-body"><div><p class="font-body-md text-sm text-on-surface-variant leading-relaxed mt-4">Aligners and appliances are produced to spec, on site, for faster turnaround and tighter quality control.</p></div></div>
       </div>
     </article>
-    <article class="proc-card bg-white border border-outline-variant rounded-lg p-7 min-h-[300px] flex flex-col justify-between" data-proc>
+    <article class="proc-card bg-white border border-outline-variant rounded-lg p-7 flex flex-col justify-between" data-proc>
       <div>
         <div class="flex items-center justify-between mb-8"><span class="font-label-sans text-[12px] uppercase tracking-widest text-primary font-bold">Step 04</span><span class="material-symbols-outlined text-3xl text-primary" aria-hidden="true">monitor_heart</span></div>
         <h3 class="font-headline-lg text-[22px] uppercase tracking-tight text-on-surface leading-tight">Digital Monitoring</h3>

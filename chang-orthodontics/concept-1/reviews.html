@@ -337,9 +337,18 @@
   @media (min-width:1150px){.pill-phone{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--c-ink);text-decoration:none;white-space:nowrap;padding:0 10px}}
   .pill-phone:hover{color:var(--navy)}
   .menu-grp-label{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:rgba(13,13,13,.55);padding:12px 12px 4px;margin:0}
-  /* photo service cards + review grid */
+  /* photo service cards */
   .mod-photo{width:100%;height:170px;object-fit:cover;display:block}
-  .rev-grid .rev-card{flex:none;width:auto;margin-right:0}
+  /* diagnostics card backgrounds: stock imagery at low opacity under a blue wash */
+  #diagnostics .lift{isolation:isolate}
+  .diag-bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+  .diag-bg img{width:100%;height:100%;object-fit:cover;opacity:.16;filter:grayscale(55%)}
+  .diag-bg::after{content:'';position:absolute;inset:0;background:rgba(0,93,170,.2)}
+  /* trust bar logos */
+  .trust-logo{width:auto;filter:grayscale(1);opacity:.72}
+  .trust-logo--abo{height:48px}
+  .trust-logo--inv{height:30px}
+  .trust-logo--ucsf{height:26px}
   @media (max-width:640px){ .offer-strip{font-size:11px} #nav-wrap{top:calc(1rem + 48px)} .page-hero{padding-top:170px} }
 </style>
 <script>document.documentElement.classList.add('js');addEventListener('load',function(){setTimeout(function(){[].forEach.call(document.querySelectorAll('[data-reveal]:not(.in)'),function(e){e.classList.add('in')})},5000)})</script>
@@ -474,8 +483,11 @@
       <p class="font-body-md text-surface/70 leading-relaxed mt-5" data-reveal="up" style="--d:.12s">Real families, real outcomes. More than 100 five-star reviews from Peninsula families.</p>
     </div>
 
-    <div class="rev-grid grid grid-cols-1 md:grid-cols-3 gap-5" data-reveal="up" style="--d:.16s">
-      <figure class="rev-card">
+  </div>
+
+  <div class="rev-full-bleed rev-viewport" data-reveal="up" style="--d:.16s">
+    <div class="rev-track" id="rev-track">
+      <figure class="rev-card" tabindex="0">
         <span class="rev-quote" aria-hidden="true">”</span>
         <div class="flex items-center gap-3 mb-5">
           <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
@@ -487,7 +499,7 @@
           <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
         </figcaption>
       </figure>
-      <figure class="rev-card">
+      <figure class="rev-card" tabindex="0">
         <span class="rev-quote" aria-hidden="true">”</span>
         <div class="flex items-center gap-3 mb-5">
           <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
@@ -499,7 +511,44 @@
           <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
         </figcaption>
       </figure>
-      <figure class="rev-card">
+      <figure class="rev-card" tabindex="0">
+        <span class="rev-quote" aria-hidden="true">”</span>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <span class="font-label-sans text-[12px] text-surface/70">5.0</span>
+        </div>
+        <blockquote class="font-body-md text-lg text-surface/90 leading-relaxed">[Google review 3 — pulled from the practice's Google Business Profile.]</blockquote>
+        <figcaption class="mt-7 pt-5 border-t border-white/10 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-label-sans text-[12px] font-bold shrink-0" aria-hidden="true">★</span>
+          <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
+        </figcaption>
+      </figure>
+      <!-- duplicate set for seamless loop -->
+      <figure class="rev-card" tabindex="-1" aria-hidden="true">
+        <span class="rev-quote" aria-hidden="true">”</span>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <span class="font-label-sans text-[12px] text-surface/70">5.0</span>
+        </div>
+        <blockquote class="font-body-md text-lg text-surface/90 leading-relaxed">[Google review 1 — real five-star review text drops in here at build. We never write testimonials.]</blockquote>
+        <figcaption class="mt-7 pt-5 border-t border-white/10 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-label-sans text-[12px] font-bold shrink-0" aria-hidden="true">★</span>
+          <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
+        </figcaption>
+      </figure>
+      <figure class="rev-card" tabindex="-1" aria-hidden="true">
+        <span class="rev-quote" aria-hidden="true">”</span>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <span class="font-label-sans text-[12px] text-surface/70">5.0</span>
+        </div>
+        <blockquote class="font-body-md text-lg text-surface/90 leading-relaxed">[Google review 2 — pulled from the practice's Google Business Profile.]</blockquote>
+        <figcaption class="mt-7 pt-5 border-t border-white/10 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-label-sans text-[12px] font-bold shrink-0" aria-hidden="true">★</span>
+          <span><span class="block font-label-sans text-[12px] uppercase tracking-widest text-surface">Google review</span><span class="block font-label-sans text-[10px] uppercase tracking-widest text-surface/55">Placeholder</span></span>
+        </figcaption>
+      </figure>
+      <figure class="rev-card" tabindex="-1" aria-hidden="true">
         <span class="rev-quote" aria-hidden="true">”</span>
         <div class="flex items-center gap-3 mb-5">
           <span class="text-primary-bright text-lg" role="img" aria-label="5 out of 5 stars">★★★★★</span>
@@ -512,10 +561,10 @@
         </figcaption>
       </figure>
     </div>
+  </div>
 
-    <div class="text-center mt-10" data-reveal="up">
-      <a href="reviews.html" class="font-label-sans text-[12px] uppercase tracking-widest text-primary-bright underline underline-offset-4">Read All 100+ Reviews</a>
-    </div>
+  <div class="px-5 md:px-grid-margin max-w-[1320px] mx-auto text-center mt-10" data-reveal="up">
+    <a href="reviews.html" class="font-label-sans text-[12px] uppercase tracking-widest text-primary-bright underline underline-offset-4">Read All 100+ Reviews</a>
   </div>
 </section>
 

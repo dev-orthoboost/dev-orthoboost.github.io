@@ -337,9 +337,18 @@
   @media (min-width:1150px){.pill-phone{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--c-ink);text-decoration:none;white-space:nowrap;padding:0 10px}}
   .pill-phone:hover{color:var(--navy)}
   .menu-grp-label{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:rgba(13,13,13,.55);padding:12px 12px 4px;margin:0}
-  /* photo service cards + review grid */
+  /* photo service cards */
   .mod-photo{width:100%;height:170px;object-fit:cover;display:block}
-  .rev-grid .rev-card{flex:none;width:auto;margin-right:0}
+  /* diagnostics card backgrounds: stock imagery at low opacity under a blue wash */
+  #diagnostics .lift{isolation:isolate}
+  .diag-bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+  .diag-bg img{width:100%;height:100%;object-fit:cover;opacity:.16;filter:grayscale(55%)}
+  .diag-bg::after{content:'';position:absolute;inset:0;background:rgba(0,93,170,.2)}
+  /* trust bar logos */
+  .trust-logo{width:auto;filter:grayscale(1);opacity:.72}
+  .trust-logo--abo{height:48px}
+  .trust-logo--inv{height:30px}
+  .trust-logo--ucsf{height:26px}
   @media (max-width:640px){ .offer-strip{font-size:11px} #nav-wrap{top:calc(1rem + 48px)} .page-hero{padding-top:170px} }
 </style>
 <script>document.documentElement.classList.add('js');addEventListener('load',function(){setTimeout(function(){[].forEach.call(document.querySelectorAll('[data-reveal]:not(.in)'),function(e){e.classList.add('in')})},5000)})</script>
@@ -460,6 +469,7 @@
 
   <div class="grid grid-cols-12 gap-5">
     <div class="col-span-12 md:col-span-8 lift bg-white border border-outline-variant rounded-lg p-8 md:p-10 flex flex-col justify-between min-h-[420px] md:min-h-[440px] relative overflow-hidden group" data-reveal="left">
+      <div class="diag-bg" aria-hidden="true"><img src="assets/web/chang-stock-xray32-1200.webp" srcset="assets/web/chang-stock-xray32-768.webp 768w, assets/web/chang-stock-xray32-1200.webp 1200w" sizes="(max-width: 767px) 100vw, 860px" alt="" loading="lazy" decoding="async"></div>
       <div class="absolute inset-0 dot-grid opacity-[0.05] pointer-events-none"></div>
       <div class="relative z-10 flex justify-between items-start gap-4">
         <div>
@@ -493,11 +503,13 @@
 
     <div class="col-span-12 md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-5">
       <div class="lift bg-accent border border-outline-variant rounded-lg p-8 relative overflow-hidden" data-reveal="right" style="--d:.1s">
+        <div class="diag-bg" aria-hidden="true"><img src="assets/web/chang-doctor-scanner-01-480.webp" alt="" loading="lazy" decoding="async"></div>
         <div class="flex justify-between mb-6"><span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">view_in_ar</span><span class="telemetry-readout">20µm</span></div>
         <h4 class="font-label-sans text-sm font-bold uppercase tracking-wide mb-3 text-on-surface">Intraoral Scanning</h4>
         <p class="font-data-point text-sm text-on-surface-variant leading-relaxed">Digital iTero impressions at 20-micron accuracy: comfortable, fast, and completely putty-free.</p>
       </div>
       <div class="lift bg-accent border border-outline-variant rounded-lg p-8 relative overflow-hidden" data-reveal="right" style="--d:.22s">
+        <div class="diag-bg" aria-hidden="true"><img src="assets/web/chang-stock-xraypano-768.webp" alt="" loading="lazy" decoding="async"></div>
         <div class="flex justify-between mb-6"><span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">psychology</span><span class="telemetry-readout">Auto</span></div>
         <h4 class="font-label-sans text-sm font-bold uppercase tracking-wide mb-3 text-on-surface">AI Cephalometrics</h4>
         <p class="font-data-point text-sm text-on-surface-variant leading-relaxed">Automated cephalometric landmarking for consistent, repeatable tracing on every scan.</p>
