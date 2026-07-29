@@ -1,5 +1,7 @@
 /* NOTE: this file is INLINED into every page's <style data-inline-css> block for performance.
-   After editing, re-run scratchpad/siouxland_inline_css.py to re-sync all pages. */
+   After editing, re-sync all pages: strip CSS comments, strip per-line leading/trailing
+   whitespace, drop blank lines, then replace each page's <style data-inline-css>...</style>
+   contents with the result (see apply_blueprint.py inline_css() from the Jul 28 blueprint pass). */
 /* Siouxland Orthodontics — Concept 2, browse-first direction.
    Search-led masthead, quick treatment menu, promo cards, and tile grids
    rendered in the Siouxland sunset brand system. */
