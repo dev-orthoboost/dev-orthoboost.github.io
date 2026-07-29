@@ -346,9 +346,12 @@ footer{background:var(--black)}
 .trustbar{border:1px solid var(--line);background:#fff;border-radius:12px;padding:24px 34px;display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 .tb-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);flex:none;max-width:150px;line-height:1.45}
 .tb-items{display:flex;align-items:center;gap:34px;flex-wrap:wrap;row-gap:18px}
-.tb-item{display:flex;flex-direction:column;color:#787b84}
+.tb-item{display:flex;flex-direction:column;justify-content:center;color:#787b84}
 .tb-name{font-family:var(--serif);font-weight:700;font-size:17px;letter-spacing:.02em;line-height:1.2}
 .tb-sub{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-top:3px}
+.tb-item img{height:44px;width:auto;filter:grayscale(1);opacity:.72;transition:filter .2s,opacity .2s}
+.tb-item:hover img{filter:none;opacity:1}
+@media (max-width:560px){.tb-item img{height:34px}}
 .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .rev{background:var(--cream);border-radius:12px;padding:26px;display:flex;flex-direction:column;gap:10px}
 .rev .qm{font-family:var(--serif);font-size:36px;line-height:.6;color:var(--coral)}
@@ -571,11 +574,11 @@ footer{background:var(--black)}
   <div class="trustbar" aria-label="Professional memberships and providers">
     <span class="tb-label">Memberships &amp; credentials</span>
     <div class="tb-items">
-      <span class="tb-item"><span class="tb-name">American Association of Orthodontists</span><span class="tb-sub">Member</span></span>
-      <span class="tb-item"><span class="tb-name">American Dental Association</span><span class="tb-sub">Member</span></span>
-      <span class="tb-item"><span class="tb-name">Iowa Dental Association</span><span class="tb-sub">Member</span></span>
+      <span class="tb-item"><img src="assets/logos/aao.svg" width="291" height="100" loading="lazy" alt="American Association of Orthodontists"></span>
+      <span class="tb-item"><img src="assets/logos/ada.svg" width="76" height="24" loading="lazy" alt="American Dental Association"></span>
+      <span class="tb-item"><img src="assets/logos/ida.png" width="244" height="153" loading="lazy" alt="Iowa Dental Association"></span>
+      <span class="tb-item"><img src="assets/logos/invisalign-provider.png" width="235" height="95" loading="lazy" alt="Invisalign provider"></span>
       <span class="tb-item"><span class="tb-name">Sioux City Dental Society</span><span class="tb-sub">Member</span></span>
-      <span class="tb-item"><span class="tb-name">Invisalign</span><span class="tb-sub">Provider</span></span>
     </div>
   </div>
 </div></section>
