@@ -323,6 +323,23 @@
   .page-hero{padding-top:clamp(150px,17vh,210px)}
   .crumb-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   .crumb-row a{color:var(--navy)}
+  /* grouped pill-nav dropdowns + header phone (blueprint header) */
+  .nav-pill-grp{position:relative}
+  .nav-pill-grp:hover::after{content:'';position:absolute;left:0;right:0;top:100%;height:14px}
+  .pill-caret{font-size:15px;opacity:.55;margin-left:-3px}
+  .pill-drop{position:absolute;left:0;top:calc(100% + 10px);min-width:240px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);
+    border:1px solid rgba(13,13,13,.1);border-radius:18px;padding:8px;box-shadow:0 18px 40px rgba(13,13,13,.14);
+    opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s ease,transform .16s ease;z-index:70}
+  .nav-pill-grp:hover .pill-drop,.nav-pill-grp:focus-within .pill-drop{opacity:1;visibility:visible;transform:none}
+  .pill-drop a{display:block;padding:10px 14px;border-radius:12px;font-family:'Hanken Grotesk',sans-serif;font-size:13.5px;font-weight:600;color:var(--c-ink);text-decoration:none}
+  .pill-drop a:hover{background:rgba(0,93,170,.07);color:var(--navy)}
+  .pill-phone{display:none}
+  @media (min-width:1150px){.pill-phone{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--c-ink);text-decoration:none;white-space:nowrap;padding:0 10px}}
+  .pill-phone:hover{color:var(--navy)}
+  .menu-grp-label{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:rgba(13,13,13,.55);padding:12px 12px 4px;margin:0}
+  /* photo service cards + review grid */
+  .mod-photo{width:100%;height:170px;object-fit:cover;display:block}
+  .rev-grid .rev-card{flex:none;width:auto;margin-right:0}
   @media (max-width:640px){ .offer-strip{font-size:11px} #nav-wrap{top:calc(1rem + 48px)} .page-hero{padding-top:170px} }
 </style>
 <script>document.documentElement.classList.add('js');addEventListener('load',function(){setTimeout(function(){[].forEach.call(document.querySelectorAll('[data-reveal]:not(.in)'),function(e){e.classList.add('in')})},5000)})</script>
@@ -348,14 +365,25 @@
         <img src="assets/chang-logo.svg" alt="Chang Orthodontics" width="150" height="60">
       </a>
       <nav class="nav-pills hidden lg:flex" aria-label="Primary">
-        <a class="nav-pill" href="treatments.html"><span class="material-symbols-outlined">dentistry</span>Treatments</a>
-        <a class="nav-pill" href="new-patients.html"><span class="material-symbols-outlined">person_add</span>New patients</a>
-        <a class="nav-pill" href="technology.html"><span class="material-symbols-outlined">view_in_ar</span>Technology</a>
-        <a class="nav-pill" href="about.html"><span class="material-symbols-outlined">badge</span>About</a>
-        <a class="nav-pill" href="reviews.html"><span class="material-symbols-outlined">star</span>Reviews</a>
-        <a class="nav-pill" href="contact.html"><span class="material-symbols-outlined">call</span>Contact</a>
+        <div class="nav-pill-grp">
+        <a class="nav-pill" href="treatments.html"><span class="material-symbols-outlined">dentistry</span>Treatments<span class="material-symbols-outlined pill-caret" aria-hidden="true">expand_more</span></a>
+        <div class="pill-drop"><a href="braces.html">Braces</a><a href="invisalign.html">Invisalign</a><a href="early-orthodontics.html">Early orthodontics</a><a href="airway.html">Airway &amp; functional</a><a href="retainers.html">Retainers</a><a href="kids-teens.html">For kids &amp; teens</a><a href="adults.html">For adults</a></div>
+      </div>
+        <div class="nav-pill-grp">
+        <a class="nav-pill" href="about.html"><span class="material-symbols-outlined">badge</span>Why choose us<span class="material-symbols-outlined pill-caret" aria-hidden="true">expand_more</span></a>
+        <div class="pill-drop"><a href="about.html">Meet Dr. Chang</a><a href="technology.html">Technology</a><a href="reviews.html">Reviews</a></div>
+      </div>
+        <div class="nav-pill-grp">
+        <a class="nav-pill" href="new-patients.html"><span class="material-symbols-outlined">folder_open</span>Resources<span class="material-symbols-outlined pill-caret" aria-hidden="true">expand_more</span></a>
+        <div class="pill-drop"><a href="new-patients.html">New patients</a><a href="financing.html">Financing</a><a href="faq.html">FAQ</a><a href="emergencies.html">Emergencies</a><a href="blog.html">Blog</a></div>
+      </div>
+        <div class="nav-pill-grp">
+        <a class="nav-pill" href="contact.html"><span class="material-symbols-outlined">location_on</span>Location<span class="material-symbols-outlined pill-caret" aria-hidden="true">expand_more</span></a>
+        <div class="pill-drop"><a href="contact.html">Contact &amp; directions</a><a href="san-carlos.html">San Carlos office</a></div>
+      </div>
       </nav>
       <div class="flex items-center gap-2">
+        <a href="tel:6505980888" class="pill-phone">(650) 598-0888</a>
         <a href="appointment.html" class="pill-cta hidden sm:inline-flex">
           <span class="cta-text">Book Consult</span>
           <span class="cta-dot"><span class="material-symbols-outlined">arrow_outward</span></span>
@@ -367,18 +395,33 @@
     </div>
     <div id="mobile-menu" class="closed lg:hidden mt-2 bg-white/90 backdrop-blur-md border border-outline-variant rounded-3xl p-3 shadow-lg">
       <nav class="flex flex-col" aria-label="Mobile">
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="treatments.html">Treatments</a>
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="new-patients.html">New patients</a>
+        <p class="menu-grp-label">Treatments</p>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="braces.html">Braces</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="invisalign.html">Invisalign</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="early-orthodontics.html">Early orthodontics</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="airway.html">Airway &amp; functional</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="retainers.html">Retainers</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="kids-teens.html">For kids &amp; teens</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="adults.html">For adults</a>
+        <p class="menu-grp-label">Why choose us</p>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="about.html">Meet Dr. Chang</a>
         <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="technology.html">Technology</a>
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="about.html">About</a>
         <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="reviews.html">Reviews</a>
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="contact.html">Contact</a>
-        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 transition-colors" href="faq.html">FAQ</a>
+        <p class="menu-grp-label">Resources</p>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="new-patients.html">New patients</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="financing.html">Financing</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="faq.html">FAQ</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="emergencies.html">Emergencies</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="blog.html">Blog</a>
+        <p class="menu-grp-label">Location</p>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="contact.html">Contact &amp; directions</a>
+        <a class="font-label-sans text-[12px] tracking-widest text-on-surface hover:text-primary py-3 px-3 border-b border-outline-variant transition-colors" href="san-carlos.html">San Carlos office</a>
       </nav>
       <a href="appointment.html" class="pill-cta w-full mt-3 justify-between pl-5">
         <span class="cta-text">Book Consult</span>
         <span class="cta-dot"><span class="material-symbols-outlined">arrow_outward</span></span>
       </a>
+      <a href="tel:6505980888" class="block text-center font-data-point text-sm font-bold text-on-surface py-3">(650) 598-0888</a>
     </div>
   </div>
 </div>
@@ -502,30 +545,30 @@
         <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="early-orthodontics.html">Early orthodontics</a></li>
         <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="airway.html">Airway & functional</a></li>
         <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="retainers.html">Retainers</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="kids-teens.html">For kids &amp; teens</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="adults.html">For adults</a></li>
       </ul>
     </div>
     <div class="col-span-6 md:col-span-2">
-      <h2 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Patients</h2>
+      <h2 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Why Choose Us</h2>
       <ul class="space-y-5">
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="new-patients.html">New patients</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="faq.html">FAQ</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="financing.html">Financing</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="emergencies.html">Emergencies</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="about.html">Meet Dr. Chang</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="technology.html">Technology</a></li>
         <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="reviews.html">Reviews</a></li>
       </ul>
     </div>
     <div class="col-span-6 md:col-span-2">
-      <h2 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Practice</h2>
+      <h2 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Resources</h2>
       <ul class="space-y-5">
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="technology.html">Technology</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="kids-teens.html">Kids &amp; teens</a></li>
-        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="adults.html">Adults</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="new-patients.html">New patients</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="financing.html">Financing</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="faq.html">FAQ</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="emergencies.html">Emergencies</a></li>
         <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-2">
-      <h2 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Practice Status</h2>
+      <h2 class="font-label-sans text-[11px] font-bold uppercase mb-8 text-on-surface tracking-widest">Location</h2>
       <div class="bg-accent border border-outline-variant rounded-lg p-7">
         <p class="font-data-point text-[11px] text-on-surface-variant mb-5 flex justify-between"><span>BOOKING:</span><span class="text-primary font-bold">OPEN</span></p>
         <p class="font-data-point text-[11px] text-on-surface-variant mb-5 flex justify-between"><span>HOURS:</span><span class="text-primary font-bold">MON–FRI 9–5</span></p>
@@ -535,6 +578,10 @@
           <a class="inline-flex items-center justify-center w-11 h-11 rounded-md border border-outline-variant hover:bg-primary hover:text-white hover:border-primary transition-all" href="appointment.html" aria-label="Request an appointment"><span class="material-symbols-outlined text-sm" aria-hidden="true">event</span></a>
         </div>
       </div>
+      <ul class="space-y-5 mt-6">
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact &amp; directions</a></li>
+        <li><a class="font-label-sans text-[11px] uppercase text-on-surface-variant hover:text-primary transition-colors" href="san-carlos.html">San Carlos office</a></li>
+      </ul>
     </div>
     <div class="col-span-12 mt-14 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="font-label-sans text-[10px] uppercase text-on-surface-variant/80 tracking-[0.2em]">© 2026 Chang Orthodontics. 10 El Camino Real, Ste. 201, San Carlos, CA 94070. (650) 598-0888.</div>
