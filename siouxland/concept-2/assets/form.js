@@ -22,7 +22,7 @@
 (function () {
   'use strict';
 
-  var WEBHOOK_URL = '';                 // <- paste the GHL inbound webhook URL here
+  var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/qccdtXoeoF3KU13kYsn1/webhook-trigger/rQKdDLwoCO3xO14u4HR3';
   var THANKS_URL  = 'thank-you.html';
   var PHONE       = '(712) 276-2766';
 
