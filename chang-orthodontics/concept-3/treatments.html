@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.classList.add('js')</script>
+
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -72,14 +73,40 @@
     <div class="rows stagger"><a class="rows__item reveal" href="braces.html"><span class="rows__title"><span class="rows__ic"><svg class="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.5 12h19"/><rect x="4.5" y="8.8" width="4.2" height="6.4"/><rect x="9.9" y="8.8" width="4.2" height="6.4"/><rect x="15.3" y="8.8" width="4.2" height="6.4"/></svg></span>Braces</span><span class="rows__body">Metal, ceramic, and self-ligating systems, planned from a 3D scan and adjusted on a schedule that works around school days.</span><span class="rows__go">Learn more <span aria-hidden="true">&rarr;</span></span></a><a class="rows__item reveal" href="invisalign.html"><span class="rows__title"><span class="rows__ic"><svg class="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.8 15.5c0-5.9 3.7-9.5 8.2-9.5s8.2 3.6 8.2 9.5"/><path d="M7.6 15.5c0-3.7 2-6 4.4-6s4.4 2.3 4.4 6"/></svg></span>Invisalign</span><span class="rows__body">Clear, removable aligners from a Platinum Plus provider, with a full 3D simulation of the result before treatment starts.</span><span class="rows__go">Learn more <span aria-hidden="true">&rarr;</span></span></a><a class="rows__item reveal" href="early-orthodontics.html"><span class="rows__title"><span class="rows__ic"><svg class="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.5v-7.2"/><path d="M12 13.3c0-3.2 2.1-5.3 5.3-5.3 0 3.2-2.1 5.3-5.3 5.3Z"/><path d="M12 16.4c0-2.6-1.8-4.4-4.4-4.4 0 2.6 1.8 4.4 4.4 4.4Z"/></svg></span>Early orthodontics</span><span class="rows__body">Phase 1 treatment, expanders, space maintainers, and corrective appliances, timed to a child’s growth.</span><span class="rows__go">Learn more <span aria-hidden="true">&rarr;</span></span></a><a class="rows__item reveal" href="airway.html"><span class="rows__title"><span class="rows__ic"><svg class="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 7.5h8.8a2.8 2.8 0 1 0-2.8-2.8"/><path d="M3 12h10.6a3 3 0 1 1-3 3"/><path d="M3 16.5h5.5"/></svg></span>Airway &amp; functional</span><span class="rows__body">Expansion and appliance therapy for patients whose bite, jaw, and breathing are worth looking at together.</span><span class="rows__go">Learn more <span aria-hidden="true">&rarr;</span></span></a><a class="rows__item reveal" href="retainers.html"><span class="rows__title"><span class="rows__ic"><svg class="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.8 14.2c0-5 3.7-8.7 8.2-8.7s8.2 3.7 8.2 8.7"/><circle cx="12" cy="18.4" r="1.7"/></svg></span>Retainers</span><span class="rows__body">Permanent, clear, and Hawley retention, fitted and monitored so the result holds.</span><span class="rows__go">Learn more <span aria-hidden="true">&rarr;</span></span></a><a class="rows__item reveal" href="appointment.html"><span class="rows__title">Not sure which applies?</span><span class="rows__body">Bring the question to a free consultation. The scan usually answers it in one visit.</span><span class="rows__go">Book a consultation <span aria-hidden="true">&rarr;</span></span></a></div>
   </div>
 </section>
-<section class="section section--tight">
-  <div class="container"><div class="cta reveal">
-    <h2 class="display display--sm">Start with a scan.</h2>
-    <p class="body measure center">A free consultation tells you which treatment fits, how long it takes, and what it costs.</p>
-    <div class="btn-row"><a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a><a class="btn btn--onnavy" href="tel:6505980888">Call (650) 598-0888 <span aria-hidden="true">&rarr;</span></a></div>
-    <p class="label">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; Mon–Fri 9–5</p>
-  </div></div>
+
+<section class="section section--warm" id="form">
+  <div class="container split split--top">
+    <div>
+      <h2 class="h2 reveal">Not sure which treatment you need?</h2>
+      <p class="body measure reveal" style="margin-top:14px">Describe what you are seeing and we will tell you which of these applies. The exam and 3D scan are free, and you leave with a written estimate.</p>
+      <form id="lead" novalidate class="reveal" style="margin-top:32px">
+        <div class="field"><label for="name">Full name</label><input class="input" id="name" name="name" type="text" required></div>
+        <div class="field"><label for="phone">Phone</label><input class="input" id="phone" name="phone" type="tel" required></div>
+        <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email"></div>
+        <div class="field"><label for="who">Who is this for?</label>
+          <select class="select" id="who" name="who"><option>My child</option><option>Myself</option><option>Someone else</option></select></div>
+        <div class="field"><label for="notes">Anything we should know?</label><textarea class="textarea" id="notes" name="notes"></textarea></div>
+        <input type="hidden" name="interest" value="Treatments">
+        <button class="btn btn--primary" type="submit">Request my free exam <span aria-hidden="true">&rarr;</span></button>
+        <p class="note">We reply within one business day. This form is a demonstration and does not send anything yet.</p>
+      </form>
+    </div>
+    <div class="callcol">
+      <h2 class="h3 reveal">Or just call the office</h2>
+      <p class="body reveal" style="margin-top:12px">Plenty of families would rather ask a couple of questions first. Call and we will tell you plainly whether an exam is worth your time.</p>
+      <p class="reveal" style="margin-top:22px"><a class="btn btn--primary" href="tel:6505980888">Call (650) 598-0888 <span aria-hidden="true">&rarr;</span></a></p>
+      <div class="reveal" style="margin-top:28px"><dl class="spec reveal"><div class="spec__row"><dt>Office</dt><dd>10 El Camino Real, Ste. 201, San Carlos, CA 94070</dd></div><div class="spec__row"><dt>Hours</dt><dd>Mon–Fri 9–5</dd></div><div class="spec__row"><dt>Consultation</dt><dd>Free, including the 3D scan</dd></div></dl></div>
+    </div>
+  </div>
 </section>
+<script>
+document.getElementById('lead').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('name'),p=document.getElementById('phone');
+  if(!n.value.trim()||!p.value.trim()){(n.value.trim()?p:n).focus();return;}
+  window.location.href='thank-you.html';
+});
+</script>
 </main>
 <footer class="site-footer">
   <div class="container">

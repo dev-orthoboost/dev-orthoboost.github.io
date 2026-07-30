@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&family=Spectral:wght@300;400&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.classList.add('js')</script>
+
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -77,14 +78,44 @@
     </div>
   </div>
 </section>
-<section class="cta-band">
-  <div class="container stack stagger">
-    <h2 class="display display--sm reveal">Start with a scan.</h2>
-    <p class="body measure reveal">A free consultation tells you which treatment fits, how long it takes, and what it costs.</p>
-    <span class="reveal"><a class="btn btn--white" href="appointment.html">Request an appointment <span aria-hidden="true">&rarr;</span></a></span>
-    <p class="mono reveal">10 El Camino Real, Ste. 201, San Carlos, CA 94070 &middot; (650) 598-0888 &middot; Mon–Fri 9–5</p>
+
+<section class="section section--layer" id="form">
+  <div class="container">
+    <div class="split split--top">
+      <div>
+        <h2 class="h2 reveal">Not sure which treatment you need?</h2>
+        <p class="body measure reveal" style="margin-top:14px">Describe what you are seeing and we will tell you which of these applies. The exam and 3D scan are free, and you leave with a written estimate.</p>
+        <form id="lead" novalidate style="margin-top:32px">
+          <div class="field"><label for="name">Full name</label><input class="input" id="name" name="name" type="text" required></div>
+          <div class="field"><label for="phone">Phone</label><input class="input" id="phone" name="phone" type="tel" required></div>
+          <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email"></div>
+          <div class="field"><label for="who">Who is this for?</label>
+            <select class="select" id="who" name="who">
+              <option>My child</option><option>Myself</option><option>Someone else</option>
+            </select></div>
+          <div class="field"><label for="notes">Anything we should know?</label><textarea class="textarea" id="notes" name="notes"></textarea></div>
+          <input type="hidden" name="interest" value="Treatments">
+          <button class="btn btn--primary" type="submit">Request my free exam <span aria-hidden="true">&rarr;</span></button>
+          <p class="form-note">We reply within one business day. This form is a demonstration and does not send anything yet.</p>
+        </form>
+      </div>
+      <div class="callcol">
+        <h2 class="h3 reveal">Or just call the office</h2>
+        <p class="body reveal" style="margin-top:12px">Plenty of families would rather ask a couple of questions first. Call and we will tell you plainly whether an exam is worth your time.</p>
+        <p class="reveal" style="margin-top:22px"><a class="btn btn--primary" href="tel:6505980888">Call (650) 598-0888 <span aria-hidden="true">&rarr;</span></a></p>
+        <div class="reveal" style="margin-top:28px"><dl class="spec reveal"><div class="spec__row"><dt>Office</dt><dd>10 El Camino Real, Ste. 201, San Carlos, CA 94070</dd></div><div class="spec__row"><dt>Hours</dt><dd>Mon–Fri 9–5</dd></div><div class="spec__row"><dt>Consultation</dt><dd>Free, including the 3D scan</dd></div></dl></div>
+      </div>
+    </div>
   </div>
 </section>
+<script>
+document.getElementById('lead').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('name'),p=document.getElementById('phone');
+  if(!n.value.trim()||!p.value.trim()){(n.value.trim()?p:n).focus();return;}
+  window.location.href='thank-you.html';
+});
+</script>
 </main>
 <footer class="site-footer">
   <div class="container">
