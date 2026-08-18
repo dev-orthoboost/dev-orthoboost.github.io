@@ -1,0 +1,1501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Larson Family Orthodontics — The friendly orthodontist your whole family looks forward to</title>
+<meta name="description" content="A warm, neighborhood orthodontic practice caring for kids, teens, and parents. Comfort-first braces and Invisalign, plain pricing, and a team that's with your family all year." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     Larson Family Orthodontics  ·  Persona: Dr. M. Rogers — "Family-Focused Community Ortho"
+     Warm, neighborly, photo-led. Rounded friendly forms (radius ~24), soft icons,
+     light hand-drawn doodles, a touch of handwriting. Larson palette: navy #254796 +
+     soft mint #aed6c1 on a warm cream ground. Structure modeled on Ronjit Ukil's
+     "Dentist Personal Web Landing Page" (circular hero on a disc, tilted photo cards,
+     doodles, pill buttons, photo-rich services, journal cards). Nunito display+body.
+     ============================================================ */
+  :root {
+    --bg:        #fcf9f4;   /* warm soft white ground */
+    --bg-tint:   #f6efe3;   /* warmer cream band */
+    --surface:   #ffffff;
+    --mint:      #aed6c1;   /* Larson accent */
+    --mint-100:  #eef7f1;   /* lightest mint band */
+    --mint-200:  #d9efe3;   /* mid mint — discs, chips */
+    --mint-700:  #2c7a58;   /* deep green — large accent words only */
+    --green-ink: #1d6b49;   /* green text that must pass small-text contrast */
+
+    --brand:     #254796;   /* navy */
+    --brand-700: #1d3c80;
+    --brand-900: #16294f;
+
+    --ink:       #172338;   /* headings */
+    --body:      #3a4459;   /* body copy — ~8.6:1 on --bg */
+    --muted:     #586074;   /* metadata — ~4.6:1 on --bg */
+    --hairline:  rgba(23,35,56,.12);
+    --hairline-soft: rgba(23,35,56,.08);
+
+    --on-dark:   #eef2fa;
+    --on-dark-soft: rgba(238,242,250,.74);
+
+    --font:      'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --hand:      'Caveat', 'Segoe Script', cursive;
+
+    --maxw:      1200px;
+    --gutter:    clamp(20px, 5vw, 56px);
+    --r-lg:      14px;   /* structured: less rounded, not sharp */
+    --r-md:      10px;
+    --r-sm:      7px;
+    --r-btn:     10px;   /* buttons / chips / tags — gently rounded, no longer pill */
+    --r-pill:    999px;  /* circles / avatars only */
+    --e-out:     cubic-bezier(.22,1,.36,1);
+    --shadow-sm: 0 6px 16px -12px rgba(23,35,56,.30);
+    --shadow:    0 18px 42px -28px rgba(23,35,56,.30);
+    --shadow-mint: 0 22px 48px -32px rgba(44,122,88,.42);
+
+    --z-nav: 60; --z-menu-backdrop: 80; --z-menu: 90;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--body);
+    font-family: var(--font); font-size: 17px; line-height: 1.62; font-weight: 500;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden;
+  }
+  img, svg { display: block; max-width: 100%; }
+  ::selection { background: var(--mint-200); color: var(--ink); }
+  a { color: inherit; }
+
+  .wrap { width: min(100% - (var(--gutter) * 2), var(--maxw)); margin-inline: auto; }
+
+  h1, h2, h3, h4 { margin: 0; font-family: var(--font); color: var(--ink); line-height: 1.05;
+    font-weight: 900; letter-spacing: -.018em; text-wrap: balance; }
+  .display { font-size: clamp(2.2rem, 4.2vw, 3.7rem); line-height: 1.08; }
+  .h2 { font-size: clamp(2rem, 4.1vw, 3.15rem); }
+  .h3 { font-size: clamp(1.4rem, 2.3vw, 1.95rem); letter-spacing: -.012em; }
+  .h4 { font-size: clamp(1.12rem, 1.5vw, 1.3rem); font-weight: 800; letter-spacing: -.01em; }
+  p { text-wrap: pretty; }
+  .lead { font-size: clamp(1.08rem, 1.45vw, 1.26rem); line-height: 1.6; color: var(--body); }
+  .muted { color: var(--muted); }
+
+  /* handwritten kicker — the persona's warm "neighbor" label (not an uppercase tracked eyebrow) */
+  .hand-kick { font-family: var(--hand); font-weight: 700; font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+    color: var(--mint-700); line-height: 1; display: inline-flex; align-items: center; gap: 8px; text-transform: lowercase; }
+  .hand-kick svg { color: var(--mint-700); }
+
+  .accent-word { position: relative; white-space: nowrap; color: var(--brand); }
+  .accent-word .squiggle { position: absolute; left: -1%; right: -1%; width: 102%; bottom: -.14em; height: .22em; color: var(--mint); }
+
+  /* ---------- buttons ---------- */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: var(--font); font-weight: 800; font-size: 1rem; letter-spacing: -.01em;
+    padding: 15px 26px; border-radius: var(--r-btn); border: 2px solid transparent;
+    text-decoration: none; cursor: pointer; transition: transform .4s var(--e-out), background-color .3s, box-shadow .4s var(--e-out), border-color .3s; }
+  .btn svg { width: 19px; height: 19px; }
+  .btn-primary { background: var(--brand); color: #fff; box-shadow: var(--shadow-sm); }
+  .btn-primary:hover { background: var(--brand-700); transform: translateY(-3px); box-shadow: 0 22px 40px -22px rgba(37,71,150,.7); }
+  .btn-primary .arrow { transition: transform .4s var(--e-out); }
+  .btn-primary:hover .arrow { transform: translateX(5px); }
+  .btn-ghost { background: var(--surface); color: var(--brand); border-color: var(--hairline); }
+  .btn-ghost:hover { border-color: var(--brand); transform: translateY(-3px); background: #fff; }
+  .btn-on-dark { background: #fff; color: var(--brand); }
+  .btn-on-dark:hover { background: var(--mint-100); transform: translateY(-3px); }
+  .btn:focus-visible { outline: 3px solid var(--mint-700); outline-offset: 3px; }
+
+  .text-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; color: var(--brand);
+    text-decoration: none; padding-bottom: 2px; position: relative; }
+  .text-link::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%;
+    background: var(--mint); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--e-out); }
+  .text-link:hover::after { transform: scaleX(1); }
+  .text-link .arrow { transition: transform .4s var(--e-out); }
+  .text-link:hover .arrow { transform: translateX(5px); }
+  .text-link:focus-visible { outline: 3px solid var(--mint-700); outline-offset: 4px; border-radius: 4px; }
+
+  /* ---------- chips / pills ---------- */
+  .chip { display: inline-flex; align-items: center; gap: 9px; background: var(--surface);
+    border: 1px solid var(--hairline); border-radius: var(--r-btn); padding: 9px 16px;
+    font-size: .92rem; font-weight: 700; color: var(--ink); }
+  .chip svg { width: 18px; height: 18px; color: var(--mint-700); }
+  .chip .stars { color: #f0a429; letter-spacing: 1px; }
+
+  /* ============================================================ NAV — centered links + call + menu */
+  /* floating rounded pill nav (Haltha-style): transparent sticky wrapper holding a dark pill bar */
+  header.nav { position: sticky; top: 0; z-index: var(--z-nav); background: transparent;
+    padding: 14px 0 12px; margin-bottom: -94px; transition: padding .35s var(--e-out); }
+  header.nav.scrolled { padding-top: 8px; padding-bottom: 8px; }
+  /* scroll-progress bar pinned to the very top edge, above the floating bar */
+  .nav-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; transform-origin: left; z-index: 95;
+    transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--brand), var(--mint-700)); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px;
+    background: var(--surface); border: 1px solid var(--hairline-soft); border-radius: var(--r-lg); padding: 10px 14px 10px 24px;
+    box-shadow: 0 16px 36px -26px rgba(23,35,56,.45); transition: padding .35s var(--e-out), box-shadow .35s var(--e-out); }
+  .nav.scrolled .nav-inner { box-shadow: 0 18px 40px -24px rgba(23,35,56,.55); }
+  .brand { display: inline-flex; align-items: center; justify-self: start; }
+  .brand img { height: 38px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: clamp(15px, 2.1vw, 28px); justify-self: center; }
+  .nav-links a { font-weight: 700; font-size: .96rem; color: var(--ink); text-decoration: none; transition: color .25s; }
+  .nav-links a:hover { color: var(--brand); }
+  .nav-right { display: flex; align-items: center; gap: 14px; justify-self: end; }
+  .nav-phone { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; color: var(--ink); text-decoration: none; }
+  .nav-phone svg { width: 19px; height: 19px; color: var(--mint-700); }
+  .nav-phone .ph-text { display: inline-flex; flex-direction: column; line-height: 1; }
+  .nav-phone .ph-label { font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  .nav-phone:hover { color: var(--brand); }
+  .nav-cta { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: .94rem; letter-spacing: -.01em;
+    color: #fff; background: var(--brand); border-radius: var(--r-btn); padding: 11px 22px; text-decoration: none;
+    box-shadow: var(--shadow-sm); transition: transform .35s var(--e-out), background-color .3s; }
+  .nav-cta:hover { background: var(--brand-700); transform: translateY(-2px); }
+  .nav-cta svg { width: 17px; height: 17px; transition: transform .4s var(--e-out); }
+  .nav-cta:hover svg { transform: translateX(4px); }
+  .nav-cta:focus-visible, .nav-phone:focus-visible { outline: 3px solid var(--mint-700); outline-offset: 3px; border-radius: var(--r-sm); }
+  .nav-burger { width: 46px; height: 46px; border-radius: var(--r-sm); background: var(--surface); border: 1px solid var(--hairline);
+    display: grid; place-items: center; color: var(--ink); box-shadow: var(--shadow-sm); cursor: pointer; transition: transform .3s var(--e-out), background-color .3s; }
+  .nav-burger:hover { transform: translateY(-2px); background: #fff; }
+  .nav-burger:focus-visible { outline: 3px solid var(--mint-700); outline-offset: 2px; }
+  .nav-burger svg { width: 22px; height: 22px; }
+  @media (min-width: 861px){ .nav-burger { display: none; } }
+  @media (max-width: 860px){ .nav-links { display: none; } .nav-phone .ph-text { display: none; } .nav-cta { display: none; } }
+
+  /* hamburger menu panel */
+  .menu-backdrop { position: fixed; inset: 0; background: rgba(23,35,56,.34); opacity: 0; visibility: hidden;
+    transition: opacity .3s var(--e-out), visibility .3s; z-index: var(--z-menu-backdrop); }
+  .menu-backdrop.open { opacity: 1; visibility: visible; }
+  .menu-panel { position: fixed; top: 14px; right: 14px; width: min(340px, calc(100vw - 28px)); background: var(--surface);
+    border-radius: var(--r-lg); box-shadow: 0 40px 80px -28px rgba(23,35,56,.5); padding: 16px 18px 18px; z-index: var(--z-menu);
+    transform: translateY(-12px) scale(.97); opacity: 0; visibility: hidden; transform-origin: top right;
+    transition: opacity .3s var(--e-out), transform .35s var(--e-out), visibility .3s; }
+  .menu-panel.open { opacity: 1; visibility: visible; transform: none; }
+  .menu-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .menu-head img { height: 34px; }
+  .menu-close { width: 40px; height: 40px; border-radius: var(--r-sm); border: 1px solid var(--hairline); background: var(--bg);
+    display: grid; place-items: center; color: var(--ink); cursor: pointer; transition: color .2s; }
+  .menu-close:hover { color: var(--brand); }
+  .menu-close svg { width: 20px; height: 20px; }
+  .menu-links { display: flex; flex-direction: column; }
+  .menu-links a { padding: 13px 6px; font-weight: 800; font-size: 1.05rem; color: var(--ink); text-decoration: none;
+    border-bottom: 1px solid var(--hairline-soft); display: flex; align-items: center; justify-content: space-between; transition: color .2s, padding-left .3s var(--e-out); }
+  .menu-links a:hover { color: var(--brand); padding-left: 12px; }
+  .menu-links a .go { color: var(--mint-700); font-weight: 900; }
+  .menu-foot { margin-top: 16px; display: grid; gap: 12px; }
+  .menu-foot .btn { width: 100%; }
+  .menu-foot .m-phone { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-weight: 800; color: var(--ink); text-decoration: none; }
+  .menu-foot .m-phone svg { width: 19px; height: 19px; color: var(--mint-700); }
+
+  /* ============================================================ HERO — Editorial "small line / giant ghost word" with a fan of family portraits
+     (adapted from the GSAP "small team, big results" gallery hero into the Larson navy + mint + cream world; CSS + light vanilla JS, no GSAP) */
+  .hero { position: relative; overflow: hidden; isolation: isolate;
+    background: radial-gradient(135% 95% at 50% -8%, var(--mint-200) 0%, var(--mint-100) 64%, var(--mint-100) 100%);
+    padding: calc(94px + clamp(16px, 3.4vw, 34px)) clamp(16px, 4vw, 40px) clamp(46px, 7vw, 84px);
+    display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .hero-kick { margin-bottom: 14px; justify-content: center; }
+  .hero-head { position: relative; z-index: 8; margin: 0; }
+  .hero-top { display: block; font-weight: 800; font-size: clamp(2.05rem, 6vw, 5.2rem); letter-spacing: -.03em;
+    line-height: 1; color: var(--ink);
+    translate: 0 calc(-46px * var(--hp, 0)); opacity: calc(1 - var(--hp, 0) * 1.25);
+    transition: translate .3s var(--e-out), opacity .3s var(--e-out); }
+  .hero-top .word { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 .03em; }
+  .hero-top .word > span { display: inline-block; }
+  /* the giant faded word — visual centerpiece, sits behind the portrait fan */
+  .hero-giant-wrap { position: relative; width: 100%; display: flex; justify-content: center; margin-top: clamp(2px, .5vw, 10px); }
+  .hero-giant { font-family: var(--font); font-weight: 900; font-style: italic; font-size: clamp(3.8rem, 17vw, 13rem);
+    line-height: .9; letter-spacing: -.045em; color: var(--mint); white-space: nowrap; user-select: none; z-index: 1;
+    scale: calc(1 + 0.14 * var(--hp, 0)); transform-origin: center 62%; }
+  /* the portrait fan overlaps only the lower edge of the giant word, so it stays readable */
+  .hero-cards { position: absolute; left: 0; right: 0; top: 62%;
+    height: clamp(196px, 25vw, 290px); z-index: 3; pointer-events: none; }
+  .hcard { position: absolute; margin: 0; border-radius: 16px; overflow: hidden; background: var(--surface);
+    border: 5px solid var(--surface); pointer-events: auto; cursor: pointer; will-change: transform, scale;
+    box-shadow: 0 24px 42px -18px rgba(22,41,79,.5), 0 8px 16px -8px rgba(22,41,79,.26);
+    /* rest at --hp 0; as you scroll the hero (--hp 0->1) the fan spreads out and rotates away */
+    transform: translate(calc(var(--sx, 0px) * var(--hp, 0)), calc(var(--sy, 0px) * var(--hp, 0))) rotate(calc(var(--rot, 0deg) + var(--sr, 0deg) * var(--hp, 0)));
+    transition: transform .4s var(--e-out), scale .4s var(--e-out), box-shadow .5s var(--e-out), opacity .65s var(--e-out); }
+  .hcard img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .hcard:hover { scale: 1.07; box-shadow: var(--shadow-mint), 0 34px 56px -20px rgba(22,41,79,.55); z-index: 20; }
+  .hcard.hc-1 { width: clamp(74px, 8.2vw, 120px); height: clamp(100px, 11vw, 162px);  left: 3%;    top: 14%; z-index: 1; --rot: -9deg; --sx: -240px; --sy: -36px; --sr: -24deg; }
+  .hcard.hc-2 { width: clamp(86px, 9.6vw, 148px); height: clamp(116px, 13vw, 198px);  left: 13%;   top: 20%; z-index: 2; --rot: -5deg; --sx: -190px; --sy: 18px; --sr: -17deg; }
+  .hcard.hc-3 { width: clamp(104px, 12.4vw, 186px);height: clamp(140px, 16.6vw, 248px);left: 24%;   top: 4%;  z-index: 4; --rot: -2deg; --sx: -116px; --sy: 74px; --sr: -10deg; }
+  .hcard.hc-4 { width: clamp(84px, 9.6vw, 140px);  height: clamp(112px, 12.6vw, 184px);left: 37.5%; top: 24%; z-index: 3; --rot: 3deg; --sx: -38px; --sy: 112px; --sr: -4deg; }
+  .hcard.hc-5 { width: clamp(118px, 14.6vw, 210px);height: clamp(158px, 19.4vw, 282px);left: 46%;   top: 0;   z-index: 5; --rot: 0deg; --sx: 38px; --sy: 112px; --sr: 4deg; }
+  .hcard.hc-6 { width: clamp(88px, 10vw, 148px);  height: clamp(118px, 13.4vw, 198px);left: 60%;   top: 21%; z-index: 3; --rot: 4deg; --sx: 116px; --sy: 74px; --sr: 11deg; }
+  .hcard.hc-7 { width: clamp(94px, 11vw, 162px);  height: clamp(128px, 14.8vw, 222px);left: 70%;   top: 9%;  z-index: 4; --rot: 7deg; --sx: 190px; --sy: 18px; --sr: 20deg; }
+  .hcard.hc-8 { width: clamp(74px, 8.2vw, 120px); height: clamp(98px, 10.8vw, 160px); left: 81%;   top: 20%; z-index: 2; --rot: -4deg; --sx: 240px; --sy: -36px; --sr: 26deg; }
+
+  .hero-sub { margin-top: clamp(178px, 25vw, 300px); z-index: 4; position: relative;
+    display: flex; flex-direction: column; align-items: center; gap: 15px; }
+  .hero-pill { display: inline-flex; align-items: center; gap: 12px; background: var(--brand); color: #fff;
+    text-decoration: none; font-weight: 800; font-size: 1rem; letter-spacing: -.01em; padding: 11px 13px 11px 24px;
+    border-radius: var(--r-pill); box-shadow: var(--shadow-sm); transition: transform .4s var(--e-out), background-color .3s; }
+  .hero-pill:hover { background: var(--brand-700); transform: translateY(-2px); }
+  .hero-pill .ar { width: 34px; height: 34px; border-radius: 50%; background: var(--mint); color: var(--brand-900);
+    display: grid; place-items: center; transition: transform .4s var(--e-out); }
+  .hero-pill .ar svg { width: 17px; height: 17px; }
+  .hero-pill:hover .ar { transform: rotate(45deg); }
+  .hero-pill:focus-visible { outline: 3px solid var(--mint-700); outline-offset: 3px; }
+  .hero-substat { font-size: .95rem; color: var(--muted); font-weight: 600; max-width: 44ch; }
+  .hero-substat b { color: var(--ink); font-weight: 800; }
+  .vh { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  @keyframes floaty { 0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); } 50% { transform: translateY(-9px) rotate(var(--rot, 0deg)); } }
+  .floaty { animation: floaty 6s var(--e-out) infinite; }
+  .doodle { position: absolute; pointer-events: none; z-index: 1; }
+  .hero .d1 { top: 17%; left: 4%; width: 28px; color: var(--mint-700); opacity: .6; --rot: -6deg; }
+  .hero .d2 { top: 12%; right: 5%; width: 50px; color: var(--brand); opacity: .38; --rot: 8deg; }
+
+  /* intro motion (driven on load by the hero script adding .in / removing .pre) */
+  html.js .hero-head .word > span { transform: translateY(120%); transition: transform .85s var(--e-out); }
+  html.js .hero-head.in .word > span { transform: translateY(0); }
+  .hero-top .word:nth-of-type(2) > span { transition-delay: .09s; }
+  html.js .hero-giant { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--e-out), transform .9s var(--e-out), scale .4s var(--e-out); }
+  html.js .hero-giant-wrap.in .hero-giant { opacity: 1; transform: none; }
+  html.js .hcard.pre { opacity: 0; transform: rotate(calc(var(--rot, 0deg) + 14deg)) translateY(-44px) scale(.82); }
+
+  @media (max-width: 620px){
+    .hero-giant { font-size: 21vw; }
+    .hero-cards { top: 60%; height: 170px; }
+    .hcard { border-width: 4px; }
+    .hcard.hc-1 { width: 64px;  height: 86px;  left: 0%;  top: 16%; }
+    .hcard.hc-2 { width: 74px;  height: 100px; left: 11%; top: 24%; }
+    .hcard.hc-3 { width: 86px;  height: 116px; left: 24%; top: 5%; }
+    .hcard.hc-4 { width: 70px;  height: 94px;  left: 39%; top: 28%; }
+    .hcard.hc-5 { width: 98px;  height: 132px; left: 47%; top: 0; }
+    .hcard.hc-6 { width: 74px;  height: 100px; left: 63%; top: 24%; }
+    .hcard.hc-7 { width: 80px;  height: 108px; left: 75%; top: 9%; }
+    .hcard.hc-8 { width: 64px;  height: 86px;  left: 87%; top: 22%; }
+    .hero-sub { margin-top: 148px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html.js .hero-head .word > span, html.js .hero-giant { opacity: 1 !important; transform: none !important; transition: none; }
+    .floaty { animation: none !important; }
+  }
+
+  /* ============================================================ TRUST STRIP */
+  .trust { background: var(--mint-100); border-block: 1px solid var(--hairline-soft); }
+  .trust-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px clamp(20px, 4vw, 48px);
+    padding: 26px 0; }
+  .trust-item { display: flex; align-items: center; gap: 13px; }
+  .trust-item .ti-ico { width: 44px; height: 44px; flex: none; border-radius: 9px; background: var(--surface);
+    display: grid; place-items: center; color: var(--mint-700); box-shadow: var(--shadow-sm); }
+  .trust-item .ti-ico svg { width: 23px; height: 23px; }
+  .trust-item b { display: block; color: var(--ink); font-weight: 800; font-size: 1rem; line-height: 1.2; }
+  .trust-item span { font-size: .86rem; color: var(--muted); font-weight: 600; }
+  @media (max-width: 820px){ .trust-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px){ .trust-row { grid-template-columns: 1fr; } }
+
+  /* ============================================================ SECTION RHYTHM */
+  section.block { padding: clamp(56px, 7.5vw, 106px) 0; position: relative; }
+  .sec-head { max-width: 60ch; }
+  .sec-head .hand-kick { margin-bottom: 14px; }
+  .sec-head .h2 { margin: 0; }
+  .sec-head p { margin: 18px 0 0; }
+  .center { text-align: center; margin-inline: auto; }
+  .center .hand-kick { justify-content: center; }
+
+  /* ============================================================ WELCOME (about) */
+  .welcome { display: grid; grid-template-columns: 1fr 1.02fr; gap: clamp(34px, 5vw, 78px); align-items: center; }
+  .welcome-figure { position: relative; }
+  .welcome-figure .photo { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4/5; box-shadow: var(--shadow); }
+  .welcome-figure .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s var(--e-out); }
+  .welcome-figure:hover .photo img { transform: scale(1.04); }
+  .welcome-figure .frame { position: absolute; inset: -14px -14px 14px 14px; border: 2px solid var(--mint);
+    border-radius: var(--r-lg); z-index: -1; }
+  .welcome-figure .badge { position: absolute; right: -16px; bottom: -22px; background: var(--brand); color: #fff;
+    border-radius: var(--r-md); padding: 16px 20px; box-shadow: var(--shadow); text-align: center; }
+  .welcome-figure .badge b { display: block; font-size: 1.7rem; font-weight: 900; line-height: 1; }
+  .welcome-figure .badge span { font-size: .78rem; font-weight: 700; color: var(--on-dark-soft); letter-spacing: .02em; }
+  .welcome-copy .points { list-style: none; margin: 26px 0 30px; padding: 0; display: grid; gap: 16px; }
+  .welcome-copy .points li { display: flex; gap: 14px; align-items: flex-start; }
+  .welcome-copy .points .pi { width: 46px; height: 46px; flex: none; border-radius: 10px; background: var(--mint-100);
+    display: grid; place-items: center; color: var(--mint-700); }
+  .welcome-copy .points .pi svg { width: 25px; height: 25px; }
+  .welcome-copy .points b { color: var(--ink); font-weight: 800; }
+  .welcome-copy .points p { margin: 3px 0 0; font-size: .98rem; }
+  @media (max-width: 880px){ .welcome { grid-template-columns: 1fr; gap: 56px; }
+    .welcome-figure { max-width: 520px; } .welcome-figure .frame { inset: -10px -10px 10px 10px; } }
+
+  /* ============================================================ TREATMENTS */
+  .treat-grid { margin-top: clamp(34px, 5vw, 56px); display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(18px, 2.4vw, 26px); }
+  .tcard { background: var(--surface); border: 1px solid var(--hairline-soft); border-radius: var(--r-lg);
+    padding: 0; overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-sm);
+    transition: transform .5s var(--e-out), box-shadow .5s var(--e-out); }
+  .tcard:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .tcard.has-photo .tc-photo { aspect-ratio: 16/10; overflow: hidden; }
+  .tcard.has-photo .tc-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s var(--e-out); }
+  .tcard:hover .tc-photo img { transform: scale(1.05); }
+  .tc-body { padding: 24px clamp(20px, 2vw, 28px) 26px; display: flex; flex-direction: column; height: 100%; }
+  .tc-ico { width: 48px; height: 48px; border-radius: var(--r-md); background: var(--mint-100); display: grid; place-items: center;
+    color: var(--mint-700); margin-bottom: 16px; }
+  .tc-ico svg { width: 26px; height: 26px; }
+  .tcard.feature { grid-column: span 1; background: linear-gradient(165deg, var(--brand), var(--brand-900)); color: var(--on-dark); border: 0; position: relative; overflow: hidden; }
+  .tcard.feature::after { content: ""; position: absolute; right: -28%; bottom: -30%; width: 75%; aspect-ratio: 1;
+    background: linear-gradient(315deg, rgba(174,214,193,.30), transparent 62%); pointer-events: none; }
+  .tcard.feature .tc-tag { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-top: 16px;
+    font-size: .8rem; font-weight: 800; color: #fff; background: rgba(255,255,255,.14); border-radius: var(--r-btn); padding: 7px 14px; }
+  .tcard.feature .tc-tag svg { width: 16px; height: 16px; }
+  .tcard.feature .tc-ico { background: rgba(255,255,255,.14); color: #fff; }
+  .tcard.feature h3, .tcard.feature .tc-age { color: #fff; }
+  .tcard.feature p { color: var(--on-dark-soft); }
+  .tcard.feature .text-link { color: #fff; }
+  .tcard.feature .text-link::after { background: var(--mint); }
+  .tc-age { font-family: var(--hand); font-weight: 700; font-size: 1.3rem; color: var(--mint-700); line-height: 1; margin-bottom: 6px; }
+  .tcard h3 { font-size: 1.32rem; font-weight: 800; letter-spacing: -.01em; }
+  .tcard p { margin: 7px 0 12px; font-size: .98rem; flex: 1; }
+  .tcard .text-link { margin-top: auto; font-size: .95rem; }
+  @media (max-width: 880px){ .treat-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px){ .treat-grid { grid-template-columns: 1fr; } }
+
+  /* ============================================================ AGE CAROUSEL — "care for every age"
+     A 3D arc of life-stage photo cards (reskin of a gather-carousel into the Larson navy + mint world):
+     the centered card is the one in focus; a caption panel below mirrors it. Warm, light, friendly. */
+  .agecarousel { margin-top: clamp(18px, 3vw, 34px); }
+  .ac-stage { position: relative; height: clamp(360px, 47vw, 480px); display: flex; justify-content: center;
+    perspective: 2000px; overflow: hidden;
+    --card-w: clamp(168px, 18vw, 212px); --card-h: clamp(236px, 26vw, 298px); --radius: 780px;
+    /* dissolve the fanned cards into the band instead of clipping them on a hard line */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0 72%, transparent 98%);
+            mask-image: linear-gradient(to bottom, #000 0 72%, transparent 98%); }
+  .ac-track { position: absolute; top: 30px; width: var(--card-w); height: var(--card-h); transform-style: preserve-3d; }
+  .ac-card { position: absolute; inset: 0; padding: 0; border: 3px solid #fff; border-radius: 20px; overflow: hidden;
+    cursor: pointer; background-color: var(--mint-200); background-size: cover; background-position: center;
+    transform-origin: 50% var(--radius);
+    transition: transform .8s var(--e-out), filter .8s var(--e-out), scale .8s var(--e-out), box-shadow .8s var(--e-out);
+    filter: brightness(.66) saturate(.92); scale: .82; box-shadow: 0 16px 34px -22px rgba(22,41,79,.5); }
+  .ac-card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(to top, rgba(22,41,79,.64), rgba(22,41,79,.06) 46%, transparent 64%); }
+  .ac-card .ac-chip { position: absolute; left: 14px; bottom: 10px; z-index: 2; font-family: var(--hand); font-weight: 700;
+    font-size: 1.18rem; color: #fff; line-height: 1; text-shadow: 0 1px 8px rgba(22,41,79,.6); }
+  .ac-card.active { filter: brightness(1.02) saturate(1); scale: 1.06; z-index: 10;
+    box-shadow: var(--shadow-mint), 0 28px 52px -24px rgba(22,41,79,.6); }
+  .ac-card:focus-visible { outline: 3px solid var(--mint-700); outline-offset: 3px; }
+
+  /* caption panel that mirrors the active card */
+  .ac-panel { max-width: 580px; margin: clamp(6px,1.6vw,16px) auto 0; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .ac-panel .tc-age { margin-bottom: 0; }
+  .ac-panel h3 { font-size: clamp(1.4rem, 2.2vw, 1.85rem); font-weight: 800; color: var(--ink); letter-spacing: -.01em; }
+  .ac-panel p { margin: 2px 0 0; font-size: 1rem; color: var(--body); min-height: 3.1em; }
+  .ac-tag { display: none; align-items: center; gap: 8px; font-size: .82rem; font-weight: 800; color: var(--green-ink);
+    background: var(--mint-200); border-radius: var(--r-btn); padding: 7px 14px; }
+  .ac-tag svg { width: 16px; height: 16px; color: var(--mint-700); }
+  .ac-panel.has-tag .ac-tag { display: inline-flex; }
+  .ac-panel .text-link { margin-top: 4px; }
+  .ac-fade { transition: opacity .3s var(--e-out), transform .3s var(--e-out); }
+  .ac-panel.swapping .ac-fade { opacity: 0; transform: translateY(6px); }
+
+  .ac-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+  .ac-btn { width: 40px; height: 44px; border: 0; background: transparent; padding: 0; color: var(--mint-700);
+    cursor: pointer; display: grid; place-items: center; transition: color .3s; }
+  .ac-btn:hover { color: var(--green-ink); }
+  .ac-btn:focus-visible { outline: 3px solid var(--mint-700); outline-offset: 3px; border-radius: var(--r-sm); }
+  .ac-btn svg { width: 25px; height: 25px; transition: transform .35s var(--e-out); }
+  .ac-btn.prev svg { transform: scaleX(-1); }
+  .ac-btn.next:hover svg { transform: translateX(3px); }
+  .ac-btn.prev:hover svg { transform: scaleX(-1) translateX(3px); }
+  .ac-dots { display: flex; align-items: center; gap: 8px; }
+  .ac-dot { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: var(--hairline); cursor: pointer;
+    transition: width .35s var(--e-out), background-color .3s; }
+  .ac-dot.active { width: 24px; border-radius: 999px; background: var(--mint-700); }
+
+  @media (max-width: 560px){
+    .ac-stage { height: 300px; --card-w: 152px; --card-h: 214px; --radius: 640px; }
+    .ac-card .ac-chip { font-size: 1.05rem; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ac-card { transition: filter .3s, box-shadow .3s; }
+  }
+
+  /* ============================================================ DOCTOR */
+  .doctor { background: var(--bg-tint); }
+  .doctor-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(34px, 5vw, 78px); align-items: center; }
+  .doctor-figure { position: relative; max-width: 440px; order: 1; justify-self: end; }
+  .doctor-figure .disc { position: absolute; inset: 6%; border-radius: 50%; background: var(--mint-200); }
+  .doctor-figure .photo { position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4/5; box-shadow: var(--shadow); }
+  .doctor-figure .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s var(--e-out); }
+  .doctor-figure:hover .photo img { transform: scale(1.04); }
+  .doctor-figure .sig { position: absolute; left: 8%; bottom: -10px; font-family: var(--hand); font-weight: 700;
+    font-size: 2.1rem; color: var(--brand); transform: rotate(-4deg); }
+  .doctor-figure .d-arrow { position: absolute; right: -6%; top: 10%; width: 64px; color: var(--mint-700); }
+  .doctor-copy .creds { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 8px; }
+  .doctor-copy blockquote { margin: 22px 0 0; font-size: clamp(1.15rem, 1.7vw, 1.4rem); font-weight: 700;
+    color: var(--ink); line-height: 1.4; }
+  .doctor-copy .quote-mark { color: var(--mint); font-weight: 900; }
+  @media (max-width: 880px){ .doctor-grid { grid-template-columns: 1fr; gap: 60px; } .doctor-figure { order: -1; justify-self: start; } }
+
+  /* ============================================================ HOW IT WORKS — pinboard of step cards (scattered + connected, pop-in on scroll) */
+  .howto { color: var(--body); position: relative; }
+  .howto-head { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr 1fr; gap: 18px 48px;
+    align-items: end; margin-bottom: clamp(28px, 4vw, 52px); }
+  .howto-kick { display: inline-block; background: var(--mint-200); color: var(--green-ink); border-radius: 999px;
+    padding: 7px 16px; font-weight: 800; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px; }
+  .howto-head h2 { color: var(--ink); }
+  .howto-intro { color: var(--body); font-size: 1rem; line-height: 1.62; }
+
+  /* the pinboard */
+  .howto-board { position: relative; min-height: 700px; }
+  .howto-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }
+  .howto-lines path { fill: none; stroke: var(--mint); stroke-width: 3; stroke-dasharray: 2 11; stroke-linecap: round; opacity: .85; }
+
+  .pcard { position: absolute; width: clamp(280px, 26vw, 342px); background: var(--surface);
+    border: 1px solid var(--hairline-soft); border-radius: var(--r-lg); padding: 32px 28px 28px;
+    box-shadow: var(--shadow); z-index: 2; }
+  .pcard .card-pin { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 16px; height: 16px;
+    border-radius: 50%; background: radial-gradient(circle at 35% 30%, #cdeadb, var(--mint) 55%, var(--mint-700));
+    box-shadow: 0 5px 9px -3px rgba(22,41,79,.55), inset -1px -1px 3px rgba(22,41,79,.25); }
+  .pcard .card-pin::after { content: ""; position: absolute; left: 50%; top: 100%; transform: translateX(-50%);
+    width: 2px; height: 11px; background: linear-gradient(var(--mint-700), transparent); border-radius: 2px; }
+  .pcard .p-ico { width: 50px; height: 50px; border-radius: 50%; background: var(--mint-100); color: var(--mint-700);
+    display: grid; place-items: center; margin-bottom: 16px; }
+  .pcard .p-ico svg { width: 26px; height: 26px; }
+  .pcard .num { font-family: var(--hand); font-weight: 700; font-size: 1.5rem; color: var(--mint-700); line-height: 1; display: block; margin-bottom: 6px; }
+  .pcard h3 { font-size: 1.32rem; font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+  .pcard p { margin: 9px 0 0; font-size: .97rem; color: var(--body); line-height: 1.55; }
+
+  /* scattered positions (desktop) — like pinned notes on a board */
+  .pcard.pc-1 { top: 0; left: 1%; --rot: -3deg; }
+  .pcard.pc-2 { top: 25%; right: 3%; --rot: 3deg; }
+  .pcard.pc-3 { top: 55%; left: 11%; --rot: -2.5deg; }
+  .howto-note { position: absolute; right: 5%; bottom: 2%; max-width: 250px; text-align: right; z-index: 2; }
+  .howto-note .scribble { font-family: var(--hand); font-weight: 700; font-size: 1.8rem; color: var(--mint-700);
+    transform: rotate(-4deg); display: inline-block; }
+  .howto-note .btn { margin-top: 14px; }
+
+  /* pop-in on scroll — hooks the page's reveal observer; per-card rotation + stagger */
+  html.js .howto-board .pcard.reveal { opacity: 0; transform: scale(.6) rotate(0deg); transform-origin: top center; }
+  html.js .howto-board .pcard.reveal.in { opacity: 1; transform: rotate(var(--rot, 0deg)); }
+
+  @media (max-width: 860px){
+    .howto-head { grid-template-columns: 1fr; gap: 14px; }
+    .howto-board { min-height: 0; display: flex; flex-direction: column; gap: 22px; align-items: stretch; }
+    .pcard { position: relative !important; inset: auto !important; width: 100%; max-width: 440px; margin-inline: auto; --rot: 0deg; }
+    html.js .howto-board .pcard.reveal.in { transform: none; }
+    .howto-lines { display: none; }
+    .howto-note { position: relative; right: auto; bottom: auto; max-width: none; text-align: center; margin-top: 4px; }
+    .howto-note .scribble { transform: rotate(-2deg); }
+  }
+
+  /* ============================================================ CONFIDENT SMILES (results band) */
+  .smiles { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(30px, 5vw, 70px); align-items: center; }
+  .smiles-figure { position: relative; }
+  .smiles-figure .photo { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow); }
+  .smiles-figure .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+  .smiles-figure .float { position: absolute; left: -5%; bottom: -22px; background: var(--surface); border-radius: var(--r-md);
+    box-shadow: var(--shadow); padding: 13px 18px; display: flex; align-items: center; gap: 12px; }
+  .smiles-figure .float .stars { color: #f0a429; font-size: 1.05rem; letter-spacing: 1px; }
+  .smiles-figure .float > span:last-child { display: inline-flex; flex-direction: column; line-height: 1.25; }
+  .smiles-figure .float b { color: var(--ink); font-weight: 900; font-size: 1rem; }
+  .smiles-figure .float span span { font-size: .82rem; color: var(--muted); font-weight: 700; }
+  .smiles-copy .mini { display: grid; gap: 14px; margin: 26px 0 30px; }
+  .smiles-copy .mini div { display: flex; gap: 12px; align-items: center; }
+  .smiles-copy .mini .ck { width: 28px; height: 28px; flex: none; border-radius: 50%; background: var(--mint-200);
+    color: var(--mint-700); display: grid; place-items: center; }
+  .smiles-copy .mini .ck svg { width: 17px; height: 17px; }
+  .smiles-copy .mini b { color: var(--ink); font-weight: 800; }
+  @media (max-width: 880px){ .smiles { grid-template-columns: 1fr; gap: 52px; } .smiles-figure { max-width: 560px; } }
+
+  /* ============================================================ REVIEWS */
+  .reviews-grid { margin-top: clamp(34px, 5vw, 54px); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.4vw, 26px); }
+  .review { background: var(--surface); border: 1px solid var(--hairline-soft); border-radius: var(--r-lg); padding: 26px 26px 24px;
+    box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+  .review .stars { color: #f0a429; letter-spacing: 2px; font-size: 1.05rem; }
+  .review p { margin: 14px 0 20px; color: var(--ink); font-weight: 600; font-size: 1.02rem; line-height: 1.5; flex: 1; }
+  .review .who { display: flex; align-items: center; gap: 13px; }
+  .review .who img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  .review .who b { display: block; color: var(--ink); font-weight: 800; font-size: .98rem; }
+  .review .who span { font-size: .84rem; color: var(--muted); font-weight: 600; }
+  .review.tall { grid-row: span 1; }
+  @media (max-width: 880px){ .reviews-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .reviews-grid { grid-template-columns: 1fr; } }
+  /* reviews marquee — single row, gentle 56s loop, pauses on hover */
+  @keyframes mqL { to { transform: translateX(-50%); } }
+  #reviews .marquee { margin-top: clamp(34px, 5vw, 52px); overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+  #reviews .mq-track { display: flex; gap: 22px; width: max-content; animation: mqL 56s linear infinite; }
+  #reviews .mq-track > .review { width: 340px; flex: none; margin: 8px 0; }
+  #reviews .marquee:hover .mq-track { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce){
+    #reviews .mq-track { animation: none; }
+    #reviews .marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+    #reviews .dup { display: none; }
+  }
+
+  /* ============================================================ COMMUNITY INTERSTITIAL */
+  .community { position: relative; min-height: clamp(340px, 46vw, 520px); display: flex; align-items: flex-end;
+    overflow: hidden; }
+  .community img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 36%; }
+  .community::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(22,41,79,.82) 0%, rgba(22,41,79,.5) 42%, rgba(22,41,79,.08) 75%); }
+  .community-cap { position: relative; z-index: 2; padding: clamp(36px, 6vw, 66px) var(--gutter); max-width: 40ch; }
+  .community-cap .hand-kick { color: var(--mint); margin-bottom: 12px; }
+  .community-cap .hand-kick svg { color: var(--mint); }
+  .community-cap h2 { color: #fff; }
+  .community-cap p { color: var(--on-dark); margin: 16px 0 0; }
+
+  /* ============================================================ JOURNAL */
+  .journal-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+  .journal-grid { margin-top: clamp(30px, 4vw, 46px); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.6vw, 30px); }
+  .post { text-decoration: none; color: inherit; display: block; border-radius: var(--r-lg); overflow: hidden;
+    background: var(--surface); border: 1px solid var(--hairline-soft); box-shadow: var(--shadow-sm);
+    transition: transform .5s var(--e-out), box-shadow .5s var(--e-out); }
+  .post:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .post .ph { aspect-ratio: 16/10; overflow: hidden; }
+  .post .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s var(--e-out); }
+  .post:hover .ph img { transform: scale(1.05); }
+  .post .pb { padding: 20px 22px 24px; }
+  .post .tag { display: inline-flex; align-items: center; gap: 7px; font-size: .76rem; font-weight: 800; letter-spacing: .02em;
+    color: var(--mint-700); background: var(--mint-100); border-radius: var(--r-btn); padding: 5px 12px; }
+  .post h3 { margin: 14px 0 0; font-size: 1.22rem; font-weight: 800; line-height: 1.22; letter-spacing: -.01em; }
+  .post .read { margin-top: 14px; display: inline-flex; align-items: center; gap: 7px; font-weight: 800; color: var(--brand); font-size: .92rem; }
+  .post .read .arrow { transition: transform .4s var(--e-out); }
+  .post:hover .read .arrow { transform: translateX(5px); }
+  @media (max-width: 880px){ .journal-grid { grid-template-columns: 1fr; gap: 26px; max-width: 460px; }
+    .journal-head { flex-direction: column; align-items: flex-start; } }
+
+  /* ============================================================ BOOKING */
+  .booking { background: var(--brand); color: var(--on-dark); position: relative; overflow: hidden; }
+  .booking::before { content: ""; position: absolute; top: -30%; left: -10%; width: 46vw; height: 46vw; max-width: 560px; max-height: 560px;
+    background: linear-gradient(135deg, rgba(174,214,193,.24), transparent 58%); }
+  .booking-grid { position: relative; z-index: 1; display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(36px, 5vw, 76px); align-items: start; }
+  .booking-copy .hand-kick { color: var(--mint); margin-bottom: 14px; }
+  .booking-copy .hand-kick svg { color: var(--mint); }
+  .booking-copy h2 { color: #fff; max-width: 14ch; }
+  .booking-copy .lead { color: var(--on-dark); margin-top: 18px; max-width: 40ch; }
+  .booking-detail { margin-top: 32px; display: grid; gap: 16px; }
+  .booking-detail .bd { display: flex; align-items: center; gap: 14px; }
+  .booking-detail .bd .bi { width: 44px; height: 44px; flex: none; border-radius: 9px; background: rgba(255,255,255,.12);
+    display: grid; place-items: center; color: #fff; }
+  .booking-detail .bd .bi svg { width: 22px; height: 22px; }
+  .booking-detail .bd b { display: block; color: #fff; font-weight: 800; }
+  .booking-detail .bd a { color: #fff; text-decoration: none; }
+  .booking-detail .bd span, .booking-detail .bd a { color: var(--on-dark); font-size: .96rem; }
+
+  form.book { background: var(--surface); border-radius: var(--r-lg); padding: clamp(24px, 3vw, 38px);
+    box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr 1fr; gap: 18px 18px; }
+  form.book .full { grid-column: 1 / -1; }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field label { font-size: .84rem; font-weight: 800; color: var(--ink); }
+  .field input, .field select { font-family: var(--font); font-size: 1rem; font-weight: 600; color: var(--ink);
+    background: var(--bg); border: 1.5px solid var(--hairline); border-radius: var(--r-sm); padding: 13px 14px; appearance: none;
+    transition: border-color .3s, box-shadow .3s; }
+  .field select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23586074' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 40px; }
+  .field input::placeholder { color: #5f5949; }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 4px rgba(37,71,150,.12); }
+  .field input:focus-visible, .field select:focus-visible { outline: none; }
+  .book-foot { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 4px; }
+  .book-foot .note { font-size: .86rem; color: var(--muted); font-weight: 600; }
+  .form-status { grid-column: 1 / -1; font-size: .96rem; font-weight: 700; color: var(--green-ink); min-height: 1.2em; }
+  @media (max-width: 880px){ .booking-grid { grid-template-columns: 1fr; gap: 46px; } }
+  @media (max-width: 460px){ form.book { grid-template-columns: 1fr; } }
+
+  /* ============================================================ FOOTER */
+  footer { background: var(--brand-900); color: var(--on-dark); padding: clamp(54px, 7vw, 84px) 0 36px; }
+  .foot-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 34px 40px; }
+  .foot-brand img { height: 40px; margin-bottom: 18px; filter: brightness(0) invert(1); }
+  .foot-brand p { margin: 0 0 18px; max-width: 32ch; color: var(--on-dark-soft); font-size: .96rem; }
+  .foot-social { display: flex; gap: 10px; }
+  .foot-social a { width: 40px; height: 40px; border-radius: 8px; background: rgba(255,255,255,.1); display: grid; place-items: center;
+    color: #fff; transition: background-color .3s, transform .3s var(--e-out); }
+  .foot-social a:hover { background: var(--mint); color: var(--brand-900); transform: translateY(-3px); }
+  .foot-social a svg { width: 20px; height: 20px; }
+  .foot-col h4 { font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark-soft); margin-bottom: 16px; }
+  .foot-col a, .foot-col p { display: block; padding: 5px 0; margin: 0; color: var(--on-dark); text-decoration: none; font-size: .96rem; transition: color .25s; }
+  .foot-col a:hover { color: var(--mint); }
+  .foot-base { margin-top: clamp(40px, 5vw, 60px); padding-top: 24px; border-top: 1px solid rgba(255,255,255,.14);
+    display: flex; flex-wrap: wrap; gap: 12px 26px; justify-content: space-between; font-size: .86rem; color: var(--on-dark-soft); }
+  @media (max-width: 780px){ .foot-top { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 440px){ .foot-top { grid-template-columns: 1fr; } }
+
+  /* ============================================================ BENEFITS (Haltha-style 4-card grid) */
+  /* asymmetric: offset header column on the left, 2x2 cards on the right */
+  .benefits-wrap { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(30px, 5vw, 70px); align-items: start; }
+  .benefits-wrap .sec-head { max-width: 30ch; position: sticky; top: 120px; }
+  .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; gap: clamp(16px, 2vw, 24px); }
+  @media (max-width: 880px){ .benefits-wrap { grid-template-columns: 1fr; gap: 34px; } .benefits-wrap .sec-head { position: static; } }
+  .benefit { background: var(--surface); border: 1px solid var(--hairline-soft); border-radius: var(--r-lg); padding: 30px 26px 28px;
+    box-shadow: var(--shadow-sm); transition: transform .5s var(--e-out), box-shadow .5s var(--e-out); }
+  .benefit:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .benefit .b-ico { width: 54px; height: 54px; border-radius: var(--r-md); background: var(--mint-100); color: var(--mint-700);
+    display: grid; place-items: center; margin-bottom: 18px; }
+  .benefit .b-ico svg { width: 28px; height: 28px; }
+  .benefit h3 { font-size: 1.18rem; font-weight: 800; letter-spacing: -.01em; }
+  .benefit p { margin: 10px 0 0; font-size: .96rem; }
+  @media (max-width: 900px){ .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px){ .benefits-grid { grid-template-columns: 1fr; } }
+
+  /* a centered call-to-action row that closes a section (Haltha "See all" / "Sign up") */
+  .section-cta { margin-top: clamp(30px, 4vw, 46px); display: flex; justify-content: center; }
+
+  /* ============================================================ FAQ accordion (Haltha "Find an answer fast") */
+  .faq-list { margin-top: clamp(30px, 4vw, 48px); max-width: 840px; margin-inline: auto; display: grid; gap: 12px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--hairline-soft); border-radius: var(--r-lg); box-shadow: var(--shadow-sm); overflow: hidden; }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 20px clamp(20px, 2vw, 26px); font-weight: 800; color: var(--ink); font-size: clamp(1rem, 1.3vw, 1.08rem); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-plus { width: 30px; height: 30px; flex: none; border-radius: 50%; background: var(--mint-100); color: var(--mint-700);
+    display: grid; place-items: center; transition: transform .35s var(--e-out), background-color .3s, color .3s; }
+  .faq-plus svg { width: 18px; height: 18px; }
+  .faq-item[open] .faq-plus { transform: rotate(45deg); background: var(--brand); color: #fff; }
+  .faq-a { padding: 0 clamp(20px, 2vw, 26px) 22px; color: var(--body); font-size: 1rem; line-height: 1.6; max-width: 66ch; }
+  html.js .faq-a { overflow: hidden; transition: height .4s var(--e-out); }
+  @media (prefers-reduced-motion: reduce){ html.js .faq-a { transition: none; } }
+  .faq-item summary:focus-visible { outline: 3px solid var(--mint-700); outline-offset: -3px; border-radius: var(--r-lg); }
+
+  /* ============================================================ FOOTER newsletter (Haltha subscribe prompt) */
+  .foot-subscribe { display: grid; grid-template-columns: 1.1fr 1fr; gap: 26px 48px; align-items: center;
+    padding-bottom: clamp(40px, 5vw, 56px); margin-bottom: clamp(40px, 5vw, 56px); border-bottom: 1px solid rgba(255,255,255,.14); }
+  .foot-subscribe h3 { color: #fff; font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
+  .foot-subscribe p { margin: 10px 0 0; color: var(--on-dark-soft); font-size: .98rem; max-width: 42ch; }
+  .sub-form { display: flex; gap: 12px; }
+  .sub-form input { flex: 1; min-width: 0; font-family: var(--font); font-size: 1rem; font-weight: 600; color: #fff;
+    background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.22); border-radius: var(--r-sm); padding: 14px 15px; transition: border-color .3s, box-shadow .3s; }
+  .sub-form input::placeholder { color: rgba(238,242,250,.62); }
+  .sub-form input:focus { outline: none; border-color: var(--mint); box-shadow: 0 0 0 4px rgba(174,214,193,.18); }
+  .sub-form .btn-primary { background: var(--mint); color: var(--brand-900); white-space: nowrap; box-shadow: none; }
+  .sub-form .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+  .foot-note { font-size: .9rem; font-weight: 700; color: var(--mint); min-height: 1.1em; }
+  @media (max-width: 720px){ .foot-subscribe { grid-template-columns: 1fr; gap: 18px; } }
+
+  /* ============================================================ MOTION (enhances a visible default) */
+  html.js .reveal { opacity: 0; transform: translateY(24px); }
+  html.js .reveal.in { opacity: 1; transform: none; transition: opacity .85s var(--e-out), transform .85s var(--e-out); transition-delay: var(--d, 0ms); }
+  html.js .fig-pop { opacity: 0; transform: scale(.94); }
+  html.js .fig-pop.in { opacity: 1; transform: none; transition: opacity .9s var(--e-out), transform .9s var(--e-out); transition-delay: var(--d, 0ms); }
+  /* directional reveals — two-column sections drift in from their own side for a livelier scroll */
+  html.js .reveal.from-left  { transform: translateX(-34px) translateY(0); }
+  html.js .reveal.from-right { transform: translateX(34px) translateY(0); }
+  html.js .reveal.from-left.in, html.js .reveal.from-right.in { transform: none; }
+
+  /* scroll-linked parallax on the big photographs — pure CSS, only where the browser supports
+     scroll-driven animations, and only when motion is welcome. No JS, degrades to a static image. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .welcome-figure .photo img, .smiles-figure .photo img, .doctor-figure .photo img, .community img {
+        animation: photoParallax linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; will-change: transform; }
+      @keyframes photoParallax { from { transform: translateY(-7%) scale(1.1); } to { transform: translateY(7%) scale(1.1); } }
+      /* let the hero doodles drift on scroll too */
+      .hero .doodle { animation: doodleDrift linear both; animation-timeline: view(); animation-range: cover; }
+      @keyframes doodleDrift { from { transform: translateY(28px); } to { transform: translateY(-28px); } }
+    }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html { scroll-behavior: auto; }
+    html.js .reveal, html.js .fig-pop { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .floaty { animation: none !important; }
+    * { scroll-behavior: auto !important; }
+  }
+
+  /* ============================================================ SMILE-ARC DEPTH (refined port from the v2 study)
+     The brand mark — a thin concentric ring + a shallow smile-crescent — becomes page depth:
+     a faint fixed arc field, curved section borders, echoed portrait rings, a hero cradle, and ring-mark watermarks.
+     All crisp SVG strokes (no radial gradients), every motion reduced-motion-safe. */
+  .arc-field { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+  .arc-field svg { position: absolute; left: 50%; top: 0; width: min(150vw, 1600px); height: auto;
+    transform: translate(-50%, calc(-8% + var(--arc-shift, 0px))); transition: transform .25s linear; will-change: transform; }
+  .arc-field .ring-line { fill: none; stroke: var(--mint); }
+
+  /* curved borders between sections — a strip carrying both adjoining grounds, split by one smile edge */
+  .arc-edge { position: relative; display: block; width: 100%; height: clamp(44px, 5.5vw, 84px); line-height: 0; pointer-events: none; }
+  .arc-edge svg { display: block; width: 100%; height: 100%; }
+  .arc-edge.top { margin-bottom: -1px; }
+  .arc-edge.bottom { margin-top: -1px; }
+
+  /* ring + smile-crescent watermark, faint, behind a coloured band's content */
+  .has-wm { position: relative; overflow: hidden; }
+  .has-wm > .wrap { position: relative; z-index: 1; }
+  .ring-wm { position: absolute; pointer-events: none; z-index: 0; width: clamp(300px, 42vw, 560px); aspect-ratio: 1; opacity: .5; }
+  .ring-wm svg { width: 100%; height: 100%; overflow: visible; }
+  .ring-wm .ring-line { fill: none; stroke: var(--mint); stroke-width: 1.5; }
+  .booking .ring-wm { opacity: .6; }
+
+  /* echoed open ring just outside the doctor portrait disc (the mark's ring, as structure) */
+  .doctor-figure .disc::after { content: ""; position: absolute; inset: -6%; border-radius: 50%;
+    border: 2px solid color-mix(in srgb, var(--mint-700) 30%, transparent); opacity: .5; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce){ .arc-field svg { transition: none; transform: translate(-50%, -8%); } }
+</style>
+</head>
+<body>
+<!-- ============================== icon + doodle sprite ============================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="i-tooth"><path d="M12 5.5C10.8 4 8.7 3 7 3.6 5 4.3 4 6.4 4.4 9c.3 1.8.7 2.7.9 4.6.2 1.7.2 4 1.2 6 .4.8 1.4.8 1.7-.1.5-1.4.6-3.3 1.4-3.3.8 0 .9 1.9 1.4 3.3.3.9 1.3.9 1.7.1 1-2 1-4.3 1.2-6 .2-1.9.6-2.8.9-4.6.4-2.6-.6-4.7-2.6-5.4-1.7-.6-3.8.4-5 1.9Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></g>
+    <g id="i-heart"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.6 2.6 5.5 5.5 5c1.9-.3 3.5.7 4.5 2 1-1.3 2.6-2.3 4.5-2 2.9.5 4.2 3.6 2.7 6.4C19 15.6 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></g>
+    <g id="i-family"><circle cx="8" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="16.4" cy="8" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 19c0-2.8 2-5 4.5-5s4.5 2.2 4.5 5M13.5 19c0-2.3 1.4-4.2 3.4-4.2 1.7 0 3.1 1.4 3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></g>
+    <g id="i-home"><path d="M4 11.5 12 5l8 6.5M6 10.5V19h12v-8.5M10 19v-4.5h4V19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="i-calendar"><rect x="4" y="5.5" width="16" height="14.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 9.5h16M8 3.5v3.5M16 3.5v3.5M8.5 14h2.5M14 14h1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></g>
+    <g id="i-shield"><path d="M12 3.5 19 6v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-2.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.7 12.2 11 14.5l4.3-4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="i-smile"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 13.5c.8 1.6 2.3 2.6 4 2.6s3.2-1 4-2.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M9 9.5h.01M15 9.5h.01" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></g>
+    <g id="i-chat"><path d="M4.5 6.5c0-1.1.9-2 2-2h11c1.1 0 2 .9 2 2v7c0 1.1-.9 2-2 2H10l-4 3.5V15.5H6.5c-1.1 0-2-.9-2-2v-7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 10h6M9 12.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></g>
+    <g id="i-wallet"><rect x="3.5" y="6" width="17" height="13" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 10h17M16 13.5h1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></g>
+    <g id="i-clock"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="i-pin"><path d="M12 21c4-4.2 6.5-7.3 6.5-10.5A6.5 6.5 0 0 0 5.5 10.5C5.5 13.7 8 16.8 12 21Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10.3" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></g>
+    <g id="i-phone"><path d="M6.5 4.5h3l1.2 4-2 1.4c.8 1.9 2.2 3.3 4.1 4.1l1.4-2 4 1.2v3c0 .9-.7 1.6-1.6 1.5C13 21 5 13 4.9 6.1 4.9 5.2 5.6 4.5 6.5 4.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></g>
+    <g id="i-sparkles"><path d="M12 3.5c.6 3.5 1.7 4.6 5 5-3.3.4-4.4 1.5-5 5-.6-3.5-1.7-4.6-5-5 3.3-.4 4.4-1.5 5-5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18.5 13.5c.3 1.6.8 2.1 2.3 2.4-1.5.3-2 .8-2.3 2.4-.3-1.6-.8-2.1-2.3-2.4 1.5-.3 2-.8 2.3-2.4Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></g>
+    <g id="i-leaf"><path d="M5 19c0-7 5-12 14-12 0 9-5 13-11 13-1.7 0-3-1.3-3-1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 15c2.5-2.5 4.5-3.5 7.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></g>
+    <g id="i-hand"><path d="M7 11V6.5a1.4 1.4 0 0 1 2.8 0V10m0-.5V5.2a1.4 1.4 0 0 1 2.8 0V10m0-.2V6a1.4 1.4 0 0 1 2.8 0v4.2m0-1.2a1.4 1.4 0 0 1 2.8 0V14c0 3.3-2.4 6-6 6-2.2 0-3.6-.9-4.8-2.6L4.6 14c-.7-1 .1-2.3 1.3-2.1.5.1.9.4 1.1.9l.4.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="i-star-bubble"><path d="M12 3.5l2 4 4.4.5-3.2 3 .9 4.3L12 13.2 7.9 15.3l.9-4.3-3.2-3L10 7.5l2-4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></g>
+    <g id="i-check"><path d="M5 12.5 10 17 19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="i-play"><path d="M8 5.5v13l11-6.5-11-6.5Z" fill="currentColor"/></g>
+    <g id="i-arrow"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="i-menu"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g>
+    <g id="i-close"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g>
+  </defs>
+</svg>
+
+<!-- ============================== fixed concentric smile-arc field (faint depth, drifts on scroll) ============================== -->
+<div class="arc-field" aria-hidden="true">
+  <svg viewBox="0 0 1000 600" preserveAspectRatio="xMidYMin slice">
+    <path class="ring-line" d="M120 250 A 400 400 0 0 0 880 250" stroke-width="1.4" opacity=".14"/>
+    <path class="ring-line" d="M60 350 A 480 480 0 0 0 940 350" stroke-width="1.4" opacity=".10"/>
+    <path class="ring-line" d="M10 470 A 560 560 0 0 0 990 470" stroke-width="1.4" opacity=".07"/>
+  </svg>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Larson Family Orthodontics — home">
+      <img src="assets/larson-logo.svg" alt="Larson Family Orthodontics" />
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#welcome">About</a>
+      <a href="#treatments">Treatments</a>
+      <a href="#journal">Journal</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-cta" href="#book">Get Started <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button class="nav-burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <span class="nav-progress" id="navProgress" aria-hidden="true"></span>
+</header>
+<div class="menu-backdrop" id="menuBackdrop" hidden></div>
+<aside class="menu-panel" id="navMenu" aria-label="Menu" aria-hidden="true">
+  <div class="menu-head">
+    <img src="assets/larson-logo.svg" alt="Larson Family Orthodontics" />
+    <button class="menu-close" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <nav class="menu-links" aria-label="Menu links">
+    <a href="#welcome">About <span class="go" aria-hidden="true">&rarr;</span></a>
+    <a href="#treatments">Treatments <span class="go" aria-hidden="true">&rarr;</span></a>
+    <a href="#journal">Journal <span class="go" aria-hidden="true">&rarr;</span></a>
+    <a href="#faq">FAQ <span class="go" aria-hidden="true">&rarr;</span></a>
+    <a href="#book">New patients <span class="go" aria-hidden="true">&rarr;</span></a>
+  </nav>
+  <div class="menu-foot">
+    <a class="btn btn-primary" href="#book">Book a free consult <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="m-phone" href="tel:+15555550148"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg> (555) 555-0148</a>
+  </div>
+</aside>
+
+<main id="top">
+  <!-- ============================== HERO — Editorial portrait fan ("small line / giant word") ============================== -->
+  <section class="hero" id="hero">
+    <p class="hand-kick hero-kick reveal" style="--d:0ms"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hand"/></svg> hi there, neighbor</p>
+    <h1 class="hero-head">
+      <span class="hero-top"><span class="word"><span>Small-town</span></span> <span class="word"><span>care,</span></span></span>
+      <span class="vh"> big smiles</span>
+    </h1>
+    <div class="hero-giant-wrap">
+      <span class="hero-giant" aria-hidden="true">big smiles</span>
+      <div class="hero-cards" id="heroCards" aria-hidden="true">
+        <figure class="hcard hc-1 pre"><img src="assets/face-1.jpg" width="320" height="440" alt="" decoding="async" /></figure>
+        <figure class="hcard hc-2 pre"><img src="assets/face-2.jpg" width="320" height="440" alt="" decoding="async" /></figure>
+        <figure class="hcard hc-3 pre"><img src="assets/accent-girl.jpg" width="400" height="540" alt="" decoding="async" /></figure>
+        <figure class="hcard hc-4 pre"><img src="assets/face-3.jpg" width="320" height="440" alt="" decoding="async" /></figure>
+        <figure class="hcard hc-5 pre"><img src="assets/smile-confident.jpg" width="460" height="620" alt="" decoding="async" fetchpriority="high" /></figure>
+        <figure class="hcard hc-6 pre"><img src="assets/teen.jpg" width="320" height="430" alt="" decoding="async" /></figure>
+        <figure class="hcard hc-7 pre"><img src="assets/face-4.jpg" width="350" height="480" alt="" decoding="async" /></figure>
+        <figure class="hcard hc-8 pre"><img src="assets/face-5.jpg" width="260" height="350" alt="" decoding="async" /></figure>
+      </div>
+    </div>
+    <div class="hero-sub reveal" style="--d:120ms">
+      <a class="hero-pill" href="#book">Book a free consult <span class="ar"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <p class="hero-substat">Caring for local families since 2004 &middot; <b>5,000+ smiles</b>, most insurance accepted</p>
+    </div>
+    <svg class="doodle d1 floaty" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sparkles"/></svg>
+    <svg class="doodle d2 floaty" viewBox="0 0 60 30" aria-hidden="true"><path d="M3 22C3 8 18 4 28 12s6 16 16 14 13-18 13-18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 8"/></svg>
+  </section>
+
+  <div class="arc-edge bottom" aria-hidden="true" style="background:var(--bg)"><svg viewBox="0 0 1440 84" preserveAspectRatio="none"><path d="M0 0 C 360 84 1080 84 1440 0 Z" fill="var(--mint-100)"/></svg></div>
+
+  <!-- ============================== WELCOME / ABOUT ============================== -->
+  <section class="block" id="welcome">
+    <div class="wrap welcome">
+      <figure class="welcome-figure reveal fig-pop">
+        <span class="frame" aria-hidden="true"></span>
+        <div class="photo"><img src="assets/family-multigen.jpg" width="1600" height="1280" alt="Three generations of a family laughing together outdoors on an autumn afternoon" loading="lazy" decoding="async" /></div>
+        <div class="badge"><b>20 yrs</b><span>in the neighborhood</span></div>
+      </figure>
+      <div class="welcome-copy">
+        <span class="hand-kick reveal"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg> Why Larson</span>
+        <h2 class="h2 reveal from-right" style="--d:60ms">More than straight teeth. A practice that grows with your family.</h2>
+        <p class="reveal" style="--d:120ms">We opened our doors to be the kind of place we'd send our own kids: warm, familiar, and genuinely glad to see you. The same friendly faces greet you at every visit, remember your family, and explain everything in plain language before anything begins.</p>
+        <ul class="points reveal" style="--d:180ms">
+          <li><span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-home"/></svg></span><span><b>Truly local.</b><p>Neighbors you'll see at the grocery store, caring for families across town since 2004.</p></span></li>
+          <li><span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg></span><span><b>Easy for kids.</b><p>Gentle first visits and a team that's wonderfully patient with nervous little ones.</p></span></li>
+          <li><span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wallet"/></svg></span><span><b>No surprises.</b><p>Clear pricing, most insurance accepted, and monthly plans made for real budgets.</p></span></li>
+        </ul>
+        <a class="btn btn-primary reveal" style="--d:230ms" href="#doctor">Meet Dr. Larson &amp; the team <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== DOCTOR ============================== -->
+  <section class="block doctor" id="doctor">
+    <div class="wrap doctor-grid">
+      <figure class="doctor-figure reveal fig-pop">
+        <span class="disc" aria-hidden="true"></span>
+        <div class="photo"><img src="assets/doctor.jpg" width="1000" height="1250" alt="Dr. Larson, smiling warmly in her white coat outdoors" loading="lazy" decoding="async" /></div>
+        <span class="sig" aria-hidden="true">Dr. Larson</span>
+        <svg class="d-arrow" viewBox="0 0 80 60" aria-hidden="true"><path d="M70 8C40 4 12 16 10 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 9"/><path d="M16 30 10 41l11 3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </figure>
+      <div class="doctor-copy">
+        <span class="hand-kick reveal"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg> The friendly face behind it all</span>
+        <h2 class="h2 reveal" style="--d:60ms">Meet Dr. Larson.</h2>
+        <p class="reveal" style="--d:120ms">Dr. Larson grew up two towns over and has been straightening neighborhood smiles for two decades. She's known for taking the time to actually explain things, for being endlessly gentle with anxious kids, and for remembering the name of every family that walks through the door.</p>
+        <div class="creds reveal" style="--d:170ms">
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg> Board-certified orthodontist</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart"/></svg> 20 years caring locally</span>
+        </div>
+        <blockquote class="reveal" style="--d:220ms"><span class="quote-mark">&ldquo;</span>I want every family to leave feeling looked after, not processed. That's the whole job.<span class="quote-mark">&rdquo;</span></blockquote>
+        <div class="reveal" style="margin-top:28px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;--d:280ms">
+          <a class="btn btn-primary" href="#book">Get Started <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="text-link" href="#welcome">More about the practice <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="arc-edge top" aria-hidden="true" style="background:var(--bg-tint)"><svg viewBox="0 0 1440 84" preserveAspectRatio="none"><path d="M0 84 C 360 0 1080 0 1440 84 Z" fill="var(--mint-100)"/></svg></div>
+
+  <!-- ============================== BENEFITS — why families choose us ============================== -->
+  <section class="block" id="benefits" style="background:var(--mint-100)">
+    <div class="wrap benefits-wrap">
+      <div class="sec-head reveal">
+        <span class="hand-kick"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star-bubble"/></svg> The Larson difference</span>
+        <h2 class="h2">Why families choose us.</h2>
+        <p class="muted">A few of the reasons neighbors have trusted us with their smiles since 2004.</p>
+      </div>
+      <div class="benefits-grid">
+        <article class="benefit reveal">
+          <span class="b-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-family"/></svg></span>
+          <h3>All ages, one practice</h3>
+          <p>Kids, teens, and parents cared for under one friendly roof, often on the very same day.</p>
+        </article>
+        <article class="benefit reveal" style="--d:80ms">
+          <span class="b-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+          <h3>Plans that fit real budgets</h3>
+          <p>Most insurance accepted, clear pricing up front, and monthly options with no surprises.</p>
+        </article>
+        <article class="benefit reveal" style="--d:160ms">
+          <span class="b-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart"/></svg></span>
+          <h3>Comfort-first care</h3>
+          <p>Gentle, unhurried visits and a team that's endlessly patient with nervous little ones.</p>
+        </article>
+        <article class="benefit reveal" style="--d:240ms">
+          <span class="b-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          <h3>A free first visit</h3>
+          <p>A relaxed, no-pressure consult where we get to know your family and answer every question.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="arc-edge bottom" aria-hidden="true" style="background:var(--bg)"><svg viewBox="0 0 1440 84" preserveAspectRatio="none"><path d="M0 0 C 360 84 1080 84 1440 0 Z" fill="var(--mint-100)"/></svg></div>
+
+  <!-- ============================== REVIEWS ============================== -->
+  <section class="block" id="reviews">
+      <div class="wrap">
+        <div class="sec-head center">
+          <span class="hand-kick"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg> From our neighbors</span>
+          <h2 class="h2">Families keep telling their friends about us.</h2>
+          <p class="muted">A few words from the parents, teens, and grandparents who trust us with their smiles.</p>
+        </div>
+      </div>
+      <div class="marquee">
+        <div class="mq-track">
+          <article class="review"><span class="stars" aria-hidden="true">★★★★★</span><p>Both my kids are patients here and they actually ask when their next appointment is. The whole team is so warm and patient.</p><div class="who"><img src="assets/face-1.jpg" width="96" height="96" alt="Maria O."><span><b>Maria O.</b><span>Parent of two</span></span></div></article>
+          <article class="review"><span class="stars" aria-hidden="true">★★★★★</span><p>They laid out the full cost and plan before we started, no surprises at all. As a budget-watching dad, that meant the world.</p><div class="who"><img src="assets/face-5.jpg" width="96" height="96" alt="James P."><span><b>James P.</b><span>Dad &amp; Invisalign patient</span></span></div></article>
+          <article class="review"><span class="stars" aria-hidden="true">★★★★★</span><p>I was a nervous adult patient and they never once made me feel silly. My smile is finally something I show off.</p><div class="who"><img src="assets/face-4.jpg" width="96" height="96" alt="Danielle R."><span><b>Danielle R.</b><span>Adult patient</span></span></div></article>
+          <article class="review"><span class="stars" aria-hidden="true">★★★★★</span><p>We've been coming here for years, first my oldest, now my youngest. It feels like family looking after family.</p><div class="who"><img src="assets/face-3.jpg" width="96" height="96" alt="Grace L."><span><b>Grace L.</b><span>Mom of three</span></span></div></article>
+          <article class="review"><span class="stars" aria-hidden="true">★★★★★</span><p>Friendly from the front desk to the chair. My daughter's braces came off last month and she hasn't stopped smiling.</p><div class="who"><img src="assets/face-2.jpg" width="96" height="96" alt="Kayla M."><span><b>Kayla M.</b><span>Parent of a teen</span></span></div></article>
+          <article class="review"><span class="stars" aria-hidden="true">★★★★★</span><p>They worked with our insurance and set up a monthly plan that actually fit us. Caring people who clearly love this town.</p><div class="who"><img src="assets/face-6.jpg" width="96" height="96" alt="Tariq H."><span><b>Tariq H.</b><span>Parent &amp; patient</span></span></div></article>
+          <article class="review dup" aria-hidden="true"><span class="stars" aria-hidden="true">★★★★★</span><p>Both my kids are patients here and they actually ask when their next appointment is. The whole team is so warm and patient.</p><div class="who"><img src="assets/face-1.jpg" width="96" height="96" alt=""><span><b>Maria O.</b><span>Parent of two</span></span></div></article>
+          <article class="review dup" aria-hidden="true"><span class="stars" aria-hidden="true">★★★★★</span><p>They laid out the full cost and plan before we started, no surprises at all. As a budget-watching dad, that meant the world.</p><div class="who"><img src="assets/face-5.jpg" width="96" height="96" alt=""><span><b>James P.</b><span>Dad &amp; Invisalign patient</span></span></div></article>
+          <article class="review dup" aria-hidden="true"><span class="stars" aria-hidden="true">★★★★★</span><p>I was a nervous adult patient and they never once made me feel silly. My smile is finally something I show off.</p><div class="who"><img src="assets/face-4.jpg" width="96" height="96" alt=""><span><b>Danielle R.</b><span>Adult patient</span></span></div></article>
+          <article class="review dup" aria-hidden="true"><span class="stars" aria-hidden="true">★★★★★</span><p>We've been coming here for years, first my oldest, now my youngest. It feels like family looking after family.</p><div class="who"><img src="assets/face-3.jpg" width="96" height="96" alt=""><span><b>Grace L.</b><span>Mom of three</span></span></div></article>
+          <article class="review dup" aria-hidden="true"><span class="stars" aria-hidden="true">★★★★★</span><p>Friendly from the front desk to the chair. My daughter's braces came off last month and she hasn't stopped smiling.</p><div class="who"><img src="assets/face-2.jpg" width="96" height="96" alt=""><span><b>Kayla M.</b><span>Parent of a teen</span></span></div></article>
+          <article class="review dup" aria-hidden="true"><span class="stars" aria-hidden="true">★★★★★</span><p>They worked with our insurance and set up a monthly plan that actually fit us. Caring people who clearly love this town.</p><div class="who"><img src="assets/face-6.jpg" width="96" height="96" alt=""><span><b>Tariq H.</b><span>Parent &amp; patient</span></span></div></article>
+        </div>
+      </div>
+  </section>
+
+  <!-- ============================== HOW IT WORKS — interactive stepper ============================== -->
+  <section class="block" id="visit">
+    <div class="wrap">
+      <div class="howto reveal">
+        <div class="howto-head">
+          <div>
+            <span class="howto-kick">How it works</span>
+            <h2 class="h2">How to get started with Larson.</h2>
+          </div>
+          <p class="howto-intro">Starting orthodontic care should feel friendly and clear, never salesy. Here's exactly what to expect, from your first hello all the way to a finished smile, with zero pressure at any step.</p>
+        </div>
+        <div class="howto-board">
+          <svg class="howto-lines" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <path d="M 150 130 C 460 30 770 170 820 330 S 520 530 300 560" />
+          </svg>
+
+          <article class="pcard pc-1 reveal" style="--d:0ms">
+            <span class="card-pin" aria-hidden="true"></span>
+            <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hand"/></svg></span>
+            <span class="num">Step 1</span>
+            <h3>Say hello</h3>
+            <p>Come in for a free, no-obligation visit. Meet the team, tour the office, and let your child get comfortable, with no one rushing you along.</p>
+          </article>
+
+          <article class="pcard pc-2 reveal" style="--d:120ms">
+            <span class="card-pin" aria-hidden="true"></span>
+            <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg></span>
+            <span class="num">Step 2</span>
+            <h3>A plan that fits</h3>
+            <p>We talk through your options in plain language, with clear pricing, insurance, and monthly plans laid out up front before anything begins.</p>
+          </article>
+
+          <article class="pcard pc-3 reveal" style="--d:240ms">
+            <span class="card-pin" aria-hidden="true"></span>
+            <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg></span>
+            <span class="num">Step 3</span>
+            <h3>Smile all year</h3>
+            <p>Comfortable check-ins that fit your family's rhythm, all the way to a confident, finished smile we get to celebrate with you.</p>
+          </article>
+
+          <div class="howto-note reveal" style="--d:360ms">
+            <span class="scribble">…and you're smiling!</span>
+            <a class="btn btn-primary" href="#book">Book a free visit <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="arc-edge top" aria-hidden="true" style="background:var(--bg)"><svg viewBox="0 0 1440 84" preserveAspectRatio="none"><path d="M0 84 C 360 0 1080 0 1440 84 Z" fill="var(--mint-100)"/></svg></div>
+
+  <!-- ============================== TREATMENTS ============================== -->
+  <section class="block has-wm" id="treatments" style="background:var(--mint-100)">
+    <div class="ring-wm" aria-hidden="true" style="left:-9%;bottom:-7%;">
+      <svg viewBox="0 0 100 100"><circle class="ring-line" cx="50" cy="50" r="47"/><circle class="ring-line" cx="50" cy="50" r="40"/><path class="ring-line" d="M30 58 A 24 24 0 0 0 70 58" stroke-width="2"/></svg>
+    </div>
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="hand-kick"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tooth"/></svg> Care for every age</span>
+        <h2 class="h2">Whatever your family needs, we've got a friendly plan for it.</h2>
+        <p class="muted">From first check-ups to finishing touches, here's how we help your family smile.</p>
+      </div>
+      <div class="agecarousel reveal" id="ageCarousel">
+        <div class="ac-stage">
+          <div class="ac-track" id="acTrack"><!-- life-stage cards injected by script --></div>
+        </div>
+        <div class="ac-panel" id="acPanel" aria-live="polite">
+          <span class="tc-age ac-fade" id="acAge">ages 6&ndash;10</span>
+          <h3 class="ac-fade" id="acTitle">Children's first visits</h3>
+          <p class="ac-fade" id="acDesc">A gentle, fun introduction and a watchful eye on growing smiles, so anything we catch early stays simple.</p>
+          <span class="ac-tag ac-fade" id="acTag"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart"/></svg> Most chosen by local families</span>
+          <a class="text-link ac-fade" href="#book" id="acLink">Start with a hello <svg class="arrow" width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <div class="ac-nav">
+            <button class="ac-btn prev" id="acPrev" type="button" aria-label="Previous stage"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <span class="ac-dots" id="acDots" aria-hidden="true"></span>
+            <button class="ac-btn next" id="acNext" type="button" aria-label="Next stage"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="arc-edge bottom" aria-hidden="true" style="background:var(--bg)"><svg viewBox="0 0 1440 84" preserveAspectRatio="none"><path d="M0 0 C 360 84 1080 84 1440 0 Z" fill="var(--mint-100)"/></svg></div>
+
+  <!-- ============================== JOURNAL ============================== -->
+  <section class="block" id="journal">
+    <div class="wrap">
+      <div class="journal-head reveal">
+        <div class="sec-head">
+          <span class="hand-kick"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart"/></svg> From our family to yours</span>
+          <h2 class="h2">Friendly tips for happy, healthy smiles.</h2>
+        </div>
+        <a class="text-link" href="#journal">Read all our notes <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="journal-grid">
+        <a class="post reveal" href="#journal">
+          <div class="ph"><img src="assets/accent-girl.jpg" width="800" height="500" alt="A joyful young child" loading="lazy" decoding="async" /></div>
+          <div class="pb"><span class="tag">For parents</span><h3>When should my child first see an orthodontist?</h3><span class="read">Read the note <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </a>
+        <a class="post reveal" href="#journal" style="--d:90ms">
+          <div class="ph"><img src="assets/teen.jpg" width="800" height="500" alt="A relaxed teenager outdoors" loading="lazy" decoding="async" /></div>
+          <div class="pb"><span class="tag">For teens</span><h3>Braces-friendly lunches your kid will actually eat</h3><span class="read">Read the note <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </a>
+        <a class="post reveal" href="#journal" style="--d:180ms">
+          <div class="ph"><img src="assets/care-team.jpg" width="800" height="500" alt="An orthodontist chatting warmly with a patient" loading="lazy" decoding="async" /></div>
+          <div class="pb"><span class="tag">Getting started</span><h3>How to know if it's the right time for braces</h3><span class="read">Read the note <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FAQ — find an answer fast ============================== -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="hand-kick"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg> Good questions</span>
+        <h2 class="h2">Find an answer fast.</h2>
+        <p class="muted">The things families ask us most, before their very first visit.</p>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item" open>
+          <summary>When should my child first see an orthodontist?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></summary>
+          <div class="faq-a">Around age 7, even if treatment is still years away. An early check lets us watch how the jaw and adult teeth are coming in and catch small things while they're simple to guide. It's free, and most kids won't need anything yet.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How much do braces or Invisalign cost?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></summary>
+          <div class="faq-a">It depends on the treatment, but you'll always see the full cost before anything begins. Most families combine insurance with a monthly plan, and we walk you through every number so there are no surprises.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you take my insurance?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></summary>
+          <div class="faq-a">We accept most major plans and file the paperwork for you. Bring your card to the first visit and we'll tell you exactly what's covered before you decide anything.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Will treatment hurt?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></summary>
+          <div class="faq-a">Today's braces and aligners are far gentler than they used to be. There can be mild soreness for a day or two after an adjustment, and we do everything we can to keep every visit calm and comfortable.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How long does treatment usually take?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></summary>
+          <div class="faq-a">Most cases run 12 to 24 months, though every smile is different. We'll give you an honest timeline up front and keep check-ins on a schedule that fits your family's week.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you treat adults too?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></summary>
+          <div class="faq-a">Absolutely. A good share of our patients are grown-ups, and clear aligners make it easy to straighten discreetly while you work and live. It's never too late.</div>
+        </details>
+      </div>
+      <div class="section-cta reveal"><a class="btn btn-primary" href="#book">Still curious? Ask us <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+
+  <div class="arc-edge top" aria-hidden="true" style="background:var(--bg)"><svg viewBox="0 0 1440 84" preserveAspectRatio="none"><path d="M0 84 C 360 0 1080 0 1440 84 Z" fill="var(--brand)"/></svg></div>
+
+  <!-- ============================== BOOKING ============================== -->
+  <section class="block booking has-wm" id="book">
+    <div class="ring-wm" aria-hidden="true" style="right:-8%;bottom:-16%;">
+      <svg viewBox="0 0 100 100"><circle class="ring-line" cx="50" cy="50" r="47"/><circle class="ring-line" cx="50" cy="50" r="40"/><path class="ring-line" d="M30 58 A 24 24 0 0 0 70 58" stroke-width="2"/></svg>
+    </div>
+    <div class="wrap booking-grid">
+      <div class="booking-copy">
+        <span class="hand-kick reveal"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hand"/></svg> Come say hello</span>
+        <h2 class="h2 reveal" style="--d:60ms">Let's start your family's smile.</h2>
+        <p class="lead reveal" style="--d:120ms">Tell us a little about who the visit is for and we'll find a time that suits your week. The first consult is always free, and there's never any pressure.</p>
+        <div class="booking-detail reveal" style="--d:180ms">
+          <div class="bd"><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></span><span><b>Call or text</b><a href="tel:+15555550148">(555) 555-0148</a></span></div>
+          <div class="bd"><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span><span><b>Visit us</b><span>128 Maple Street, your town</span></span></div>
+          <div class="bd"><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></span><span><b>Open hours</b><span>Mon&ndash;Fri 8&ndash;5 &middot; Sat by appointment &middot; walk-ins welcome</span></span></div>
+        </div>
+      </div>
+
+      <form class="book reveal" id="bookForm" style="--d:100ms" novalidate>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" placeholder="First and last" required />
+        </div>
+        <div class="field">
+          <label for="f-for">The visit is for</label>
+          <select id="f-for" name="visitFor" required>
+            <option value="" selected>Choose one</option>
+            <option>My child</option>
+            <option>My teen</option>
+            <option>Myself</option>
+            <option>Our whole family</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-0148" />
+        </div>
+        <div class="field full">
+          <label for="f-interest">What are you interested in?</label>
+          <select id="f-interest" name="interest">
+            <option value="" selected>Choose one</option>
+            <option>A first visit / check-up</option>
+            <option>Braces for a child or teen</option>
+            <option>Invisalign clear aligners</option>
+            <option>Adult orthodontics</option>
+            <option>Not sure yet, just curious</option>
+          </select>
+        </div>
+        <div class="book-foot">
+          <button class="btn btn-primary" type="submit">Request my free consult <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <span class="note">We'll get back to you within one business day.</span>
+        </div>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-subscribe reveal">
+      <div>
+        <h3 class="h3">Smile tips, about once a month.</h3>
+        <p>Friendly advice for families and the occasional practice update. No spam, unsubscribe anytime.</p>
+      </div>
+      <div>
+        <form class="sub-form" id="subForm" novalidate>
+          <input id="sub-email" type="email" autocomplete="email" placeholder="you@example.com" aria-label="Your email" required />
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+        <p class="foot-note" id="subNote" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/larson-logo.svg" alt="Larson Family Orthodontics" />
+        <p>The friendly neighborhood orthodontist for kids, teens, and parents. Comfortable braces and Invisalign, all year, all ages.</p>
+        <div class="foot-social">
+          <a href="#book" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9h2.5V6H14c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v6h3v-6H16l.5-3h-3V9.5C13.5 9.2 13.7 9 14 9Z" fill="currentColor"/></svg></a>
+          <a href="#book" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="4.5" width="15" height="15" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="16.4" cy="7.6" r="1.1" fill="currentColor"/></svg></a>
+          <a href="#book" aria-label="Google reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star-bubble"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Treatments</h4>
+        <a href="#treatments">Children's first visits</a>
+        <a href="#treatments">Braces for kids &amp; teens</a>
+        <a href="#treatments">Invisalign aligners</a>
+        <a href="#treatments">Adult orthodontics</a>
+        <a href="#treatments">Retainers &amp; aftercare</a>
+      </div>
+      <div class="foot-col">
+        <h4>Practice</h4>
+        <a href="#welcome">Our story</a>
+        <a href="#doctor">Meet Dr. Larson</a>
+        <a href="#reviews">Patient reviews</a>
+        <a href="#journal">Family journal</a>
+        <a href="#book">New patients</a>
+      </div>
+      <div class="foot-col">
+        <h4>Visit</h4>
+        <p>128 Maple Street<br/>Your town, ST 00000</p>
+        <a href="tel:+15555550148">(555) 555-0148</a>
+        <a href="#book">Mon&ndash;Fri 8&ndash;5</a>
+        <a href="#book">Book a free consult</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>&copy; 2026 Larson Family Orthodontics. All rights reserved.</span>
+      <span>Web template built on the Dr. M. Rogers persona &middot; OrthoBoost</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    document.documentElement.classList.add('js');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = document.querySelectorAll('.reveal, .fig-pop');
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      // Hero reveals immediately. rAF can be throttled in background/headless tabs,
+      // so back it with load + a timeout fallback to guarantee the hero never ships blank.
+      var showHero = function () { document.querySelectorAll('.hero .reveal, .hero .fig-pop').forEach(function (el) { el.classList.add('in'); }); };
+      requestAnimationFrame(showHero);
+      setTimeout(showHero, 250);
+      window.addEventListener('load', showHero);
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { if (!el.closest('.hero')) io.observe(el); });
+    }
+
+    // sticky nav: solidify + shrink on scroll, and drive the scroll-progress bar
+    var navEl = document.querySelector('header.nav');
+    var progress = document.getElementById('navProgress');
+    var arcSvg = document.querySelector('.arc-field svg');
+    var heroScroll = document.querySelector('.hero');
+    var ticking = false;
+    function onScroll() {
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      if (navEl) navEl.classList.toggle('scrolled', y > 8);
+      if (progress) {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.setProperty('--p', h > 0 ? (y / h).toFixed(4) : 0);
+      }
+      if (arcSvg && !reduce) arcSvg.style.setProperty('--arc-shift', (-(y * 0.05)).toFixed(1) + 'px');
+      // hero scroll progress (--hp 0->1): drives the portrait fan spreading + giant scaling + headline rising
+      if (heroScroll && !reduce) {
+        var hh = heroScroll.offsetHeight || 1;
+        heroScroll.style.setProperty('--hp', Math.min(1, Math.max(0, y / (hh * 0.85))).toFixed(3));
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
+    onScroll();
+
+    // hamburger menu
+    var menuBtn = document.getElementById('menuBtn');
+    var menu = document.getElementById('navMenu');
+    var backdrop = document.getElementById('menuBackdrop');
+    var menuClose = document.getElementById('menuClose');
+    function setMenu(open) {
+      if (!menu) return;
+      menu.classList.toggle('open', open);
+      backdrop.classList.toggle('open', open);
+      if (open) { backdrop.hidden = false; }
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) { var f = menu.querySelector('a, button'); if (f) f.focus(); }
+    }
+    if (menuBtn && menu) {
+      menuBtn.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+      menuClose.addEventListener('click', function () { setMenu(false); menuBtn.focus(); });
+      backdrop.addEventListener('click', function () { setMenu(false); });
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+    }
+
+    var form = document.getElementById('bookForm');
+    var status = document.getElementById('formStatus');
+    if (form) {
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var name = form.querySelector('#f-name');
+        var email = form.querySelector('#f-email');
+        var visitFor = form.querySelector('#f-for');
+        if (!name.value.trim() || !email.checkValidity() || !visitFor.value) {
+          status.style.color = '#c0392b';
+          status.textContent = 'Please add your name, a valid email, and who the visit is for.';
+          (!name.value.trim() ? name : (!email.checkValidity() ? email : visitFor)).focus();
+          return;
+        }
+        var first = name.value.trim().split(' ')[0];
+        status.style.color = '';
+        status.textContent = 'Thanks, ' + first + '! We’ve got your request and will reach out within one business day.';
+        form.reset();
+      });
+    }
+
+    // footer newsletter
+    var subForm = document.getElementById('subForm');
+    var subNote = document.getElementById('subNote');
+    if (subForm) {
+      subForm.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var em = document.getElementById('sub-email');
+        if (!em.value.trim() || !em.checkValidity()) {
+          subNote.style.color = '#ffd9d2';
+          subNote.textContent = 'Please enter a valid email.';
+          em.focus();
+          return;
+        }
+        subNote.style.color = '';
+        subNote.textContent = "You're on the list, thanks!";
+        subForm.reset();
+      });
+    }
+
+    // how-it-works: pinboard cards pop in via the shared .reveal observer (no JS interaction needed)
+
+    // FAQ — animated accordion: smooth height lerp, only one drawer open at a time
+    var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
+    if (faqItems.length) {
+      var faqOpen = function (item) {
+        var panel = item.querySelector('.faq-a');
+        item.setAttribute('open', '');
+        if (reduce) { panel.style.height = 'auto'; return; }
+        panel.style.height = '0px';
+        var target = panel.scrollHeight;
+        requestAnimationFrame(function () { panel.style.height = target + 'px'; });
+        var done = function (e) { if (e.propertyName !== 'height') return;
+          panel.style.height = 'auto'; panel.removeEventListener('transitionend', done); };
+        panel.addEventListener('transitionend', done);
+      };
+      var faqClose = function (item) {
+        var panel = item.querySelector('.faq-a');
+        if (reduce) { item.removeAttribute('open'); panel.style.height = ''; return; }
+        panel.style.height = panel.scrollHeight + 'px';
+        requestAnimationFrame(function () { panel.style.height = '0px'; });
+        var done = function (e) { if (e.propertyName !== 'height') return;
+          item.removeAttribute('open'); panel.style.height = ''; panel.removeEventListener('transitionend', done); };
+        panel.addEventListener('transitionend', done);
+      };
+      faqItems.forEach(function (item) {
+        item.querySelector('summary').addEventListener('click', function (ev) {
+          ev.preventDefault();
+          var isOpen = item.hasAttribute('open');
+          faqItems.forEach(function (o) { if (o !== item && o.hasAttribute('open')) faqClose(o); });
+          if (isOpen) faqClose(item); else faqOpen(item);
+        });
+        if (item.hasAttribute('open')) item.querySelector('.faq-a').style.height = 'auto';
+      });
+    }
+
+    // AGE CAROUSEL — 3D arc of life-stage cards; caption panel mirrors the focused card
+    var acRoot = document.getElementById('ageCarousel');
+    if (acRoot) {
+      var AC = [
+        { img: 'assets/accent-girl.jpg',     age: 'ages 6–10',   title: "Children's first visits",   cta: 'Start with a hello',
+          desc: 'A gentle, fun introduction and a watchful eye on growing smiles, so anything we catch early stays simple.' },
+        { img: 'assets/teen.jpg',            age: 'kids & teens',     title: 'Braces, made easy',         cta: 'See the options',
+          desc: 'Comfortable metal and clear braces with check-ins that fit around school, sports, and busy family weeks.' },
+        { img: 'assets/smile-confident.jpg', age: 'teens & adults',   title: 'Invisalign clear aligners', cta: "Ask if it's right for you", tag: 'Most chosen by local families',
+          desc: 'Straighten discreetly with removable aligners. Great for self-conscious teens and parents finally doing it for themselves.' },
+        { img: 'assets/family-dad.jpg',      age: 'grown-ups',        title: 'Adult orthodontics',        cta: 'Talk it through',
+          desc: "It's never too late. Friendly, judgment-free treatment that fits a working life and a grown-up schedule." },
+        { img: 'assets/care-team.jpg',       age: 'after braces',     title: 'Retainers & aftercare',     cta: 'Keep it lasting',
+          desc: "We don't disappear at the finish line. Easy retainer care and check-ins to keep that smile right where it belongs." },
+        { img: 'assets/family-multigen.jpg', age: 'whole family',     title: 'Bring everyone together',   cta: 'Plan a family day',
+          desc: 'Book siblings and parents on the same day. Family scheduling that saves you trips and keeps everyone on track.' }
+      ];
+      var acTrack = document.getElementById('acTrack');
+      var acPanel = document.getElementById('acPanel');
+      var acAge = document.getElementById('acAge'), acTitle = document.getElementById('acTitle');
+      var acDesc = document.getElementById('acDesc'), acTag = document.getElementById('acTag');
+      var acLink = document.getElementById('acLink'), acDots = document.getElementById('acDots');
+      var acPrev = document.getElementById('acPrev'), acNext = document.getElementById('acNext');
+      var acLabel = acLink ? acLink.childNodes[0] : null;
+      var STEP = 22, idx = 0, cards = [], dots = [], swapT = null;
+      var HALF = Math.floor(AC.length / 2), prevOff = [];
+      var AUTO = 4200, timer = null, inView = false, hovered = false;
+
+      AC.forEach(function (s, i) {
+        var c = document.createElement('button');
+        c.type = 'button'; c.className = 'ac-card';
+        c.style.backgroundImage = 'url("' + s.img + '")';
+        c.setAttribute('aria-label', s.age + ' — ' + s.title);
+        c.innerHTML = '<span class="ac-chip"></span>';
+        c.querySelector('.ac-chip').textContent = s.age;
+        c.addEventListener('click', function () { go(i); });
+        acTrack.appendChild(c); cards.push(c);
+
+        var d = document.createElement('button');
+        d.type = 'button'; d.className = 'ac-dot';
+        d.setAttribute('aria-label', s.title);
+        d.addEventListener('click', function () { go(i); });
+        acDots.appendChild(d); dots.push(d);
+      });
+
+      function paint() {
+        cards.forEach(function (c, i) {
+          var off = ((i - idx) % AC.length + AC.length) % AC.length;   // 0..len-1 around the ring
+          if (off > HALF) off -= AC.length;                            // fold onto the nearer side of the arc
+          // the card crossing from one end to the other teleports (no transition) so it never flies across the front
+          if (prevOff[i] !== undefined && Math.abs(off - prevOff[i]) > HALF) {
+            c.style.transition = 'none';
+            c.style.transform = 'rotate(' + (off * STEP) + 'deg)';
+            void c.offsetWidth;
+            c.style.transition = '';
+          } else {
+            c.style.transform = 'rotate(' + (off * STEP) + 'deg)';
+          }
+          c.classList.toggle('active', i === idx);
+          prevOff[i] = off;
+        });
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+      }
+      function fill() {
+        var s = AC[idx];
+        acAge.textContent = s.age; acTitle.textContent = s.title; acDesc.textContent = s.desc;
+        if (acLabel) acLabel.nodeValue = s.cta + ' ';
+        acPanel.classList.toggle('has-tag', !!s.tag);
+      }
+      function go(n) {
+        n = ((n % AC.length) + AC.length) % AC.length;   // wrap — the arc cycles endlessly
+        if (n === idx) return;
+        idx = n; paint();
+        if (reduce) { fill(); return; }
+        acPanel.classList.add('swapping');
+        clearTimeout(swapT);
+        swapT = setTimeout(function () { fill(); acPanel.classList.remove('swapping'); }, 300);
+      }
+
+      // autoplay — gentle auto-advance that loops; pauses on hover, focus, off-screen, or reduced-motion
+      function play() { stop(); if (reduce || hovered || !inView) return; timer = setInterval(function () { go(idx + 1); }, AUTO); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function nudge(n) { go(n); play(); }   // a manual move resets the cadence
+
+      if (acPrev) acPrev.addEventListener('click', function () { nudge(idx - 1); });
+      if (acNext) acNext.addEventListener('click', function () { nudge(idx + 1); });
+      acRoot.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { nudge(idx - 1); }
+        else if (e.key === 'ArrowRight') { nudge(idx + 1); }
+      });
+      acRoot.addEventListener('mouseenter', function () { hovered = true; stop(); });
+      acRoot.addEventListener('mouseleave', function () { hovered = false; play(); });
+      acRoot.addEventListener('focusin', function () { hovered = true; stop(); });
+      acRoot.addEventListener('focusout', function () { hovered = false; play(); });
+      document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else play(); });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) { inView = e.isIntersecting; if (inView) play(); else stop(); });
+        }, { threshold: 0.25 }).observe(acRoot);
+      } else { inView = true; play(); }
+
+      paint(); fill();
+    }
+
+    // HERO — editorial intro (word rise + giant word + portrait fan) and gentle mouse parallax
+    var heroEl = document.querySelector('.hero');
+    if (heroEl) {
+      var hHead = heroEl.querySelector('.hero-head');
+      var hGiantWrap = heroEl.querySelector('.hero-giant-wrap');
+      var hCards = Array.prototype.slice.call(heroEl.querySelectorAll('.hcard'));
+      var hDone = false;
+      var heroIn = function () {
+        if (hDone) return; hDone = true;
+        if (hHead) hHead.classList.add('in');
+        if (hGiantWrap) hGiantWrap.classList.add('in');
+        if (reduce) { hCards.forEach(function (c) { c.classList.remove('pre'); }); return; }
+        [4, 3, 5, 2, 6, 1, 7, 0].forEach(function (idx, rank) {   // settle outward from the centre portrait
+          var c = hCards[idx]; if (!c) return;
+          setTimeout(function () { c.classList.remove('pre'); }, 150 + rank * 85);
+        });
+      };
+      requestAnimationFrame(heroIn);
+      setTimeout(heroIn, 280);
+      window.addEventListener('load', heroIn);
+
+      if (!reduce && window.matchMedia('(pointer: fine)').matches) {
+        var hmx = 0, hmy = 0, htx = 0, hty = 0, hRun = false;
+        var heroLoop = function () {
+          htx += (hmx - htx) * 0.08; hty += (hmy - hty) * 0.08;
+          for (var i = 0; i < hCards.length; i++) {
+            var depth = (i % 3) * 5 + 7;
+            hCards[i].style.translate = (htx * depth).toFixed(2) + 'px ' + (hty * depth * 0.5).toFixed(2) + 'px';
+          }
+          // self-stop once settled back to rest with the pointer gone — no always-on rAF
+          if (hmx === 0 && hmy === 0 && Math.abs(htx) < 0.002 && Math.abs(hty) < 0.002) { hRun = false; return; }
+          requestAnimationFrame(heroLoop);
+        };
+        var heroKick = function () { if (!hRun) { hRun = true; requestAnimationFrame(heroLoop); } };
+        heroEl.addEventListener('mousemove', function (e) {
+          var r = heroEl.getBoundingClientRect();
+          hmx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+          hmy = ((e.clientY - r.top) / r.height - 0.5) * 2;
+          heroKick();
+        });
+        heroEl.addEventListener('mouseleave', function () { hmx = 0; hmy = 0; heroKick(); });
+      }
+    }
+  })();
+</script>
+</body>
+</html>
